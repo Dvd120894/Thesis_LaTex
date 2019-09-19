@@ -1,0 +1,176 @@
+\begin{thebibliography}{26}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Alpert and Hajaj(2008)]{google-is-big}
+Jesse Alpert and Nissan Hajaj.
+\newblock We knew the web was big...
+\newblock Available online at
+  \url{http://googleblog.blogspot.com/2008/07/we-knew-web-was-big.html}, Jul
+  2008.
+
+\bibitem[Bolzoni et~al.(2006)Bolzoni, Etalle, Hartel, and
+  Zambon]{DBLP:conf/iwia/BolzoniEHZ06}
+Damiano Bolzoni, Sandro Etalle, Pieter~H. Hartel, and Emmanuele Zambon.
+\newblock Poseidon: a 2-tier anomaly-based network intrusion detection system.
+\newblock In \emph{IWIA}, pages 144--156. IEEE Computer Society, 2006.
+\newblock ISBN 0-7695-2564-4.
+
+\bibitem[Clearinghouse(2009)]{data-breaches-chronology}
+Privacy~Rights Clearinghouse.
+\newblock A chronology of data breaches.
+\newblock Technical report, Privacy Rights Clearinghouse, July 2009.
+
+\bibitem[{Facebook}(2009)]{facebook-stats}
+{Facebook}.
+\newblock Statistics.
+\newblock Available online at
+  \url{http://www.facebook.com/press/info.php?statistics}, 2009.
+
+\bibitem[Granger(2001)]{social-engineering-fundamentals}
+Sarah Granger.
+\newblock Social engineering fundamentals, part i: Hacker tactics.
+\newblock Available online at \url{http://www.securityfocus.com/infocus/1527},
+  Dec 2001.
+
+\bibitem[Holz(2005)]{holz}
+Thorsten Holz.
+\newblock A short visit to the bot zoo.
+\newblock \emph{IEEE Security \& Privacy}, 3\penalty0 (3):\penalty0 76--79,
+  2005.
+
+\bibitem[Kruegel et~al.(2002)Kruegel, Toth, and Kirda]{kruegel:sac2002:anomaly}
+Christopher Kruegel, Thomas Toth, and Engin Kirda.
+\newblock {Service-Specific Anomaly Detection for Network Intrusion Detection}.
+\newblock In \emph{{Proceedings of the Symposium on Applied Computing (SAC
+  2002)}}, Spain, March 2002.
+
+\bibitem[Mahoney and Chan(2003)]{rules-payl}
+Matthew~V. Mahoney and Philip~K. Chan.
+\newblock Learning rules for anomaly detection of hostile network traffic.
+\newblock In \emph{Proceedings of the 3rd {IEEE} International Conference on
+  Data Mining}, page 601, 2003.
+\newblock ISBN 0-7695-1978-4.
+
+\bibitem[Mahoney and Chan(2001)]{phad}
+M.V. Mahoney and P.K. Chan.
+\newblock Detecting novel attacks by identifying anomalous network packet
+  headers.
+\newblock Technical Report CS-2001-2, Florida Institute of Technology, 2001.
+
+\bibitem[{Miniwatts Marketing Grp.}(2009)]{inetworldstats}
+{Miniwatts Marketing Grp.}
+\newblock {World Internet Usage Statistics}.
+\newblock \url{http://www.internetworldstats.com/stats.htm}, January 2009.
+
+\bibitem[Mitnick(2002)]{deception}
+Kevin Mitnick.
+\newblock \emph{The art of deception}.
+\newblock Wiley, 2002.
+
+\bibitem[{Ofer Shezaf and Jeremiah Grossman and Robert Auger}(2009)]{whid}
+{Ofer Shezaf and Jeremiah Grossman and Robert Auger}.
+\newblock {Web Hacking Incidents Database}.
+\newblock \url{http://www.xiom.com/whid-about}, January 2009.
+
+\bibitem[Ramadas(2003)]{ramadas}
+M.~Ramadas.
+\newblock Detecting anomalous network traffic with self-organizing maps.
+\newblock In \emph{Recent Advances in Intrusion Detection 6th International
+  Symposium, RAID 2003, Pittsburgh, PA, USA, September 8-10, 2003,
+  Proceedings}, Mar 2003.
+
+\bibitem[Ranum(2005)]{ranum-myths}
+Marcus~J. Ranum.
+\newblock The six dumbest ideas in computer security.
+\newblock
+  \url{http://www.ranum.com/security/computer_security/editorials/dumb/}, Sept.
+  2005.
+
+\bibitem[Ristic(2008)]{ristic:mod_security}
+Ivan Ristic.
+\newblock {mod\_security: Open Source Web Application Firewall}.
+\newblock {http://www.modsecurity.org/}, June 2008.
+
+\bibitem[Secunia(2008)]{secunia2008}
+Secunia.
+\newblock Secunia's 2008 annual report.
+\newblock Available online at
+  \url{http://secunia.com/gfx/Secunia2008Report.pdf}, 2008.
+
+\bibitem[Sekar et~al.(2002)Sekar, Gupta, Frullo, Shanbhag, Tiwari, Yang, and
+  Zhou]{protocolanom}
+R.~Sekar, A.~Gupta, J.~Frullo, T.~Shanbhag, A.~Tiwari, H.~Yang, and S.~Zhou.
+\newblock Specification-based anomaly detection: a new approach for detecting
+  network intrusions.
+\newblock In \emph{CCS '02: Proceedings of the 9th ACM Conference on Computer
+  and communications security}, pages 265--274, New York, NY, USA, 2002. ACM
+  Press.
+\newblock ISBN 1-58113-612-9.
+
+\bibitem[Singer(2009)]{social-media-stats}
+Adam Singer.
+\newblock Social media, web 2.0 and internet stats.
+\newblock Available online at
+  \url{http://thefuturebuzz.com/2009/01/12/social-media-web-20-internet-numbers-stats/},
+  Jan 2009.
+
+\bibitem[Stone-Gross et~al.(2009)Stone-Gross, Cova, Cavallaro, t, tin
+  Szydlowski~andRichard Kemmerer, and andGiovanni Vigna]{torpig}
+Brett Stone-Gross, Marco Cova, Lorenzo Cavallaro, Bob~Gilber t, Mar tin
+  Szydlowski~andRichard Kemmerer, and Christopher~Kruegel andGiovanni Vigna.
+\newblock Your botnet is my botnet: Analysis of a botnet takeover.
+\newblock In \emph{CCS 2009}, Chicago, November 2009. ACM.
+
+\bibitem[{The {SANS} Institute}(2005)]{sans20}
+{The {SANS} Institute}.
+\newblock The twenty most critical internet security vulnerabilities.
+\newblock \url{http://www.sans.org/top20/}, Nov. 2005.
+
+\bibitem[Turner et~al.(2009)Turner, Fossi, Johnson, Mark, Blackbird, Entwise,
+  Low, McKinney, and Wueest]{symantec_threat_report_2009}
+Dean Turner, Marc Fossi, Eric Johnson, Trevor Mark, Joseph Blackbird, Stephen
+  Entwise, Mo~King Low, David McKinney, and Candid Wueest.
+\newblock {Symantec Global Internet Security Threat Report -- Trends for 2008}.
+\newblock Technical Report XIV, Symantec Corporation, April 2009.
+
+\bibitem[Wang and Stolfo(2004)]{wang:raid2004:payl}
+Ke~Wang and Salvatore~J. Stolfo.
+\newblock Anomalous payload-based network intrusion detection.
+\newblock In \emph{{Proceedings of the International Symposium on Recent
+  Advances in Intrusion Detection (RAID 2004)}}. {Springer-Verlag}, September
+  2004.
+
+\bibitem[Wang et~al.(2006)Wang, Parekh, and Stolfo]{wang:raid2006:anagram}
+Ke~Wang, Janak~J. Parekh, and Salvatore~J. Stolfo.
+\newblock Anagram: A content anomaly detector resistant to mimicry attack.
+\newblock In \emph{{Proceedings of the International Symposium on Recent
+  Advances in Intrusion Detection (RAID 2006)}}, Hamburg, GR, September 2006.
+  {Springer-Verlag}.
+
+\bibitem[Zakon(2006)]{internet-timeline}
+Robert~H'obbes' Zakon.
+\newblock Hobbes' internet timeline v8.2.
+\newblock Available online at
+  \url{http://www.zakon.org/robert/internet/timeline/}, Nov 2006.
+
+\bibitem[Zanero(2005)]{zanero-pattern}
+Stefano Zanero.
+\newblock Analyzing tcp traffic patterns using self organizing maps.
+\newblock In Fabio Roli and Sergio Vitulano, editors, \emph{Proceedings 13th
+  International Conference on Image Analysis and Processing - ICIAP 2005},
+  volume 3617 of \emph{Lecture Notes in Computer Science}, pages 83--90,
+  Cagliari, Italy, Sept. 2005. Springer.
+\newblock ISBN 3-540-28869-4.
+
+\bibitem[Zanero and Savaresi(2004)]{zanero-savaresi}
+Stefano Zanero and Sergio~M. Savaresi.
+\newblock Unsupervised learning techniques for an intrusion detection system.
+\newblock In \emph{Proceedings of the 2004 ACM Symposium on Applied Computing},
+  pages 412--419. ACM Press, 2004.
+\newblock ISBN 1-58113-812-1.
+
+\end{thebibliography}
