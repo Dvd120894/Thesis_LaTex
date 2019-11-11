@@ -4,7 +4,13 @@
 
 \XeTeXinputencoding latin1
 \usepackage[T1]{fontenc} % Support for more character glyphs
-\usepackage[round]{natbib}\citeindextrue % Round brackets around citations, change to square for square brackets
+
+%\usepackage[round]{natbib}\citeindextrue % Round brackets around citations, change to square for square brackets
+%\bibliographystyle{plainnat} % Use the plainnat bibliography style
+%\bibliography{bibliography} % Use the bibliography.bib file as the source of references
+\usepackage[backend=biber]{biblatex}%numeric-comp
+\addbibresource{bibliography.bib}
+
 \usepackage{graphicx} % Required to include images
 \usepackage{color} % Required for custom colors
 %\usepackage[showframe]{geometry}

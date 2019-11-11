@@ -1,49 +1,26 @@
-This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
-The top-level auxiliary file: thesis.aux
-A level-1 auxiliary file: acronyms.aux
-A level-1 auxiliary file: Chapters/introduction.aux
-A level-1 auxiliary file: Chapters/chapter1.aux
-The style file: plainnat.bst
-Database file #1: bibliography.bib
-You've used 26 entries,
-            2773 wiz_defined-function locations,
-            749 strings with 9929 characters,
-and the built_in function-call counts, 10751 in all, are:
-= -- 956
-> -- 569
-< -- 28
-+ -- 199
-- -- 173
-* -- 736
-:= -- 1646
-add.period$ -- 90
-call.type$ -- 26
-change.case$ -- 135
-chr.to.int$ -- 26
-cite$ -- 52
-duplicate$ -- 530
-empty$ -- 943
-format.name$ -- 209
-if$ -- 2318
-int.to.chr$ -- 1
-int.to.str$ -- 1
-missing$ -- 13
-newline$ -- 143
-num.names$ -- 106
-pop$ -- 333
-preamble$ -- 1
-purify$ -- 109
-quote$ -- 0
-skip$ -- 402
-stack$ -- 0
-substring$ -- 185
-swap$ -- 90
-text.length$ -- 8
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 281
-warning$ -- 0
-while$ -- 91
-width$ -- 0
-write$ -- 351
+[0] Config.pm:354> INFO - This is Biber 2.7 (beta)
+[1] Config.pm:357> INFO - Logfile is 'thesis.blg'
+[66] biber:303> INFO - === Mon Nov 11, 2019, 16:35:11
+[90] Biber.pm:360> INFO - Reading 'thesis.bcf'
+[196] Biber.pm:836> INFO - Found 14 citekeys in bib section 0
+[214] Biber.pm:3671> INFO - Processing section 0
+[227] Biber.pm:3841> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[228] bibtex.pm:1424> INFO - Decoding LaTeX character macros into UTF-8
+[233] bibtex.pm:1281> INFO - Found BibTeX data source 'bibliography.bib'
+[249] Utils.pm:164> WARN - I didn't find a database entry for 'phad' (section 0)
+[249] Utils.pm:164> WARN - I didn't find a database entry for 'kruegel:sac2002:anomaly' (section 0)
+[249] Utils.pm:164> WARN - I didn't find a database entry for 'protocolanom' (section 0)
+[249] Utils.pm:164> WARN - I didn't find a database entry for 'ramadas' (section 0)
+[249] Utils.pm:164> WARN - I didn't find a database entry for 'rules-payl' (section 0)
+[249] Utils.pm:164> WARN - I didn't find a database entry for 'zanero-savaresi' (section 0)
+[249] Utils.pm:164> WARN - I didn't find a database entry for 'wang:raid2004:payl' (section 0)
+[249] Utils.pm:164> WARN - I didn't find a database entry for 'zanero-pattern' (section 0)
+[249] Utils.pm:164> WARN - I didn't find a database entry for 'DBLP:conf/iwia/BolzoniEHZ06' (section 0)
+[249] Utils.pm:164> WARN - I didn't find a database entry for 'wang:raid2006:anagram' (section 0)
+[264] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[264] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[264] Biber.pm:3500> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-US'
+[264] Biber.pm:3506> INFO - No sort tailoring available for locale 'en-US'
+[270] bbl.pm:608> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[271] bbl.pm:712> INFO - Output to thesis.bbl
+[271] Biber.pm:110> INFO - WARNINGS: 10

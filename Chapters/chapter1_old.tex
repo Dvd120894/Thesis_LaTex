@@ -1,0 +1,89 @@
+\chapter{Mathematics}
+\label{chapter1}
+%
+\section{Interpolation}
+Interpolation can be that interpolation is a method of constructing new data points within the range of a discrete set of known data points. A formal definition of interpolation can be the following.
+\begin{quotation}\noindent
+	Given a real function $f(x)$ defined on the interval $I=\left[a,b\right]$. Let the function been known in the $n+1$ points (or nodes)\footnote{Nodes must be different from each other.} on $I$, $x_0,x_1,\dots,x_n$, $x_i\neq x_j$ for $i \neq j$. For simplicity it can be chosen $I=\left[a,b\right]=\left[x_0,x_n\right]$, which is the smallest interval that contains the points $x_0,x_1,\dots,x_n$.
+	The problem of polynomial interpolation consists in finding the polynomial $P_n(x) = \sum_{i=0}^{n} a_i x^i = a_0 + a_1x + a_2x^2 + \dots + a_n x^n$ of degree $\le n$ such that
+	\[
+	P_n(x) = f(x), \qquad 0 \le i \le n.
+	\]
+\end{quotation}
+The most basic procedure to determine the coefficients $a_0, a_1, \dots , a_n$ of a polynomial $P_n(x)$ such that it interpolates the $n+1$ given nodes is the so-called interpolation using the \textit{Vandermonde matrix}.
+Firstly, write a linear system of equations as follows
+\begin{equation*}
+\begin{aligned}
+P_n(x_0) = y _0 \quad&\Rightarrow\quad a_0 + a_1x_0 + a_2x_0^2 + \dots + a_nx_0^n = y_0 \\
+P_n(x_1) = y _1 \quad&\Rightarrow\quad a_0 + a_1x_1 + a_2x_1^2 + \dots + a_nx_1^n = y_1 \\
+\vdots \quad&\Rightarrow\quad \vdots\\
+P_n(x_n) = y _1 \quad&\Rightarrow\quad a_0 + a_1x_n + a_2x_n^2 + \dots + a_nx_n^n = y_n \\
+\end{aligned}
+\end{equation*}
+or in matrix form
+\begin{equation*}
+\underbrace{\begin{bmatrix}
+1 & x_0 & x_0^2 & \dots & x_0^{n-1} & x_0^n \\
+1 & x_1 & x_1^2 & \dots & x_1^{n-1} & x_1^n \\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots\\
+1 & x_{n-1} & x_{n-1}^2 & \dots & x_{n-1}^{n-1} & x_{n-1}^n \\
+1 & x_n & x_n^2 & \dots & x_n^{n-1} & x_n^n \\
+\end{bmatrix}}_{\textbf{V}}
+\underbrace{\begin{bmatrix}
+a_0 \\
+a_1 \\
+\vdots \\
+a_{n-1} \\
+a_n
+\end{bmatrix}}_{\vec{a}}
+=
+\underbrace{\begin{bmatrix}
+y_0 \\
+y_1 \\
+\vdots \\
+y_{n-1} \\
+y_n
+\end{bmatrix}}_{\vec{y}}
+\end{equation*}
+The matrix \textbf{V} is called a \textit{Vandermonde matrix}.\\
+It should be noticed that the determinant of the matrix \textbf{V} can be written as
+\[
+\det(V) = \prod_{i,j=0,i<j}^{n}\left( x_i-x_j \right) 
+\]
+and since the $n+1$ nodes are distinct, the determinant can not be zero as $x_i - x_j$ is never zero, therefore \textbf{V} is \textit{nonsingular} and the system has a \textit{unique solution}. As a consequence the system $\textbf{V}\vec{a} = \vec{y}$ can be solved to obtain the coefficients $\vec{a} = (a_0, a_1, \dots , a_n)$.
+\subsection{Linear Interpolation}
+The $n=1$ case for what has been already state is the so-called linear interpolation. Since this particular case will be important in the next step, let us see more in depth the formulas involved.\\
+First of all, if $n=1$, the maximum number of nodes that the polynomial $P_1(x)$ can interpolate is $n+1=2$. The interval $I$ will be considered as $\left[ 0,1\right] $, thus the Vandermonde matrix will have the form
+\[
+\textbf{V} = 
+\begin{bmatrix}
+1 & 0  \\
+1 & 1
+\end{bmatrix}
+\]
+in order to obtain the $\vec{a}$ vector of coefficients, the system has to be inverted like so
+\[
+\vec{a} = \textbf{V}^{-1}\left( \textbf{V}\vec{a}\right)  = \textbf{V}^{-1}\vec{y} = 
+\begin{bmatrix}
+1 & 0  \\
+-1 & 1
+\end{bmatrix}
+\begin{bmatrix}
+f(0)  \\
+f(1)
+\end{bmatrix}
+\]
+Once $\vec{a}$ is obtained the interpolating polynomial $P_1(x) = a_0 + a_1x$ can be easily written.
+%
+\section{Multivariate Interpolation}
+As Mariano Gasca and Thomas Sauer stated in \cite{Gasca}, multivariate polynomial interpolation is a basic and fundamental subject in Approximation Theory and Numerical Analysis, which has received and continues receiving not deep but constant attention. Compared to the univariate case, polynomial interpolation in several variables is a relatively new topic and probably only started in the second half of the last century with work by Carl Wilhelm Borchardt and Leopold Kronecker.\\
+Focusing on the two dimensions case, similarly to the univariate case, the basic idea behind the multivariate interpolation is to find a polynomial $P_{n \times m}(x,y)$ of degree $n \times m$ of the type 
+\[
+P_{n \times m}(x,y) = \sum_{i=0}^{n}\sum_{j=0}^{m} a_{i,j}x^i y^j
+\]
+which passes through the $n+1 \times m+1$ nodes.\\
+An important assumption for using this kind of formulation is that the chosen interval is the smallest rectangular section containing the nodes, e.g. $\left[f(0,0),f(0,1)\right]\times\left[f(1,0),f(1,1)\right]$.
+If the 
+\subsection{Bilinear Interpolation}
+
+
