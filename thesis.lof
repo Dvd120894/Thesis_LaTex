@@ -1,6 +1,8 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\addvspace {10pt}
+\select@language {italian}
+\defcounter {refsection}{0}\relax 
+\select@language {italian}
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
@@ -8,4 +10,26 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces \texttt {telnetd}: distribution of the number of other system calls among two \texttt {execve} system calls (i.e., distance between two consecutive \texttt {execve}).}}{8}{figure.3.1}
+\addvspace {10pt}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Point-circle intersection problem scheme.\relax }}{12}{figure.caption.13}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Output schemes of the point-circle intersection problem.\relax }}{13}{figure.caption.14}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Point-circle intersection algorithm schemes.\relax }}{14}{figure.caption.15}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Ray-triangle intersection problem scheme.\relax }}{14}{figure.caption.16}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Transformation and base change of ray in M\"oller-Trumbore algorithm.\relax }}{15}{figure.caption.17}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Point-circle intersection algorithm schemes.\relax }}{16}{figure.caption.18}
+\defcounter {refsection}{0}\relax 
+\addvspace {10pt}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.1}{\ignorespaces \texttt {telnetd}: distribution of the number of other system calls among two \texttt {execve} system calls (i.e., distance between two consecutive \texttt {execve}).\relax }}{20}{figure.caption.21}
+\defcounter {refsection}{0}\relax 
+\addvspace {10pt}
+\defcounter {refsection}{0}\relax 
+\addvspace {10pt}
+\defcounter {refsection}{0}\relax 
+\addvspace {10pt}

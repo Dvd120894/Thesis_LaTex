@@ -1,6 +1,8 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\addvspace {10pt}
+\select@language {italian}
+\defcounter {refsection}{0}\relax 
+\select@language {italian}
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
@@ -8,6 +10,18 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.1}{\ignorespaces Duality between misuse- and anomaly-based intrusion detection techniques.}}{5}{table.3.1}
+\contentsline {table}{\numberline {2.1}{\ignorespaces Significato dei valori del modello di Pacejka.\relax }}{7}{table.caption.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.2}{\ignorespaces Taxonomy of the selected state of the art approaches for network-based anomaly detection.}}{7}{table.3.2}
+\addvspace {10pt}
+\defcounter {refsection}{0}\relax 
+\addvspace {10pt}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {4.1}{\ignorespaces Duality between misuse- and anomaly-based intrusion detection techniques.}}{17}{table.caption.19}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {4.2}{\ignorespaces Taxonomy of the selected state of the art approaches for network-based anomaly detection.\relax }}{19}{table.caption.20}
+\defcounter {refsection}{0}\relax 
+\addvspace {10pt}
+\defcounter {refsection}{0}\relax 
+\addvspace {10pt}
+\defcounter {refsection}{0}\relax 
+\addvspace {10pt}

@@ -1,45 +1,93 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{List of Figures}{vi}{section*.1}
+\select@language {italian}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{List of Tables}{viii}{section*.2}
+\select@language {italian}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{List of Acronyms}{xi}{chapter*.3}
+\contentsline {chapter}{Elenco delle figure}{vi}{section*.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}
+\contentsline {chapter}{Elenco delle tabelle}{viii}{section*.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {2}Computation Geometry Algorithms}{3}{chapter.2}
+\contentsline {chapter}{Elenco degli acronimi}{xi}{chapter*.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Ray-Triangle Intersection Algorithm}{3}{section.2.1}
+\contentsline {chapter}{\chapternumberline {1}Introduzione}{1}{chapter.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.1}The M\"oller-Trumbore Algorithm}{3}{subsection.2.1.1}
+\contentsline {section}{\numberline {1.1}Obiettivi}{1}{section.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {3}A Chapter of Examples}{5}{chapter.3}
+\contentsline {section}{\numberline {1.2}Il problema}{1}{section.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}A Table}{5}{section.3.1}
+\contentsline {chapter}{\chapternumberline {2}Il Pneumatico}{5}{chapter.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Code}{5}{section.3.2}
+\contentsline {section}{\numberline {2.1}Una Breve Introduzione}{5}{section.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}A Sideways Table}{6}{section.3.3}
+\contentsline {section}{\numberline {2.2}Il modello Pacejka}{6}{section.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}A Figure}{8}{section.3.4}
+\contentsline {section}{\numberline {2.3}Standardizzazione ETRTO}{7}{section.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.5}Bulleted List}{8}{section.3.5}
+\contentsline {section}{\numberline {2.4}Contatto con la Superficie Stradale}{7}{section.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.6}Numbered List}{8}{section.3.6}
+\contentsline {chapter}{\chapternumberline {3}Computation Geometry Algorithms}{11}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.7}A Description}{8}{section.3.7}
+\contentsline {section}{\numberline {3.1}A Brief Introduction}{11}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.8}An Equation}{9}{section.3.8}
+\contentsline {section}{\numberline {3.2}Point-Segment Intersection}{12}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.9}A Theorem, Proposition \& Proof}{9}{section.3.9}
+\contentsline {section}{\numberline {3.3}Point-Circle Intersection}{12}{section.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.10}Definition}{10}{section.3.10}
+\contentsline {section}{\numberline {3.4}Ray-Circle Intersection}{13}{section.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.11}A Remark}{10}{section.3.11}
+\contentsline {section}{\numberline {3.5}Ray-Triangle Intersection}{13}{section.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.12}An Example}{10}{section.3.12}
+\contentsline {subsection}{\numberline {3.5.1}M\"oller-Trumbore Algorithm}{14}{subsection.3.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.13}Note}{10}{section.3.13}
+\contentsline {chapter}{\chapternumberline {4}A Chapter of Examples}{17}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{11}{section*.10}
+\contentsline {section}{\numberline {4.1}A Table}{17}{section.4.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}Code}{17}{section.4.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.3}A Sideways Table}{18}{section.4.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.4}A Figure}{20}{section.4.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.5}Bulleted List}{20}{section.4.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.6}Numbered List}{20}{section.4.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.7}A Description}{20}{section.4.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.8}An Equation}{21}{section.4.8}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.9}A Theorem, Proposition \& Proof}{21}{section.4.9}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.10}Definition}{21}{section.4.10}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.11}A Remark}{21}{section.4.11}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.12}An Example}{21}{section.4.12}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.13}Note}{22}{section.4.13}
+\defcounter {refsection}{0}\relax 
+\contentsline {appendix}{\chapternumberline {A}Convenzioni e Notazioni}{23}{appendix.Alph1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.1}Convenzioni}{23}{section.Alph1.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.2}Matrice di Trasformazione}{23}{section.Alph1.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {appendix}{\chapternumberline {B}Library Code}{25}{appendix.Alph2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B.1}RoadRDF.hh}{25}{section.Alph2.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B.2}RoadRDF.cc}{32}{section.Alph2.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B.3}PatchTire.hh}{40}{section.Alph2.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B.4}PatchTire.cc}{57}{section.Alph2.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {appendix}{\chapternumberline {C}Tests Code}{73}{appendix.Alph3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {C.1}Computational Geometry Tests}{73}{section.Alph3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {C.2}Contact Patch Evaluation Tests}{73}{section.Alph3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliografia}{75}{section*.24}

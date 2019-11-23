@@ -12,6 +12,10 @@
 \addbibresource{bibliography.bib}
 
 \usepackage{graphicx} % Required to include images
+\usepackage{multirow}% http://ctan.org/pkg/multirow
+\usepackage{subcaption} % Required to include subimages
+\usepackage{tikz} % Required to include tikz images
+\usetikzlibrary{calc,arrows}
 \usepackage{color} % Required for custom colors
 %\usepackage[showframe]{geometry}
 \usepackage{amsmath,amssymb,theorem} % Math packages
@@ -27,6 +31,10 @@
 \hypersetup{colorlinks, breaklinks, linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} % Set up hyperlinks including colors for references, urls and citations
 
 %\definecolor{c64}{rgb}{.063,0,.612} % Example color definition, the color can be used with the \color{name} command
+
+% Set itemize item spacing
+\usepackage{enumitem}
+\setlist{noitemsep}
 
 \makeatletter
 \renewcommand{\fnum@figure}{\textsc{\figurename~\thefigure}} % Make the "Figure 1.1" text in small caps

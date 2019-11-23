@@ -37,21 +37,22 @@
 
 % Base line
 \renewcommand{\baselinestretch}{1.2}
-
+\usepackage[italian]{babel} 
 \input{structure.tex} % Include the file containing the code defining the structure and style of the document
 
 %------------------------------------------------
 % Thesis Information
 
-\title{\textbf{Algorithm for Tire Contact Patch Evaluation in Soft Real Time}} % Thesis title
+\title{\textbf{Algoritmi per la Valutazione del Contatto tra Pneumatico e Strada in Soft Real Time}} % Thesis title
 
 \author{Davide Stocco} % Author name
 
-\date{Academic Year 2019 $\cdot$ 2020} % The date
 
-\newcommand{\institution}{\large{University of Trento}\xspace} % University/institution name
+\date{Anno Accademico 2019 $\cdot$ 2020} % The date
 
-\newcommand{\department}{\large{Department of Industrial Engineering}\xspace} % Department name
+\newcommand{\institution}{\large{Universit\'a degli Studi di Trento}\xspace} % University/institution name
+
+\newcommand{\department}{\large{Dipartimento di Ingegneria Industriale}\xspace} % Department name
 
 %------------------------------------------------
 % Fonts
@@ -84,21 +85,21 @@
 \includegraphics[width=4cm]{Figures/unitn}\\[.5cm] % Institution logo
 \institution\\[.1cm] % Print institution name
 \emph{\department}\\[.2cm] % Print department name
-MASTER'S DEGREE IN MECHATRONICS ENGINEERING % Degree or other information
+\scalebox{0.8}{CORSO DI LAUREA MAGISTRALE IN INGEGNERIA MECCATRONICA} % Degree or other information
 \par
 \hrulefill
 \vfill
-Master's Thesis
+Tesi di Laurea
 \vfill}
 \renewcommand{\maketitlehookb}{\vfill}
 \renewcommand{\maketitlehookc}{
 \vfill
 \begin{flushleft}
-Supervisor:\\
+Relatore:\\
 \textbf{Prof. Enrico Bertolazzi}\\%[.3cm] % Supervisor's name
 \end{flushleft}
 \vfill}
-\preauthor{\begin{flushright} Graduant:\\\bfseries} % Text prior to the author name - right aligned and bold
+\preauthor{\begin{flushright} Laureando:\\\bfseries} % Text prior to the author name - right aligned and bold
 \postauthor{\end{flushright}} % After the author name, stop right alignment
 
 %----------------------------------------------------------------------------------------
@@ -112,19 +113,6 @@ Supervisor:\\
 \end{titlingpage}
 
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
-
-%----------------------------------------------------------------------------------------
-%	PREFACE
-%----------------------------------------------------------------------------------------
-
-%\section*{Preface}
-%This thesis embraces all the efforts that I put during the last three years as a PhD student at Politecnico di Milano. I have been working under the supervision of Prof. S. Zanero and Prof. G. Serazzi, who is also the leader of the research group I am part of. In this time frame I had the wonderful opportunity of being ``initiated'' to research, which radically changed the way I look at things: I found my natural \emph{``thinking outside the box''} attitude --- that was probably well-hidden under a thick layer of lack-of-opportunities, I took part of very interesting joint works --- among which the year I spent at the Computer Security Laboratory at UC Santa Barbara is at the first place, and I discovered the Zen of my life.
-%
-%\begin{flushright}
-%\textsc{\theauthor}\\
-%Trento\\
-%January 2020
-%\end{flushright}
 
 \cleartoverso % Force a break to an even page
 
@@ -180,11 +168,14 @@ This dissertation details \dots
 
 \pagestyle{Ruled} % Include the chapter/section in the header along with a horizontal rule underneath
 
-\include{Chapters/introduction} % Include the introduction chapter
-\include{Chapters/chapter1} % Include the first content chapter
-\include{Chapters/chapterExamples} % Include the first content chapter
-%\include{Chapters/chapter2} % Include the second content chapter
-%\include{Chapters/chapter3} % Include the third content chapter
+\include{Chapters/introduzione} 
+\include{Chapters/capitolo1}
+\include{Chapters/capitolo3}
+\include{Chapters/chapterExamples}
+
+\appendix
+\include{Chapters/appendici_notazione}
+\include{Chapters/appendici_codice}
 
 \backmatter
 

@@ -19,81 +19,37 @@
 
 \refsection{0}
   \sortlist[entry]{nty/global/}
-    \entry{Flocke}{article}{}
-      \name{author}{1}{}{%
-        {{hash=fc30f13f526bf31d7ecd8134629149f9}{%
-           family={Flocke},
-           familyi={F\bibinitperiod},
-           given={N.},
-           giveni={N\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {New York, NY, USA}%
+    \entry{bakker}{article}{}
+      \name{author}{2}{}{%
+        {{hash=a585604453b536f9605f772109cb57bd}{%
+           family={Egbert\bibnamedelima Bakker},
+           familyi={E\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Lars\bibnamedelima Nyborg},
+           giveni={L\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=1639d37dad584321437dea5c0cd40b76}{%
+           family={Pacejka},
+           familyi={P\bibinitperiod},
+           given={Hans\bibnamedelima B.},
+           giveni={H\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {ACM}%
+        {SAE International}%
       }
-      \strng{namehash}{fc30f13f526bf31d7ecd8134629149f9}
-      \strng{fullhash}{fc30f13f526bf31d7ecd8134629149f9}
-      \strng{authornamehash}{fc30f13f526bf31d7ecd8134629149f9}
-      \strng{authorfullhash}{fc30f13f526bf31d7ecd8134629149f9}
-      \field{sortinit}{F}
-      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \strng{namehash}{f313a846bafb77072aa89815543d5dd8}
+      \strng{fullhash}{f313a846bafb77072aa89815543d5dd8}
+      \strng{authornamehash}{f313a846bafb77072aa89815543d5dd8}
+      \strng{authorfullhash}{f313a846bafb77072aa89815543d5dd8}
+      \field{sortinit}{E}
+      \field{sortinithash}{07bbd5a529b5beaa311df5be05b874bc}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{issn}{0098-3500}
-      \field{journaltitle}{ACM Trans. Math. Softw.}
-      \field{month}{10}
-      \field{number}{4}
-      \field{title}{Algorithm 954: An Accurate and Efficient Cubic and Quartic Equation Solver for Physical Applications}
-      \field{volume}{41}
-      \field{year}{2015}
-      \field{pages}{30:1\bibrangedash 30:24}
-      \range{pages}{-1}
-      \verb{doi}
-      \verb 10.1145/2699468
-      \endverb
-      \verb{url}
-      \verb http://doi.acm.org/10.1145/2699468
-      \endverb
-      \keyw{Cubic equation,Newton-Raphson scheme,polynomial roots,quartic equation}
-    \endentry
-    \entry{Jenkins1970}{article}{}
-      \name{author}{2}{}{%
-        {{hash=3a133351cc549d6ed6a1a7a21b3a5953}{%
-           family={Jenkins},
-           familyi={J\bibinitperiod},
-           given={M.\bibnamedelimi A.},
-           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=b9941dda3e330f3ea51ab4d764a6d2b9}{%
-           family={Traub},
-           familyi={T\bibinitperiod},
-           given={J.\bibnamedelimi F.},
-           giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
-      }
-      \strng{namehash}{6d85bc9f513b845ceea6ca4325fe3166}
-      \strng{fullhash}{6d85bc9f513b845ceea6ca4325fe3166}
-      \strng{authornamehash}{6d85bc9f513b845ceea6ca4325fe3166}
-      \strng{authorfullhash}{6d85bc9f513b845ceea6ca4325fe3166}
-      \field{sortinit}{J}
-      \field{sortinithash}{c86bd6cced82a15683b396c2169909ef}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{0945-3245}
-      \field{journaltitle}{Numerische Mathematik}
-      \field{month}{02}
-      \field{number}{3}
-      \field{title}{A three-stage variable-shift iteration for polynomial zeros and its relation to generalized rayleigh iteration}
-      \field{volume}{14}
-      \field{year}{1970}
-      \field{pages}{252\bibrangedash 263}
-      \range{pages}{12}
-      \verb{doi}
-      \verb 10.1007/BF02163334
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1007/BF02163334
-      \endverb
+      \field{issn}{0096736X}
+      \field{journaltitle}{SAE Transactions}
+      \field{title}{Tyre Modelling for Use in Vehicle Dynamics Studies}
+      \field{volume}{96}
+      \field{year}{1987}
+      \field{pages}{190\bibrangedash 204}
+      \range{pages}{15}
     \endentry
     \entry{RayTriangle}{article}{}
       \name{author}{3}{}{%
@@ -143,6 +99,78 @@
       \verb http://dx.doi.org/10.1016/j.comgeo.2009.10.001
       \endverb
     \endentry
+    \entry{impacts}{article}{}
+      \name{author}{2}{}{%
+        {{hash=224eb73679e99a8a211864b0f9301a5e}{%
+           family={Karel\bibnamedelimb A.\bibnamedelimi Brookhuis},
+           familyi={K\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Dick\bibnamedelimb De\bibnamedelima Waard},
+           giveni={D\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=fa4e49233f7d0febbd30f454897d3b6b}{%
+           family={Janssen},
+           familyi={J\bibinitperiod},
+           given={Wiel\bibnamedelima H.},
+           giveni={W\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{69cfadc78b41a7fa1f0ff1df9c8e6988}
+      \strng{fullhash}{69cfadc78b41a7fa1f0ff1df9c8e6988}
+      \strng{authornamehash}{69cfadc78b41a7fa1f0ff1df9c8e6988}
+      \strng{authorfullhash}{69cfadc78b41a7fa1f0ff1df9c8e6988}
+      \field{sortinit}{K}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{European Journal of Transport and Infrastructure Research 1.3}
+      \field{title}{Behavioural impacts of	advanced driver assistance systems–an overview}
+      \field{year}{2019}
+    \endentry
+    \entry{Larcher}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=6cd30c4340eac16bc889779572fd1246}{%
+           family={Larcher},
+           familyi={L\bibinitperiod},
+           given={Matteo},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {University of Trento}%
+      }
+      \strng{namehash}{6cd30c4340eac16bc889779572fd1246}
+      \strng{fullhash}{6cd30c4340eac16bc889779572fd1246}
+      \strng{authornamehash}{6cd30c4340eac16bc889779572fd1246}
+      \strng{authorfullhash}{6cd30c4340eac16bc889779572fd1246}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Development of a 14 Degrees of Freedom Vehicle Model for Realtime Simulations in 3D Environment}
+      \field{type}{Master Thesis}
+      \warn{\item Entry 'Larcher' (bibliography.bib): Invalid format 'October 23, 2019' of date field 'date' - ignoring}
+    \endentry
+    \entry{Anu}{article}{}
+      \name{author}{1}{}{%
+        {{hash=dc1e9d37532b2744480b95eb03f5e0c5}{%
+           family={Maria},
+           familyi={M\bibinitperiod},
+           given={Anu},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{dc1e9d37532b2744480b95eb03f5e0c5}
+      \strng{fullhash}{dc1e9d37532b2744480b95eb03f5e0c5}
+      \strng{authornamehash}{dc1e9d37532b2744480b95eb03f5e0c5}
+      \strng{authorfullhash}{dc1e9d37532b2744480b95eb03f5e0c5}
+      \field{sortinit}{M}
+      \field{sortinithash}{c26a05ef03e4429073ed5c825140fac3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Winter simulation conference}
+      \field{month}{01}
+      \field{title}{Introduction to modeling and simulation}
+      \field{volume}{29}
+      \field{year}{1997}
+      \field{pages}{7\bibrangedash 13}
+      \range{pages}{7}
+    \endentry
     \entry{Moller}{article}{}
       \name{author}{2}{}{%
         {{hash=94e27db04e86f2b4ec0d38fac3669e6b}{%
@@ -183,17 +211,126 @@
       \verb http://dx.doi.org/10.1080/10867651.1997.10487468
       \endverb
     \endentry
+    \entry{hans}{book}{}
+      \name{author}{1}{}{%
+        {{hash=5339f0eb21a903f86d94f875925d4f66}{%
+           family={Pacejka},
+           familyi={P\bibinitperiod},
+           given={Hans},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{5339f0eb21a903f86d94f875925d4f66}
+      \strng{fullhash}{5339f0eb21a903f86d94f875925d4f66}
+      \strng{authornamehash}{5339f0eb21a903f86d94f875925d4f66}
+      \strng{authorfullhash}{5339f0eb21a903f86d94f875925d4f66}
+      \field{sortinit}{P}
+      \field{sortinithash}{24100cef455d7974167575052c29146e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Tire and vehicle dynamics, 3rd Edition}
+      \field{year}{2012}
+      \field{dateera}{ce}
+    \endentry
+    \entry{rill}{book}{}
+      \name{author}{1}{}{%
+        {{hash=1f90ac6b92be53f987c8d926eae47c1f}{%
+           family={Rill},
+           familyi={R\bibinitperiod},
+           given={Georg},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{1f90ac6b92be53f987c8d926eae47c1f}
+      \strng{fullhash}{1f90ac6b92be53f987c8d926eae47c1f}
+      \strng{authornamehash}{1f90ac6b92be53f987c8d926eae47c1f}
+      \strng{authorfullhash}{1f90ac6b92be53f987c8d926eae47c1f}
+      \field{sortinit}{R}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Road vehicle dynamics: fundamentals and modeling}
+      \field{year}{2011}
+      \field{dateera}{ce}
+    \endentry
+    \entry{Schmeitz}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=03c4028e53c1ff091fe070c39319ae82}{%
+           family={Schmeitz},
+           familyi={S\bibinitperiod},
+           given={A.\bibnamedelimi J.\bibnamedelimi C.},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Technische Universiteit Delft}%
+      }
+      \strng{namehash}{03c4028e53c1ff091fe070c39319ae82}
+      \strng{fullhash}{03c4028e53c1ff091fe070c39319ae82}
+      \strng{authornamehash}{03c4028e53c1ff091fe070c39319ae82}
+      \strng{authorfullhash}{03c4028e53c1ff091fe070c39319ae82}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A semi-empirical, three-dimensional, tyre model for rolling over arbitrary road unevennesses}
+      \field{type}{phdthesis}
+      \field{year}{2004}
+    \endentry
+    \entry{Swift}{article}{}
+      \name{author}{3}{}{%
+        {{hash=03c4028e53c1ff091fe070c39319ae82}{%
+           family={Schmeitz},
+           familyi={S\bibinitperiod},
+           given={A.\bibnamedelimi J.\bibnamedelimi C.},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=774a25feb9ef24204c55b025a270bf0e}{%
+           family={Besselink},
+           familyi={B\bibinitperiod},
+           given={I.\bibnamedelimi J.\bibnamedelimi M.},
+           giveni={I\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=816bc0d6c63949d057672a7b74df7382}{%
+           family={Jansen},
+           familyi={J\bibinitperiod},
+           given={S.\bibnamedelimi T.\bibnamedelimi H.},
+           giveni={S\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor & Francis}%
+      }
+      \strng{namehash}{7b3843cb5a766bc0c18536b2dc4b6080}
+      \strng{fullhash}{7b3843cb5a766bc0c18536b2dc4b6080}
+      \strng{authornamehash}{7b3843cb5a766bc0c18536b2dc4b6080}
+      \strng{authorfullhash}{7b3843cb5a766bc0c18536b2dc4b6080}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Vehicle System Dynamics}
+      \field{number}{sup1}
+      \field{title}{TNO MF-SWIFT}
+      \field{volume}{45}
+      \field{year}{2007}
+      \field{pages}{121\bibrangedash 137}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1080/00423110701725208
+      \endverb
+      \verb{eprint}
+      \verb https://doi.org/10.1080/00423110701725208
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1080/00423110701725208
+      \endverb
+    \endentry
   \endsortlist
-  \missing{DBLP:conf/iwia/BolzoniEHZ06}
-  \missing{phad}
-  \missing{rules-payl}
-  \missing{zanero-pattern}
   \missing{wang:raid2006:anagram}
   \missing{kruegel:sac2002:anomaly}
-  \missing{wang:raid2004:payl}
-  \missing{protocolanom}
-  \missing{zanero-savaresi}
   \missing{ramadas}
+  \missing{zanero-savaresi}
+  \missing{phad}
+  \missing{protocolanom}
+  \missing{zanero-pattern}
+  \missing{rules-payl}
+  \missing{DBLP:conf/iwia/BolzoniEHZ06}
+  \missing{wang:raid2004:payl}
 \endrefsection
 \endinput
 
