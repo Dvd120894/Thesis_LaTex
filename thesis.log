@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  23 NOV 2019 16:30
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  30 NOV 2019 11:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1539,9 +1539,9 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 Stock height and width: 845.04684pt by 597.50787pt
 Top and edge trims: 0pt and 0pt
 Page height and width: 845.04684pt by 597.50787pt
-Text height and width: 638.39813pt by 396pt
+Text height and width: 628.25pt by 396pt
 Spine and edge margins: 105.63084pt and 95.06711pt
-Upper and lower margins: 105.63084pt and 101.01787pt
+Upper and lower margins: 105.63084pt and 111.166pt
 Headheight and headsep: 14.5pt and 29pt
 Footskip: 29pt
 Columnsep and columnseprule: 10pt and 0pt
@@ -1636,8 +1636,7 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 \@quotelevel=\count436
 \@quotereset=\count437
 (./thesis.aux (./acronyms.aux) (./Chapters/introduzione.aux)
-(./Chapters/capitolo1.aux) (./Chapters/capitolo3.aux)
-(./Chapters/chapterExamples.aux) (./Chapters/appendici_notazione.aux)
+(./Chapters/capitolo1.aux) (./Chapters/chapterExamples.aux)
 (./Chapters/appendici_codice.aux))
 \openout1 = `thesis.aux'.
 
@@ -1677,42 +1676,7 @@ Package biblatex Warning: Biber reported the following issues
 
 Package biblatex Warning: The following entry could not be found
 (biblatex)                in the database:
-(biblatex)                wang:raid2006:anagram
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                kruegel:sac2002:anomaly
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                ramadas
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                zanero-savaresi
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                phad
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                protocolanom
+(biblatex)                wang:raid2004:payl
 (biblatex)                Please verify the spelling and rerun
 (biblatex)                LaTeX afterwards.
 
@@ -1726,13 +1690,6 @@ Package biblatex Warning: The following entry could not be found
 
 Package biblatex Warning: The following entry could not be found
 (biblatex)                in the database:
-(biblatex)                rules-payl
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
 (biblatex)                DBLP:conf/iwia/BolzoniEHZ06
 (biblatex)                Please verify the spelling and rerun
 (biblatex)                LaTeX afterwards.
@@ -1740,7 +1697,49 @@ Package biblatex Warning: The following entry could not be found
 
 Package biblatex Warning: The following entry could not be found
 (biblatex)                in the database:
-(biblatex)                wang:raid2004:payl
+(biblatex)                ramadas
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                rules-payl
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                wang:raid2006:anagram
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                zanero-savaresi
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                kruegel:sac2002:anomaly
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                protocolanom
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                phad
 (biblatex)                Please verify the spelling and rerun
 (biblatex)                LaTeX afterwards.
 
@@ -1880,35 +1879,46 @@ File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 
 ] [2
 
-] [1
-
-
 ]
 LaTeX Font Info:    Font shape `TU/AdobeCaslonPro(0)/m/sl' in size <12> not ava
 ilable
 (Font)              Font shape `TU/AdobeCaslonPro(0)/m/it' tried instead on inp
-ut line 127.
- [2] [3
+ut line 129.
+ [1
 
-] (./thesis.toc [4]) [5] (./thesis.lof
+
+] [2
+
+] (./thesis.toc [3
+
+]) [4] (./thesis.lof
+Package acronym Info: Label `acro:ETRTO' newly defined as it shall be overridde
+n
+although it is yet undefined on input line 21.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `lmtt' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-) [6
+) [5
 
-] [7
+] [6
 
-] (./thesis.lot) [8] [9
+] (./thesis.lot)
+[7
+
+] [8
 
 ]
 \openout2 = `acronyms.aux'.
 
- (./acronyms.tex [10
+ (./acronyms.tex
+Package acronym Info: Acronym CAM used in text but not spelled out in full in t
+ext on input line 15.
+) [9
 
 
-]) [11] [12
 
+] [10
 
 
 ]
@@ -1920,111 +1930,110 @@ although it is yet undefined on input line 8.
 Package acronym Info: Label `acro:ADAS' newly defined as it shall be overridden
 
 although it is yet undefined on input line 8.
-Package acronym Info: Label `acro:ETRTO' newly defined as it shall be overridde
-n
-although it is yet undefined on input line 10.
-)
-[1
+ [1
 
 
-] [2] [3]
+
+
+] [2]
+Package acronym Info: Label `acro:ISO' newly defined as it shall be overridden
+although it is yet undefined on input line 16.
+File: Figures/iso_convention.png Graphic file (type QTm)
+
+<use  "Figures/iso_convention.png" >
+File: Figures/iso_convention_wheel.png Graphic file (type QTm)
+
+<use  "Figures/iso_convention_wheel.png" >
+Underfull \hbox (badness 3471) in paragraph at lines 31--31
+[]\TU/AdobeCaslonPro(0)/m/sc/12 Figura 1.2\TU/AdobeCaslonPro(0)/m/n/12 : |Rappr
+esentazione degli assi del sistema di riferimento dello
+ []
+
+[3]
+Overfull \vbox (21.4681pt too high) detected at line 42
+ []
+
+) [4] [5]
 \openout2 = `Chapters/capitolo1.aux'.
 
- (./Chapters/capitolo1.tex [4
+ (./Chapters/capitolo1.tex [6
 
 
 
 ]
+File: Figures/tire_forces.png Graphic file (type QTm)
+ <use  "Figures/tire_forces.png" >
 
-LaTeX Warning: Reference `label' on page 5 undefined on input line 5.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5]
+[7]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8]
+File: Figures/pacejka.png Graphic file (type QTm)
+
+<use  "Figures/pacejka.png" > [9]
+File: Figures/tire_measures.jpg Graphic file (type QTm)
+ <use  "Figures/tire_measures.jpg" >
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10]
+File: Figures/contact_geometry_1.png Graphic file (type QTm)
+ <use  "Figures/contact_geometry_1.png" >
+File: Figures/contact_geometry_2.png Graphic file (type QTm)
+
+<use  "Figures/contact_geometry_2.png" >
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6]
-Overfull \vbox (23.42574pt too high) detected at line 78
+Overfull \vbox (21.4681pt too high) detected at line 128
  []
 
-[7]
+[11] [12]
+File: Figures/local_track.png Graphic file (type QTm)
+ <use  "Figures/local_track.png" >
 
-LaTeX Warning: Reference `Fig' on page 8 undefined on input line 92.
+LaTeX Warning: Reference `label' on page 13 undefined on input line 170.
 
 
-LaTeX Warning: Reference `label' on page 8 undefined on input line 114.
-
-[8]
-Overfull \vbox (23.42574pt too high) detected at line 136
+Overfull \vbox (21.4681pt too high) detected at line 192
  []
 
 
-Overfull \vbox (23.42574pt too high) detected at line 136
+Overfull \vbox (21.4681pt too high) detected at line 192
  []
 
 
-Overfull \vbox (23.42574pt too high) detected at line 136
+Overfull \vbox (21.4681pt too high) detected at line 192
  []
 
-
-LaTeX Warning: Reference `ssf' on page 9 undefined on input line 141.
-
-) [9]
-\openout2 = `Chapters/capitolo3.aux'.
-
- (./Chapters/capitolo3.tex [10
-
-
-
-]
-Package acronym Info: Label `acro:CAD' newly defined as it shall be overridden
-although it is yet undefined on input line 5.
-Package acronym Info: Label `acro:CAM' newly defined as it shall be overridden
-although it is yet undefined on input line 5.
-Package acronym Info: Label `acro:CAE' newly defined as it shall be overridden
-although it is yet undefined on input line 5.
-Package acronym Info: Label `acro:GIS' newly defined as it shall be overridden
-although it is yet undefined on input line 5.
-Package acronym Info: Label `acro:CAGD' newly defined as it shall be overridden
-
-although it is yet undefined on input line 9.
- [11]
-Missing character: There is no ; in font nullfont!
- [12]
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
- [13]
-Underfull \hbox (badness 10000) in paragraph at lines 165--167
-
- []
-
-[14]) [15] [16]
+[13]
+File: Figures/local_plane.png Graphic file (type QTm)
+ <use  "Figures/local_plane.png" >) [14]
 \openout2 = `Chapters/chapterExamples.aux'.
 
  (./Chapters/chapterExamples.tex
+Package acronym Info: Label `acro:CAM' newly defined as it shall be overridden
+although it is yet undefined on input line 22.
+
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-)
+) [15
+
+
+
+]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 36.
- [17
-
-
-
-] [18]
-[19]
+ [16]
+[17]
 File: Figures/telnet.pdf Graphic file (type QTm)
- <use  "Figures/telnet.pdf" > [20
+ <use  "Figures/telnet.pdf" > [18
 
 
 ]
@@ -2045,29 +2054,27 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `TU/Optima(0)/m/it' will be
 (Font)              scaled to size 10.79993pt on input line 150.
-[21]) [22]
-\openout2 = `Chapters/appendici_notazione.aux'.
-
- (./Chapters/appendici_notazione.tex
-Package acronym Info: Label `acro:ISO' newly defined as it shall be overridden
-although it is yet undefined on input line 5.
-
-Overfull \vbox (23.42574pt too high) detected at line 16
- []
-
-) [23
-
-
-
-] [24]
+[19]) [20]
 \openout2 = `Chapters/appendici_codice.aux'.
 
  (./Chapters/appendici_codice.tex (../TireGround/include/RoadRDF.hh
-[25
+[21
 
 
 
 ]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [22]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [23]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [26]
@@ -2076,17 +2083,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [27]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [28]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [29]
+ [28])
+(../TireGround/src/RoadRDF.cc [29]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [30]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [31])
-(../TireGround/src/RoadRDF.cc [32]
+ [31]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [32]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [33]
@@ -2098,17 +2105,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [35]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [36]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [37]
+ [36])
+(../TireGround/include/PatchTire.hh [37]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [38]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [39])
-(../TireGround/include/PatchTire.hh [40]
+ [39]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [40]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [41]
@@ -2156,17 +2163,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [55]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [56])
-(../TireGround/src/PatchTire.cc [57]
+ [56]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [57]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [58]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [59]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [60]
+ [59])
+(../TireGround/src/PatchTire.cc [60]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [61]
@@ -2199,24 +2206,89 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [70]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [71])
-[72]) [73
+ [71]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-] [74
+ [72]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [73]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [74]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [75]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [76]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [77]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [78]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [79])
+[80] (../TireGround/tests/geometry-test1.cc
+Underfull \vbox (badness 1442) has occurred while \output is active []
+
+ [81
 
 ]
-Overfull \hbox (34.92674pt too wide) in paragraph at lines 189--189
-[][][][][][][][][][][][][][][][][]$[][]\TU/AdobeCaslonPro(0)/m/n/12 . eprint: [
-][]$[][][][][] [] [] [] [][][] [] [][][] [] [][] [] [][][][] [] [][][][][][][][
-][][][][][][][][][]$[][].
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[75
+ [82]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-]
+ [83])
+(../TireGround/tests/geometry-test2.cc
+Underfull \vbox (badness 1715) has occurred while \output is active []
+
+ [84]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [85]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [86])
+(../TireGround/tests/geometry-test3.cc
+Underfull \vbox (badness 1715) has occurred while \output is active []
+
+ [87])
+(../TireGround/tests/geometry-test4.cc
+Underfull \vbox (badness 1715) has occurred while \output is active []
+
+ [88]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [89])
+(../TireGround/tests/MF-test1.cc [90]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [91])
+(../TireGround/tests/MF-test2.cc
+Underfull \vbox (badness 1715) has occurred while \output is active []
+
+ [92]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [93])
+(../TireGround/tests/MF-test3.cc
+Underfull \vbox (badness 1715) has occurred while \output is active []
+
+ [94]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [95]))
+[96]
 No file thesis.ind.
-[76]
+[97
+
+
+
+]
 \tf@toc=\write9
 \openout9 = `thesis.toc'.
 
@@ -2226,14 +2298,13 @@ No file thesis.ind.
 \tf@lot=\write11
 \openout11 = `thesis.lot'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 198.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 198.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 202.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 202.
  (./thesis.aux (./acronyms.aux) (./Chapters/introduzione.aux)
-(./Chapters/capitolo1.aux) (./Chapters/capitolo3.aux)
-(./Chapters/chapterExamples.aux) (./Chapters/appendici_notazione.aux)
+(./Chapters/capitolo1.aux) (./Chapters/chapterExamples.aux)
 (./Chapters/appendici_codice.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 198.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 198.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 202.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 202.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2246,12 +2317,12 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45461 strings out of 495023
- 865426 string characters out of 6178392
- 1398456 words of memory out of 5000000
- 48606 multiletter control sequences out of 15000+600000
- 15240 words of font info for 92 fonts, out of 8000000 for 9000
+ 45652 strings out of 495023
+ 866657 string characters out of 6178392
+ 1384904 words of memory out of 5000000
+ 48782 multiletter control sequences out of 15000+600000
+ 14579 words of font info for 87 fonts, out of 8000000 for 9000
  18 hyphenation exceptions out of 8191
  63i,17n,68p,10523b,5127s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (90 pages).
+Output written on thesis.pdf (109 pages).

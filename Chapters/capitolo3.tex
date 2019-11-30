@@ -1,11 +1,11 @@
 \chapter{Computation Geometry Algorithms}
 \label{Geom_Algos}
 %
-\section{A Brief Introduction}
-Computational geometry is a branch of \textit{computer science} devoted to the study of algorithms which can be expressed in other forms of geometry. Historically, it is considered one of the oldest fields in computing, although modern computational geometry is a recent development. The main reason for the development of computational geometry has been due to progress made in computer graphics, \ac{CAD}, \ac{CAM} and mathematical visualization. Applications of computational geometry can be found in robotics, integrated circuit design, computer vision, \ac{CAE} and \ac{GIS}.\\
-The main branches of computational geometry are:
+\section{Introduzione}
+La geometria computazionale è la branca dell'Informatica che studia le strutture dati e gli algoritmi efficienti per la soluzione di problemi di natura geometrica e la loro implementazione al calcolatore. Storicamente, è considerato uno dei campi più antichi del calcolo, anche se la geometria computazionale moderna è uno sviluppo recente. La ragione principale per lo sviluppo della geometria computazionale è stata dovuta ai progressi compiuti nella computer grafica, \ac{CAD}, \ac{CAM} e nella visualizzazione matematica. Le applicazioni della geometria computazionale si trovano nella robotica, nella progettazione di circuiti integrati, nella visione artificiale, in \ac{CAE} e nel \ac{GIS}.\\
+I rami principali della geometria computazionale sono:
 \begin{itemize}
-	\item \textit{Combinatorial computational} (or \textit{algorithmic geometry}), which deals with geometric objects as discrete entities. For example, it can be used to determine the smallest polyhedron or polygon that contains all points that are given (convex hull problem) or the closest point to a query point from a set of points (nearest neighbor problem).
+	\item \textit{Calcolo combinatorio} (o \textit{geometria algoritmica}), che si occupa di oggetti geometrici come entità discrete. Ad esempio, può essere utilizzato per determinare il poliedro o il poligono più piccolo che contiene tutti i punti forniti , detto anche problema dell'inviluppo convesso dove, più formalmente, dato un insieme di punti, si deve determinare il più piccolo insieme convesso che li contenga tutti.
 	\item \textit{Numerical computational geometry} (or \textit{machine geometry}, or \ac{CAGD}), which deals mainly with representing real world objects in forms suitable for computer computations in \ac{CAD} and \ac{CAM} systems. This branch may be seen as a development of descriptive geometry and is often considered a branch of computer graphics or \ac{CAD}. For example, important portions here are parametric surfaces and curves, such as \textit{spline curves} and \textit{Bezier curves}.
 \end{itemize}
 In this chapter all algorithms which will be used later during the geometrical analysis of the mesh-tire intersection are explained in depth. These algorithms are the solution of some simple but very important problems which must be solved efficiently. In particular the intersections between:

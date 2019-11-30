@@ -4,11 +4,11 @@
 \defcounter {refsection}{0}\relax 
 \select@language {italian}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Elenco delle figure}{vi}{section*.1}
+\contentsline {chapter}{Elenco delle figure}{v}{section*.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Elenco delle tabelle}{viii}{section*.2}
+\contentsline {chapter}{Elenco delle tabelle}{vii}{section*.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Elenco degli acronimi}{xi}{chapter*.3}
+\contentsline {chapter}{Elenco degli acronimi}{ix}{chapter*.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\chapternumberline {1}Introduzione}{1}{chapter.1}
 \defcounter {refsection}{0}\relax 
@@ -16,78 +16,78 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.2}Il problema}{1}{section.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {2}Il Pneumatico}{5}{chapter.2}
+\contentsline {section}{\numberline {1.3}Convenzioni e Notazioni}{3}{section.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Una Breve Introduzione}{5}{section.2.1}
+\contentsline {subsection}{\numberline {1.3.1}Convenzioni}{3}{subsection.1.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}Il modello Pacejka}{6}{section.2.2}
+\contentsline {subsection}{\numberline {1.3.2}Matrice di Trasformazione}{4}{subsection.1.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Standardizzazione ETRTO}{7}{section.2.3}
+\contentsline {chapter}{\chapternumberline {2}Il Pneumatico}{7}{chapter.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}Contatto con la Superficie Stradale}{7}{section.2.4}
+\contentsline {section}{\numberline {2.1}Una Breve Introduzione}{7}{section.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {3}Computation Geometry Algorithms}{11}{chapter.3}
+\contentsline {section}{\numberline {2.2}Il modello Pacejka}{9}{section.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}A Brief Introduction}{11}{section.3.1}
+\contentsline {section}{\numberline {2.3}Geometria secondo ETRTO}{10}{section.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Point-Segment Intersection}{12}{section.3.2}
+\contentsline {section}{\numberline {2.4}Contatto con la Superficie Stradale}{11}{section.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Point-Circle Intersection}{12}{section.3.3}
+\contentsline {chapter}{\chapternumberline {3}A Chapter of Examples}{15}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Ray-Circle Intersection}{13}{section.3.4}
+\contentsline {section}{\numberline {3.1}A Table}{15}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.5}Ray-Triangle Intersection}{13}{section.3.5}
+\contentsline {section}{\numberline {3.2}Code}{15}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.1}M\"oller-Trumbore Algorithm}{14}{subsection.3.5.1}
+\contentsline {section}{\numberline {3.3}A Sideways Table}{16}{section.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {4}A Chapter of Examples}{17}{chapter.4}
+\contentsline {section}{\numberline {3.4}A Figure}{18}{section.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}A Table}{17}{section.4.1}
+\contentsline {section}{\numberline {3.5}Bulleted List}{18}{section.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Code}{17}{section.4.2}
+\contentsline {section}{\numberline {3.6}Numbered List}{18}{section.3.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}A Sideways Table}{18}{section.4.3}
+\contentsline {section}{\numberline {3.7}A Description}{18}{section.3.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}A Figure}{20}{section.4.4}
+\contentsline {section}{\numberline {3.8}An Equation}{19}{section.3.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.5}Bulleted List}{20}{section.4.5}
+\contentsline {section}{\numberline {3.9}A Theorem, Proposition \& Proof}{19}{section.3.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.6}Numbered List}{20}{section.4.6}
+\contentsline {section}{\numberline {3.10}Definition}{19}{section.3.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.7}A Description}{20}{section.4.7}
+\contentsline {section}{\numberline {3.11}A Remark}{19}{section.3.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.8}An Equation}{21}{section.4.8}
+\contentsline {section}{\numberline {3.12}An Example}{19}{section.3.12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.9}A Theorem, Proposition \& Proof}{21}{section.4.9}
+\contentsline {section}{\numberline {3.13}Note}{20}{section.3.13}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.10}Definition}{21}{section.4.10}
+\contentsline {appendix}{\chapternumberline {A}Library Code}{21}{appendix.Alph1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.11}A Remark}{21}{section.4.11}
+\contentsline {section}{\numberline {A.1}RoadRDF.hh}{21}{section.Alph1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.12}An Example}{21}{section.4.12}
+\contentsline {section}{\numberline {A.2}RoadRDF.cc}{29}{section.Alph1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.13}Note}{22}{section.4.13}
+\contentsline {section}{\numberline {A.3}PatchTire.hh}{37}{section.Alph1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {appendix}{\chapternumberline {A}Convenzioni e Notazioni}{23}{appendix.Alph1}
+\contentsline {section}{\numberline {A.4}PatchTire.cc}{60}{section.Alph1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.1}Convenzioni}{23}{section.Alph1.1}
+\contentsline {appendix}{\chapternumberline {B}Tests Code}{81}{appendix.Alph2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.2}Matrice di Trasformazione}{23}{section.Alph1.2}
+\contentsline {section}{\numberline {B.1}Computational Geometry Tests}{81}{section.Alph2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {appendix}{\chapternumberline {B}Library Code}{25}{appendix.Alph2}
+\contentsline {subsection}{\numberline {B.1.1}geometry-test1.cc}{81}{subsection.Alph2.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {B.1}RoadRDF.hh}{25}{section.Alph2.1}
+\contentsline {subsection}{\numberline {B.1.2}geometry-test2.cc}{84}{subsection.Alph2.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {B.2}RoadRDF.cc}{32}{section.Alph2.2}
+\contentsline {subsection}{\numberline {B.1.3}geometry-test3.cc}{87}{subsection.Alph2.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {B.3}PatchTire.hh}{40}{section.Alph2.3}
+\contentsline {subsection}{\numberline {B.1.4}geometry-test4.cc}{88}{subsection.Alph2.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {B.4}PatchTire.cc}{57}{section.Alph2.4}
+\contentsline {section}{\numberline {B.2}Contact Patch Evaluation Tests}{90}{section.Alph2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {appendix}{\chapternumberline {C}Tests Code}{73}{appendix.Alph3}
+\contentsline {subsection}{\numberline {B.2.1}MF-test1.cc}{90}{subsection.Alph2.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C.1}Computational Geometry Tests}{73}{section.Alph3.1}
+\contentsline {subsection}{\numberline {B.2.2}MF-test2.cc}{92}{subsection.Alph2.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C.2}Contact Patch Evaluation Tests}{73}{section.Alph3.2}
+\contentsline {subsection}{\numberline {B.2.3}MF-test3.cc}{94}{subsection.Alph2.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliografia}{75}{section*.24}
+\contentsline {chapter}{Bibliografia}{97}{section*.21}

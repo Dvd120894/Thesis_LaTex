@@ -171,46 +171,6 @@
       \field{pages}{7\bibrangedash 13}
       \range{pages}{7}
     \endentry
-    \entry{Moller}{article}{}
-      \name{author}{2}{}{%
-        {{hash=94e27db04e86f2b4ec0d38fac3669e6b}{%
-           family={Möller},
-           familyi={M\bibinitperiod},
-           given={Tomas},
-           giveni={T\bibinitperiod}}}%
-        {{hash=338726ecdd858a4b49e5cb7ca1325d4d}{%
-           family={Trumbore},
-           familyi={T\bibinitperiod},
-           given={Ben},
-           giveni={B\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {A. K. Peters, Ltd.}%
-      }
-      \strng{namehash}{d0eeec1f9de25a0ee8052444e5b8c1e2}
-      \strng{fullhash}{d0eeec1f9de25a0ee8052444e5b8c1e2}
-      \strng{authornamehash}{d0eeec1f9de25a0ee8052444e5b8c1e2}
-      \strng{authorfullhash}{d0eeec1f9de25a0ee8052444e5b8c1e2}
-      \field{sortinit}{M}
-      \field{sortinithash}{c26a05ef03e4429073ed5c825140fac3}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{1086-7651}
-      \field{journaltitle}{J. Graph. Tools}
-      \field{month}{10}
-      \field{number}{1}
-      \field{title}{Fast, Minimum Storage Ray-triangle Intersection}
-      \field{volume}{2}
-      \field{year}{1997}
-      \field{pages}{21\bibrangedash 28}
-      \range{pages}{8}
-      \verb{doi}
-      \verb 10.1080/10867651.1997.10487468
-      \endverb
-      \verb{url}
-      \verb http://dx.doi.org/10.1080/10867651.1997.10487468
-      \endverb
-    \endentry
     \entry{hans}{book}{}
       \name{author}{1}{}{%
         {{hash=5339f0eb21a903f86d94f875925d4f66}{%
@@ -251,86 +211,17 @@
       \field{year}{2011}
       \field{dateera}{ce}
     \endentry
-    \entry{Schmeitz}{thesis}{}
-      \name{author}{1}{}{%
-        {{hash=03c4028e53c1ff091fe070c39319ae82}{%
-           family={Schmeitz},
-           familyi={S\bibinitperiod},
-           given={A.\bibnamedelimi J.\bibnamedelimi C.},
-           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {Technische Universiteit Delft}%
-      }
-      \strng{namehash}{03c4028e53c1ff091fe070c39319ae82}
-      \strng{fullhash}{03c4028e53c1ff091fe070c39319ae82}
-      \strng{authornamehash}{03c4028e53c1ff091fe070c39319ae82}
-      \strng{authorfullhash}{03c4028e53c1ff091fe070c39319ae82}
-      \field{sortinit}{S}
-      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{A semi-empirical, three-dimensional, tyre model for rolling over arbitrary road unevennesses}
-      \field{type}{phdthesis}
-      \field{year}{2004}
-    \endentry
-    \entry{Swift}{article}{}
-      \name{author}{3}{}{%
-        {{hash=03c4028e53c1ff091fe070c39319ae82}{%
-           family={Schmeitz},
-           familyi={S\bibinitperiod},
-           given={A.\bibnamedelimi J.\bibnamedelimi C.},
-           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-        {{hash=774a25feb9ef24204c55b025a270bf0e}{%
-           family={Besselink},
-           familyi={B\bibinitperiod},
-           given={I.\bibnamedelimi J.\bibnamedelimi M.},
-           giveni={I\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
-        {{hash=816bc0d6c63949d057672a7b74df7382}{%
-           family={Jansen},
-           familyi={J\bibinitperiod},
-           given={S.\bibnamedelimi T.\bibnamedelimi H.},
-           giveni={S\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Taylor & Francis}%
-      }
-      \strng{namehash}{7b3843cb5a766bc0c18536b2dc4b6080}
-      \strng{fullhash}{7b3843cb5a766bc0c18536b2dc4b6080}
-      \strng{authornamehash}{7b3843cb5a766bc0c18536b2dc4b6080}
-      \strng{authorfullhash}{7b3843cb5a766bc0c18536b2dc4b6080}
-      \field{sortinit}{S}
-      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Vehicle System Dynamics}
-      \field{number}{sup1}
-      \field{title}{TNO MF-SWIFT}
-      \field{volume}{45}
-      \field{year}{2007}
-      \field{pages}{121\bibrangedash 137}
-      \range{pages}{17}
-      \verb{doi}
-      \verb 10.1080/00423110701725208
-      \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1080/00423110701725208
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1080/00423110701725208
-      \endverb
-    \endentry
   \endsortlist
-  \missing{wang:raid2006:anagram}
-  \missing{kruegel:sac2002:anomaly}
-  \missing{ramadas}
-  \missing{zanero-savaresi}
-  \missing{phad}
-  \missing{protocolanom}
-  \missing{zanero-pattern}
-  \missing{rules-payl}
-  \missing{DBLP:conf/iwia/BolzoniEHZ06}
   \missing{wang:raid2004:payl}
+  \missing{zanero-pattern}
+  \missing{DBLP:conf/iwia/BolzoniEHZ06}
+  \missing{ramadas}
+  \missing{rules-payl}
+  \missing{wang:raid2006:anagram}
+  \missing{zanero-savaresi}
+  \missing{kruegel:sac2002:anomaly}
+  \missing{protocolanom}
+  \missing{phad}
 \endrefsection
 \endinput
 

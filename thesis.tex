@@ -36,7 +36,7 @@
 \documentclass[12pt,a4paper,twoside]{memoir} % Change font size here (allowable values are 9pt-12pt), change the paper size, specify one or two sided printing and specify whether to show trimming lines
 
 % Base line
-\renewcommand{\baselinestretch}{1.2}
+\renewcommand{\baselinestretch}{1.25}
 \usepackage[italian]{babel} 
 \input{structure.tex} % Include the file containing the code defining the structure and style of the document
 
@@ -114,8 +114,8 @@ Relatore:\\
 
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
 
-\cleartoverso % Force a break to an even page
-
+%\cleartoverso % Force a break to an even page
+\cleartooddpage % Force a break to an odd page
 %----------------------------------------------------------------------------------------
 %	ABSTRACT
 %----------------------------------------------------------------------------------------
@@ -124,7 +124,8 @@ Relatore:\\
 This dissertation details \dots
 \end{abstract}
 
-\cleartoverso % Force a break to an even page
+%\cleartoverso % Force a break to an even page
+\cleartooddpage % Force a break to an odd page
 
 %----------------------------------------------------------------------------------------
 %	TABLE OF CONTENTS
@@ -132,7 +133,8 @@ This dissertation details \dots
 
 \tableofcontents* % Print the table of contents
 
-\cleartoverso % Force a break to an even page
+%\cleartoverso % Force a break to an even page
+\cleartooddpage % Force a break to an odd page
 
 %----------------------------------------------------------------------------------------
 %	LIST OF FIGURES
@@ -140,7 +142,8 @@ This dissertation details \dots
 
 \listoffigures % Print the list of figures
 
-\cleartoverso % Force a break to an even page
+%\cleartoverso % Force a break to an even page
+\cleartooddpage % Force a break to an odd page
 
 %----------------------------------------------------------------------------------------
 %	LIST OF TABLES
@@ -148,7 +151,8 @@ This dissertation details \dots
 
 \listoftables % Print the list of tables
 
-\cleartoverso % Force a break to an even page
+%\cleartoverso % Force a break to an even page
+\cleartooddpage % Force a break to an odd page
 
 %----------------------------------------------------------------------------------------
 %	ACRONYMS
@@ -156,7 +160,8 @@ This dissertation details \dots
 
 \include{acronyms} % Include a List of Acronyms section using acronyms.tex where they are defined
 
-\cleartoverso % Force a break to an even page
+%\cleartoverso % Force a break to an even page
+\cleartooddpage % Force a break to an odd page
 
 %----------------------------------------------------------------------------------------
 %	CONTENT CHAPTERS
@@ -170,11 +175,10 @@ This dissertation details \dots
 
 \include{Chapters/introduzione} 
 \include{Chapters/capitolo1}
-\include{Chapters/capitolo3}
+%\include{Chapters/capitolo3}
 \include{Chapters/chapterExamples}
 
 \appendix
-\include{Chapters/appendici_notazione}
 \include{Chapters/appendici_codice}
 
 \backmatter
