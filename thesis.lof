@@ -16,9 +16,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Forze e coppie generate dal contatto pneumatico-strada.\relax }}{8}{figure.caption.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Curve caratteristiche generiche degli pneumatici derivate con il metodo della Magic Formula\relax }}{9}{figure.caption.11}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Esempio di misure, secondo la notazione \ac {ETRTO}, riportate sulla spalla dello pneumatico.\relax }}{10}{figure.caption.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Esempio di misure, secondo la notazione \ac {ETRTO}, riportate sulla spalla dello pneumatico.\relax }}{11}{figure.caption.12}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Curve caratteristiche generiche degli pneumatici derivate con il metodo della Magic Formula\relax }}{11}{figure.caption.12}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Geometria del contatto pneumatico-strada.\relax }}{12}{figure.caption.13}
 \defcounter {refsection}{0}\relax 
@@ -28,7 +28,25 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces \texttt {telnetd}: distribution of the number of other system calls among two \texttt {execve} system calls (i.e., distance between two consecutive \texttt {execve}).\relax }}{18}{figure.caption.19}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Point-circle intersection problem scheme.\relax }}{16}{figure.caption.21}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Output schemes of the point-circle intersection problem.\relax }}{17}{figure.caption.22}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Point-circle intersection algorithm schemes.\relax }}{18}{figure.caption.23}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Ray-triangle intersection problem scheme.\relax }}{18}{figure.caption.24}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Transformation and base change of ray in M\"oller-Trumbore algorithm.\relax }}{19}{figure.caption.25}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Ray-triangle intersection algorithm schemes.\relax }}{20}{figure.caption.26}
+\defcounter {refsection}{0}\relax 
+\addvspace {10pt}
+\defcounter {refsection}{0}\relax 
+\addvspace {10pt}
+\defcounter {refsection}{0}\relax 
+\addvspace {10pt}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.1}{\ignorespaces \texttt {telnetd}: distribution of the number of other system calls among two \texttt {execve} system calls (i.e., distance between two consecutive \texttt {execve}).\relax }}{28}{figure.caption.29}
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 

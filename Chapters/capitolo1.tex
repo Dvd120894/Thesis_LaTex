@@ -1,7 +1,7 @@
 \chapter{Il Pneumatico}
 \label{Pneumatico}
 %
-\section{Una Breve Introduzione}
+\section{Introduzione}
 Gli pneumatici sono probabilmente i componenti più complessi di un'auto in quanto combinano decine di componenti che devono essere formati, assemblati e curati insieme. Il loro successo finale dipende dalla loro capacità di fondere tutti i componenti separati in un prodotto coeso che soddisfa le esigenze del conducente \cite{rill}. Gli pneumatici sono caratterizzati da un comportamento altamente non lineare con una dipendenza da diversi fattori costruttivi e ambientali. Tuttavia, le forze di contatto possono essere descritte completamente da un vettore di forza risultante applicato in un punto specifico della patch di contatto e da un vettore di coppia, come illustrato nella \figurename{  \ref{tireforces}}.
 
 \begin{figure}[h]
@@ -35,8 +35,37 @@ La prima tipologia di modello tenta di rappresentare le caratteristiche fisiche 
 Il modello di pneumatico sviluppato nel modello di veicolo presentato da \citeauthor{Larcher} in \cite{Larcher} si basa sulla Magic Formula 6.2. Una panoramica generale sui modelli della Magic Formula e sul calcolo dello slip degli pneumatici è descritta nelle sezioni seguenti, mentre l'insieme completo delle equazioni del modello implementato è riportato nell'Appendice.
 Come vedremo nel Capitolo 3 il modello di pneumatico deve essere combinato con un'interfaccia di pneumatico/strada modellata adeguata per ottenere risultati significativi.
 %
-\section{Il modello Pacejka}
+\section{Geometria dello Pneumatico secondo ETRTO}
+Quando si fa riferimento ai dati puramente geometrici, viene utilizzata una forma abbreviata della notazione completa prevista dall'ente di normazione \ac{ETRTO}. Assumendo di avere un pneumatico generico la notazione che identificherà la geometria sarà del tipo $a$/$b$R$c$. Dove:
+\begin{itemize}
+	\item $a$ rappresenta larghezza nominale del pneumatico nel punto più largo;
+	\item $b$ rappresenta percentuale dell'altezza della spalla dello pneumatico in relazione alla larghezza dello stesso;
+	\item $c$ rappresenta il diametro dei cerchi ai quali lo pneumatico si adatta.
+\end{itemize}
+Facendo un esempio, 195/55R16 significherebbe che la larghezza nominale del pneumatico è di circa 195 mm nel punto più largo, l'altezza della spalla dello pneumatico è il 55\% della larghezza, ovvero 107 mm in questo caso, e che il pneumatico si adatta a dei cerchi di 16 pollici di diametro. Con questa notazione è possibile calcolare direttamente il diametro esterno teorico dello pneumatico tramite la seguente:
+%
+\begin{equation}
+\phi_e = \frac{2ab}{25.4}+c \quad \text{[in]} \qquad
+\phi_e = 2ab+25.4c \quad \text{[mm]}
+\end{equation}
+%
+\noindent
+Riprendendo l'esempio usato sopra, il diametro esterno risulterà dunque 24.44 in o 621 mm.\\
+Meno comunemente usato negli Stati Uniti e in Europa (ma spesso in Giappone) è una notazione che indica l'intero diametro del pneumatico invece delle proporzioni dell'altezza della parete laterale, quindi non secondo \ac{ETRTO}. Per fare lo stesso esempio, una ruota da 16 pollici avrebbe un diametro di 406 mm. L'aggiunta del doppio dell'altezza del pneumatico (2$\times$107 mm) produce un diametro totale di 620 mm. Quindi, un pneumatico 195/55R16 potrebbe in alternativa essere etichettato 195/620R16.\\
+Anche se questo è teoricamente ambiguo, in pratica queste due notazioni possono essere facilmente distinte perché l'altezza della parete laterale di un pneumatico automobilistico è in genere molto inferiore alla larghezza. Quindi, quando l'altezza è espressa come percentuale della larghezza, è quasi sempre inferiore al 100\% (e certamente meno del 200\%). Al contrario, i diametri degli pneumatici del veicolo sono sempre superiori a 200 mm. Pertanto, se il secondo numero è superiore a 200, allora è quasi certo che viene utilizzata la notazione giapponese, se è inferiore a 200 allora viene utilizzata la notazione USA/europea.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Figures/tire_measures}
+	\caption{Esempio di misure, secondo la notazione \ac{ETRTO}, riportate sulla spalla dello pneumatico.}
+	\label{tiremeasures}
+\end{figure}
+%
+\section{Il Modello della \textit{Magic Formula}}
+%
+\subsection{La \textit{Magic Formula}}
 Uno dei modelli di pneumatici più utilizzati è il cosiddetto modello \textit{Magic Formula} sviluppato da \citeauthor{bakker} in \cite{bakker}. Questo modello è stato poi rivisto e l'ultima versione è riportata in \cite{hans}. Il modello Magic Formula consiste in una pura descrizione matematica del rapporto input-output del contatto pneumatico-strada. Questa formulazione collega le variabili di forza con lo slip rigido del corpo che vengono trattati nelle sezioni successive. La forma generale della funzione di descrizione può essere scritta come:
+%
 \begin{equation}
 y(x) = D\sin\{C\arctan[B(x + S_h ) - E(B(x + S_h ) - \arctan(B(x + S_h )))]\} + S_v
 \end{equation}
@@ -58,33 +87,9 @@ e dove $y(x)$ può essere la forza longitudinale $F_x$ , la forza laterale $F_y$
 	\caption{Curve caratteristiche generiche degli pneumatici derivate con il metodo della Magic Formula}
 	\label{pacejka}
 \end{figure}
-%
-\section{Geometria secondo ETRTO}
-Quando si fa riferimento ai dati puramente geometrici, viene utilizzata una forma abbreviata della notazione completa prevista dall'ente di normazione \ac{ETRTO}. Assumendo di avere un pneumatico generico la notazione che identificherà la geometria sarà del tipo $a$/$b$R$c$. Dove:
-\begin{itemize}
-	\item $a$ rappresenta larghezza nominale del pneumatico nel punto più largo;
-	\item $b$ rappresenta percentuale dell'altezza della spalla dello pneumatico in relazione alla larghezza dello stesso;
-	\item $c$ rappresenta il diametro dei cerchi ai quali lo pneumatico si adatta.
-\end{itemize}
-Facendo un esempio, 195/55R16 significherebbe che la larghezza nominale del pneumatico è di circa 195 mm nel punto più largo, l'altezza della spalla dello pneumatico è il 55\% della larghezza, ovvero 107 mm in questo caso, e che il pneumatico si adatta a dei cerchi di 16 pollici di diametro. Con questa notazione è possibile calcolare direttamente il diametro esterno teorico dello pneumatico tramite la seguente:
-%
-\begin{equation}
-	\phi_e = \frac{2ab}{25.4}+c \quad \text{[in]} \qquad
-	\phi_e = 2ab+25.4c \quad \text{[mm]}
-\end{equation}
-%
-Riprendendo l'esempio usato sopra, il diametro esterno risulterà dunque 24.44 in o 621 mm.\\
-Meno comunemente usato negli Stati Uniti e in Europa (ma spesso in Giappone) è una notazione che indica l'intero diametro del pneumatico invece delle proporzioni dell'altezza della parete laterale, quindi non secondo \ac{ETRTO}. Per fare lo stesso esempio, una ruota da 16 pollici avrebbe un diametro di 406 mm. L'aggiunta del doppio dell'altezza del pneumatico (2$\times$107 mm) produce un diametro totale di 620 mm. Quindi, un pneumatico 195/55R16 potrebbe in alternativa essere etichettato 195/620R16.\\
-Anche se questo è teoricamente ambiguo, in pratica queste due notazioni possono essere facilmente distinte perché l'altezza della parete laterale di un pneumatico automobilistico è in genere molto inferiore alla larghezza. Quindi, quando l'altezza è espressa come percentuale della larghezza, è quasi sempre inferiore al 100\% (e certamente meno del 200\%). Al contrario, i diametri degli pneumatici del veicolo sono sempre superiori a 200 mm. Pertanto, se il secondo numero è superiore a 200, allora è quasi certo che viene utilizzata la notazione giapponese, se è inferiore a 200 allora viene utilizzata la notazione USA/europea.
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.7\linewidth]{Figures/tire_measures}
-	\caption{Esempio di misure, secondo la notazione \ac{ETRTO}, riportate sulla spalla dello pneumatico.}
-	\label{tiremeasures}
-\end{figure}
 %
-\section{Contatto con la Superficie Stradale}
+\subsection{Contatto con la Superficie Stradale}
 La posizione e l'orientamento della ruota in relazione al sistema fissato a terra sono dati dal telaio di riferimento del vettore ruota $RF_{wh_{i}}$ che viene calcolato risolvendo le equazioni dinamiche del sistema ottenuto nel Capitolo 2 in \cite{Larcher} istante per istante. Supponendo che il profilo stradale potrebbe essere rappresentato da una funzione arbitraria di due coordinate spaziali 
 %
 \begin{equation}

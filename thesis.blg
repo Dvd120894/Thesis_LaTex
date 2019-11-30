@@ -1,29 +1,29 @@
 [0] Config.pm:354> INFO - This is Biber 2.7 (beta)
 [0] Config.pm:357> INFO - Logfile is 'thesis.blg'
-[37] biber:303> INFO - === Sat Nov 30, 2019, 10:27:24
-[56] Biber.pm:360> INFO - Reading 'thesis.bcf'
-[153] Biber.pm:836> INFO - Found 17 citekeys in bib section 0
-[170] Biber.pm:3671> INFO - Processing section 0
-[188] Biber.pm:3841> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
-[189] bibtex.pm:1424> INFO - Decoding LaTeX character macros into UTF-8
-[196] bibtex.pm:1281> INFO - Found BibTeX data source 'bibliography.bib'
-[199] Utils.pm:164> WARN - Entry 'Larcher' (bibliography.bib): Invalid format 'October 23, 2019' of date field 'date' - ignoring
-[216] Utils.pm:164> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[216] Utils.pm:164> WARN - BibTeX subsystem: author, warning: comma(s) at end of name (removing)
-[216] Utils.pm:164> WARN - I didn't find a database entry for 'phad' (section 0)
-[216] Utils.pm:164> WARN - I didn't find a database entry for 'kruegel:sac2002:anomaly' (section 0)
-[216] Utils.pm:164> WARN - I didn't find a database entry for 'protocolanom' (section 0)
-[216] Utils.pm:164> WARN - I didn't find a database entry for 'ramadas' (section 0)
-[217] Utils.pm:164> WARN - I didn't find a database entry for 'rules-payl' (section 0)
-[217] Utils.pm:164> WARN - I didn't find a database entry for 'zanero-savaresi' (section 0)
-[217] Utils.pm:164> WARN - I didn't find a database entry for 'wang:raid2004:payl' (section 0)
-[217] Utils.pm:164> WARN - I didn't find a database entry for 'zanero-pattern' (section 0)
-[217] Utils.pm:164> WARN - I didn't find a database entry for 'DBLP:conf/iwia/BolzoniEHZ06' (section 0)
-[217] Utils.pm:164> WARN - I didn't find a database entry for 'wang:raid2006:anagram' (section 0)
-[236] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
-[236] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[236] Biber.pm:3500> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'it-IT'
-[236] Biber.pm:3506> INFO - No sort tailoring available for locale 'it-IT'
-[246] bbl.pm:608> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[248] bbl.pm:712> INFO - Output to thesis.bbl
-[248] Biber.pm:110> INFO - WARNINGS: 13
+[34] biber:303> INFO - === Sat Nov 30, 2019, 12:12:22
+[50] Biber.pm:360> INFO - Reading 'thesis.bcf'
+[137] Biber.pm:836> INFO - Found 17 citekeys in bib section 0
+[153] Biber.pm:3671> INFO - Processing section 0
+[167] Biber.pm:3841> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[168] bibtex.pm:1424> INFO - Decoding LaTeX character macros into UTF-8
+[173] bibtex.pm:1281> INFO - Found BibTeX data source 'bibliography.bib'
+[176] Utils.pm:164> WARN - Entry 'Larcher' (bibliography.bib): Invalid format 'October 23, 2019' of date field 'date' - ignoring
+[190] Utils.pm:164> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[190] Utils.pm:164> WARN - BibTeX subsystem: author, warning: comma(s) at end of name (removing)
+[191] Utils.pm:164> WARN - I didn't find a database entry for 'phad' (section 0)
+[192] Utils.pm:164> WARN - I didn't find a database entry for 'kruegel:sac2002:anomaly' (section 0)
+[192] Utils.pm:164> WARN - I didn't find a database entry for 'protocolanom' (section 0)
+[192] Utils.pm:164> WARN - I didn't find a database entry for 'ramadas' (section 0)
+[192] Utils.pm:164> WARN - I didn't find a database entry for 'rules-payl' (section 0)
+[192] Utils.pm:164> WARN - I didn't find a database entry for 'zanero-savaresi' (section 0)
+[192] Utils.pm:164> WARN - I didn't find a database entry for 'wang:raid2004:payl' (section 0)
+[192] Utils.pm:164> WARN - I didn't find a database entry for 'zanero-pattern' (section 0)
+[192] Utils.pm:164> WARN - I didn't find a database entry for 'DBLP:conf/iwia/BolzoniEHZ06' (section 0)
+[192] Utils.pm:164> WARN - I didn't find a database entry for 'wang:raid2006:anagram' (section 0)
+[209] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[209] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[209] Biber.pm:3500> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'it-IT'
+[209] Biber.pm:3506> INFO - No sort tailoring available for locale 'it-IT'
+[218] bbl.pm:608> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[219] bbl.pm:712> INFO - Output to thesis.bbl
+[219] Biber.pm:110> INFO - WARNINGS: 13
