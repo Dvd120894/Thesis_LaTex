@@ -1,314 +1,125 @@
-\chapter{Algoritmi Geometrici}
-\label{Geom_Algos}
+\chapter{La Superficie Stradale}
+\label{rdf}
 %
 \section{Introduzione}
-La geometria computazionale è la branca dell'Informatica che studia le strutture dati e gli algoritmi efficienti per la soluzione di problemi di natura geometrica e la loro implementazione al calcolatore. Storicamente, è considerato uno dei campi più antichi del calcolo, anche se la geometria computazionale moderna è uno sviluppo recente. La ragione principale per lo sviluppo della geometria computazionale è stata dovuta ai progressi compiuti nella computer grafica, \ac{CAD}, \ac{CAM} e nella visualizzazione matematica. Ad oggi, le applicazioni della geometria computazionale si trovano nella robotica, nella progettazione di circuiti integrati, nella visione artificiale, in \ac{CAE} e nel \ac{GIS}.\\
-I rami principali della geometria computazionale sono:
+Oltre allo pnumatico, la superfice stradale rappresenta il secondo importante elemento che definisce il contatto. Perchè una superficie stradale possa essere facilmente utilizzata da un calcolatore deve essere prima discretizzata. La discretizzazione in questo caso avviene mediante la rappresentazione della superficie stessa in una \textit{mesh} triangolare. La \textit{mesh}, è contenuta in un file formato \ac{RDF}, che contiene le posizione $(x,y,z)$ di ogni vertice e i numeri di identificazione per ognuno dei tre vertici del triangolo, per ogni trangolo.
+
+È importante notare che la discretizzazione del manto stradale è un passaggio molto importante in quando, se campionatonato troppo grossolanamente potrebbe influire negativamente sui risultati dei calcoli per l'estrazione del piano strada locale. In altre parole, una semplificazione troppo spinta, potrebbe causare degli errori tali da incorrere in risultati troppo approssimativi e non rispecchianti la realtà. Al contrario, una \textit{mesh} troppo fitta, complica inutilmente i calcoli, dilatando sensibilmente i tempi di esecuzione. È bene quindi discretizzare più densamente in maniera oculata e solo dove occore realmente, ovvero in prossimità di cordoli, marciapiedi o qualsiasi tipo di ostacolo che potrebbe influire sulle performance della vettura. 
+%
+\section{Il formato RDF}
+Sfortunatamente, non esistono standard universalmente riconosciuti per il formato RDF. In linea di massima le superfici stradali sono definite nei \textit{road data file} (*.rdf). Questa tipologia di file è composto da varie sezioni, indicate da parentesi quadre.
+
+\begin{lstlisting}[language = C++, basicstyle=\ttfamily\small, basewidth=0.55em]
+	! Comments section
+	
+	[UNITS]
+	LENGTH = 'meter'
+	FORCE = 'newton'
+	ANGLE = 'degree'
+	MASS = 'kg'
+	TIME = 'sec'
+	
+	[MODEL]
+	ROAD\_TYPE = '...'
+	
+	[PARAMETERS]
+	...
+\end{lstlisting}
+
+Nella sezione \texttt{[UNITS]}, vengono impostate le unità utilizzate nel file di dati stradali. La sezione \texttt{[MODEL]} viene invece utilizzata per specificare il tipo di strada, del tipo:
 \begin{itemize}
-	\item \textit{Calcolo combinatorio} (o \textit{geometria algoritmica}), che si occupa di oggetti geometrici come entità discrete. Ad esempio, può essere utilizzato per determinare il poliedro o il poligono più piccolo che contiene tutti i punti forniti, o più formalmente, dato un insieme di punti, si deve determinare il più piccolo insieme convesso che li contenga tutti (problema dell'inviluppo convesso).
-	\item \textit{Geometria di calcolo} numerica (o \ac{CAGD}), che si occupa principalmente di rappresentare oggetti del mondo reale in forme adatte per i calcoli informatici nei sistemi \ac{CAD} e \ac{CAM}. Questo ramo può essere visto come uno sviluppo della geometria descrittiva ed è spesso considerato un ramo della computer grafica o del \ac{CAD}. Entità importanti di questo ramo sono superfici e curve parametriche, come ad esempio le \textit{spline} e \textit{curve di Bézier}.
+	\item \texttt{ROAD\_TYPE = 'flat'}: come indica già il nome, si tratta di una superficie stradale piana.
+	\item \texttt{ROAD\_TYPE = 'plank'}: dove questa strada è composta da un singolo scalino o dosso orientato perpendicolarmente o obliquo rispetto all'asse $X$, con o senza bordi smussati.
+	\item \texttt{ROAD\_TYPE = 'poly\_line'}: ovvero l'altezza della strada è in funzione della distanza percorsa.
+	\item \texttt{ROAD\_TYPE = 'sine'}: dove la superficie stradale è costituita da una o più onde sinusoidali con lunghezza d'onda costante.
 \end{itemize}
-In questo capitolo tutti gli algoritmi che verranno utilizzati in seguito durante l'analisi geometrica dell'intersezione tra pneumatico e superfice stradale saranno trattati. Questi algoritmi sono la soluzione di alcuni semplici ma molto importanti problemi, che devono essere risolti in modo efficiente. In particolare le intersezioni tra:
+La sezione \texttt{[PARAMETERS]} contiene parametri generali e parametri specifici del tipo di superficie stradale.
+
+I parametri per ogni tipologia di superficie stradale sono elencati di seguito:
 \begin{itemize}
-	\item punto e segmento (sul piano);
-	\item punto e circonferenza (sul piano);
-	\item raggio e circonferenza (sul piano);
-	\item raggio e triangolo (sullo spazio);
+	\item Generali:
+	\begin{itemize}
+		\item \texttt{MU}: è il fattore di correzione dell'attrito stradale (non il valore dell'attrito stesso), da moltiplicare con i fattori di ridimensionamento LMU del modello di pneumatico.\\
+		Impostazione predefinita: \texttt{MU = 1.0}.
+		\item \texttt{OFFSET}: è l'offset verticale del terreno rispetto al sistema di riferimento inerziale.
+		\item \texttt{ROTATION\_ANGLE\_XY\_PLANE}: è l'angolo di rotazione del piano $XY$ attorno all'asse $Z$ della strada, ovvero la definizione dell'asse $X$ positivo della strada rispetto al sistema di riferimento inerziale.
+	\end{itemize}
+	\item Strada con scalino:
+	\begin{itemize}
+		\item \texttt{HEIGHT}: altezza dello scalino.
+		\item \texttt{START}: distanza lungo l'asse $X$ della strada all'inizio dello scalino.
+		\item \texttt{LENGTH}: lunghezza dello scalino (escluso lo smusso) lungo l'asse $X$ della strada.
+		\item \texttt{BEVEL\_EDGE\_LENGTH}: lunghezza del bordo smussato a $45°$ dello scalino.
+		\item \texttt{DIRECTION}: rotazione dello scalino attorno all'asse $Z$, rispetto all'asse $Y$ della strada.\\
+		Se lo scalino è posizionato trasversalmente, \texttt{DIRECTION = 0}. Se lo scalino è posto lungo l'asse $X$, \texttt{DIRECTION = 90}.
+	\end{itemize}
+	\item Polilinea:\\
+	Il blocco \texttt{[PARAMETERS]} deve avere un sottoblocco chiamato \texttt{(XZ\_DATA)} e costituito da tre colonne di dati numerici:
+	\begin{itemize}
+		\item La colonna 1 è un insieme di valori $X$ in ordine crescente.
+		\item Le colonne 2 e 3 sono insiemi di rispettivi valori $Z$ per la traccia sinistra e destra.
+	\end{itemize}
+	Esempio:
+	\begin{lstlisting}[language = C++, basicstyle=\ttfamily\small, basewidth=0.55em]
+	[PARAMETERS]
+	MU = 1.0$ peak friction scaling coefficient
+	OFFSET = 0.0 $ vertical offset of the ground wrt inertial frame
+	ROTATION_ANGLE_XY_PLANE = 0.0 $ definition of the positive X-axis of the road wrt inertial frame
+	
+	$X_road	Z_left	Z_right
+	(XZ_DATA)
+	-1.0e04	0	0
+	0.0500	0	0
+	0.1000	0	0
+	0.1500	0	0
+	...  ... ...
+	\end{lstlisting}
+	\item Sinusoide:\\
+	La strada a superficie sinusoidale è implementata come:
+	\begin{equation}
+	z(x)=\frac{H}{2}\left( 1 - \cos \left( \frac{2\pi \cdot (x-x_i)}{L} \right)   \right) 
+	\end{equation}
+	dove	
+	\begin{itemize}
+	 	\item $z$: coordinata verticale della strada;
+	 	\item $H$: altezza;
+	 	\item $x$: posizione attuale;
+	 	\item $x_i$: inizio dell'onda sinusoidale;
+	 	\item $L$: semi-periodo dell'onda sinusoidale.
+	\end{itemize}
+	I parametri sono:	
+	\begin{itemize}
+		\item \texttt{HEIGHT}: altezza dell'onda sinusoidale.
+		\item \texttt{START}: distanza lungo l'asse $X$ della strada all'inizio dell'onda sinusoidale.
+		\item \texttt{LENGTH}: lunghezza dell'onda sinusoidale lungo l'asse $X$ della strada.
+		\item \texttt{DIRECTION}: rotazione dell'onda sinusoidale attorno all'asse $Z$, rispetto all'asse $Y$ della strada.\\
+		Se l'onda sinusoidale è posizionata trasversalmente, \texttt{DIRECTION = 0}. Se l'onda sinusoidale è posta lungo l'asse $X$, \texttt{DIRECTION = 90}.
+	\end{itemize}
 \end{itemize}
-saranno esaminato al fine di trovare la massima prestazione in termini di \textit{efficienza computazionale}.
-%
-\section{Point-Segment Intersection}
+Sfortunatamente, queste informazioni permettono di costruire strade troppo semplici che non rispecchiano la realtà. È quindi necessario inserire i risultati della discretizzazione della superficie stradale sopra citati.
 
-%
-\section{Point-Circle Intersection}
-Having a circle with center $C = (x_c, y_c)$ and radius $r$, the problem consists in finding out whether a query point $P = (x_p, y_p)$ is inside, outside or on the circle.
-%
-\begin{figure}
-	\centering
-	\begin{tikzpicture}
-	\def\r{2};
-	\coordinate (C) at (0,0) node[above left] {$C$};
-	\draw[thick, fill=gray!10](C) circle (\r);
-	\coordinate (P) at (-0.5,-1.5);
-	\draw[fill] (C) circle [radius=1pt];
-	\draw[fill] (P) circle [radius=1pt];
-	\draw(C) -- (P)  node[above left] {$P$} node[pos=0.5, right] {$d$};
-	\draw(C) -- ({sqrt(\r)},{sqrt(\r)}) node[pos=0.4, above] {$r$};
-	\end{tikzpicture}
-	\caption{Point-circle intersection problem scheme.}
-\end{figure}
-%
-The solution to the problem is simple: the distance between the circle center $C$ and the query point $P$ is given by the \textit{Pythagorean theorem} as
-\begin{equation}
-	d=\sqrt{(x_p-x_c)^2 + (y_p-y_c)^2}
-\end{equation}
-The query point $P$ is \textit{inside} the circle if $d<r$, on the circle if $d = r$, and \textit{outside} the circle if $d > r$. Little work can be saved by comparing $d^2$ with $r^2$ instead: the point $P$ is \textit{inside} the circle if $d^2<r^2$, on the circle if $d^2 = r^2$, and \textit{outside} the circle if $d^2 > r^2$. Thus, the final comparison will be between the number $(x_p-x_c)^2 + (y_p-y_c)^2$ and $r^2$.\\
-The \textit{inputs} of the point-circle intersection algorithm are:
+Per descrivere una superficie stradale composta da una \textit{mesh} di triangoli si userà la seguente formattazione del file.
 \begin{itemize}
-	\item the circle center $C = (x_c, y_c)$;
-	\item the circle radius $r$;
-	\item a query point $P=(x_p, y_p)$.
+	\item \texttt{[NODES]}: presenti nella prima sezione e dove vengono descritti sotto forma di una quartina $(id,x,y,z)$ data dal numero di identificazione e dalle coordinate nello spazio.
+	\item \texttt{[ELEMENTS]}: presenti nella seconda sezione e dove vengono descritti sotto forma di una quartina $(n_1,n_2,n_3,\mu)$ data dal numero di identificazione dei tre vertici componenti $i$-esimo triangolo e dal coefficente di attrito presente nella faccia.
 \end{itemize}
-The \textit{output} could be an integer which value is:
-\begin{itemize}
-	\item 0 if the point is outside;
-	\item 1 if the point is inside;
-	\item 2 if the point is on the circle.
-\end{itemize}
-Another option could be a boolean which value is:
-\begin{itemize}
-	\item false if the point is outside;
-	\item true if the point is inside or on the circle.
-\end{itemize}
+Esempio:
+\begin{lstlisting}[language = C++, basicstyle=\ttfamily\small, basewidth=0.55em]
+[NODES]
+{ id x_coord y_coord z_coord }
+0 2.64637 35.8522 -1.59419e-005 
+1 4.54089 33.7705 -1.60766e-005 
+2 4.52126 35.8761 -1.62482e-005 
+3 2.66601 33.7456 -1.57714e-005 
+4 0.771484 35.8282 -1.56367e-005 
+5 0.791126 33.7206 -1.5465e-005
+... ... ... ...
+[ELEMENTS]
+{ n1 n2 n3 mu }
+1 2 3 1.0 
+2 1 4 1.0 
+5 4 1 1.0 
+... ... ... ...
+\end{lstlisting}
 %
-\begin{figure}
-\hfill
-	\begin{subfigure}{.45\textwidth}
-	\centering
-	\begin{tikzpicture}
-	\def\r{2};
-	\coordinate (C) at (0,0);
-	\draw[thick, fill=gray!10](C) circle (\r);
-	\draw[fill] (0,-0.5) circle [radius=1pt] node[above left] {$\mathbf{1}$};
-	\draw[fill] (-\r,0) circle [radius=1pt] node[above left] {$\mathbf{2}$};
-	\draw[fill] (3,0) circle [radius=1pt] node[above left] {$\mathbf{0}$};
-	\end{tikzpicture}
-	\caption{Integer output}
-	\end{subfigure}
-\hfill
-\begin{subfigure}{.45\textwidth}
-	\centering
-	\begin{tikzpicture}
-	\def\r{2};
-	\coordinate (C) at (0,0);
-	\draw[thick, fill=gray!10](C) circle (\r);
-	\draw[fill] (0,-0.5) circle [radius=1pt] node[above left] {$\mathbf{true}$};
-	\draw[fill] (-\r,0) circle [radius=1pt] node[above left] {$\mathbf{true}$};
-	\draw[fill] (3,0) circle [radius=1pt] node[above left] {$\mathbf{false}$};
-	\end{tikzpicture}
-	\caption{Boolean output}
-\end{subfigure}
-\hfill
-\caption{Output schemes of the point-circle intersection problem.}
-\end{figure}
-On \figurename{ \ref{Pointcircle}} the schemes for the point-circle intersection algorithm with integer and boolean outputs are reported.\\
-%
-\begin{figure}[htbp]
-\hfill
-	\begin{subfigure}[t]{.4\linewidth}
-		\raggedright
-		\textit{With integer output}\\
-		\vspace{.5em}
-		$d = (x_p-x_c)^2 + (y_p-y_c)^2$\\
-		$\mathbf{if} \, (d > r^2) \{$\\
-		\quad $\mathbf{return \, 0}$\\
-		$\} \, \mathbf{else \, if} \, (d < r^2) \{$\\
-		\quad $\mathbf{return \, 1}$\\
-		$\} \, \mathbf{else} \, \{$\\
-		\quad $\slash\slash \, d = r^2$\\
-		\quad $\mathbf{return \, 2}$\\
-		$\}$\\
-	\end{subfigure}
-\hfill
-	\begin{subfigure}[t]{.4\textwidth}
-		\raggedright
-		\textit{With boolean output}\\
-		\vspace{.5em}
-		$d = (x_p-x_c)^2 + (y_p-y_c)^2$\\
-		$\mathbf{if} \, (d > r^2) \{$\\
-		\quad $\mathbf{return \, false}$\\
-		$\} \, \mathbf{else} \, \{$\\
-		\quad $\slash\slash \, d <= r^2$\\
-		\quad $\mathbf{return \, true}$\\
-		$\}$\\		
-	\end{subfigure}
-\hfill
-\caption{Point-circle intersection algorithm schemes.}
-\label{Pointcircle}
-\end{figure}
-%
-\section{Ray-Circle Intersection}
-
-%
-\section{Ray-Triangle Intersection}
-Having a triangle with vertices $(V_1,V_2,V_3)$ and a ray $R$ with origin $R_O$ and direction $R_D$, the problem consists in finding out whether the ray hits or not the triangle and if so, where is the intersection point $P$.
-%
-\begin{figure}[htbp]
-	\centering
-	\begin{tikzpicture}
-	\coordinate [label=left:$V_1$] (A) at (-1,-0.5);
-	\coordinate [label=above:$V_2$] (B) at (1,1);
-	\coordinate [label=right:$V_3$] (C) at (2.2,-1);
-	\draw[fill=gray!10] (A) -- (B) -- (C) -- (A);
-	\def\xp{0.4};
-	\def\yp{-0.2};
-	\def\xd{-1};
-	\def\yd{1};
-	\def\mag{1.7};
-	\coordinate [label=above right:$P$] (P) at (\xp,\yp);
-	\coordinate [label={[shift={(0.1,0.1)}]$R_D$}] (RD) at (\xp+\xd,\yp+\yd);
-	\coordinate [label=above:$R_O$] (RO) at (\xp+\xd*\mag,\yp+\yd*\mag);
-	\draw[fill] (P) circle [radius=1pt];
-	\draw[fill] (RO) circle [radius=1pt];
-	\draw[-stealth] (RO) -- (RD);
-	\draw[dashed] (RD) -- (P);
-	\end{tikzpicture}
-	\caption{Ray-triangle intersection problem scheme.}
-\end{figure}
-%
-Over the last decades, plenty of algorithms for solving this problem had been purposed, so there are several solutions to the ray/triangle or ray-triangle intersection problem. Three of the most relevant algorithms are:
-\begin{itemize}
-	\item \textit{Badouel} algorithm;
-	\item \textit{Segura} algorithm;
-	\item \textit{M\"oller-Trumbore} algorithm.
-\end{itemize}
-As \citeauthor{RayTriangle} states in \cite{RayTriangle}, the M\"oller-Trumbore's is the faster algorithm when the normal and/or the projection plane have not been previously stored, as in this thesis.\\
-%
-\subsection{M\"oller-Trumbore Algorithm}
-
-\begin{figure}[htbp]
-	\centering
-	\hfill
-	\begin{subfigure}[t]{.3\linewidth}
-		\begin{tikzpicture}
-			\coordinate (O) at (0,0,0);
-			\def\axisl{3}
-			\draw[-stealth] (O) -- (\axisl,0,0) node[below]{$x$};
-			\draw[-stealth] (O) -- ({sqrt(\axisl)},{sqrt(\axisl)},0) node[above]{$y$};
-			\draw[-stealth] (O) -- (0,\axisl,0) node[left]{$z$};
-			
-			\coordinate [label=below:$V_1$] (V1) at ({\axisl/1.5},0,0);
-\coordinate [label=above:$V_2$] (V2) at ({sqrt(\axisl)/1.5},{sqrt(\axisl)/1.5},0);
-\coordinate [label=above:$V_3$] (V3) at (0,0,0);
-			
-			\draw[fill=gray!10] (V1) -- (V2) -- (V3) -- (V1);
-
-		\end{tikzpicture}
-	\end{subfigure}
-\hfill
-\begin{subfigure}[t]{.3\linewidth}
-	\begin{tikzpicture}
-			\coordinate (O) at (0,0,0);
-			\def\axisl{3}
-		\draw[-stealth] (O) -- (\axisl,0,0) node[below]{$x$};
-\draw[-stealth] (O) -- ({sqrt(\axisl)},{sqrt(\axisl)},0) node[above]{$z$};
-\draw[-stealth] (O) -- (0,\axisl,0) node[left]{$y$};
-			
-			\coordinate [label=below:$V_1$] (V1) at ({\axisl/1.5},0,0);
-			\coordinate [label=above:$V_2$] (V2) at ({sqrt(\axisl)/1.5},{sqrt(\axisl)/1.5},0);
-			\coordinate [label=above:$V_3$] (V3) at (0,0,0);
-			
-
-			
-			\draw[fill=gray!10] (V1) -- (V2) -- (V3) -- (V1);
-
-	\end{tikzpicture}
-\end{subfigure}
-\hfill
-\begin{subfigure}[t]{.3\linewidth}
-	\begin{tikzpicture}
-		\coordinate (O) at (0,0,0);
-		\def\axisl{3}
-		\draw[-stealth] (O) -- (\axisl,0,0) node[below]{$\alpha$};
-		\draw[-stealth] (O) -- ({sqrt(\axisl)},{sqrt(\axisl)},0) node[above]{$\beta$};
-		\draw[-stealth] (O) -- (0,\axisl,0) node[left]{$\gamma$};
-		
-		\coordinate [label={[below,font=\tiny]:$1$}] (V1) at ({\axisl/1.5},0,0);
-		\coordinate [label={[shift={(-0.1,0.0)},font=\tiny]:$1$}] (V2) at ({sqrt(\axisl)/1.5},{sqrt(\axisl)/1.5},0);
-		\coordinate (V3) at (0,0,0);
-		
-		\draw[fill=gray!10] (V1) -- (V2) -- (V3) -- (V1);
-	\end{tikzpicture}
-\end{subfigure}
-\hfill
-\caption{Transformation and base change of ray in M\"oller-Trumbore algorithm.}
-\end{figure}
-
-
-
-The inputs of the M\"oller-Trumbore algorithm are:
-\begin{itemize}
-	\item Triangle vertices $(V_1, V_2, V_3)$;
-	\item Segment points $(Q_1, Q_2)$.
-\end{itemize}
-%
-\begin{figure}[htbp]
-\hfill
-	\begin{subfigure}[t]{.4\linewidth}
-		\raggedright
-		\textit{With back-face culling}\\
-		\vspace{.5em}
-		$Q = Q_2 - Q_1$\\
-		$E_1 = V_2 - V_1$\\
-		$E_2 = V_3 - V_1$\\
-		$A = Q \times E_2$\\
-		$D = A \cdot E_1$\\
-		$\mathbf{if} \, (D > \varepsilon) \{$\\
-		\quad $T = Q_1 - V_1$\\
-		\quad $u = A \cdot T$\\
-		\quad $\mathbf{if} \, (u < 0.0 \, || \, u > D) \{$\\
-		\quad \quad $\mathbf{return \, false}$\\
-		\quad $\}$\\
-		\quad $B = T \times E_1$\\
-		\quad $v = B \cdot Q$\\
-		\quad $\mathbf{if} \, (v < 0.0 \, || \, u + v > D) \{$\\
-		\quad \quad $\mathbf{return \, false}$\\
-		\quad $\}$\\
-		$\} \, \mathbf{else \, if} \, (D < -\varepsilon) \{$\\
-		\quad $T = Q_1 - V_1$\\
-		\quad $u = A \cdot T$\\
-		\quad $\mathbf{if} \, (u > 0.0 \, || \, u < D) \{$\\
-		\quad \quad $\mathbf{return \, false}$\\
-		\quad $\}$\\
-		\quad $B = T \times E_1$\\
-		\quad $v = B \cdot Q$\\
-		\quad $\mathbf{if} \, (v > 0.0 \, || \, u + v < D) \{$\\
-		\quad \quad $\mathbf{return \, false}$\\
-		\quad $\}$\\
-		$\} \, \mathbf{else} \, \{$\\
-		\quad $\mathbf{return \, false}$\\
-		$\}$\\
-		$D_{inv} = 1.0 / D$\\
-		$t = (B \cdot E_2) * D_{inv}$\\
-		$\mathbf{if} \, (t > 0.0) \{$\\
-		\quad $P = Q + D * t$\\
-		\quad $\mathbf{return \, true}$\\
-		$\} \, \mathbf{else} \, \{$\\
-		\quad $\mathbf{return \, false}$\\
-		$\}$\\
-	\end{subfigure}
-\hfill
-	\begin{subfigure}[t]{.4\textwidth}
-		\raggedright
-		\textit{Without back-face culling}\\
-		\vspace{.5em}
-		$Q = Q_2 - Q_1$\\
-		$E_1 = V_2 - V_1$\\
-		$E_2 = V_3 - V_1$\\
-		$A = Q \times E_2$\\
-		$D = A \cdot E_1$\\
-		$\mathbf{if} \, (D < \varepsilon) \{$\\
-		\quad $\mathbf{return \, false}$\\
-		$\}$\\
-		$T = Q_1 - V_1$\\
-		$u = A \cdot T$\\
-		$\mathbf{if} \, (u < 0.0 \, || \, u > D) \{$\\
-		\quad $\mathbf{return \, false}$\\
-		$\}$\\
-		$B = T \times E_1$\\
-		$v = B \cdot Q$\\
-		$\mathbf{if} \, (v < 0.0 \, || \, u + v > D) \{$\\
-		\quad \quad $\mathbf{return \, false}$\\
-		$\}$\\
-		$D_{inv} = 1.0 / D$\\
-		$t = (B \cdot E_2) * D_{inv}$\\
-		$\mathbf{if} \, (t > 0.0) \{$\\
-		\quad $P = Q + D * t$\\
-		\quad $\mathbf{return \, true}$\\
-		$\} \, \mathbf{else} \, \{$\\
-		\quad $\mathbf{return \, false}$\\
-		$\}$\\
-	\end{subfigure}
-\hfill
-\caption{Ray-triangle intersection algorithm schemes.}
-\end{figure}
+\section{Il \textit{Parser}}

@@ -2,38 +2,7 @@
 \label{Pneumatico}
 %
 \section{Introduzione}
-Gli pneumatici sono probabilmente i componenti più complessi di un'auto in quanto combinano decine di componenti che devono essere formati, assemblati e curati insieme. Il loro successo finale dipende dalla loro capacità di fondere tutti i componenti separati in un prodotto coeso che soddisfa le esigenze del conducente \cite{rill}. Gli pneumatici sono caratterizzati da un comportamento altamente non lineare con una dipendenza da diversi fattori costruttivi e ambientali. Tuttavia, le forze di contatto possono essere descritte completamente da un vettore di forza risultante applicato in un punto specifico della patch di contatto e da un vettore di coppia, come illustrato nella \figurename{  \ref{tireforces}}.
-
-\begin{figure}[h]
-	\centering
-	\begin{subfigure}{0.4\linewidth}
-		$F_x$ \quad forza longitudinale\\
-		$F_y$ \quad forza laterale\\
-		$F_z$ \quad forza verticale\\
-		$T_x$ \quad coppia di sovrasterzo\\
-		$T_y$ \quad resistenza al rotolamento\\
-		$T_z$ \quad coppia di autoallineamento
-	\end{subfigure}
-	\begin{subfigure}{0.4\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{Figures/tire_forces}
-	\end{subfigure}
-\caption{Forze e coppie generate dal contatto pneumatico-strada.}
-\label{tireforces}
-\end{figure}
-%
-Componenti cruciali per la movimentazione dei veicoli e il comportamento di guida, le forze degli pneumatici richiedono particolare attenzione e cura soprattutto quando, lungo il comportamento stazionario, il comportamento non stazionario deve essere coperto. Attualmente, è possibile identificare tre gruppi di modelli:
-%
-\begin{itemize}
-	\item modelli matematici;
-	\item modelli fisici;
-	\item combinazione dei precedenti.
-\end{itemize}
-%
-\noindent
-La prima tipologia di modello tenta di rappresentare le caratteristiche fisiche del pneumatico attraverso una descrizione puramente matematica. Pertanto questi tipi di modelli partono da un curve caratteristiche ricavate sperimentalmente e cercano di derivare un comportamento approssimativo dall'interpolazione di dati. Un esempio ben noto di questo approccio è il modello di Pacejka o \textit{Magic Formula Tire Model} \cite{hans}. Questo tipo di modellazione è adatta per la simulazione di manovre di guida, dove il comportamento di interesse è per lo più la gestione del veicolo e le frequenze di uscita sono ben al di sotto delle frequenze di risonanza della cintura dello pneumatici. I modelli fisici o i modelli ad alta frequenza, come i modelli agli elementi finiti, sono in grado di rilevare fenomeni di frequenza più elevata come le vibrazioni della membrana. Ciò permette di valutare il comfort di guida di un veicolo. Dal punto di vista del calcolo, i modelli fisici complessi richiedono molto tempo al computer per essere risolto, nonché molti dati. Dall'altro lato, i modelli matematici sono veloci in termini di calcolo, ma richiedono un'accurata pre-elaborazione dei dati sperimentali. La terza tipologia di modelli consiste in un'estensione dei modelli matematici attraverso le leggi fisiche al fine di coprire una gamma di frequenza più ampia.\\
-Il modello di pneumatico sviluppato nel modello di veicolo presentato da \citeauthor{Larcher} in \cite{Larcher} si basa sulla Magic Formula 6.2. Una panoramica generale sui modelli della Magic Formula e sul calcolo dello slip degli pneumatici è descritta nelle sezioni seguenti, mentre l'insieme completo delle equazioni del modello implementato è riportato nell'Appendice.
-Come vedremo nel Capitolo 3 il modello di pneumatico deve essere combinato con un'interfaccia di pneumatico/strada modellata adeguata per ottenere risultati significativi.
+Gli pneumatici sono probabilmente i componenti più complessi di un'auto in quanto combinano decine di componenti che devono essere formati, assemblati e combinati assieme. Il successo del prodotto finale dipende dalla loro capacità di fondere tutti i componenti separati in un prodotto dal materiale coeso che soddisfa le esigenze del conducente \cite{rill}. Gli pneumatici sono caratterizzati da un comportamento altamente non lineare con una dipendenza da diversi fattori costruttivi e ambientali.
 %
 \section{Geometria dello Pneumatico secondo ETRTO}
 Quando si fa riferimento ai dati puramente geometrici, viene utilizzata una forma abbreviata della notazione completa prevista dall'ente di normazione \ac{ETRTO}. Assumendo di avere un pneumatico generico la notazione che identificherà la geometria sarà del tipo $a$/$b$R$c$. Dove:
@@ -61,10 +30,45 @@ Anche se questo è teoricamente ambiguo, in pratica queste due notazioni possono
 	\label{tiremeasures}
 \end{figure}
 %
+\section{La Modellizzazione dello Pneumatico}
+Le forze di contatto tra la superficie stradale e lo pneumatico possono essere descritte completamente da un vettore di forza risultante applicato in un punto specifico dell'impronta di contatto e da una coppia risultante, come illustrato nella \figurename{  \ref{tireforces}}.
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.4\linewidth}
+		$F_x$ \quad forza longitudinale\\
+		$F_y$ \quad forza laterale\\
+		$F_z$ \quad forza verticale\\
+		$T_x$ \quad coppia di sovrasterzo\\
+		$T_y$ \quad resistenza al rotolamento\\
+		$T_z$ \quad coppia di autoallineamento
+	\end{subfigure}
+	\begin{subfigure}{0.4\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{Figures/tire_forces}
+	\end{subfigure}
+\caption{Forze e coppie generate dal contatto pneumatico-strada.}
+\label{tireforces}
+\end{figure}
+%
+Come componenti cruciali per la movimentazione dei veicoli e il comportamento di guida, le forze degli pneumatici richiedono particolare attenzione soprattutto quando, assieme al comportamento stazionario, anche il comportamento non stazionario dev'essere considerato.
+
+Attualmente, è possibile suddividere i modelli di pneumatico in tre gruppi:
+\begin{itemize}
+	\item modelli matematici;
+	\item modelli fisici;
+	\item combinazione dei precedenti.
+\end{itemize}
+
+\noindent
+La prima tipologia di modello tenta di rappresentare le caratteristiche fisiche del pneumatico attraverso una descrizione puramente matematica. Pertanto questi tipi di modelli partono da un curve caratteristiche ricavate sperimentalmente e cercano di derivare un comportamento approssimativo dall'interpolazione di un grande insieme di dati. Un esempio ben noto di questo approccio è il \textbf{modello di Pacejka} o \textbf{\textit{Magic Formula}} \cite{hans}. Questo tipo di modellazione è adatta per la simulazione di guida dove il comportamento di interesse è per lo più la guidabilità del veicolo e le frequenze di uscita sono ben al di sotto delle frequenze di risonanza della cintura dello pneumatico. I modelli fisici o i modelli ad alta frequenza, come i modelli agli elementi finiti, sono in grado di rilevare fenomeni di risonanza a frequenza più elevata. Ciò permette di valutare la confortevolezza di guida di un veicolo. Dal punto di vista del calcolo, i modelli fisici complessi richiedono molto tempo al calcolatore per essere risolti, nonché di molti dati. Al contrario dei più veloci modelli matematici, che però richiedono un'accurata pre-elaborazione dei dati sperimentali. La terza tipologia di modelli consiste in un'estensione dei modelli matematici attraverso le leggi fisiche al fine di coprire una gamma di frequenza più ampia.
+
+Il modello di pneumatico sviluppato nel modello di veicolo e il tipo di interfaccia di pneumatico/strada presentato da \citeauthor{Larcher} in \cite{Larcher} si basa sulla \textit{Magic Formula} 6.2.
+%
 \section{Il Modello della \textit{Magic Formula}}
 %
 \subsection{La \textit{Magic Formula}}
-Uno dei modelli di pneumatici più utilizzati è il cosiddetto modello \textit{Magic Formula} sviluppato da \citeauthor{bakker} in \cite{bakker}. Questo modello è stato poi rivisto e l'ultima versione è riportata in \cite{hans}. Il modello Magic Formula consiste in una pura descrizione matematica del rapporto input-output del contatto pneumatico-strada. Questa formulazione collega le variabili di forza con lo slip rigido del corpo che vengono trattati nelle sezioni successive. La forma generale della funzione di descrizione può essere scritta come:
+Uno dei modelli di pneumatici più utilizzati è il cosiddetto modello \textit{Magic Formula} sviluppato da \citeauthor{bakker} in \cite{bakker}. Questo modello è stato poi rivisto e l'ultima versione è riportata in \cite{hans}. Il modello \textit{Magic Formula} consiste in una pura descrizione matematica del rapporto input-output del contatto pneumatico-strada. Questa formulazione collega le variabili di forza con lo slip rigido del corpo che vengono trattati nelle sezioni successive. La forma generale della funzione di descrizione può essere scritta come:
 %
 \begin{equation}
 y(x) = D\sin\{C\arctan[B(x + S_h ) - E(B(x + S_h ) - \arctan(B(x + S_h )))]\} + S_v
@@ -79,24 +83,23 @@ dove:
 	\item $S_v$ rappresenta lo spostamento in verticale della curva caratteristica;
 	\item $S_h$ rappresenta lo spostamento in orizzontale della curva caratteristica.
 \end{itemize}
-e dove $y(x)$ può essere la forza longitudinale $F_x$ , la forza laterale $F_y$ o la coppia di autoallineamento $M_z$, mentre $x$ è la componente di slip corrispondente. In \figurename{ \ref{pacejka}} sono illustrate le curve caratteristiche generiche degli pneumatici derivate con il metodo della Magic Formula.
+e dove $y(x)$ può essere la forza longitudinale $F_x$ , la forza laterale $F_y$ o la coppia di autoallineamento $M_z$, mentre $x$ è la componente di slip corrispondente. In \figurename{ \ref{pacejka}} sono illustrate le curve caratteristiche generiche degli pneumatici derivate con il metodo della \textit{Magic Formula}.
 %
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.58\linewidth]{Figures/pacejka}
-	\caption{Curve caratteristiche generiche degli pneumatici derivate con il metodo della Magic Formula}
+	\caption{Curve caratteristiche generiche degli pneumatici derivate con il metodo della \textit{Magic Formula}}
 	\label{pacejka}
 \end{figure}
 
-%
 \subsection{Contatto con la Superficie Stradale}
-La posizione e l'orientamento della ruota in relazione al sistema fissato a terra sono dati dal telaio di riferimento del vettore ruota $RF_{wh_{i}}$ che viene calcolato risolvendo le equazioni dinamiche del sistema ottenuto nel Capitolo 2 in \cite{Larcher} istante per istante. Supponendo che il profilo stradale potrebbe essere rappresentato da una funzione arbitraria di due coordinate spaziali 
+La posizione e l'orientamento della ruota in relazione al sistema fissato a terra sono dati dalla terna di riferimento del vettore ruota $RF_{wh_{i}}$, che viene calcolata istante per istante risolvendo le equazioni dinamiche del sistema ottenuto nel Capitolo 2 in \cite{Larcher}. Supponendo che il profilo stradale sia rappresentato da una funzione arbitraria a due coordinate spaziali del tipo: 
 %
 \begin{equation}
 z=z(x,y)
 \end{equation}
 %
-su una irregolare, il punto di contatto $P$ non può essere calcolato direttamente. Così, come prima approssimazione siamo in grado di identificare un punto $P$, che è definito come una semplice traslazione del centro ruota $M$:
+su una superficie irregolare, il punto di contatto $P$ non può essere calcolato direttamente. Così, come prima approssimazione siamo in grado di identificare un punto $P^\star$, che è definito come una semplice traslazione del centro ruota $M$:
 %
 \begin{equation}
 P^\star = M-R_0\textbf{\textit{e}}_{zC}
@@ -124,7 +127,7 @@ dove $R_0$ è il raggio dello pneumatico indeformato e $\textbf{\textit{e}}_{zC}
 \end{figure}
 %
 \noindent
-La prima stima del sistema di riferimento del punto di contatto $RF_{PC^\star}$ è un frame con origine in $P^\star$ e orientamento dell'asse definito dall'orientamento dell'asse del sistema portante della ruota.
+La prima stima del sistema di riferimento del punto di contatto $RF_{PC^\star}$ è una terna con origine in $P^\star$ e orientazione degli assi definiti dall'orientazione del sistema di riferimento della ruota.
 %
 \begin{equation}
 RF_{PC^\star} = \left[
@@ -142,9 +145,10 @@ Ora, i vettori di unità $\textbf{\textit{e}}_x$ ed $\textbf{\textit{e}}_y$, che
 \textbf{\textit{e}}_x = \frac{\textbf{\textit{e}}_{yC}\times\textbf{\textit{e}}_{n}}{|\textbf{\textit{e}}_{yC}\times\textbf{\textit{e}}_{n}|}
 \qquad
 \textbf{\textit{e}}_{y} = \textbf{\textit{e}}_{n}\times\textbf{\textit{e}}_{x}
+\label{terna}
 \end{equation}
 %
-Al fine di ottenere una buona approssimazione del piano pista locale in termini di inclinazione longitudinale e laterale, sono stati utilizzati un insieme di quattro punti di campionamento $(Q^\star_1, Q^\star_2, Q^\star_3, Q^\star_4)$ che sono rappresentati graficamente in \figurename{ \ref{localtrack}}. I punti di campionamento sono definiti sul piano locale del punto di contatto $RF_{PC^\star}$, poiché lo spostamento longitudinale e laterale dall'origine del sistema, che è $P^\star$. I vettori di spostamento sono definiti come:
+Al fine di ottenere una buona approssimazione del piano strada locale in termini di inclinazione longitudinale e laterale, sono stati utilizzati i quattro punti di campionamento $(Q^\star_1, Q^\star_2, Q^\star_3, Q^\star_4)$ che sono rappresentati graficamente in \figurename{ \ref{localtrack}}. I punti di campionamento sono definiti sul sistema di riferimento temporaneo del punto di contatto $RF_{PC^\star}$ e lo spostamento longitudinale e laterale sono definiti dall'origine, ovvero lo stesso $P^\star$. I vettori di spostamento sono definiti come:
 %
 \begin{equation}
 \begin{split}
@@ -162,7 +166,7 @@ _{P^\star}\textbf{\textit{r}}_{Q^\star_{3,4}} = P^\star \pm \Delta y \textbf{\te
 \end{split}
 \end{equation}
 %
-Al fine di campionare la patch di contatto nel modo più efficiente possibile, le distanze di $\Delta x$ e $\Delta y$, dell'equazione precedente, vengono regolate in base al raggio del pneumatico indeformato $R_0$ e alla larghezza del pneumatico $B$. I valori di queste due quantità possono essere trovate in letteratura e sono $\Delta x = 0.1 R_0$ e $\Delta x = 0.3 B$. Attraverso questa definizione, si può ottenere un comportamento realistico durante la simulazione.
+Al fine di campionare l'impronta di contatto nel modo più efficiente possibile, le distanze di $\Delta x$ e $\Delta y$, dell'equazione precedente, vengono regolate in base al raggio del pneumatico indeformato $R_0$ e alla larghezza del pneumatico $B$. I valori di queste due quantità possono essere trovate in letteratura e sono $\Delta x = 0.1 R_0$ e $\Delta x = 0.3 B$. Attraverso questa definizione, si può ottenere un comportamento realistico durante la simulazione.
 
 \begin{figure}[h]
 	\centering
@@ -172,13 +176,14 @@ Al fine di campionare la patch di contatto nel modo più efficiente possibile, l
 \end{figure}
 %
 \noindent
-Ora il componente traccia $z$ in corrispondenza dei quattro punti campione viene valutato attraverso la funzione $z(x,y)$ (Eq. 3.1), quindi, aggiornando la terza coordinata dei punti di sondaggio $Q^\star_i$, otteniamo i corrispondenti punti campione $Q_i$ sulla superficie della pista locale. La linea fissata dai punti $Q_1$, $Q_2$ e rispettivamente $Q_3$, $Q_4$, può ora essere utilizzata per definire il vettore normale del piano della pista locale (\figurename \ref{label}). Pertanto, il vettore normale è definito come:
+Ora la componente $z$ in corrispondenza dei quattro punti campione viene valutata attraverso la funzione $z(x,y)$ precedentemente definita. Quindi, aggiornando la terza coordinata dei punti di campionamento $Q^\star_i$, otteniamo i corrispondenti punti campione $Q_i$ sulla superficie della pista locale. La linea fissata dai punti $Q_1$, $Q_2$ e rispettivamente $Q_3$, $Q_4$, può ora essere utilizzata per definire la normale al piano strada locale (\figurename \ref{localplane}). Pertanto, il vettore normale è definito come:
 %
 \begin{equation}
 \textbf{\textit{e}}_n = \frac{\textbf{\textit{r}}_{Q_1 Q_2} \times \textbf{\textit{r}}_{Q_4 Q_3}}{|\textbf{\textit{r}}_{Q_1 Q_2} \times \textbf{\textit{r}}_{Q_4 Q_3}|}
 \end{equation}
+
 %
-dove sono $\textbf{\textit{r}}_{Q_2 Q_1}$ e $\textbf{\textit{r}}_{Q_4 Q_3}$ sono i vettori che puntano rispettivamente da $Q_1$ a $Q_2$ e da $Q_3$ a $Q_4$. Applicando Eq 3.4 è ora possibile calcolare i vettori unitari $\textbf{\textit{e}}_{x}$ e $\textbf{\textit{e}}_{y}$ del piano di locale del punto di contatto. Il punto di contatto $P$ si ottiene aggiornando le coordinate del primo punto di prova $P^\star$, con il valore medio delle tre coordinate spaziali dei quattro punti campione.
+dove sono $\textbf{\textit{r}}_{Q_2 Q_1}$ e $\textbf{\textit{r}}_{Q_4 Q_3}$ sono i vettori che puntano rispettivamente da $Q_1$ a $Q_2$ e da $Q_3$ a $Q_4$. Applicando l'equazione \ref{terna} è ora possibile calcolare i vettori unitari $\textbf{\textit{e}}_{x}$ e $\textbf{\textit{e}}_{y}$ del piano di locale del punto di contatto. Il punto di contatto $P$ si ottiene aggiornando le coordinate del primo punto di prova $P^\star$, con il valore medio delle tre coordinate spaziali dei quattro punti campione.
 %
 \begin{equation}
 P = \frac{1}{4}\begin{bmatrix}
@@ -199,7 +204,7 @@ RF_{PC} = \left[
 0 & 0 & 0 & 1
 \end{array}\right]
 \end{equation}\\
-Attraverso questo approccio di modellazione, le informazioni della traccia locale normal vector $\textbf{\textit{e}}_{n}$, insieme al punto di contatto locale $P$ sono in grado di rappresentare l'irregolarità locale in modo soddisfacente. Come accade in realtà, bordi taglienti o discontinuità del manto stradale saranno smussate da questo approccio. Alcuni casi dimostrativi sono illustrati nella \figurename{  \ref{localplane}}.
+Attraverso questo approccio, la normale del piano strada locale $\textbf{\textit{e}}_{n}$ insieme al punto di contatto locale $P$, sono in grado di rappresentare l'irregolarità della strada in modo soddisfacente. Come accade in realtà, bordi taglienti o discontinuità del manto stradale saranno smussate da questo approccio. Alcuni casi dimostrativi sono illustrati nella \figurename{  \ref{localplane}}.
 
 \begin{figure}[h]
 	\centering
