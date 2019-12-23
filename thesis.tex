@@ -130,7 +130,7 @@ This dissertation details \dots
 %----------------------------------------------------------------------------------------
 %	TABLE OF CONTENTS
 %----------------------------------------------------------------------------------------
-
+\chapterstyle{before}
 \tableofcontents* % Print the table of contents
 
 %\cleartoverso % Force a break to an even page
@@ -140,7 +140,7 @@ This dissertation details \dots
 %	LIST OF FIGURES
 %----------------------------------------------------------------------------------------
 
-\listoffigures % Print the list of figures
+\listoffigures* % Print the list of figures
 
 %\cleartoverso % Force a break to an even page
 \cleartooddpage % Force a break to an odd page
@@ -149,7 +149,7 @@ This dissertation details \dots
 %	LIST OF TABLES
 %----------------------------------------------------------------------------------------
 
-\listoftables % Print the list of tables
+\listoftables* % Print the list of tables
 
 %\cleartoverso % Force a break to an even page
 \cleartooddpage % Force a break to an odd page
@@ -177,15 +177,15 @@ This dissertation details \dots
 \include{Chapters/capitolo1}
 \include{Chapters/capitolo2}
 \include{Chapters/capitolo3}
+\include{Chapters/capitolo4}
 \include{Chapters/conclusione}
-\include{Chapters/chapterExamples}
+%\include{Chapters/chapterExamples}
 
 \appendix
 \include{Chapters/appendici_codice}
 
 \backmatter
-
-\chapterstyle{default} % Reset the chapter style back to the default used for non-content chapters
+\chapterstyle{default} % Change the style of the Chapter header to that defined in structure.tex
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY

@@ -19,6 +19,7 @@
 \usepackage{color} % Required for custom colors
 %\usepackage[showframe]{geometry}
 \usepackage{amsmath,amssymb,theorem} % Math packages
+\usepackage{esvect}
 \usepackage{listings} % Required for including snippets of code
 \usepackage{booktabs} % Required for better horizontal rules in tables
 \usepackage{xspace} % Provides the ability to use an intelligent space which is used in \institution and \department
@@ -82,15 +83,33 @@
 \renewcommand{\afterchapternum}{}
 \renewcommand{\printchaptername}{}
 \renewcommand{\afterchaptertitle}{\chapnumfont\hfill\thechapter\\\vspace*{-.3cm}\hrulefill\vspace*{6cm}\\}
+\makeoddfoot{plain}{}{}{} % page number on the bottom right
+\makepagestyle{pter}
+\makeoddhead{pter}{\itshape\leftmark}{}{}
+\makeevenhead{pter}{}{}{\itshape\leftmark}
+\makeoddfoot{pter}{}{}{\thepage}
+\makeevenfoot{pter}{\thepage}{}{}
 }
 \makeatother
+
+\makeatletter
+\makechapterstyle{before}{
+	\makeoddfoot{plain}{}{}{} % page number on the bottom right
+	\makepagestyle{plain}
+	\makeoddhead{plain}{}{}{}
+	\makeevenhead{plain}{}{}{}
+	\makeoddfoot{plain}{}{}{}
+	\makeevenfoot{plain}{}{}{}
+}
+\makeatother
+
 
 %----------------------------------------------------------------------------------------
 %	TABLE OF CONTENTS DEPTH
 %----------------------------------------------------------------------------------------
 
 \maxsecnumdepth{subsubsection}
-\maxtocdepth{subsection}
+\maxtocdepth{subsubsection}
 
 %----------------------------------------------------------------------------------------
 %	MATH THEOREM DEFINITIONS
@@ -110,8 +129,11 @@
 %----------------------------------------------------------------------------------------
 
 \lstset{
-  basicstyle=\ttfamily\small,
-  basewidth=0.55em,
+  basicstyle=\ttfamily\tiny,
+  basewidth=0.45em,
+  commentstyle=\ttfamily,
+  tabsize=2,
+  keywordstyle=\bfseries\sffamily,
   showstringspaces=false,
   numbers=left,
   numberstyle=\tiny,
@@ -120,7 +142,7 @@
   breaklines=true
 }
 % Examples of list environments for different programming languages, you will likely need to specify your own
-\lstnewenvironment{pseudoc}{\lstset{frame=lines,language=C,mathescape=true}}{}
+\lstnewenvironment{pseudoc}{\lstset{frame=lines,mathescape=true, language = C++, basicstyle=\ttfamily\small, basewidth=0.55em}}{}
 \lstnewenvironment{logs}{\lstset{frame=lines,basicstyle=\footnotesize\ttfamily,numbers=none}}{}
 \lstnewenvironment{cc}{\lstset{frame=lines,language=C}}{}
 \lstnewenvironment{c64}{\lstset{backgroundcolor=\color{c64},basewidth=0.65em,basicstyle=\commodoreface\color{c64light},numbers=none,framerule=10pt,rulecolor=\color{c64light},frame=tb,framexbottommargin=30pt}}{}

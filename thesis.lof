@@ -8,45 +8,51 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Rappresentazione degli assi del sistema di riferimento della vettura secondo la convenzione ISO-V.\relax }}{3}{figure.caption.8}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Esempio di misure, secondo la notazione \ac {ETRTO}, riportate sulla spalla dello pneumatico.\relax }}{7}{figure.caption.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Rappresentazione degli assi del sistema di riferimento dello pneumatico secondo la convenzione ISO-C.\relax }}{4}{figure.caption.9}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Forze e coppie generate dal contatto pneumatico-strada.\relax }}{7}{figure.caption.7}
 \defcounter {refsection}{0}\relax 
-\addvspace {10pt}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Curve caratteristiche generiche degli pneumatici derivate con il metodo della \textit {Magic Formula}\relax }}{9}{figure.caption.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Forze e coppie generate dal contatto pneumatico-strada.\relax }}{8}{figure.caption.10}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Geometria del contatto pneumatico-strada.\relax }}{10}{figure.caption.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Esempio di misure, secondo la notazione \ac {ETRTO}, riportate sulla spalla dello pneumatico.\relax }}{10}{figure.caption.11}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Punti campionati nel piano locale della superficie stradale.\relax }}{11}{figure.caption.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Curve caratteristiche generiche degli pneumatici derivate con il metodo della Magic Formula\relax }}{11}{figure.caption.12}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Geometria del contatto pneumatico-strada.\relax }}{12}{figure.caption.13}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Punti campionati nel piano locale della superficie stradale.\relax }}{13}{figure.caption.14}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Inclinazione longitudinale e laterale del piano strada locale.\relax }}{14}{figure.caption.15}
-\defcounter {refsection}{0}\relax 
-\addvspace {10pt}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Point-circle intersection problem scheme.\relax }}{16}{figure.caption.21}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Output schemes of the point-circle intersection problem.\relax }}{17}{figure.caption.22}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Point-circle intersection algorithm schemes.\relax }}{18}{figure.caption.23}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Ray-triangle intersection problem scheme.\relax }}{18}{figure.caption.24}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Transformation and base change of ray in M\"oller-Trumbore algorithm.\relax }}{19}{figure.caption.25}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Ray-triangle intersection algorithm schemes.\relax }}{20}{figure.caption.26}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Inclinazione longitudinale e laterale del piano strada locale.\relax }}{12}{figure.caption.11}
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Esempio di albero di tipo \ac {AABB}.\relax }}{21}{figure.caption.15}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Schema grafico per l'intersezione punto-segmento\relax }}{25}{figure.caption.23}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Schemi per l'output dell'intersezione punto-segmento.\relax }}{25}{figure.caption.24}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Schema del codice per l'intersezione punto-segmento.\relax }}{26}{figure.caption.25}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Point-circle intersection problem scheme.\relax }}{26}{figure.caption.26}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Schemi per l'output dell'intersezione punto-cerchio.\relax }}{27}{figure.caption.27}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Schemi per l'intersezione punto-cerchio.\relax }}{27}{figure.caption.28}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Ray-triangle intersection problem scheme.\relax }}{28}{figure.caption.29}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Transformation and base change of ray in M\"oller-Trumbore algorithm.\relax }}{28}{figure.caption.30}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Ray-triangle intersection algorithm schemes.\relax }}{30}{figure.caption.31}
+\defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.1}{\ignorespaces \texttt {telnetd}: distribution of the number of other system calls among two \texttt {execve} system calls (i.e., distance between two consecutive \texttt {execve}).\relax }}{28}{figure.caption.29}
+\addvspace {10pt}
+\defcounter {refsection}{0}\relax 
+\addvspace {10pt}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Rappresentazione degli assi del sistema di riferimento della vettura secondo la convenzione ISO-V.\relax }}{35}{figure.caption.33}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Rappresentazione degli assi del sistema di riferimento dello pneumatico secondo la convenzione ISO-C.\relax }}{36}{figure.caption.34}
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 

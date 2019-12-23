@@ -6,11 +6,13 @@ Oltre allo pnumatico, la superfice stradale rappresenta il secondo importante el
 
 È importante notare che la discretizzazione del manto stradale è un passaggio molto importante in quando, se campionatonato troppo grossolanamente potrebbe influire negativamente sui risultati dei calcoli per l'estrazione del piano strada locale. In altre parole, una semplificazione troppo spinta, potrebbe causare degli errori tali da incorrere in risultati troppo approssimativi e non rispecchianti la realtà. Al contrario, una \textit{mesh} troppo fitta, complica inutilmente i calcoli, dilatando sensibilmente i tempi di esecuzione. È bene quindi discretizzare più densamente in maniera oculata e solo dove occore realmente, ovvero in prossimità di cordoli, marciapiedi o qualsiasi tipo di ostacolo che potrebbe influire sulle performance della vettura. 
 %
-\section{Il formato RDF}
-Sfortunatamente, non esistono standard universalmente riconosciuti per il formato RDF. In linea di massima le superfici stradali sono definite nei \textit{road data file} (*.rdf). Questa tipologia di file è composto da varie sezioni, indicate da parentesi quadre.
+\section{Il Formato RDF}
+%
+\subsection{Superfici Semplici}
+Sfortunatamente, non esistono standard universalmente riconosciuti per il formato RDF. In linea di massima le superfici stradali sono definite nei \textit{road data file} (\texttt{*.rdf}). Questa tipologia di file è composto da varie sezioni, indicate da parentesi quadre.
 
-\begin{lstlisting}[language = C++, basicstyle=\ttfamily\small, basewidth=0.55em]
-	! Comments section
+\begin{pseudoc}
+	{ Comments section }
 	
 	[UNITS]
 	LENGTH = 'meter'
@@ -24,7 +26,7 @@ Sfortunatamente, non esistono standard universalmente riconosciuti per il format
 	
 	[PARAMETERS]
 	...
-\end{lstlisting}
+\end{pseudoc}
 
 Nella sezione \texttt{[UNITS]}, vengono impostate le unità utilizzate nel file di dati stradali. La sezione \texttt{[MODEL]} viene invece utilizzata per specificare il tipo di strada, del tipo:
 \begin{itemize}
@@ -60,20 +62,20 @@ I parametri per ogni tipologia di superficie stradale sono elencati di seguito:
 		\item Le colonne 2 e 3 sono insiemi di rispettivi valori $Z$ per la traccia sinistra e destra.
 	\end{itemize}
 	Esempio:
-	\begin{lstlisting}[language = C++, basicstyle=\ttfamily\small, basewidth=0.55em]
+	\begin{pseudoc}
 	[PARAMETERS]
-	MU = 1.0$ peak friction scaling coefficient
-	OFFSET = 0.0 $ vertical offset of the ground wrt inertial frame
-	ROTATION_ANGLE_XY_PLANE = 0.0 $ definition of the positive X-axis of the road wrt inertial frame
+	MU = 1.0
+	OFFSET = 0.0
+	ROTATION_ANGLE_XY_PLANE = 0.0 
 	
-	$X_road	Z_left	Z_right
+	{ X_road	Z_left	Z_right }
 	(XZ_DATA)
 	-1.0e04	0	0
 	0.0500	0	0
 	0.1000	0	0
 	0.1500	0	0
-	...  ... ...
-	\end{lstlisting}
+	... ... ...
+	\end{pseudoc}
 	\item Sinusoide:\\
 	La strada a superficie sinusoidale è implementata come:
 	\begin{equation}
@@ -96,7 +98,10 @@ I parametri per ogni tipologia di superficie stradale sono elencati di seguito:
 		Se l'onda sinusoidale è posizionata trasversalmente, \texttt{DIRECTION = 0}. Se l'onda sinusoidale è posta lungo l'asse $X$, \texttt{DIRECTION = 90}.
 	\end{itemize}
 \end{itemize}
-Sfortunatamente, queste informazioni permettono di costruire strade troppo semplici che non rispecchiano la realtà. È quindi necessario inserire i risultati della discretizzazione della superficie stradale sopra citati.
+%
+%
+\subsection{Superfici Complesse}
+Sfortunatamente, queste informazioni appena descritte permettono di costruire strade troppo semplicistiche e approssimative, che non rispecchiano la realtà. È quindi necessario inserire i risultati della discretizzazione della superficie stradale sopra citati.
 
 Per descrivere una superficie stradale composta da una \textit{mesh} di triangoli si userà la seguente formattazione del file.
 \begin{itemize}
@@ -104,22 +109,48 @@ Per descrivere una superficie stradale composta da una \textit{mesh} di triangol
 	\item \texttt{[ELEMENTS]}: presenti nella seconda sezione e dove vengono descritti sotto forma di una quartina $(n_1,n_2,n_3,\mu)$ data dal numero di identificazione dei tre vertici componenti $i$-esimo triangolo e dal coefficente di attrito presente nella faccia.
 \end{itemize}
 Esempio:
-\begin{lstlisting}[language = C++, basicstyle=\ttfamily\small, basewidth=0.55em]
-[NODES]
-{ id x_coord y_coord z_coord }
-0 2.64637 35.8522 -1.59419e-005 
-1 4.54089 33.7705 -1.60766e-005 
-2 4.52126 35.8761 -1.62482e-005 
-3 2.66601 33.7456 -1.57714e-005 
-4 0.771484 35.8282 -1.56367e-005 
-5 0.791126 33.7206 -1.5465e-005
-... ... ... ...
-[ELEMENTS]
-{ n1 n2 n3 mu }
-1 2 3 1.0 
-2 1 4 1.0 
-5 4 1 1.0 
-... ... ... ...
-\end{lstlisting}
-%
-\section{Il \textit{Parser}}
+\begin{pseudoc}
+	[NODES]
+	{ id x_coord y_coord z_coord }
+	0 2.64637 35.8522 -1.59419e-005 
+	1 4.54089 33.7705 -1.60766e-005 
+	2 4.52126 35.8761 -1.62482e-005 
+	3 2.66601 33.7456 -1.57714e-005 
+	4 0.771484 35.8282 -1.56367e-005 
+	5 0.791126 33.7206 -1.5465e-005
+	... ... ... ...
+	
+	[ELEMENTS]
+	{ n1 n2 n3 mu }
+	1 2 3 1.0 
+	2 1 4 1.0 
+	5 4 1 1.0 
+	... ... ... ...
+\end{pseudoc}
+
+Ulteriori parametri possono essere aggiunti prima della dichiarazaione dei nodi della \textit{mesh}.
+\begin{itemize}
+	\item \texttt{X\_SCALE}: riscala i punti delle coordinate dei nodi lungo l'asse $X$.
+	\item \texttt{Y\_SCALE}: riscala i punti delle coordinate dei nodi lungo l'asse $Y$.
+	\item \texttt{Z\_SCALE}: riscala i punti delle coordinate dei nodi lungo l'asse $Z$.
+	\item \texttt{ORIGIN}: definisce la posizione dell'origine della sistema di riferimento della superficie stradale.
+	\item \texttt{UP}: definisce la direzione positiva dell'asse $Z$.
+	\item \texttt{[ORIENTATION]}: ruota i punti delle coordinate dei nodi secondo la matrice definita.
+\end{itemize}
+Esempio:
+\begin{pseudoc}
+	X_SCALE
+	1000.0
+	Y_SCALE
+	1000.0
+	Z_SCALE
+	1000.0
+	ORIGIN
+	0 0 0
+	UP
+	0.0,0.0,1.0
+	ORIENTATION
+	1.0  0.0  0.0
+	0.0  1.0  0.0
+	0.0  0.0  1.0
+\end{pseudoc}
