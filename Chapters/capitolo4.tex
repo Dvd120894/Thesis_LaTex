@@ -3,10 +3,89 @@
 %
 \section{Organizzazione}
 
-\section{Le classi}
-\subsection{Namespace RDF}
-\subsubsection{BBox3D}
+%
+\subsection{Namespace RDF} 
+
+%
+\subsubsection{BBox2D}
+Questa classe contiene tutte le informazioni per definire una \ac{BB} bidimensionale.
+\begin{description}
+	\item[Descrizione] 
+\end{description}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline 
+		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ 
+		\hline 
+		\texttt{real\_type} & \texttt{Xmin} & $\bullet$ & $\bullet$ & $X_{min}$ della \ac{BB} \\ 
+		\hline 
+		\texttt{real\_type} & \texttt{Ymin} & $\bullet$ & $\bullet$ & $Y_{min}$ della \ac{BB} \\ 
+		\hline
+		\texttt{real\_type} & \texttt{Xmax} & $\bullet$ & $\bullet$ & $X_{max}$ della \ac{BB} \\ 
+		\hline
+		\texttt{real\_type} & \texttt{Ymax} & $\bullet$ & $\bullet$ & $Y_{max}$ della \ac{BB} \\ 
+		\hline
+	\end{tabular}
+	\caption{Attributi della classe BBox2D}
+	\label{BBox2D}
+\end{table}
+\paragraph{Funzioni}
+\begin{description}
+	\item[\texttt{clear}] Elimina il dominio della \ac{BB}.
+		\begin{itemize}
+			\item \textit{Input}: \texttt{void}
+			\item \textit{Output}: \texttt{void}
+		\end{itemize}
+	\item[\texttt{print}] Stampa il dominio della \ac{BB}.
+		\begin{itemize}
+			\item \textit{Input}: \texttt{ostream\_type}
+			\item \textit{Output}: \texttt{void}
+		\end{itemize}
+	\item[\texttt{updateBBox2D}] Aggiorna il dominio della \ac{BB} dato un set di tre punti tridimensionali in input.
+		\begin{itemize}
+			\item \textit{Input}: \texttt{real\_type} passato per riferimento e di dimensione 3 (e.g. \texttt{Vector[3]}).
+			\item \textit{Output}: \texttt{void}
+		\end{itemize}
+\end{description}
+%
 \subsubsection{Triangle3D}
+\begin{description}
+	\item[Descrizione] Questa classe contiene tutte le informazioni geometriche per definire un triangolo con vertici nello spazio tridimensionale.
+\end{description}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+	\hline 
+	\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ 
+	\hline 
+	\texttt{vec3} & \texttt{Vertices[3]} & $\bullet$ & $\bullet$ & $X_{min}$ della \ac{BB} \\ 
+	\hline 
+	\texttt{BBox2D} & \texttt{TriangleBBox} & $\bullet$ & $\bullet$ & $Y_{min}$ della \ac{BB} \\ 
+	\hline
+\end{tabular}
+	\caption{Attributi della classe BBox2D}
+	\label{Triangle3D}
+\end{table}
+\paragraph{Funzioni}
+\begin{description}
+	\item[\texttt{clear}] Elimina il dominio della \ac{BB}.
+	\begin{itemize}
+		\item \textit{Input}: \texttt{void}
+		\item \textit{Output}: \texttt{void}
+	\end{itemize}
+	\item[\texttt{print}] Stampa il dominio della \ac{BB}.
+	\begin{itemize}
+		\item \textit{Input}: \texttt{ostream\_type}
+		\item \textit{Output}: \texttt{void}
+	\end{itemize}
+	\item[\texttt{updateBBox2D}] Aggiorna il dominio della \ac{BB} dato un set di tre punti tridimensionali in input.
+	\begin{itemize}
+		\item \textit{Input}: \texttt{vec3[3]}
+		\item \textit{Output}: \texttt{void}
+	\end{itemize}
+\end{description}
+%
 \subsubsection{TriangleRoad}
 \subsubsection{MeshSurface}
 

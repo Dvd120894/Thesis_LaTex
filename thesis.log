@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  23 DEC 2019 16:55
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  24 DEC 2019 11:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1641,7 +1641,11 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 \@quotereset=\count437
 (./thesis.aux (./acronyms.aux) (./Chapters/introduzione.aux)
 (./Chapters/capitolo1.aux) (./Chapters/capitolo2.aux) (./Chapters/capitolo3.aux
-) (./Chapters/capitolo4.aux) (./Chapters/conclusione.aux)
+) (./Chapters/capitolo4.aux
+
+LaTeX Warning: Label `BBox2D' multiply defined.
+
+) (./Chapters/conclusione.aux) (./Chapters/chapterExamples.aux)
 (./Chapters/appendici_codice.aux))
 \openout1 = `thesis.aux'.
 
@@ -2031,26 +2035,90 @@ Underfull \vbox (badness 4108) has occurred while \output is active []
 [28]) [29] [30]
 \openout2 = `Chapters/capitolo4.aux'.
 
- (./Chapters/capitolo4.tex) [31
+ (./Chapters/capitolo4.tex [31
 
 
 
-]
+]) [32] [33]
 \openout2 = `Chapters/conclusione.aux'.
 
- (./Chapters/conclusione.tex
-[32
+
+(./Chapters/conclusione.tex [34
 
 
 
-]) [33]
-\openout2 = `Chapters/appendici_codice.aux'.
+]) [35]
+\openout2 = `Chapters/chapterExamples.aux'.
 
- (./Chapters/appendici_codice.tex [34
+ (./Chapters/chapterExamples.tex [36
 
 
 
 ]
+[37] [38]
+
+LaTeX Warning: Citation 'phad' on page 39 undefined on input line 52.
+
+
+LaTeX Warning: Citation 'kruegel:sac2002:anomaly' on page 39 undefined on input
+ line 53.
+
+
+LaTeX Warning: Citation 'protocolanom' on page 39 undefined on input line 54.
+
+
+LaTeX Warning: Citation 'ramadas' on page 39 undefined on input line 55.
+
+
+LaTeX Warning: Citation 'rules-payl' on page 39 undefined on input line 56.
+
+
+LaTeX Warning: Citation 'zanero-savaresi' on page 39 undefined on input line 57
+.
+
+
+LaTeX Warning: Citation 'wang:raid2004:payl' on page 39 undefined on input line
+ 58.
+
+
+LaTeX Warning: Citation 'zanero-pattern' on page 39 undefined on input line 59.
+
+
+
+LaTeX Warning: Citation 'DBLP:conf/iwia/BolzoniEHZ06' on page 39 undefined on i
+nput line 60.
+
+
+LaTeX Warning: Citation 'wang:raid2006:anagram' on page 39 undefined on input l
+ine 61.
+
+[39]
+File: Figures/telnet.pdf Graphic file (type QTm)
+ <use  "Figures/telnet.pdf" > [40
+
+
+]
+Overfull \hbox (9.53203pt too wide) in paragraph at lines 142--143
+[]\TU/AdobeCaslonPro(0)/m/it/12 An \TU/AdobeCaslonPro(0)/m/n/12 anomaly-based [
+][] \TU/AdobeCaslonPro(0)/m/it/12 is a type of [][]
+ []
+
+
+LaTeX Font Warning: Font shape `TU/Optima(0)/m/it' undefined
+(Font)              using `TU/Optima(0)/m/n' instead on input line 150.
+
+LaTeX Font Info:    Font shape `TU/Optima(0)/m/n' will be
+(Font)              scaled to size 10.79993pt on input line 150.
+Package microtype Info: Loading generic settings for font family
+(microtype)             `Optima' (encoding: TU).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Font shape `TU/Optima(0)/m/it' will be
+(Font)              scaled to size 10.79993pt on input line 150.
+[41]) [42]
+\openout2 = `Chapters/appendici_codice.aux'.
+
+ (./Chapters/appendici_codice.tex
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 4.
@@ -2073,39 +2141,21 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Underfull \vbox (badness 4096) has occurred while \output is active []
 
- [35]
+ [43
+
+
+
+]
 Overfull \vbox (21.4681pt too high) detected at line 31
  []
 
-[36] (../TireGround/include/TireGround.hh
+[44] (../TireGround/include/TireGround.hh
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <8> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 33.
- [37
+ [45
 
 ])
-(../TireGround/include/RoadRDF.hh [38]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [39]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [40]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [41]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [42]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [43])
-(../TireGround/src/RoadRDF.cc [44]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [45]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [46]
+(../TireGround/include/RoadRDF.hh [46]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [47]
@@ -2117,11 +2167,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [49]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [50])
-(../TireGround/include/PatchTire.hh [51]
+ [50]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [52]
+ [51])
+(../TireGround/src/RoadRDF.cc [52]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [53]
@@ -2139,10 +2189,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [57]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [58]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [59]
+ [58])
+(../TireGround/include/PatchTire.hh [59]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [60]
@@ -2151,8 +2199,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [61]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [62])
-(../TireGround/src/PatchTire.cc [63]
+ [62]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [63]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [64]
@@ -2168,30 +2218,52 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [68]
-Missing character: There is no α in font [lmmono8-regular]:!
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [69]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [70])
-[71] [72
-
-] (../TireGround/tests/Geometry-test1.cc [73])
-(../TireGround/tests/Geometry-test2.cc [74]
+(../TireGround/src/PatchTire.cc [71]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [75])
-(../TireGround/tests/Geometry-test3.cc [76])
-(../TireGround/tests/Geometry-test4.cc)
+ [72]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [73]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [74]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [75]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [76]
+Missing character: There is no α in font [lmmono8-regular]:!
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [77]
-(../TireGround/tests/MagicFormula-test1.cc [78])
-(../TireGround/tests/MagicFormula-test2.cc [79])) [80]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [78])
+[79] [80
+
+] (../TireGround/tests/Geometry-test1.cc [81])
+(../TireGround/tests/Geometry-test2.cc [82]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [83])
+(../TireGround/tests/Geometry-test3.cc [84])
+(../TireGround/tests/Geometry-test4.cc)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [85]
+(../TireGround/tests/MagicFormula-test1.cc [86])
+(../TireGround/tests/MagicFormula-test2.cc [87])) [88]
 No file thesis.ind.
-[81
+[89
 
 
 
@@ -2210,20 +2282,35 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 204.
  (./thesis.aux (./acronyms.aux) (./Chapters/introduzione.aux)
 (./Chapters/capitolo1.aux) (./Chapters/capitolo2.aux) (./Chapters/capitolo3.aux
 ) (./Chapters/capitolo4.aux) (./Chapters/conclusione.aux)
-(./Chapters/appendici_codice.aux))
+(./Chapters/chapterExamples.aux) (./Chapters/appendici_codice.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 204.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 204.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                thesis
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45468 strings out of 495023
- 867649 string characters out of 6178392
- 1491139 words of memory out of 5000000
- 48557 multiletter control sequences out of 15000+600000
- 15867 words of font info for 103 fonts, out of 8000000 for 9000
+ 45531 strings out of 495023
+ 868895 string characters out of 6178392
+ 1494670 words of memory out of 5000000
+ 48605 multiletter control sequences out of 15000+600000
+ 15891 words of font info for 106 fonts, out of 8000000 for 9000
  18 hyphenation exceptions out of 8191
  63i,17n,68p,10523b,5349s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (95 pages).
+Output written on thesis.pdf (103 pages).
