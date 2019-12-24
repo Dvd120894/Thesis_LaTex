@@ -2,93 +2,183 @@
 \label{Codice}
 %
 \section{Organizzazione}
-
 %
-\subsection{Namespace RDF} 
-
+\subsection{Namespace \texttt{TireGround}}
+In questo \textit{namespace}, vengono raccolti i tipi dichiarati con \texttt{typedef}, comuni ai \textit{namespaces} \texttt{RDF} e \texttt{PatchTire}
 %
-\subsubsection{BBox2D}
-Questa classe contiene tutte le informazioni per definire una \ac{BB} bidimensionale.
-\begin{description}
-	\item[Descrizione] 
-\end{description}
+\subsection{Namespace \texttt{RDF}} 
+In questo \textit{namespace} vengono raccolti alcuni tipi dichiarati con \texttt{typedef} presenti solo nel namespace \texttt{RDF}. Lo spazio dei nomi \texttt{RDF} contiene tutti le classi e la funzioni per gestire la \textit{mesh} a partire dal file in formato \ac{RDF}.
+%
+\paragraph{\texttt{BBox2D}}
+Questa classe contiene tutte le informazioni per definire e manipolare una \ac{BB} bidimensionale. Consiste nella descrizione geometrica dell'oggetto \ac{BB}.  I metodi più importanti di questa classe sono i seguenti.
+\begin{itemize}
+	\item[\texttt{clear}] Elimina il dominio della \ac{BB} settando tutti i quattro valori su \texttt{quietNaN}.
+	\item[\texttt{updateBBox2D}] Aggiorna il dominio della \ac{BB} settando i suoi valori secondo il massimo ingombro dato dai tre vertici nello spazio tridimensionale in \textit{input}.
+\end{itemize}
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline 
-		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ 
-		\hline 
-		\texttt{real\_type} & \texttt{Xmin} & $\bullet$ & $\bullet$ & $X_{min}$ della \ac{BB} \\ 
-		\hline 
-		\texttt{real\_type} & \texttt{Ymin} & $\bullet$ & $\bullet$ & $Y_{min}$ della \ac{BB} \\ 
-		\hline
-		\texttt{real\_type} & \texttt{Xmax} & $\bullet$ & $\bullet$ & $X_{max}$ della \ac{BB} \\ 
-		\hline
-		\texttt{real\_type} & \texttt{Ymax} & $\bullet$ & $\bullet$ & $Y_{max}$ della \ac{BB} \\ 
-		\hline
+		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ \hline 
+		\texttt{real\_type} & \texttt{Xmin} & $\bullet$ & $\bullet$ & $X_{min}$ della \ac{BB} \\ \hline 
+		\texttt{real\_type} & \texttt{Ymin} & $\bullet$ & $\bullet$ & $Y_{min}$ della \ac{BB} \\ \hline
+		\texttt{real\_type} & \texttt{Xmax} & $\bullet$ & $\bullet$ & $X_{max}$ della \ac{BB} \\ \hline
+		\texttt{real\_type} & \texttt{Ymax} & $\bullet$ & $\bullet$ & $Y_{max}$ della \ac{BB} \\ \hline
 	\end{tabular}
-	\caption{Attributi della classe BBox2D}
+	\caption{Attributi della classe \texttt{BBox2D}.}
 	\label{BBox2D}
 \end{table}
-\paragraph{Funzioni}
-\begin{description}
-	\item[\texttt{clear}] Elimina il dominio della \ac{BB}.
-		\begin{itemize}
-			\item \textit{Input}: \texttt{void}
-			\item \textit{Output}: \texttt{void}
-		\end{itemize}
-	\item[\texttt{print}] Stampa il dominio della \ac{BB}.
-		\begin{itemize}
-			\item \textit{Input}: \texttt{ostream\_type}
-			\item \textit{Output}: \texttt{void}
-		\end{itemize}
-	\item[\texttt{updateBBox2D}] Aggiorna il dominio della \ac{BB} dato un set di tre punti tridimensionali in input.
-		\begin{itemize}
-			\item \textit{Input}: \texttt{real\_type} passato per riferimento e di dimensione 3 (e.g. \texttt{Vector[3]}).
-			\item \textit{Output}: \texttt{void}
-		\end{itemize}
-\end{description}
 %
-\subsubsection{Triangle3D}
-\begin{description}
-	\item[Descrizione] Questa classe contiene tutte le informazioni geometriche per definire un triangolo con vertici nello spazio tridimensionale.
-\end{description}
+\paragraph{\texttt{Triangle3D}}
+Questa classe contiene tutte le informazioni geometriche per definire e manipolare un triangolo con vertici nello spazio tridimensionale. Consiste nella descrizione geometrica dell'oggetto triangolo. I metodi più importanti di questa classe sono i seguenti.
+\begin{itemize}
+	\item[\texttt{Normal}] Calcola la normale alla faccia del triangolo.
+	\item[\texttt{intersectRay}] Interseca il triangolo con una data semiretta (detta anche raggio), definita da direzione e punto di partenza, e ne calcola il punto di intersezione.
+	\item[\texttt{intersectPlane}] Interseca il triangolo con un dato piano, definito da normale e punto noto, e ne calcola i punti di intersezione.
+\end{itemize}
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|}
-	\hline 
-	\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ 
-	\hline 
-	\texttt{vec3} & \texttt{Vertices[3]} & $\bullet$ & $\bullet$ & $X_{min}$ della \ac{BB} \\ 
-	\hline 
-	\texttt{BBox2D} & \texttt{TriangleBBox} & $\bullet$ & $\bullet$ & $Y_{min}$ della \ac{BB} \\ 
-	\hline
-\end{tabular}
-	\caption{Attributi della classe BBox2D}
-	\label{Triangle3D}
+		\hline 
+		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ \hline 
+		\texttt{vec3} & \texttt{Vertices[3]} & $\bullet$ & $\bullet$ & Vertici del triangolo \\ \hline 
+		\texttt{BBox2D} & \texttt{TriangleBBox} & $\bullet$ & $\bullet$ & \ac{BB} del triangolo \\ \hline
+	\end{tabular}
+	\caption{Attributi della classe \texttt{Triangle3D}.}
 \end{table}
-\paragraph{Funzioni}
-\begin{description}
-	\item[\texttt{clear}] Elimina il dominio della \ac{BB}.
-	\begin{itemize}
-		\item \textit{Input}: \texttt{void}
-		\item \textit{Output}: \texttt{void}
-	\end{itemize}
-	\item[\texttt{print}] Stampa il dominio della \ac{BB}.
-	\begin{itemize}
-		\item \textit{Input}: \texttt{ostream\_type}
-		\item \textit{Output}: \texttt{void}
-	\end{itemize}
-	\item[\texttt{updateBBox2D}] Aggiorna il dominio della \ac{BB} dato un set di tre punti tridimensionali in input.
-	\begin{itemize}
-		\item \textit{Input}: \texttt{vec3[3]}
-		\item \textit{Output}: \texttt{void}
-	\end{itemize}
-\end{description}
 %
-\subsubsection{TriangleRoad}
-\subsubsection{MeshSurface}
+\paragraph{\texttt{TriangleRoad}}
+Questa classe contiene tutte le informazioni geometriche e non geometriche per definire e manipolare un triangolo con vertici nello spazio tridimensionale rappresentante la superficie stradale. È derivato dalla classe \texttt{Triangle3D} e ha inoltre un attributo che permetter di descrivere il coefficiente di attrito nella faccia (detto anche locale). I metodi più importanti sono ereditati dalla classe \texttt{Triangle3D}.
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline 
+		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ \hline 
+		\texttt{real\_type} & \texttt{Friction} & $\bullet$ & $\bullet$ & Coefficiente di attrito $\mu$ \\ \hline
+	\end{tabular}
+	\caption{Attributi della classe \texttt{TriangleRoad}.}
+\end{table}
+%
+\paragraph{\texttt{MeshSurface}}
+Questa classe contiene il vettore di puntatori di tipo \texttt{std::shared}-\texttt{\_ptr} alle istanze della classe \texttt{TriangleRoad} che vengono create durante la parsificazione del file \ac{RDF}. Inoltre contiene il vettore di puntatori alle \ac{BB} di tipo \texttt{PtrBBox}, che è necessario per calcolare l'albero \ac{AABB}. Quest'ultimo esiste come ulteriore attributo della classe sotto forma di puntatore \texttt{PtrAABB}. I metodi più importanti di questa classe sono i seguenti.
+\begin{itemize}
+	\item[\texttt{set}] Copia la mesh.
+	\item[\texttt{LoadFile}] Parsifica il file dato come \textit{input} e crea le istanze \texttt{TriangleRoad} che costituiscono la \textit{mesh}.
+	\item[\texttt{updateIntersection}] Interseca l'albero di tipo \ac{AABB} della \textit{mesh} con un altro albero esterno di tipo \ac{AABB} e ne restituisce il vettore dei puntatori di tipo \texttt{std::shared\_ptr} alle istanze della classe \texttt{TriangleRoad} che vengono intersecate.
+\end{itemize}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline 
+		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ \hline 
+		\texttt{TriangleRoad\_list} & \texttt{Friction} & $\bullet$ & & Vettore dei triangoli \\ \hline
+		\texttt{std::vector<PtrBBox>} & \texttt{PtrBBoxVec} & $\bullet$ & & Vettore delle \ac{BB} \\ \hline
+		\texttt{PtrAABB} & \texttt{PtrTree} & $\bullet$ & & Albero di tipo \ac{AABB} \\ \hline
+	\end{tabular}
+	\caption{Attributi della classe \texttt{MeshSurface}.}
+\end{table}
+%
+\subsection{Namespace \texttt{PatchTire}} 
+In questo \textit{namespace} vengono raccolti alcuni tipi dichiarati con \texttt{typedef} presenti solo nel namespace \texttt{PatchTire}. Lo spazio dei nomi \texttt{PatchTire} contiene inoltre tutti le classi e la funzioni per gestire l'intersezione tra lo pneumatico e la \textit{mesh} a partire dalla conoscenza di quest'ultima, della geometria e della posizione dello pneumatico.
+%
+\paragraph{\texttt{Disk}}
+Questa classe contiene tutte le informazioni geometriche per definire e manipolare un disco nello spazio tridimensionale. Consiste nella descrizione geometrica e nel posizionamento dello spazio delle coordinate tridimensionali dell'oggetto disco (il disco viene rappresentato nel sistema di riferimento dello pneumatico). I metodi più importanti di questa classe sono i seguenti.
+\begin{itemize}
+	\item[\texttt{isPointInside}] Controlla se un punto generico nello spazio bidimensionale, definito dal piano in cui giace lo stesso disco, si trova all'interno o all'esterno della circonferenza.
+	\item[\texttt{intersectSegment}] Trova i punti di intersezione tra la circonferenza esterna del disco e un segmento bidimensionale, che dev'essere definito nel piano in cui giace lo stesso disco. L'intero di \textit{output} fornisce il numero di punti di intersezione.
+	\item[\texttt{intersectPlane}] Interseca il disco con un piano definito da normale e punto noto. In \textit{output} fornisce l'entità geometrica creata dall'intersezione sotto forma di punto noto e direzione della retta.
+	\item[\texttt{getPatchLength}] Funzione in \textit{overloading} che consente, attraverso vari tipolgie in \textit{input} di trovare la lunghezza del tratto interno al disco e che può essere creato da un piano, da dei triangoli, da un segmento bidimensionale o da una spezzata bidimensionale.
+\end{itemize}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline 
+		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ \hline 
+		\texttt{vec2} & \texttt{OriginXZ} & $\bullet$ & $\bullet$ & Coordinate \textit{XZ} del disco \\ \hline 
+		\texttt{real\_type} & \texttt{OffsetY} & $\bullet$ & $\bullet$ & Coordinata $Y$ del disco \\ \hline
+		\texttt{real\_type} & \texttt{Radius} & $\bullet$ & $\bullet$ & Circonferenza del disco \\ \hline
+	\end{tabular}
+	\caption{Attributi della classe \texttt{Disk}.}
+	\label{}
+\end{table}
+%
+\paragraph{\texttt{ETRTO}}
+Questa classe contiene tutte le informazioni necessarie per definire geometricamente uno pneumatico secondo la normativa \ac{ETRTO}. Consiste nella descrizione geometrica dell'oggetto pneumatico in termini di larghezza totale e di diametro esterno indeformato. Come visto nel Capitolo \ref{Pneumatico} attraverso la nomenclatura \ac{ETRTO} (e.g. 205/65R16) è infatti possibile risalire a tutte le informazioni geometriche che definiscono, anche se in maniera grossolana, lo pneumatico.
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline 
+		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ \hline 
+		\texttt{real\_type} & \texttt{SectionWidth} & $\bullet$ & $\bullet$ & Larghezza dello pneumatico \\ \hline 
+		\texttt{real\_type} & \texttt{AspectRatio} & $\bullet$ & $\bullet$ & Rapporto percentuale $H/W$ \\ \hline
+		\texttt{real\_type} & \texttt{RimDiameter} & $\bullet$ & $\bullet$ & Diametro del cerchione\\ \hline
+		\texttt{real\_type} & \texttt{SidewallHeight} & $\bullet$ & & Altezza della spalla \\ \hline
+		\texttt{real\_type} & \texttt{TireDiameter} & $\bullet$ & & Diametro dello pneumatico\\ \hline
+	\end{tabular}
+	\caption{Attributi della classe \texttt{BBox2D}.}
+	\label{}
+\end{table}
+%
+\paragraph{\texttt{ReferenceFrame}}
+Questa classe contiene tutte le informazioni per definire e manipolare una terna di riferimento nello spazio tridimensionale. Consiste nel posizionamento dello spazio del sistema di riferimento. I metodi più importanti di questa classe sono i seguenti.
+\begin{itemize}
+	\item[\texttt{setTotalTransformationMatrix}] Posiziona nello spazio il sistema di riferimento grazie alla matrice di trasformazione $4\times4$ fornita come \textit{input}.
+	\item[\texttt{getEulerAngleX}] Ottiene l'angolo creato dalla rotazione attorno all'asse $Y$ del sistema di riferimento locale rispetto a quello assoluto (lo stesso della \textit{mesh}). L'angolo viene ottenuto in seguito alla fattorizzazione $R_z(\Omega) R_x(\gamma) R_y(\theta)$ e utilizzando il metodo di Eulero.
+	\item[\texttt{getEulerAngleY}] Come il metodo \texttt{getEulerAngleX}, ma usato per il ottenere l'angolo creato dalla rotazione attorno all'asse $Y$.
+	\item[\texttt{getEulerAngleZ}] Come il metodo \texttt{getEulerAngleX}, ma usato per il ottenere l'angolo creato dalla rotazione attorno all'asse $Z$.
+\end{itemize}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline 
+		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ \hline 
+		\texttt{vec3} & \texttt{Origin} & $\bullet$ & $\bullet$ & Origine della terna \\ \hline 
+		\texttt{mat3} & \texttt{RotationMatrix} & $\bullet$ & $\bullet$ & Matrice di rotazione \\ \hline
+	\end{tabular}
+	\caption{Attributi della classe \texttt{ReferenceFrame}.}
+	\label{}
+\end{table}
+%
+% CONTROLLA	re da qui in giù
+%
+\paragraph{\texttt{Shadow}}
+Questa classe serve a rappresentare l'ombra dello pneumatico nello spazio bidimensionale. È molto simile alla \texttt{RDF::BBox2D} precedentemente presentata, ma a differenza di quest'ultima permette di calcolare anche l'albero di tipo \ac{AABB} a una sola foglia relativa alla stessa ombra dello pneumatico. I metodi più importanti di questa classe sono i seguenti.
+\begin{itemize}
+	\item[\texttt{clear}] Elimina il dominio dell'ombra settando tutti i suoi valori su \texttt{quietNaN}.
+	\item[\texttt{update}] Aggiorna il dominio dell'ombra settando tutti i suoi valori secondo il massimo ingombro dato dalla geometria dello pneumatico e dalla suaposizione nello spazio.
+\end{itemize}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline 
+		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ \hline 
+		\texttt{real\_type} & \texttt{Xmin} & $\bullet$ & $\bullet$ & $X_{min}$ dell'ombra \\ \hline 
+		\texttt{real\_type} & \texttt{Ymin} & $\bullet$ & $\bullet$ & $Y_{min}$ dell'ombra \\ \hline
+		\texttt{real\_type} & \texttt{Xmax} & $\bullet$ & $\bullet$ & $X_{max}$ dell'ombra \\ \hline
+		\texttt{real\_type} & \texttt{Ymax} & $\bullet$ & $\bullet$ & $Y_{max}$ dell'ombra \\ \hline
+		\texttt{std::vector<PtrBBox>} & \texttt{PtrBBoxVec} & $\bullet$ & & \ac{BB} dell'ombra \\ \hline
+		\texttt{PtrAABB} & \texttt{PtrTree} & $\bullet$ & & Albero di tipo \ac{AABB} \\ \hline
+	\end{tabular}
+	\caption{Attributi della classe \texttt{Shadow}.}
+	\label{}
+\end{table}
+%
+\paragraph{\texttt{Tire}}
+Questa classe serve a rappresentare lo pneumatico nelle coordinate dello spazio tridimensionale. Consiste nel punto di giunzione tra la classe \texttt{ETRTO} che definisce la geometria dello pneumatico in condizione di riposo e la classe \texttt{ReferenceFrame} che ne definisce invece la posizione nello spazio.
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline 
+		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ \hline 
+		\texttt{ETRTO} & \texttt{TireGeometry} & & & Geometria \\ \hline 
+		\texttt{ReferenceFrame} & \texttt{RF} & $\bullet$ & $\bullet$ & Posizione \\ \hline
+	\end{tabular}
+	\caption{Attributi della classe \texttt{Tire}.}
+	\label{}
+\end{table}
+%
+\paragraph{\texttt{MagicFormula}}
 
-
+%
 \section{Utilizzo e Prestazioni}
 

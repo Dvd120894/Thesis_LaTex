@@ -2160,17 +2160,7 @@
     <bcf:citekey order="15">Larcher</bcf:citekey>
     <bcf:citekey order="16">RayTriangle</bcf:citekey>
     <bcf:citekey order="17">RayTriangle</bcf:citekey>
-    <bcf:citekey order="18">phad</bcf:citekey>
-    <bcf:citekey order="19">kruegel:sac2002:anomaly</bcf:citekey>
-    <bcf:citekey order="20">protocolanom</bcf:citekey>
-    <bcf:citekey order="21">ramadas</bcf:citekey>
-    <bcf:citekey order="22">rules-payl</bcf:citekey>
-    <bcf:citekey order="23">zanero-savaresi</bcf:citekey>
-    <bcf:citekey order="24">wang:raid2004:payl</bcf:citekey>
-    <bcf:citekey order="25">zanero-pattern</bcf:citekey>
-    <bcf:citekey order="26">DBLP:conf/iwia/BolzoniEHZ06</bcf:citekey>
-    <bcf:citekey order="27">wang:raid2006:anagram</bcf:citekey>
-    <bcf:citekey order="28">Larcher</bcf:citekey>
+    <bcf:citekey order="18">Larcher</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty/global/" type="entry" sortscheme="nty" sortnamekeyscheme="global" labelprefix="">
   <bcf:sorting>
