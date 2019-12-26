@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  24 DEC 2019 15:53
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  26 DEC 2019 18:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1654,6 +1654,9 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
 ) (./Chapters/conclusione.aux) (./Chapters/appendici_codice.aux))
 \openout1 = `thesis.aux'.
 
@@ -2045,27 +2048,44 @@ Underfull \vbox (badness 4108) has occurred while \output is active []
 
  (./Chapters/capitolo4.tex
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 6.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 7.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Overfull \hbox (12.1215pt too wide) in paragraph at lines 16--17
+[]\TU/lmtt/m/n/12 clear $\OMS/cmsy/m/n/12 ^^@$ \TU/AdobeCaslonPro(0)/m/n/12 Eli
+mina il dominio della [][] settando tutti i quattro valori su \TU/lmtt/m/n/12 q
+uietNaN\TU/AdobeCaslonPro(0)/m/n/12 . 
+ []
 
 [31
 
 
 
-] [32]
-Overfull \hbox (13.87198pt too wide) in paragraph at lines 71--78
+]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[32]
+Overfull \hbox (13.87198pt too wide) in paragraph at lines 72--79
  [][] 
  []
 
 [33]
-Overfull \hbox (2.50798pt too wide) in paragraph at lines 109--118
+Overfull \hbox (2.50798pt too wide) in paragraph at lines 110--119
  [][] 
  []
 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 [34]
-Overfull \hbox (13.87198pt too wide) in paragraph at lines 150--160
+Overfull \hbox (5.9615pt too wide) in paragraph at lines 148--149
+[]\TU/lmtt/m/n/12 clear $\OMS/cmsy/m/n/12 ^^@$ \TU/AdobeCaslonPro(0)/m/n/12 Eli
+mina il dominio dell’ombra settando tutti i suoi valori su \TU/lmtt/m/n/12 quie
+tNaN\TU/AdobeCaslonPro(0)/m/n/12 . 
+ []
+
+
+Overfull \hbox (13.87198pt too wide) in paragraph at lines 153--163
  [][] 
  []
 
@@ -2073,18 +2093,20 @@ Overfull \hbox (13.87198pt too wide) in paragraph at lines 150--160
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (7.00816pt too wide) in paragraph at lines 165--178
+Overfull \hbox (7.00816pt too wide) in paragraph at lines 168--181
 \TU/AdobeCaslonPro(0)/m/n/12 sce la geometria dello pneumatico in condizione di
  riposo e la classe \TU/lmtt/m/n/12 ReferenceFrame
  []
 
+[35] [36]
+Overfull \hbox (6.76797pt too wide) in paragraph at lines 195--204
+ [][] 
+ []
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[35]) [36]
+[37]) [38]
 \openout2 = `Chapters/conclusione.aux'.
 
- (./Chapters/conclusione.tex) [37
+ (./Chapters/conclusione.tex) [39
 
 
 
@@ -2092,7 +2114,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 \openout2 = `Chapters/appendici_codice.aux'.
 
  (./Chapters/appendici_codice.tex
-[38
+[40
 
 
 
@@ -2119,23 +2141,17 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Underfull \vbox (badness 4096) has occurred while \output is active []
 
- [39]
+ [41]
 Overfull \vbox (21.4681pt too high) detected at line 31
  []
 
-[40] (../TireGround/include/TireGround.hh
+[42] (../TireGround/include/TireGround.hh
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <8> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 33.
- [41
+ [43
 
 ])
-(../TireGround/include/RoadRDF.hh [42]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [43]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [44]
+(../TireGround/include/RoadRDF.hh [44]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [45]
@@ -2144,14 +2160,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [46]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [47])
-(../TireGround/src/RoadRDF.cc [48]
+ [47]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [49]
+ [48]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [50]
+ [49])
+(../TireGround/src/RoadRDF.cc [50]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [51]
@@ -2163,14 +2179,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [53]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [54])
-(../TireGround/include/PatchTire.hh [55]
+ [54]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [56]
+ [55]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [57]
+ [56])
+(../TireGround/include/PatchTire.hh [57]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [58]
@@ -2194,14 +2210,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [64]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [65])
-(../TireGround/src/PatchTire.cc [66]
+ [65]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [67]
+ [66]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [68]
+ [67])
+(../TireGround/src/PatchTire.cc [68]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [69]
@@ -2211,30 +2227,36 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [71]
-Missing character: There is no α in font [lmmono8-regular]:!
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [72]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [73])
-[74] (../TireGround/tests/Geometry-test1.cc [75
+ [73]
+Missing character: There is no α in font [lmmono8-regular]:!
 
-])
-(../TireGround/tests/Geometry-test2.cc [76]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [77])
-(../TireGround/tests/Geometry-test3.cc [78])
+ [74]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [75])
+[76] (../TireGround/tests/Geometry-test1.cc [77
+
+])
+(../TireGround/tests/Geometry-test2.cc [78]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [79])
+(../TireGround/tests/Geometry-test3.cc [80])
 (../TireGround/tests/Geometry-test4.cc)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [79]
-(../TireGround/tests/MagicFormula-test1.cc [80])
-(../TireGround/tests/MagicFormula-test2.cc [81])) [82]
+ [81]
+(../TireGround/tests/MagicFormula-test1.cc [82])
+(../TireGround/tests/MagicFormula-test2.cc [83])) [84]
 No file thesis.ind.
-[83
+[85
 
 
 
@@ -2265,12 +2287,12 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45468 strings out of 495023
- 867701 string characters out of 6178392
- 1490379 words of memory out of 5000000
- 48554 multiletter control sequences out of 15000+600000
- 15883 words of font info for 105 fonts, out of 8000000 for 9000
+ 45507 strings out of 495023
+ 868201 string characters out of 6178392
+ 1490400 words of memory out of 5000000
+ 48593 multiletter control sequences out of 15000+600000
+ 17516 words of font info for 112 fonts, out of 8000000 for 9000
  18 hyphenation exceptions out of 8191
  63i,17n,68p,10523b,5349s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (97 pages).
+Output written on thesis.pdf (99 pages).

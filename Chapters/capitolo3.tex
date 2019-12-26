@@ -399,46 +399,38 @@ The inputs of the M\"oller-Trumbore algorithm are:
 \hfill
 	\begin{subfigure}[t]{.4\linewidth}
 		\raggedright
-		\textit{With back-face culling}\\
+		Con \textit{back-face culling}\\
 		\vspace{.5em}
-		$Q = Q_2 - Q_1$\\
-		$E_1 = V_2 - V_1$\\
-		$E_2 = V_3 - V_1$\\
-		$A = Q \times E_2$\\
-		$D = A \cdot E_1$\\
-		$\mathbf{if} \, (D > \varepsilon) \{$\\
-		\quad $T = Q_1 - V_1$\\
-		\quad $u = A \cdot T$\\
-		\quad $\mathbf{if} \, (u < 0.0 \, || \, u > D) \{$\\
-		\quad \quad $\mathbf{return \, false}$\\
-		\quad $\}$\\
-		\quad $B = T \times E_1$\\
-		\quad $v = B \cdot Q$\\
-		\quad $\mathbf{if} \, (v < 0.0 \, || \, u + v > D) \{$\\
-		\quad \quad $\mathbf{return \, false}$\\
-		\quad $\}$\\
-		$\} \, \mathbf{else \, if} \, (D < -\varepsilon) \{$\\
-		\quad $T = Q_1 - V_1$\\
-		\quad $u = A \cdot T$\\
-		\quad $\mathbf{if} \, (u > 0.0 \, || \, u < D) \{$\\
-		\quad \quad $\mathbf{return \, false}$\\
-		\quad $\}$\\
-		\quad $B = T \times E_1$\\
-		\quad $v = B \cdot Q$\\
-		\quad $\mathbf{if} \, (v > 0.0 \, || \, u + v < D) \{$\\
-		\quad \quad $\mathbf{return \, false}$\\
-		\quad $\}$\\
-		$\} \, \mathbf{else} \, \{$\\
-		\quad $\mathbf{return \, false}$\\
-		$\}$\\
-		$D_{inv} = 1.0 / D$\\
-		$t = (B \cdot E_2) * D_{inv}$\\
-		$\mathbf{if} \, (t > 0.0) \{$\\
-		\quad $P = Q + D * t$\\
-		\quad $\mathbf{return \, true}$\\
-		$\} \, \mathbf{else} \, \{$\\
-		\quad $\mathbf{return \, false}$\\
-		$\}$\\
+	\begin{pseudoc}
+	Q = Q_2 - Q_1
+	E_1 = V_2 - V_1
+	E_2 = V_3 - V_1
+	A = Q $\times$ E_2
+	D = A $\cdot$ E_1
+	if (D > epsilon) {
+		T = Q_1 - V_1
+		u = A $\cdot$ T
+		if (u < 0.0 || u > D) { return false }
+		B = T $\times$ E_1
+		v = B $\cdot$ Q
+		if (v < 0.0 || u + v > D) {return false }
+	} else if (D < -epsilon) {
+		T = Q_1 - V_1
+		u = A $\cdot$ T
+		if (u > 0.0 || u < D) { return false }
+		B = T $\times$ E_1
+		v = B $\cdot$ Q
+		if (v > 0.0 || u + v < D) { return false }
+		else { return false }
+		D_inv}= 1.0 / D
+		t = (B $\cdot$ E_2) * D_{inv}
+		if (t > 0.0) {
+			P = Q + D * t
+			return true
+		} else {
+			return false
+		}
+	\end{pseudoc}
 	\end{subfigure}
 \hfill
 	\begin{subfigure}[t]{.4\textwidth}

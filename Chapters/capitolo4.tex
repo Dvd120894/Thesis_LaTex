@@ -2,6 +2,7 @@
 \label{Codice}
 %
 \section{Organizzazione}
+La libreria \texttt{TireGround} è stata organizzata in tre parti, definite dagli stessi \textit{namespaces}. In seguito verranno riportate le informazioni di maggior rilievo per ognuna delle tre parti della libreria.
 %
 \subsection{Namespace \texttt{TireGround}}
 In questo \textit{namespace}, vengono raccolti i tipi dichiarati con \texttt{typedef}, comuni ai \textit{namespaces} \texttt{RDF} e \texttt{PatchTire}
@@ -12,8 +13,8 @@ In questo \textit{namespace} vengono raccolti alcuni tipi dichiarati con \texttt
 \paragraph{\texttt{BBox2D}}
 Questa classe contiene tutte le informazioni per definire e manipolare una \ac{BB} bidimensionale. Consiste nella descrizione geometrica dell'oggetto \ac{BB}.  I metodi più importanti di questa classe sono i seguenti.
 \begin{itemize}
-	\item[\texttt{clear}] Elimina il dominio della \ac{BB} settando tutti i quattro valori su \texttt{quietNaN}.
-	\item[\texttt{updateBBox2D}] Aggiorna il dominio della \ac{BB} settando i suoi valori secondo il massimo ingombro dato dai tre vertici nello spazio tridimensionale in \textit{input}.
+	\item \texttt{clear} $-$ Elimina il dominio della \ac{BB} settando tutti i quattro valori su \texttt{quietNaN}.
+	\item \texttt{updateBBox2D} $-$ Aggiorna il dominio della \ac{BB} settando i suoi valori secondo il massimo ingombro dato dai tre vertici nello spazio tridimensionale in \textit{input}.
 \end{itemize}
 \begin{table}[h!]
 	\centering
@@ -32,9 +33,9 @@ Questa classe contiene tutte le informazioni per definire e manipolare una \ac{B
 \paragraph{\texttt{Triangle3D}}
 Questa classe contiene tutte le informazioni geometriche per definire e manipolare un triangolo con vertici nello spazio tridimensionale. Consiste nella descrizione geometrica dell'oggetto triangolo. I metodi più importanti di questa classe sono i seguenti.
 \begin{itemize}
-	\item[\texttt{Normal}] Calcola la normale alla faccia del triangolo.
-	\item[\texttt{intersectRay}] Interseca il triangolo con una data semiretta (detta anche raggio), definita da direzione e punto di partenza, e ne calcola il punto di intersezione.
-	\item[\texttt{intersectPlane}] Interseca il triangolo con un dato piano, definito da normale e punto noto, e ne calcola i punti di intersezione.
+	\item \texttt{Normal} $-$ Calcola la normale alla faccia del triangolo.
+	\item \texttt{intersectRay} $-$ Interseca il triangolo con una data semiretta (detta anche raggio), definita da direzione e punto di partenza, e ne calcola il punto di intersezione.
+	\item \texttt{intersectPlane} $-$ Interseca il triangolo con un dato piano, definito da normale e punto noto, e ne calcola i punti di intersezione.
 \end{itemize}
 \begin{table}[h!]
 	\centering
@@ -62,9 +63,9 @@ Questa classe contiene tutte le informazioni geometriche e non geometriche per d
 \paragraph{\texttt{MeshSurface}}
 Questa classe contiene il vettore di puntatori di tipo \texttt{std::shared}-\texttt{\_ptr} alle istanze della classe \texttt{TriangleRoad} che vengono create durante la parsificazione del file \ac{RDF}. Inoltre contiene il vettore di puntatori alle \ac{BB} di tipo \texttt{PtrBBox}, che è necessario per calcolare l'albero \ac{AABB}. Quest'ultimo esiste come ulteriore attributo della classe sotto forma di puntatore \texttt{PtrAABB}. I metodi più importanti di questa classe sono i seguenti.
 \begin{itemize}
-	\item[\texttt{set}] Copia la mesh.
-	\item[\texttt{LoadFile}] Parsifica il file dato come \textit{input} e crea le istanze \texttt{TriangleRoad} che costituiscono la \textit{mesh}.
-	\item[\texttt{updateIntersection}] Interseca l'albero di tipo \ac{AABB} della \textit{mesh} con un altro albero esterno di tipo \ac{AABB} e ne restituisce il vettore dei puntatori di tipo \texttt{std::shared\_ptr} alle istanze della classe \texttt{TriangleRoad} che vengono intersecate.
+	\item \texttt{set} $-$ Copia la mesh.
+	\item \texttt{LoadFile} $-$ Parsifica il file dato come \textit{input} e crea le istanze \texttt{TriangleRoad} che costituiscono la \textit{mesh}.
+	\item \texttt{updateIntersection} $-$ Interseca l'albero di tipo \ac{AABB} della \textit{mesh} con un altro albero esterno di tipo \ac{AABB} e ne restituisce il vettore dei puntatori di tipo \texttt{std::shared\_ptr} alle istanze della classe \texttt{TriangleRoad} che vengono intersecate.
 \end{itemize}
 \begin{table}[h!]
 	\centering
@@ -84,10 +85,10 @@ In questo \textit{namespace} vengono raccolti alcuni tipi dichiarati con \texttt
 \paragraph{\texttt{Disk}}
 Questa classe contiene tutte le informazioni geometriche per definire e manipolare un disco nello spazio tridimensionale. Consiste nella descrizione geometrica e nel posizionamento dello spazio delle coordinate tridimensionali dell'oggetto disco (il disco viene rappresentato nel sistema di riferimento dello pneumatico). I metodi più importanti di questa classe sono i seguenti.
 \begin{itemize}
-	\item[\texttt{isPointInside}] Controlla se un punto generico nello spazio bidimensionale, definito dal piano in cui giace lo stesso disco, si trova all'interno o all'esterno della circonferenza.
-	\item[\texttt{intersectSegment}] Trova i punti di intersezione tra la circonferenza esterna del disco e un segmento bidimensionale, che dev'essere definito nel piano in cui giace lo stesso disco. L'intero di \textit{output} fornisce il numero di punti di intersezione.
-	\item[\texttt{intersectPlane}] Interseca il disco con un piano definito da normale e punto noto. In \textit{output} fornisce l'entità geometrica creata dall'intersezione sotto forma di punto noto e direzione della retta.
-	\item[\texttt{getPatchLength}] Funzione in \textit{overloading} che consente, attraverso vari tipolgie in \textit{input} di trovare la lunghezza del tratto interno al disco e che può essere creato da un piano, da dei triangoli, da un segmento bidimensionale o da una spezzata bidimensionale.
+	\item \texttt{isPointInside} $-$ Controlla se un punto generico nello spazio bidimensionale, definito dal piano in cui giace lo stesso disco, si trova all'interno o all'esterno della circonferenza.
+	\item \texttt{intersectSegment} $-$ Trova i punti di intersezione tra la circonferenza esterna del disco e un segmento bidimensionale, che dev'essere definito nel piano in cui giace lo stesso disco. L'intero di \textit{output} fornisce il numero di punti di intersezione.
+	\item \texttt{intersectPlane} $-$ Interseca il disco con un piano definito da normale e punto noto. In \textit{output} fornisce l'entità geometrica creata dall'intersezione sotto forma di punto noto e direzione della retta.
+	\item \texttt{getPatchLength} $-$ Funzione in \textit{overloading} che consente, attraverso vari tipolgie in \textit{input} di trovare la lunghezza del tratto interno al disco e che può essere creato da un piano, da dei triangoli, da un segmento bidimensionale o da una spezzata bidimensionale.
 \end{itemize}
 \begin{table}[h!]
 	\centering
@@ -122,10 +123,10 @@ Questa classe contiene tutte le informazioni necessarie per definire geometricam
 \paragraph{\texttt{ReferenceFrame}}
 Questa classe contiene tutte le informazioni per definire e manipolare una terna di riferimento nello spazio tridimensionale. Consiste nel posizionamento dello spazio del sistema di riferimento. I metodi più importanti di questa classe sono i seguenti.
 \begin{itemize}
-	\item[\texttt{setTotalTransformationMatrix}] Posiziona nello spazio il sistema di riferimento grazie alla matrice di trasformazione $4\times4$ fornita come \textit{input}.
-	\item[\texttt{getEulerAngleX}] Ottiene l'angolo creato dalla rotazione attorno all'asse $Y$ del sistema di riferimento locale rispetto a quello assoluto (lo stesso della \textit{mesh}). L'angolo viene ottenuto in seguito alla fattorizzazione $R_z(\Omega) R_x(\gamma) R_y(\theta)$ e utilizzando il metodo di Eulero.
-	\item[\texttt{getEulerAngleY}] Come il metodo \texttt{getEulerAngleX}, ma usato per il ottenere l'angolo creato dalla rotazione attorno all'asse $Y$.
-	\item[\texttt{getEulerAngleZ}] Come il metodo \texttt{getEulerAngleX}, ma usato per il ottenere l'angolo creato dalla rotazione attorno all'asse $Z$.
+	\item \texttt{setTotalTransformationMatrix} $-$ Posiziona nello spazio il sistema di riferimento grazie alla matrice di trasformazione $4\times4$ fornita come \textit{input}.
+	\item \texttt{getEulerAngleX} $-$ Ottiene l'angolo creato dalla rotazione attorno all'asse $Y$ del sistema di riferimento locale rispetto a quello assoluto (lo stesso della \textit{mesh}). L'angolo viene ottenuto in seguito alla fattorizzazione $R_z(\Omega) R_x(\gamma) R_y(\theta)$ e utilizzando il metodo di Eulero.
+	\item \texttt{getEulerAngleY} $-$ Come il metodo \texttt{getEulerAngleX}, ma usato per il ottenere l'angolo creato dalla rotazione attorno all'asse $Y$.
+	\item \texttt{getEulerAngleZ} $-$ Come il metodo \texttt{getEulerAngleX}, ma usato per il ottenere l'angolo creato dalla rotazione attorno all'asse $Z$.
 \end{itemize}
 \begin{table}[h!]
 	\centering
@@ -142,10 +143,10 @@ Questa classe contiene tutte le informazioni per definire e manipolare una terna
 % CONTROLLA	re da qui in giù
 %
 \paragraph{\texttt{Shadow}}
-Questa classe serve a rappresentare l'ombra dello pneumatico nello spazio bidimensionale. È molto simile alla \texttt{RDF::BBox2D} precedentemente presentata, ma a differenza di quest'ultima permette di calcolare anche l'albero di tipo \ac{AABB} a una sola foglia relativa alla stessa ombra dello pneumatico. I metodi più importanti di questa classe sono i seguenti.
+Questa classe serve a rappresentare l'ombra dello pneumatico nello spazio bidimensionale. È molto simile alla \texttt{RDF::BBox2D} precedentemente presentata, ma a differenza di quest'ultima permette di calcolare anche l'albero per oggetti di tipo \ac{AABB} a una sola foglia, relativo alla stessa ombra dello pneumatico. I metodi più importanti di questa classe sono i seguenti.
 \begin{itemize}
-	\item[\texttt{clear}] Elimina il dominio dell'ombra settando tutti i suoi valori su \texttt{quietNaN}.
-	\item[\texttt{update}] Aggiorna il dominio dell'ombra settando tutti i suoi valori secondo il massimo ingombro dato dalla geometria dello pneumatico e dalla suaposizione nello spazio.
+	\item \texttt{clear} $-$ Elimina il dominio dell'ombra settando tutti i suoi valori su \texttt{quietNaN}.
+	\item \texttt{update} $-$ Aggiorna il dominio dell'ombra settando tutti i suoi valori secondo il massimo ingombro dato dalla geometria dello pneumatico e dalla sua posizione nello spazio.
 \end{itemize}
 \begin{table}[h!]
 	\centering
@@ -178,7 +179,42 @@ Questa classe serve a rappresentare lo pneumatico nelle coordinate dello spazio 
 \end{table}
 %
 \paragraph{\texttt{MagicFormula}}
+Questa classe calcola tutti i parametri necessari per valutare il contatto tra pneumatico e terreno attraverso la \textit{Magic Formula}. I metodi più importanti di questa classe sono i seguenti.
+\begin{itemize}
+	\item \texttt{setup} $-$ Consente di riposizionare la ruota all'interno della \textit{mesh}.
+	\item \texttt{pointSampling} $-$ Interseca i triangoli in corrispondenza dell'ombra dello pneumatico con un raggio, definito da direzione e punto di partenza, e ne calcola il punto di intersezione.
+	\item \texttt{fourPointsSampling} $-$ Effettua l'intersezione tra i triangoli in corrispondenza dell'ombra dello pneumatico e quattro reggi, il cui punto di partenza e direzione sono prestabiliti della geometria e posizione nello spazio. Con i quattro punti di intersezione e la normale è possibile stabilire il punto di contatto virtuale.
+	\item \texttt{calculateLocalRoadPlane} $-$ Calcola la normale del piano strada locale.
+	\item \texttt{calculateRelativeCamber} $-$ Calcola il camber relativo.
+	\item \texttt{getContactDepth} $-$ Calcola l'affondamento del disco nel piano strada locale.
+	\item \texttt{getContactArea} $-$ Funzione in \textit{overloading} che calcola l'area dell'impronta contatto dello pneumatico (considerato come un cilindro) in via approssimata.
+	\item \texttt{getContactVolume} $-$ Calcola il volume di intersezione approssimato tra terreno e pneumatico (considerato come un cilindro)
+\end{itemize}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline 
+		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ \hline 
+		\texttt{Disk} & \texttt{SingleDisk} &  &  & Disco rigido \\ \hline 
+		\texttt{vec3} & \texttt{ContactNormal} & $\bullet$ &  & Normale del piano strada \\ \hline
+		\texttt{vec3} & \texttt{ContactPoint} & $\bullet$ &  & Punto di contatto virtuale \\ \hline
+		\texttt{real\_type} & \texttt{ContactFriction} & $\bullet$ &  & Coefficiente di attrito locale \\ \hline
+		\texttt{real\_type} & \texttt{RelativeCamber} & $\bullet$ &  & Camber relativo \\ \hline
+	\end{tabular}
+	\caption{Attributi della classe \texttt{MagicFormula}.}
+	\label{}
+\end{table}
+%
+\section{Librerie Esterne}
+Oltre al codice appena descritto sono state utilizzate anche altre due librerie esterne al fine di velocizzare il processo di sviluppo e al contempo di utilizzare una solida base per le operazione più complesse, ovvero le operazioni matriciali e vettoriali, nonché la creazione degli alberi per oggetti di tipo \ac{AABB} e l'intersezione tra gli stessi.
+%
+\subsection{\texttt{Eigen3}}
+\texttt{Eigen3} è una libreria \texttt{C++} di alto livello di \textit{template headers} per operazioni di algebra lineare, vettoriali, matriciali, trasformazioni geometriche, \textit{solver} numerici e algoritmi correlati.
 
+Questa libreria è implementata usando la tecnica di \textit{template metaprogramming}, che crea degli alberi di espressioni in fase di compilazione e genera un codice personalizzato per valutarli. Utilizzando i modelli di espressione e un modello di costo delle operazioni in virgola mobile, la libreria esegue il proprio srotolamento del loop e vettorializzazione.
+%
+\subsection{\texttt{Clothoids}}
+Questa libreria nasce per il \textit{fitting} dei polinomi di Hermite di tipo $G^1$ e $G^2$ con clotoidi, \textit{spline} di clotoidi, archi circolari e \textit{biarc}. In questo lavoro di tesi la libreria \texttt{Clothoids} è stata usata per sfruttare l'implementazione dell'oggetto albero per oggetti di tipo \ac{AABB}.
 %
 \section{Utilizzo e Prestazioni}
 
