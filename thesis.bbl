@@ -171,6 +171,46 @@
       \field{pages}{7\bibrangedash 13}
       \range{pages}{7}
     \endentry
+    \entry{Moller}{article}{}
+      \name{author}{2}{}{%
+        {{hash=94e27db04e86f2b4ec0d38fac3669e6b}{%
+           family={Möller},
+           familyi={M\bibinitperiod},
+           given={Tomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=338726ecdd858a4b49e5cb7ca1325d4d}{%
+           family={Trumbore},
+           familyi={T\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {A. K. Peters, Ltd.}%
+      }
+      \strng{namehash}{d0eeec1f9de25a0ee8052444e5b8c1e2}
+      \strng{fullhash}{d0eeec1f9de25a0ee8052444e5b8c1e2}
+      \strng{authornamehash}{d0eeec1f9de25a0ee8052444e5b8c1e2}
+      \strng{authorfullhash}{d0eeec1f9de25a0ee8052444e5b8c1e2}
+      \field{sortinit}{M}
+      \field{sortinithash}{c26a05ef03e4429073ed5c825140fac3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1086-7651}
+      \field{journaltitle}{J. Graph. Tools}
+      \field{month}{10}
+      \field{number}{1}
+      \field{title}{Fast, Minimum Storage Ray-triangle Intersection}
+      \field{volume}{2}
+      \field{year}{1997}
+      \field{pages}{21\bibrangedash 28}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1080/10867651.1997.10487468
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1080/10867651.1997.10487468
+      \endverb
+    \endentry
     \entry{hans}{book}{}
       \name{author}{1}{}{%
         {{hash=5339f0eb21a903f86d94f875925d4f66}{%

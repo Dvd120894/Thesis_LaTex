@@ -30,7 +30,7 @@ I rettangoli di delimitazione minimi allineati all'asse vengono utilizzati per d
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\linewidth]{Figures/AABB}
-	\caption{Esempio di albero di tipo \ac{AABB}.}
+	\caption{Esempio di albero di tipo AABB.}
 	\label{AABB}
 \end{figure}
 %
@@ -40,15 +40,7 @@ Il \ac{MBB} orientato arbitrariamente (\ac{AOBB}) è il rettangolo di delimitazi
 \subsubsection{\textit{Object Oriented Bounding Box}}
 Nel caso in cui un oggetto abbia un proprio sistema di coordinate locale, può essere utile memorizzare un rettangolo di selezione relativo a questi assi, che non richiede alcuna trasformazione quando cambia l'orientazione dell'oggetto stesso.
 
-%\begin{figure}[h]
-%	\centering
-%	\includegraphics[width=0.9\linewidth]{Figures/BB}
-%	\caption{Tipi di \ac{BVH}.}
-%	\label{BB}
-%\end{figure}
-%
 \subsection{Intersezione tra Alberi AABB}
-
 Per il rilevamento delle collisioni tra oggetti in due dimensioni, l'intersezione tra alberi di tipo \ac{AABB}, è l'algoritmo più veloce per determinare se le due entità di gioco si sovrappongono o meno, e in che parti. Nello specifico, ciò consiste nel controllare le posizioni delle \textit{i}-esime \ac{BB} nello spazio delle coordinate bidimensionali per vedere se si sovrappongono.
 
 Il vincolo di allineamento dei rettangoli agli assi è presente per motivi di prestazioni, infatti, l'area di sovrapposizione tra due riquadri non ruotati può essere controllata solo con confronti logici. Mentre i riquadri ruotati richiedono ulteriori operazioni trigonometriche, che sono più lente da calcolare. Inoltre, se si hanno entità che possono ruotare, le dimensioni dei rettangoli e/o sotto-rettangoli dovranno modificarsi in modo da avvolgere ancora l'oggetto o si dovrà optare per un altro tipo di geometria di delimitazione, come le sfere (che sono invarianti alla rotazione).
@@ -56,12 +48,14 @@ Il vincolo di allineamento dei rettangoli agli assi è presente per motivi di pr
 Nel caso specifico, l'ombra dello pneumatico sarà rappresentata da un albero di tipo \ac{AABB} con una sola foglia. Ovvero si andrà a rappresentare lo pneumatico con una \ac{BB} avente lati uguali e rappresentanti il massimo ingombro che può avere nello spazio. Si andrà inoltre ad incrementare del 10\% ognuno di questi lati in modo da tenere conto dell'angolo di camber, che portrebbe portare i punti di campionamento del terreno fuori dall'ombra. La strada, contrariamente al pneumatico, verrà tenuta come riferimento assoluto. In altre parole, una volta effettuato la parsificazione del file \ac{RDF}, verrà calcolato l'albero di tipo \ac{AABB}. Lo pneumatico si muoverà all'interno della \textit{mesh} e la sua ombra verrà ricalcolata e intersecata con l'albero \ac{AABB} per ottenere tutti i triangoli in corrispondenza della stessa.
 
 Volendo intersecare due semplici \ac{BB}, quali $A = \left[ \texttt{A.minX}, \texttt{A.maxX} ;  \texttt{A.minY}, \texttt{A.maxY} \right]$ e $B = \left[ \texttt{B.minX}, \texttt{B.maxX} ;  \texttt{B.minY}, \texttt{B.maxY} \right]$, verrà usata la seguente funzione.
+\vspace{.8em}
 \begin{pseudoc}
-	function intersect(A, B) {
+	function intersect(A,B) {
 		return (A.minX <= B.maxX && A.maxX >= B.minX) &&
-					 (A.minY <= B.maxY && A.maxY >= B.minY);
+					 (A.minY <= B.maxY && A.maxY >= B.minY)
 	}
 \end{pseudoc}
+\vspace{.5em}
 \noindent
 Volendo intersecare un albero di tipo \ac{AABB} e una semplice \ac{BB}, basterà ripetere a più step la funzione precedente lungo i rami dell'albero. Una volta arrivati a una o più foglia avremo tutti gli oggetti (o triangoli nel caso specifico) che sono posti in corrispondenza della \ac{BB} (od ombra dello pneumatico nel caso specifico). Questi triangoli verranno poi usati per determinare il piano strada locale e il punto di contatto virtuale dello pneumatico.
 
@@ -132,7 +126,7 @@ Il codice che esegue questo tipo di test è riportato in \figurename{ \ref{point
 		\draw[fill] (P3) circle [radius=1pt] node[above] {\texttt{3}};
 		\draw[thick](A) -- (B);
 		\end{tikzpicture}
-		\caption{Output tipo \texttt{integer}}
+		\caption{\textit{Output} di tipo \texttt{integer}}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{.45\textwidth}
@@ -148,42 +142,52 @@ Il codice che esegue questo tipo di test è riportato in \figurename{ \ref{point
 		\draw[fill] (P3) circle [radius=1pt] node[above] {\texttt{true}};
 		\draw[thick](A) -- (B);
 		\end{tikzpicture}
-		\caption{Output tipo \texttt{bool}}
+		\caption{\textit{Output} di tipo \texttt{bool}}
 	\end{subfigure}
 	\hfill
-	\caption{Schemi per l'output dell'intersezione punto-segmento.}
+	\caption{Schemi per l'\textit{output} dell'intersezione punto-segmento.}
 \end{figure}
-
 \begin{figure}[h!]
 	\hfill
 	\begin{subfigure}[t]{.45\linewidth}
 	\raggedright
-	Output tipo \texttt{integer}\\
+	\textit{Output} di tipo \texttt{integer}\\
 	\vspace{.5em}
 	\begin{pseudoc}
-	if (AB.cross(AP) > epsilon) { return 0 }
-	KAP = AB.dot(AP)
-	if ( KAP      < -epsilon ) { return 0 }
-	if ( abs(KAP) < epsilon  ) { return 1 }
-	KAB = AB.dot(AB)
-	if ( KAP > KAB )  { return 0 }
-	if ( abs(KAP - KAB) < epsilon ) { return 2 }
-	return 3 // The point is on the segment
+	if ( AB.cross(AP) > epsilon )
+		{ return 0; }
+	KAP = AB.dot(AP);
+	if ( KAP < -epsilon )
+		{ return 0; }
+	if ( abs(KAP) < epsilon  )
+		{ return 1; }
+	KAB = AB.dot(AB);
+	if ( KAP > KAB )
+		{ return 0; }
+	if ( abs(KAP-KAB) < epsilon )
+		{ return 2; }
+	return 3;
 	\end{pseudoc}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{.45\textwidth}
 	\raggedright
-	Output tipo \texttt{bool}\\
+	\textit{Output} di tipo \texttt{bool}\\
+	\vspace{.5em}
 	\begin{pseudoc}
-	if (AB.cross(AP) > epsilon) { return false }
-	KAP = AB.dot(AP)
-	if ( KAP      < -epsilon ) { return false }
-	if ( abs(KAP) < epsilon  ) { return true }
-	KAB = AB.dot(AB)
-	if ( KAP > KAB )  { return false }
-	if ( abs(KAP - KAB) < epsilon ) { return true }
-	return true // The point is on the segment
+	if ( AB.cross(AP) > epsilon )
+		{ return false; }
+	KAP = AB.dot(AP);
+	if ( KAP < -epsilon )
+		{ return false; };
+	if ( abs(KAP) < epsilon )
+		{ return true; }
+	KAB = AB.dot(AB);
+	if ( KAP > KAB ) 
+		{ return false; }
+	if ( abs(KAP-KAB) < epsilon )
+		{ return true; }
+	return true;
 	\end{pseudoc}
 	\end{subfigure}
 	\hfill
@@ -192,9 +196,8 @@ Il codice che esegue questo tipo di test è riportato in \figurename{ \ref{point
 \end{figure}
 %
 \subsubsection{Punto-Cerchio}
-Having a circle with center $C = (x_c, y_c)$ and radius $r$, the problem consists in finding out whether a query point $P = (x_p, y_p)$ is inside, outside or on the circle.
-%
-\begin{figure}
+Data una circonferenza con centro $C = (x_c, y_c)$ e raggio $r$, il problema consiste nel trovare se un punto generico $P = (x_p, y_p)$ è locato all'interno, all'esterno o sulla circonferenza.
+\begin{figure}[h]
 	\centering
 	\begin{tikzpicture}
 	\def\r{2};
@@ -206,33 +209,34 @@ Having a circle with center $C = (x_c, y_c)$ and radius $r$, the problem consist
 	\draw(C) -- (P)  node[above left] {$P$} node[pos=0.5, right] {$d$};
 	\draw(C) -- ({sqrt(\r)},{sqrt(\r)}) node[pos=0.4, above] {$r$};
 	\end{tikzpicture}
-	\caption{Point-circle intersection problem scheme.}
+	\caption{Schema del problema di intersezione punto-cerchio.}
 \end{figure}
-%
-The solution to the problem is simple: the distance between the circle center $C$ and the query point $P$ is given by the \textit{Pythagorean theorem} as
+La soluzione al problema è semplice: la distanza tra il centro del cerchio $C$ e il punto $P$ è data dal teorema di Pitagora. In particolare:
 \begin{equation}
 	d=\sqrt{(x_p-x_c)^2 + (y_p-y_c)^2}
 \end{equation}
-The query point $P$ is \textit{inside} the circle if $d<r$, on the circle if $d = r$, and \textit{outside} the circle if $d > r$. Little work can be saved by comparing $d^2$ with $r^2$ instead: the point $P$ is \textit{inside} the circle if $d^2<r^2$, on the circle if $d^2 = r^2$, and \textit{outside} the circle if $d^2 > r^2$. Thus, the final comparison will be between the number $(x_p-x_c)^2 + (y_p-y_c)^2$ and $r^2$.\\
-The \textit{inputs} of the point-circle intersection algorithm are:
+il punto $P$ è dunque interno alla circonferenza se $d<r$, appartiene alla circonferenza se $d=r$ ed esterno alla circonferenza se $d>r$. In maniera analoga ma più efficace da punto di vista computazionale si può confrontare $d^2$ con $r^2$. Il punto $P$ è dunque interno alla circonferenza se $d^2<r^2$,  appartiene alla circonferenza se $d^2=r^2$ ed esterno alla circonferenza se $d^2>r^2$. Pertanto, il confronto finale sarà tra il numero $(x_p-x_c)^2+(y_p-y_c)^2 $ e $r^2$.
+
+\noindent
+Gli \textit{inputs} dell'algoritmo per l'intersezione punto-cerchio sono:
 \begin{itemize}
-	\item the circle center $C = (x_c, y_c)$;
-	\item the circle radius $r$;
-	\item a query point $P=(x_p, y_p)$.
+	\item il centro della circonferenza $C = (x_c, y_c)$;
+	\item il raggio della circonferenza $r$;
+	\item il punto generico da analizzare $P=(x_p, y_p)$.
 \end{itemize}
-The \textit{output} could be an integer which value is:
+L'\textit{output} può essere un intero il cui valore può essere:
 \begin{itemize}
-	\item 0 if the point is outside;
-	\item 1 if the point is inside;
-	\item 2 if the point is on the circle.
+	\item \texttt{0} se il punto è esterno;
+	\item \texttt{1} se il punto è interno;
+	\item \texttt{2} se il punto appartiene alla circonferenza.
 \end{itemize}
-Another option could be a boolean which value is:
+Il valore in \textit{output} può essere anche una variabile booleana il cui valore è:
 \begin{itemize}
-	\item false if the point is outside;
-	\item true if the point is inside or on the circle.
+	\item \texttt{false} se il punto è esterno;
+	\item \texttt{true} se il punto è interno o appartiene alla circonferenza.
 \end{itemize}
 %
-\begin{figure}
+\begin{figure}[h]
 \hfill
 	\begin{subfigure}{.45\textwidth}
 	\centering
@@ -244,8 +248,8 @@ Another option could be a boolean which value is:
 	\draw[fill] (-\r,0) circle [radius=1pt] node[above left] {\texttt{2}};
 	\draw[fill] (3,0) circle [radius=1pt] node[above left] {\texttt{0}};
 	\end{tikzpicture}
-	\caption{Output tipo \texttt{integer}}
-	\end{subfigure}
+	\caption{\textit{Output} di tipo \texttt{integer}}
+\end{subfigure}
 \hfill
 \begin{subfigure}{.45\textwidth}
 	\centering
@@ -257,55 +261,86 @@ Another option could be a boolean which value is:
 	\draw[fill] (-\r,0) circle [radius=1pt] node[above left] {\texttt{true}};
 	\draw[fill] (3,0) circle [radius=1pt] node[above] {\texttt{false}};
 	\end{tikzpicture}
-	\caption{Output tipo \texttt{bool}}
+	\caption{\textit{Output} di tipo \texttt{bool}}
 \end{subfigure}
 \hfill
-\caption{Schemi per l'output dell'intersezione punto-cerchio.}
+\caption{Schemi per l'\textit{output} dell'intersezione punto-cerchio.}
 \end{figure}
-On \figurename{ \ref{Pointcircle}} the schemes for the point-circle intersection algorithm with integer and boolean outputs are reported.\\
-%
-\begin{figure}[htbp]
+\begin{figure}[h]
 \hfill
-	\begin{subfigure}[t]{.45\linewidth}
+	\begin{subfigure}[t]{.475\linewidth}
 	\raggedright
-	Output tipo \texttt{integer}\\
+	\textit{Output} di tipo \texttt{integer}\\
 	\vspace{.5em}
 	\begin{pseudoc}
-	d = (x_p-x_c)^2 + (y_p-y_c)^2
-	if (d > r^2) { return  0}
-	else if (d < r^2) { return 1 }
-	else { return 2} // d = r^2
+	d = (x_p-x_c)^2 + (y_p-y_c)^2;
+	if ( d > r^2 ){ return  0; }
+	else if ( d < r^2 ){ return 1; }
+	else { return 2; }
 	\end{pseudoc}
 	\end{subfigure}
 \hfill
-	\begin{subfigure}[t]{.45\textwidth}
+	\begin{subfigure}[t]{.475\textwidth}
 	\raggedright
-	Output tipo \texttt{bool}\\
-	\vspace{.5em}
+	\textit{Output} di tipo \texttt{bool}\\
+	\vspace{1em}
 	\begin{pseudoc}
-	d = (x_p-x_c)^2 + (y_p-y_c)^2
-	if (d > r^2) { return  true}
-	else { return false} // d <= r^2
+	d = (x_p-x_c)^2 + (y_p-y_c)^2;
+	if ( d > r^2 ){ return  true; }
+	else { return false; }
 	\end{pseudoc}	
 	\end{subfigure}
 \hfill
-\caption{Schemi per l'intersezione punto-cerchio.}
+\caption{Schemi del codice per l'intersezione punto-cerchio.}
 \label{Pointcircle}
 \end{figure}
 %
-\subsubsection{Piano-Cerchio}
+\subsubsection{Piano-Piano}
+Nello spazio delle coordinate tridimensionali, due piani $P_1$ e $P_2$ o sono paralleli o si intersecano creando una singola retta $L$. Sia $P_i$ con $i = 1,2$ descritto da un punto $V_i$ e un vettore normale $\vec{n}_i$. L'equazione implicita del piano sarà dunque:
+\begin{equation}
+\vec{n}_i \cdot P + d_i = 0
+\end{equation}
+dove $P = (x, y, z)$. I piani $P_1$ e $P_2$ sono paralleli ogni volta che i loro normali vettori $\vec{n}_1$ e $\vec{n}_2$ sono paralleli. Questo equivale alla condizione che $\vec{n}_1 \times \vec{n}_2 = 0$. Quando i piani non sono paralleli, $\vec{u} = \vec{n}_1 \times \vec{n}_2$ è il vettore di direzione della linea di intersezione $L$. Si noti che $\vec{u}$ è perpendicolare sia a $\vec{n}_1$ che a $\vec{n}_2$, e quindi è parallelo a entrambi i piani.
+
+Dopo aver calcolato $\vec{n}_1 \times \vec{n}_2$, per determinare univocamente la linea di intersezione, è necessario trovare un punto di essa. Cioè, un punto $P_0 = (x_0, y_0, z_0)$ che si trova in entrambi i piani. Si può trovare una soluzione comune delle equazioni implicite per $P_1$ e $P_2$. Ma ci sono solo due equazioni nelle 3 incognite poiché il punto $P_0$ può trovarsi ovunque sulla linea monodimensionale $L$. Quindi è necessario aggiungere un altro vincolo da risolvere per un $P_0$ specifico. Esistono diversi modi per farlo, il più semplice è attraverso l'aggiunta dei un terzo piano $P_3$ avente equazione implicita $\vec{n}_3 \cdot P = 0$ dove $\vec{n}_3 = \vec{n}_1 \times \vec{n}_2$ e $d_3 = 0$ (ovvero passa attraverso l'origine). Questo metodo è funzionante poiché: 
+\begin{itemize}
+	\item $L$ è perpendicolare a $P_3$ e quindi lo interseca;
+	\item i vettori $\vec{n}_1$, $\vec{n}_2$ e $\vec{n}_3$ sono linearmente indipendenti.
+\end{itemize}
+Pertanto i piani $P_1$, $P_2$ e $P_3$ si intersecano in un unico punto $P_0$ che deve trovarsi su $L$. 
+
+Nello specifico, la formula per l'intersezione di 3 piani è:
+\begin{equation}
+P_0 =  \frac{-d_1(\vec{n}_2 \times \vec{n}_3) - d_2(\vec{n}_3 \times \vec{n}_1) - d_3(\vec{n}_1 \times \vec{n}_2)}{\vec{n}_1 \cdot (\vec{n}_2 \times \vec{n}_3)}
+\end{equation}
+e ponendo $d_3 = 0$ per $P_3$, si otteniene:
+\begin{equation}
+P_0 =  \frac{-d_1(\vec{n}_2 \times \vec{n}_3) - d_2(\vec{n}_3 \times \vec{n}_1)}{\vec{n}_1 \cdot (\vec{n}_2 \times \vec{n}_3)}
+=
+\frac{(d_2\vec{n}_1 - d_1\vec{n}_2) \times \vec{n}_3)}{(\vec{n}_1 \times \vec{n}_2) \cdot \vec{n}_3}
+=
+\frac{(d_2\vec{n}_1 - d_1\vec{n}_2) \times \vec{u})}{|\vec{u}|^2}
+\end{equation}
+e l'equazione parametrica per la retta $L$ sarà:
+\begin{equation}
+L(s) =
+\frac{(d_2\vec{n}_1 - d_1\vec{n}_2) \times \vec{u})}{|\vec{u}|^2}+s\vec{u}
+\end{equation}
+dove $\vec{u}=\vec{n}_1 \times \vec{n}_2$.
+%
+\subsubsection{Piano-Segmento}
 %
 \subsubsection{Piano-Triangolo}
-
+%
 \subsubsection{Raggio-Triangolo}
-Having a triangle with vertices $(V_1,V_2,V_3)$ and a ray $R$ with origin $R_O$ and direction $R_D$, the problem consists in finding out whether the ray hits or not the triangle and if so, where is the intersection point $P$.
+Dato un triangolo avente vertici $(A,B,C)$ e un raggio $R$ con origine $R_O$ e direzione $R_D$, il problema consiste nel capire se il raggio colpisce o meno il triangolo e, in tal caso, trovare il punto di intersezione $P$.
 %
 \begin{figure}[htbp]
 	\centering
 	\begin{tikzpicture}
-	\coordinate [label=left:$V_1$] (A) at (-1,-0.5);
-	\coordinate [label=above:$V_2$] (B) at (1,1);
-	\coordinate [label=right:$V_3$] (C) at (2.2,-1);
+	\coordinate [label=left:$A$] (A) at (-1,-0.5);
+	\coordinate [label=above:$B$] (B) at (1,1);
+	\coordinate [label=right:$C$] (C) at (2.2,-1);
 	\draw[fill=gray!10] (A) -- (B) -- (C) -- (A);
 	\def\xp{0.4};
 	\def\yp{-0.2};
@@ -320,150 +355,264 @@ Having a triangle with vertices $(V_1,V_2,V_3)$ and a ray $R$ with origin $R_O$ 
 	\draw[-stealth] (RO) -- (RD);
 	\draw[dashed] (RD) -- (P);
 	\end{tikzpicture}
-	\caption{Ray-triangle intersection problem scheme.}
+	\caption{Rappresentazione del problema di intersezione raggio-triangolo.}
 \end{figure}
 %
-Over the last decades, plenty of algorithms for solving this problem had been purposed, so there are several solutions to the ray/triangle or ray-triangle intersection problem. Three of the most relevant algorithms are:
+Negli ultimi decenni, sono stati proposti numerosi algoritmi per risolvere questo problema, esistono quindi diverse soluzioni al problema di intersezione raggio-triangolo. Tre degli algoritmi più importanti sono:
 \begin{itemize}
-	\item \textit{Badouel} algorithm;
-	\item \textit{Segura} algorithm;
-	\item \textit{M\"oller-Trumbore} algorithm.
+	\item l'agoritmo di \textit{Badouel};
+	\item l'agoritmo di \textit{Segura};
+	\item l'agoritmo di \textit{M\"oller} e \textit{Trumbore}.
 \end{itemize}
-As \citeauthor{RayTriangle} states in \cite{RayTriangle}, the M\"oller-Trumbore's is the faster algorithm when the normal and/or the projection plane have not been previously stored, as in this thesis.\\
-%
+\noindent
+Come \citeauthor{RayTriangle} afferma in \cite{RayTriangle}, l'algoritmo di M\"oller-Trumbore's è il più veloce quando il piano normale e/o il piano di proiezione non sono stati precedentemente memorizzati, come nel caso specifico di questa tesi.
+
+La teoria alla base di questo algoritmo è spiegata estensivamente in \cite{Moller}. In particolare, l'algoritmo sfrutta la parametrizzazione di $P$, il punto di intersezione, in termini delle coordinate baricentriche, ovvero:
+\begin{equation}
+	P = wA + uB + vC
+\end{equation}
+Dato che $w = 1-u-v$, si può quindi scrivere:
+\begin{equation}
+	P = (1-u-v)A + uB + vC
+\end{equation}
+e sviluppando si ottiene:
+\begin{equation}
+	P = A-uA-vA+uB+vC = A+u(B-A)+v(C-A)
+	\label{eq1}
+\end{equation}
+Si noti che $(B-A)$ e $(C-A)$ sono i bordi $AB$ e $AC$ del triangolo $ABC$. L'intersezione $P$ può anche essere scritta usando l'equazione parametrica del raggio:
+\begin{equation}
+	P = R_O + tR_D
+	\label{eq2}
+\end{equation}
+dove $t$ è la distanza dall'origine del raggio all'intersezione $P$. Sostituendo $P$ nell'equazione \ref{eq1} con l'equazione del raggio si ottiene:
+\begin{equation}
+	\begin{split}
+	\begin{align}
+		R_O + tR_D =& A+u(B-A)+v(C-A)
+		O - A =& -tD+u(B-A)+v(C-A)
+	\end{align}
+	\end{split}
+	\label{eq3}
+\end{equation}
+Sul membro a sinistra si hanno le tre incognite $(t,u,v)$ moltiplicate per tre termini noti $(B-A, C-A, D)$. Si può riorganizzare questi termini e presentare l'equazione \ref{eq3} usando la seguente notazione:
+\begin{equation}
+	\begin{bmatrix}
+	-D & (B-A) & (C-A)
+	\end{bmatrix}
+	\begin{bmatrix}
+	t \\
+	u \\
+	v
+	\end{bmatrix} = R_O - A
+	\label{eq4}
+\end{equation}
+Si immagini ora di avere un punto $P$ all'interno del triangolo. Se si trasforma il triangolo in qualche modo (ad esempio traslandolo, ruotandolo o scalandolo), le coordinate del punto $P$ espresse nel sistema di coordinate cartesiane tridimensionali $(x,y,z)$ cambieranno. D'altra parte, se si esprime la posizione di $P$ usando le coordinate baricentriche, le trasformazioni applicate al triangolo non influenzeranno le coordinate baricentriche del punto di intersezione. Se il triangolo viene ruotato, ridimensionato, allungato o traslato, le coordinate $(u,v)$ che definiscono la posizione di $P$ rispetto ai vertici $(A,B,C)$ non cambieranno. L'algoritmo di M\"oller-Trumbore sfrutta proprio questa proprietà. Infatti, ciò che gli autori hanno fatto è definire un nuovo sistema di coordinate in cui le coordinate di $P$ non sono definite in termini di $(x,y,z)$ ma in termini di $(u,v)$. La somma tra le coordinate baricentriche non può essere maggiore di 1 ($u + v \leq 1$), esprimono infatti le coordinate dei punti definiti all'interno di un triangolo unitario. Ovvero un triangolo definito nello spazio $(u,v)$ dai vertici $(0,0)$, $(1,0)$, $(0,1)$.
+
 \begin{figure}[htbp]
 	\centering
 	\hfill
-	\begin{subfigure}[t]{.3\linewidth}
+	\begin{subfigure}[t]{.45\linewidth}
 		\begin{tikzpicture}
-			\coordinate (O) at (0,0,0);
-			\def\axisl{3}
-			\draw[-stealth] (O) -- (\axisl,0,0) node[below]{$x$};
-			\draw[-stealth] (O) -- ({sqrt(\axisl)},{sqrt(\axisl)},0) node[above]{$y$};
-			\draw[-stealth] (O) -- (0,\axisl,0) node[left]{$z$};
-			
-			\coordinate [label=below:$V_1$] (V1) at ({\axisl/1.5},0,0);
-\coordinate [label=above:$V_2$] (V2) at ({sqrt(\axisl)/1.5},{sqrt(\axisl)/1.5},0);
-\coordinate [label=above:$V_3$] (V3) at (0,0,0);
-			
-			\draw[fill=gray!10] (V1) -- (V2) -- (V3) -- (V1);
-
+		\coordinate (O) at (0,0,0);
+		\def\axisl{3}
+		\draw[-stealth] (O) -- (\axisl,0,0) node[below]{$x$};
+		\draw[-stealth] (O) -- ({sqrt(\axisl)},{sqrt(\axisl)},0) node[above]{$y$};
+		\draw[-stealth] (O) -- (0,\axisl,0) node[left]{$z$};
+		\coordinate [label=below:$C$] (V1) at ({\axisl/1.5},0.5,0);
+		\coordinate [label=above:$B$] (V2) at ({sqrt(\axisl)/1.5},{3.3/1.8},0);
+		\coordinate [label={[shift={(-0.15,0)}]$A$}] (V3) at (0.3,0.6,0);
+		\draw[fill=gray!10] (V1) -- (V2) -- (V3) -- (V1);
+		
+		\def\xp{1};
+		\def\yp{1};
+		\def\xd{-1};
+		\def\yd{0.8};
+		\def\mag{1.7};
+		\coordinate [label=above:$P$] (P) at (\xp,\yp);
+		\coordinate [label={[shift={(-0.3,-0.5)}]$R_D$}] (RD) at (\xp+\xd*1.1,\yp+\yd*1.1);
+		\coordinate [label=above:$R_O$] (RO) at (\xp+\xd*\mag*1.1,\yp+\yd*\mag*1.1);
+		\draw[fill] (P) circle [radius=1pt];
+		\draw[fill] (RO) circle [radius=1pt];
+		\draw[-stealth] (RO) -- (RD);
+		\draw[dashed] (RD) -- (P);
 		\end{tikzpicture}
 	\end{subfigure}
-\hfill
-\begin{subfigure}[t]{.3\linewidth}
-	\begin{tikzpicture}
-			\coordinate (O) at (0,0,0);
-			\def\axisl{3}
-		\draw[-stealth] (O) -- (\axisl,0,0) node[below]{$x$};
-\draw[-stealth] (O) -- ({sqrt(\axisl)},{sqrt(\axisl)},0) node[above]{$z$};
-\draw[-stealth] (O) -- (0,\axisl,0) node[left]{$y$};
-			
-			\coordinate [label=below:$V_1$] (V1) at ({\axisl/1.5},0,0);
-			\coordinate [label=above:$V_2$] (V2) at ({sqrt(\axisl)/1.5},{sqrt(\axisl)/1.5},0);
-			\coordinate [label=above:$V_3$] (V3) at (0,0,0);
-			
-
-			
-			\draw[fill=gray!10] (V1) -- (V2) -- (V3) -- (V1);
-
-	\end{tikzpicture}
-\end{subfigure}
-\hfill
-\begin{subfigure}[t]{.3\linewidth}
-	\begin{tikzpicture}
+	\hfill
+	\begin{subfigure}[t]{.45\linewidth}
+		\begin{tikzpicture}
 		\coordinate (O) at (0,0,0);
 		\def\axisl{3}
 		\draw[-stealth] (O) -- (\axisl,0,0) node[below]{$\alpha$};
 		\draw[-stealth] (O) -- ({sqrt(\axisl)},{sqrt(\axisl)},0) node[above]{$\beta$};
 		\draw[-stealth] (O) -- (0,\axisl,0) node[left]{$\gamma$};
-		
 		\coordinate [label={[below,font=\tiny]:$1$}] (V1) at ({\axisl/1.5},0,0);
 		\coordinate [label={[shift={(-0.1,0.0)},font=\tiny]:$1$}] (V2) at ({sqrt(\axisl)/1.5},{sqrt(\axisl)/1.5},0);
 		\coordinate (V3) at (0,0,0);
-		
 		\draw[fill=gray!10] (V1) -- (V2) -- (V3) -- (V1);
-	\end{tikzpicture}
-\end{subfigure}
-\hfill
-\caption{Transformation and base change of ray in M\"oller-Trumbore algorithm.}
+				
+		\def\xp{0.7};
+		\def\yp{0.35};
+		\def\xd{0};
+		\def\yd{1};
+		\def\mag{1.7};
+		\coordinate [label=right:$P$] (P) at (\xp,\yp);
+		\coordinate [label={[shift={(-0.35,-0.15)}]$R_D$}] (RD) at (\xp+\xd,\yp+\yd);
+		\coordinate [label=above:$R_O$] (RO) at (\xp+\xd*\mag,\yp+\yd*\mag);
+		\draw[fill] (P) circle [radius=1pt];
+		\draw[fill] (RO) circle [radius=1pt];
+		\draw[-stealth] (RO) -- (RD);
+		\draw[dashed] (RD) -- (P);
+		\end{tikzpicture}
+	\end{subfigure}
+	\hfill
+	\caption{Transformation and base change of ray in M\"oller-Trumbore algorithm.}
 \end{figure}
 
-The inputs of the M\"oller-Trumbore algorithm are:
-\begin{itemize}
-	\item Triangle vertices $(V_1, V_2, V_3)$;
-	\item Segment points $(Q_1, Q_2)$.
-\end{itemize}
-%
+Geometricamente, si è appena chiarito il significato di $u$ e $v$. Si consideri ora l'elemento $t$. Esso è il terzo asse del sistema di coordinate $u$ e $v$ appena introdotto. Si sà inoltre che $t$ esprime la distanza dall'origine del raggio a $P$, il punto di intersezione, si è quindi creato un sistema di coordinate che consentirà di esprimere univocamente la posizione del punto d'intersezione $P$ in termini di coordinate baricentriche e distanza dall'origine del raggio a quel punto sul triangolo.
+
+M\"oller e Trumbore spiegano che la prima parte dell'equazione \ref{eq4} (il termine $O-A$) può essere vista come una trasformazione che sposta il triangolo dalla sua posizione spaziale mondiale originale all'origine (il primo vertice del triangolo coincide con l'origine). L'altro lato dell'equazione ha l'effetto di trasformare il punto di intersezione dallo spazio $(x,y,z)$ nello spazio $(t,u,v)$ come spiegato precedentemente.
+
+Per risolvere l'equazione \ref{eq4}, M\"oller e Trumbore hanno usato una tecnica conosciuta in matematica come regola di Cramer. La regola di Cramer fornisce la soluzione a un sistema di equazioni lineari mediante il determinante. La regola afferma che se la moltiplicazione di una matrice $M$ per un vettore colonna $X$ è uguale a un vettore colonna $C$, allora è possibile trovare $X_i$ (l'$i$-esimo elemento del vettore colonna $X$) dividendo il determinante di $M_i$ per il determinante di $M$. Dove $M_i$ è la matrice formata sostituendo la sua colonna di $M$ con il vettore colonna $C$. Usando questa regola si ottiene;
+\begin{equation}
+\begin{bmatrix}
+t \\
+u \\
+v
+\end{bmatrix} = 
+\frac{1}{\begin{vmatrix}-D & E_1 & E_2\end{vmatrix}}
+\begin{bmatrix}
+\begin{vmatrix}T & E_1 & E_2\end{vmatrix} \\
+\begin{vmatrix}-D & T & E_2\end{vmatrix} \\
+\begin{vmatrix}-D & E_1 & T\end{vmatrix}
+\end{bmatrix}
+\label{eq5}
+\end{equation}
+dove $T=O-A$, $E_1=B-A$ ed $E_2=C-A$. Il prossimo passo è trovare un valore per questi quattro determinanti. Il determinante (di una matrice $3 \times 3$) non è altro che un triplo prodotto scalare, quindi si può riscrivere l'equazione precedente come:
+\begin{equation}
+\begin{bmatrix}
+t \\
+u \\
+v
+\end{bmatrix} 
+= \frac{1}{(D \times E_2) \cdot E_1}
+\begin{bmatrix}
+(T \times E_1) \cdot E_2 \\
+(D \times E_2) \cdot T \\
+(T \times E_1) \cdot D
+\end{bmatrix}
+= \frac{1}{P \cdot E_1}
+\begin{bmatrix}
+Q \cdot E_2 \\
+P \cdot T \\
+Q \cdot D
+\end{bmatrix}
+\end{equation}
+dove $P = (D \times E_2)$ e $Q = (T \times E_1)$. Come si può vedere ora è facile trovare i valori $t$, $u$ e $v$.
+
+\begin{figure}
+	\hfill
+	\begin{subfigure}{.3\linewidth}
+		\centering
+		\begin{tikzpicture}
+		\coordinate (A) at (-1,-0.5);
+		\coordinate (B) at (1,1);
+		\coordinate (C) at (2.2,-1);
+		\draw[fill=gray!10] (A) -- (B) -- (C) -- (A);
+		\def\xp{0};
+		\def\yp{-0.2};
+		\def\xd{0};
+		\def\yd{1};
+		\def\mag{1.7};
+		\coordinate [label=right:\texttt{true}] (P) at (\xp,\yp);
+		\coordinate (RD) at (\xp+\xd,\yp+\yd);
+		\coordinate (RO) at (\xp+\xd*\mag,\yp+\yd*\mag);
+		\draw[fill] (P) circle [radius=1pt];
+		\draw[fill] (RO) circle [radius=1pt];
+		\draw[-stealth] (RO) -- (RD);
+		\draw[dashed] (RD) -- (P);
+		\end{tikzpicture}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{.3\linewidth}
+		\centering
+		\begin{tikzpicture}
+		\coordinate (A) at (-1,-0.5);
+		\coordinate (B) at (1,1);
+		\coordinate (C) at (2.2,-1);
+		\draw[fill=gray!10] (A) -- (B) -- (C) -- (A);
+		\def\xp{0};
+		\def\yp{0.25};
+		\def\xd{0};
+		\def\yd{1};
+		\def\mag{1.7};
+		\coordinate [label=below right:\texttt{true}] (P) at (\xp,\yp);
+		\coordinate (RD) at (\xp+\xd,\yp+\yd);
+		\coordinate (RO) at (\xp+\xd*\mag,\yp+\yd*\mag);
+		\draw[fill] (P) circle [radius=1pt];
+		\draw[fill] (RO) circle [radius=1pt];
+		\draw[-stealth] (RO) -- (RD);
+		\draw[dashed] (RD) -- (P);
+	\end{tikzpicture}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{.3\linewidth}
+	\centering
+	\begin{tikzpicture}
+		\coordinate (A) at (-1,-0.5);
+		\coordinate (B) at (1,1);
+		\coordinate (C) at (2.2,-1);
+		\draw[fill=gray!10] (A) -- (B) -- (C) -- (A);
+		\def\xp{-0.3};
+		\def\yp{0.25};
+		\def\xd{0};
+		\def\yd{1};
+		\def\mag{1.7};
+		\coordinate [label=left:\texttt{false}] (P) at (\xp,\yp);
+		\coordinate (RD) at (\xp+\xd,\yp+\yd);
+		\coordinate (RO) at (\xp+\xd*\mag,\yp+\yd*\mag);
+		\draw[fill] (P) circle [radius=1pt];
+		\draw[fill] (RO) circle [radius=1pt];
+		\draw[-stealth] (RO) -- (RD);
+		\draw[dashed] (RD) -- (P);
+	\end{tikzpicture}
+	\end{subfigure}
+	\hfill
+	\caption{Schemi per l'\textit{output} dell'intersezione punto-cerchio.}
+\end{figure}
 \begin{figure}[htbp]
-\hfill
-	\begin{subfigure}[t]{.4\linewidth}
-		\raggedright
-		Con \textit{back-face culling}\\
-		\vspace{.5em}
+	\centering
+	\begin{subfigure}{.65\linewidth}
 	\begin{pseudoc}
-	Q = Q_2 - Q_1
-	E_1 = V_2 - V_1
-	E_2 = V_3 - V_1
-	A = Q $\times$ E_2
-	D = A $\cdot$ E_1
-	if (D > epsilon) {
-		T = Q_1 - V_1
-		u = A $\cdot$ T
-		if (u < 0.0 || u > D) { return false }
-		B = T $\times$ E_1
-		v = B $\cdot$ Q
-		if (v < 0.0 || u + v > D) {return false }
-	} else if (D < -epsilon) {
-		T = Q_1 - V_1
-		u = A $\cdot$ T
-		if (u > 0.0 || u < D) { return false }
-		B = T $\times$ E_1
-		v = B $\cdot$ Q
-		if (v > 0.0 || u + v < D) { return false }
-		else { return false }
-		D_inv}= 1.0 / D
-		t = (B $\cdot$ E_2) * D_{inv}
-		if (t > 0.0) {
-			P = Q + D * t
-			return true
-		} else {
-			return false
-		}
+	E_1 = B - A;
+	E_2 = C - A;
+	A = R_D $\times$ E_2;
+	D = A $\cdot$ E_1;
+	if ( D > epsilon ) {
+		T = R_0 - A;
+		u = A $\cdot$ T;
+		if ( u < 0.0 || u > D ) return false;
+		B = T $\times$ E_1;
+		v = B $\cdot$ R_D;
+		if (v < 0.0 || u + v > D) return false;
+	} else if ( D < -epsilon ) {
+		T = R_0 - A;
+		u = A $\cdot$ T;
+		if (u > 0.0 || u < D) return false;
+		B = T $\times$ E_1;
+		v = B $\cdot$ R_D;
+		if ( v > 0.0 || u + v < D ) return false;
+	} else {
+		return false;
+	}
+	t = ( B $\cdot$ E_2 ) / D;
+	if ( t > 0.0 ) {
+		P = Q + D * t;
+		return true;
+	} else {
+		return false;
+	}
 	\end{pseudoc}
 	\end{subfigure}
-\hfill
-	\begin{subfigure}[t]{.4\textwidth}
-		\raggedright
-		\textit{Without back-face culling}\\
-		\vspace{.5em}
-		$Q = Q_2 - Q_1$\\
-		$E_1 = V_2 - V_1$\\
-		$E_2 = V_3 - V_1$\\
-		$A = Q \times E_2$\\
-		$D = A \cdot E_1$\\
-		$\mathbf{if} \, (D < \varepsilon) \{$\\
-		\quad $\mathbf{return \, false}$\\
-		$\}$\\
-		$T = Q_1 - V_1$\\
-		$u = A \cdot T$\\
-		$\mathbf{if} \, (u < 0.0 \, || \, u > D) \{$\\
-		\quad $\mathbf{return \, false}$\\
-		$\}$\\
-		$B = T \times E_1$\\
-		$v = B \cdot Q$\\
-		$\mathbf{if} \, (v < 0.0 \, || \, u + v > D) \{$\\
-		\quad \quad $\mathbf{return \, false}$\\
-		$\}$\\
-		$D_{inv} = 1.0 / D$\\
-		$t = (B \cdot E_2) * D_{inv}$\\
-		$\mathbf{if} \, (t > 0.0) \{$\\
-		\quad $P = Q + D * t$\\
-		\quad $\mathbf{return \, true}$\\
-		$\} \, \mathbf{else} \, \{$\\
-		\quad $\mathbf{return \, false}$\\
-		$\}$\\
-	\end{subfigure}
-\hfill
-\caption{Ray-triangle intersection algorithm schemes.}
+	\caption{Schema per del codice per l'intersezione raggio-triangolo con \textit{back-face culling}.}
 \end{figure}

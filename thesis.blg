@@ -1,19 +1,19 @@
 [0] Config.pm:354> INFO - This is Biber 2.7 (beta)
 [0] Config.pm:357> INFO - Logfile is 'thesis.blg'
-[36] biber:303> INFO - === ven dic 20, 2019, 18:04:06
-[60] Biber.pm:360> INFO - Reading 'thesis.bcf'
-[146] Biber.pm:836> INFO - Found 7 citekeys in bib section 0
-[162] Biber.pm:3671> INFO - Processing section 0
-[179] Biber.pm:3841> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
-[180] bibtex.pm:1424> INFO - Decoding LaTeX character macros into UTF-8
-[185] bibtex.pm:1281> INFO - Found BibTeX data source 'bibliography.bib'
-[189] Utils.pm:164> WARN - Entry 'Larcher' (bibliography.bib): Invalid format 'October 23, 2019' of date field 'date' - ignoring
-[203] Utils.pm:164> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[204] Utils.pm:164> WARN - BibTeX subsystem: author, warning: comma(s) at end of name (removing)
-[221] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[221] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
-[221] Biber.pm:3500> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'it-IT'
-[221] Biber.pm:3506> INFO - No sort tailoring available for locale 'it-IT'
-[230] bbl.pm:608> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[231] bbl.pm:712> INFO - Output to thesis.bbl
-[231] Biber.pm:110> INFO - WARNINGS: 3
+[53] biber:303> INFO - === ven dic 27, 2019, 16:52:26
+[73] Biber.pm:360> INFO - Reading 'thesis.bcf'
+[179] Biber.pm:836> INFO - Found 8 citekeys in bib section 0
+[198] Biber.pm:3671> INFO - Processing section 0
+[217] Biber.pm:3841> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[218] bibtex.pm:1424> INFO - Decoding LaTeX character macros into UTF-8
+[225] bibtex.pm:1281> INFO - Found BibTeX data source 'bibliography.bib'
+[229] Utils.pm:164> WARN - Entry 'Larcher' (bibliography.bib): Invalid format 'October 23, 2019' of date field 'date' - ignoring
+[257] Utils.pm:164> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[257] Utils.pm:164> WARN - BibTeX subsystem: author, warning: comma(s) at end of name (removing)
+[283] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[283] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[283] Biber.pm:3500> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'it-IT'
+[283] Biber.pm:3506> INFO - No sort tailoring available for locale 'it-IT'
+[297] bbl.pm:608> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[299] bbl.pm:712> INFO - Output to thesis.bbl
+[299] Biber.pm:110> INFO - WARNINGS: 3
