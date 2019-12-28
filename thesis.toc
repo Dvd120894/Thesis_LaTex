@@ -66,88 +66,90 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {4.3.2.2}Punto-Cerchio}{25}{subsubsection.4.3.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.3.2.3}Piano-Piano}{27}{subsubsection.4.3.2.3}
+\contentsline {subsubsection}{\numberline {4.3.2.3}Segmento-Cerchio}{27}{subsubsection.4.3.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.3.2.4}Piano-Segmento}{28}{subsubsection.4.3.2.4}
+\contentsline {subsubsection}{\numberline {4.3.2.4}Piano-Piano}{29}{subsubsection.4.3.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.3.2.5}Piano-Triangolo}{28}{subsubsection.4.3.2.5}
+\contentsline {subsubsection}{\numberline {4.3.2.5}Piano-Segmento}{31}{subsubsection.4.3.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.3.2.6}Raggio-Triangolo}{28}{subsubsection.4.3.2.6}
+\contentsline {subsubsection}{\numberline {4.3.2.6}Piano-Triangolo}{32}{subsubsection.4.3.2.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {5}La Libreria \texttt {TireGround}}{33}{chapter.5}
+\contentsline {subsubsection}{\numberline {4.3.2.7}Raggio-Triangolo}{33}{subsubsection.4.3.2.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Organizzazione}{33}{section.5.1}
+\contentsline {chapter}{\chapternumberline {5}La Libreria \texttt {TireGround}}{39}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.1}\textit {Namespace} \texttt {TireGround}}{33}{subsection.5.1.1}
+\contentsline {section}{\numberline {5.1}Organizzazione}{39}{section.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.2}\textit {Namespace} \texttt {RDF}}{33}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.1}\textit {Namespace} \texttt {TireGround}}{39}{subsection.5.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {BBox2D}}{33}{section*.33}
+\contentsline {subsection}{\numberline {5.1.2}\textit {Namespace} \texttt {RDF}}{39}{subsection.5.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {Triangle3D}}{34}{section*.35}
+\contentsline {paragraph}{\texttt {BBox2D}}{39}{section*.40}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {TriangleRoad}}{34}{section*.37}
+\contentsline {paragraph}{\texttt {Triangle3D}}{40}{section*.42}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {MeshSurface}}{35}{section*.39}
+\contentsline {paragraph}{\texttt {TriangleRoad}}{40}{section*.44}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.3}\textit {Namespace} \texttt {PatchTire}}{35}{subsection.5.1.3}
+\contentsline {paragraph}{\texttt {MeshSurface}}{41}{section*.46}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {Disk}}{35}{section*.41}
+\contentsline {subsection}{\numberline {5.1.3}\textit {Namespace} \texttt {PatchTire}}{41}{subsection.5.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {ETRTO}}{36}{section*.43}
+\contentsline {paragraph}{\texttt {Disk}}{41}{section*.48}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {ReferenceFrame}}{36}{section*.45}
+\contentsline {paragraph}{\texttt {ETRTO}}{42}{section*.50}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {Shadow}}{37}{section*.47}
+\contentsline {paragraph}{\texttt {ReferenceFrame}}{42}{section*.52}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {Tire}}{38}{section*.49}
+\contentsline {paragraph}{\texttt {Shadow}}{43}{section*.54}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {MagicFormula}}{38}{section*.51}
+\contentsline {paragraph}{\texttt {Tire}}{44}{section*.56}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Librerie Esterne}{39}{section.5.2}
+\contentsline {paragraph}{\texttt {MagicFormula}}{44}{section*.58}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.1}\texttt {Eigen3}}{39}{subsection.5.2.1}
+\contentsline {section}{\numberline {5.2}Librerie Esterne}{45}{section.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.2}\texttt {Clothoids}}{39}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.1}\texttt {Eigen3}}{45}{subsection.5.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Utilizzo e Prestazioni}{40}{section.5.3}
+\contentsline {subsection}{\numberline {5.2.2}\texttt {Clothoids}}{45}{subsection.5.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {6}Conclusioni e Lavoro Futuro}{41}{chapter.6}
+\contentsline {section}{\numberline {5.3}Utilizzo e Prestazioni}{46}{section.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {appendix}{\chapternumberline {A}Convenzioni e Notazioni}{43}{appendix.Alph1}
+\contentsline {chapter}{\chapternumberline {6}Conclusioni e Lavoro Futuro}{47}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.0.1}Sistemi di Riferimento}{43}{subsection.Alph1.0.1}
+\contentsline {appendix}{\chapternumberline {A}Convenzioni e Notazioni}{49}{appendix.Alph1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.0.2}Matrice di Trasformazione}{44}{subsection.Alph1.0.2}
+\contentsline {subsection}{\numberline {A.0.1}Sistemi di Riferimento}{49}{subsection.Alph1.0.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {appendix}{\chapternumberline {B}Codice della Libreria C++}{45}{appendix.Alph2}
+\contentsline {subsection}{\numberline {A.0.2}Matrice di Trasformazione}{50}{subsection.Alph1.0.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {B.1}TireGround.hh}{45}{section.Alph2.1}
+\contentsline {appendix}{\chapternumberline {B}Codice della Libreria C++}{51}{appendix.Alph2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {B.2}RoadRDF.hh}{46}{section.Alph2.2}
+\contentsline {section}{\numberline {B.1}TireGround.hh}{51}{section.Alph2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {B.3}RoadRDF.cc}{52}{section.Alph2.3}
+\contentsline {section}{\numberline {B.2}RoadRDF.hh}{52}{section.Alph2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {B.4}PatchTire.hh}{59}{section.Alph2.4}
+\contentsline {section}{\numberline {B.3}RoadRDF.cc}{58}{section.Alph2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {B.5}PatchTire.cc}{70}{section.Alph2.5}
+\contentsline {section}{\numberline {B.4}PatchTire.hh}{65}{section.Alph2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {appendix}{\chapternumberline {C}Codice dei Tests}{79}{appendix.Alph3}
+\contentsline {section}{\numberline {B.5}PatchTire.cc}{76}{section.Alph2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C.1}Tests Geometrici}{79}{section.Alph3.1}
+\contentsline {appendix}{\chapternumberline {C}Codice dei Tests}{85}{appendix.Alph3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.1.1}Geometry-test1.cc}{79}{subsection.Alph3.1.1}
+\contentsline {section}{\numberline {C.1}Tests Geometrici}{85}{section.Alph3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.1.2}Geometry-test2.cc}{80}{subsection.Alph3.1.2}
+\contentsline {subsection}{\numberline {C.1.1}Geometry-test1.cc}{85}{subsection.Alph3.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.1.3}Geometry-test3.cc}{82}{subsection.Alph3.1.3}
+\contentsline {subsection}{\numberline {C.1.2}Geometry-test2.cc}{86}{subsection.Alph3.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.1.4}Geometry-test4.cc}{83}{subsection.Alph3.1.4}
+\contentsline {subsection}{\numberline {C.1.3}Geometry-test3.cc}{88}{subsection.Alph3.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C.2}Tests per il Modello Magic Formula}{84}{section.Alph3.2}
+\contentsline {subsection}{\numberline {C.1.4}Geometry-test4.cc}{89}{subsection.Alph3.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.2.1}MagicFormula-test1.cc}{84}{subsection.Alph3.2.1}
+\contentsline {section}{\numberline {C.2}Tests per il Modello Magic Formula}{90}{section.Alph3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.2.2}MagicFormula-test2.cc}{85}{subsection.Alph3.2.2}
+\contentsline {subsection}{\numberline {C.2.1}MagicFormula-test1.cc}{90}{subsection.Alph3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliografia}{87}{section*.57}
+\contentsline {subsection}{\numberline {C.2.2}MagicFormula-test2.cc}{91}{subsection.Alph3.2.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliografia}{93}{section*.64}

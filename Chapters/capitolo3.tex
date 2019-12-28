@@ -295,6 +295,86 @@ Il valore in \textit{output} può essere anche una variabile booleana il cui val
 \label{Pointcircle}
 \end{figure}
 %
+\subsubsection{Segmento-Cerchio}
+Per l'intersezione di un segmento, avente punto iniziale e finale rispettivamente $P_0$ e $P_1$, con una circonferenza, avente centro $C=(x_c,y_c)$, è necessario prima di tutto riscrivere le equazione di entrambe le entità come:
+\begin{equation}
+ax+by=c
+\label{eqretta}
+\end{equation}
+per il segemento e:
+\begin{equation}
+(x-x_c)^2 + (y-y_c)^2 = r^2
+\end{equation}
+per la circonferenza. Assumendo che il centro $C$ sia posto sull'origine, la precedente equazione si può semplificare come:
+\begin{equation}
+x^2 + y^2 = r^2
+\label{eqcircle}
+\end{equation}
+Per trovere i termini $a$, $b$ e $c$ del segmento è necessario calcolare la direzione del segmento come differenza tra il punto finale e iniziale del segmento:
+\begin{equation}
+\vec{d} = P_1 - P_0 
+\end{equation}
+È neccerio anche trovare il vettore tra l'origine e il punto $P_1$:
+\begin{equation}
+\vec{P}_{O1} = P_1 - O
+\end{equation}
+I termini $a$, $b$ e $c$ del segmento saranno quini pari a:
+\begin{equation}
+\begin{aligned}
+	\begin{split}
+		a =& \vec{d} \cdot \vec{d} \\
+		b =& 2 (\vec{d} \cdot \vec{P}_{O1}) \\
+		c =& \vec{P}_{O1} \cdot \vec{P}_{O1} - r^2
+	\end{split}
+\end{aligned}
+\end{equation}
+Risolvere l'equazione \ref{eqretta} per $x$ o $y$ è ora molto semplice. Basta infatti sostituirla nell'equazione \ref{eqcircle} per ottere le soluzioni $(x_1, y_1)$ e $(x_2, y_2)$ con:
+\begin{equation}
+x_{1/2} = \frac{ac \pm b \sqrt{r^2 (a^2 + b^2)-c^2}}{a ^ 2 + b ^ 2}
+\end{equation}
+oppure:
+\begin{equation}
+y_{1/2} = \frac{bc \mp a \sqrt{r^2 (a^2 + b^2)-c^2}}{a ^ 2 + b ^ 2}
+\end{equation}
+Se $r^2 (a^2 + b^2)-c^2 \geq 0$ vale come una disuguaglianza stretta, esistono due punti di intersezione; in questo caso la linea è chiamata una linea secante del cerchio e il segmento di linea che collega i punti di intersezione è chiamato accordo del cerchio.\\
+Se invece vale $r^2 (a^2 + b^2)-c^2 = 0$, allora esiste solo un punto di intersezione e la linea è tangente al cerchio. Se la disuguaglianza debole non regge, la linea non interseca la circonferenza.\\
+\noindent
+Dal punto di vista del codice l'\textit{output} può essere un intero il cui valore può essere:
+\begin{itemize}
+	\item \texttt{0} se la linea non interseca la circonferenza;
+	\item \texttt{1} se la linea interseca la circonferenza in un solo punto, ovvero è tangente;
+	\item \texttt{2} se la linea interseca la circonferenza in due punti.
+\end{itemize}
+
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}{.65\linewidth}
+	\begin{pseudoc}
+	a = d $\cdot$ d;
+	b = 2 * (d $\cdot$ P_O1);
+	c = P_O1 $\cdot$ P_O1 - r^2;
+	discriminant = r^2 * (a^2 + b^2) - c^2;
+	if ( a <= epsilon || discriminant < 0.0 ) {
+		IntPt_1 = (quiteNaN, quiteNaN);
+		IntPt_2 = (quiteNaN, quiteNaN);
+		return 0;
+	} else if ( abs(discriminant) < epsilon ) {
+		t = - b / (2 * a);
+		IntPt_1 = P_1 + t * d;
+		IntPt_2 = (quiteNaN, quiteNaN);
+		return 1;
+	} else {
+		t = (-b + sqrt(discriminant)) / (2 * a);
+		IntPt_1 = P_1 + t * d;
+		t = (-b - sqrt(discriminant)) / (2 * a);
+		IntPt_2 = P_1 + t * d;
+		return 2;
+	}
+	\end{pseudoc}
+	\end{subfigure}
+	\caption{Schema per del codice per l'intersezione segmento-cerchio.}
+\end{figure}
+%
 \subsubsection{Piano-Piano}
 Nello spazio delle coordinate tridimensionali, due piani $P_1$ e $P_2$ o sono paralleli o si intersecano creando una singola retta $L$. Sia $P_i$ con $i = 1,2$ descritto da un punto $V_i$ e un vettore normale $\vec{n}_i$. L'equazione implicita del piano sarà dunque:
 \begin{equation}
@@ -302,14 +382,54 @@ Nello spazio delle coordinate tridimensionali, due piani $P_1$ e $P_2$ o sono pa
 \end{equation}
 dove $P = (x, y, z)$. I piani $P_1$ e $P_2$ sono paralleli ogni volta che i loro normali vettori $\vec{n}_1$ e $\vec{n}_2$ sono paralleli. Questo equivale alla condizione che $\vec{n}_1 \times \vec{n}_2 = 0$. Quando i piani non sono paralleli, $\vec{u} = \vec{n}_1 \times \vec{n}_2$ è il vettore di direzione della linea di intersezione $L$. Si noti che $\vec{u}$ è perpendicolare sia a $\vec{n}_1$ che a $\vec{n}_2$, e quindi è parallelo a entrambi i piani.
 
-Dopo aver calcolato $\vec{n}_1 \times \vec{n}_2$, per determinare univocamente la linea di intersezione, è necessario trovare un punto di essa. Cioè, un punto $P_0 = (x_0, y_0, z_0)$ che si trova in entrambi i piani. Si può trovare una soluzione comune delle equazioni implicite per $P_1$ e $P_2$. Ma ci sono solo due equazioni nelle 3 incognite poiché il punto $P_0$ può trovarsi ovunque sulla linea monodimensionale $L$. Quindi è necessario aggiungere un altro vincolo da risolvere per un $P_0$ specifico. Esistono diversi modi per farlo, il più semplice è attraverso l'aggiunta dei un terzo piano $P_3$ avente equazione implicita $\vec{n}_3 \cdot P = 0$ dove $\vec{n}_3 = \vec{n}_1 \times \vec{n}_2$ e $d_3 = 0$ (ovvero passa attraverso l'origine). Questo metodo è funzionante poiché: 
+\begin{figure}
+	\centering
+	\tdplotsetmaincoords{70}{110}
+	\begin{tikzpicture}[tdplot_main_coords,font=\sffamily]
+	\draw[-latex] (0,0,0) -- (4,0,0) node[left] {$x$};
+	\draw[-latex] (0,0,0) -- (0,4,0) node[below] {$y$};
+	\draw[-latex] (0,0,0) -- (0,0,4) node[left] {$z$};
+	\tdplotsetrotatedcoords{45}{0}{0}
+	\begin{scope}[tdplot_rotated_coords]
+	\draw[fill=gray!10,opacity=0.6] (-3,0,-3) -- (-3,0,3) -- (3,0,3) -- (3,0,-3) -- cycle;
+	\end{scope}
+	\tdplotsetrotatedcoords{90}{45}{0}
+	\begin{scope}[tdplot_rotated_coords]
+	\draw[fill=gray!10,opacity=0.5] (-3,-3,0) -- (-3,3,0) -- (3,3,0) -- (3,-3,0) -- cycle;
+	\draw[thick](-3,{3/sqrt(2)},0) coordinate(x) --(3,{-3/sqrt(2)},0);
+	\end{scope}
+	\node[anchor=south east,align=center] (line) at (3,-1.5,3.5) {$L$};
+	\draw[-latex] (line) to[out=0,in=135] (x);
+	\end{tikzpicture}
+	\caption{Rappresentazione del problema di intersezione piano-piano.}
+\end{figure}
+
+Dopo aver calcolato $\vec{n}_1 \times \vec{n}_2$, per determinare univocamente la linea di intersezione, è necessario trovare un punto di essa. Cioè, un punto $P_0 = (x_0, y_0, z_0)$ che si trova in entrambi i piani. Si può trovare una soluzione comune delle equazioni implicite per $P_1$ e $P_2$. Ma ci sono solo due equazioni nelle tre incognite poiché il punto $P_0$ può trovarsi ovunque sulla linea monodimensionale $L$. Quindi è necessario aggiungere un altro vincolo da risolvere per un $P_0$ specifico. Esistono diversi modi per farlo, il più semplice è attraverso l'aggiunta dei un terzo piano $P_3$ avente equazione implicita $\vec{n}_3 \cdot P = 0$ dove $\vec{n}_3 = \vec{n}_1 \times \vec{n}_2$ e $d_3 = 0$ (ovvero passa attraverso l'origine). Questo metodo è funzionante poiché: 
 \begin{itemize}
 	\item $L$ è perpendicolare a $P_3$ e quindi lo interseca;
 	\item i vettori $\vec{n}_1$, $\vec{n}_2$ e $\vec{n}_3$ sono linearmente indipendenti.
 \end{itemize}
 Pertanto i piani $P_1$, $P_2$ e $P_3$ si intersecano in un unico punto $P_0$ che deve trovarsi su $L$. 
 
-Nello specifico, la formula per l'intersezione di 3 piani è:
+\begin{figure}
+	\centering
+	\tdplotsetmaincoords{70}{110}
+	\begin{tikzpicture}[tdplot_main_coords]
+	\draw[-latex] (0,0,0) -- (4,0,0) node[left] {$x$};
+	\draw[-latex] (0,0,0) -- (0,4,0) node[below] {$y$};
+	\draw[-latex] (0,0,0) -- (0,0,4) node[left] {$z$};
+	\draw[fill=gray!10,opacity=0.6] (-3,0,-3) -- (-3,0,3) -- (3,0,3) -- (3,0,-3) -- cycle;
+	\draw[fill=gray!10,opacity=0.5] (-3,-3,0) -- (-3,3,0) -- (3,3,0) -- (3,-3,0) -- cycle;
+	\draw[dashed] (-3,0,0)--(3,0,0);
+	\draw[-stealth,thick] (0,0,0) -- (2,0,0);
+	\draw[-stealth,thick] (0,0,0) -- (0,2,0) node[above] {$\vec{n}_1$};
+	\draw[-stealth,thick] (0,0,0) -- (0,0,2) node[left] {$\vec{n}_2$};
+	\draw(2,.1,0) node[right] {$\vec{n}_3$};
+	\end{tikzpicture}
+	\caption{Vettori dei piani $P_1$, $P_2$ e della retta $L$.}
+\end{figure}
+
+Nello specifico, la formula per l'intersezione di tre piani è:
 \begin{equation}
 P_0 =  \frac{-d_1(\vec{n}_2 \times \vec{n}_3) - d_2(\vec{n}_3 \times \vec{n}_1) - d_3(\vec{n}_1 \times \vec{n}_2)}{\vec{n}_1 \cdot (\vec{n}_2 \times \vec{n}_3)}
 \end{equation}
@@ -317,23 +437,129 @@ e ponendo $d_3 = 0$ per $P_3$, si otteniene:
 \begin{equation}
 P_0 =  \frac{-d_1(\vec{n}_2 \times \vec{n}_3) - d_2(\vec{n}_3 \times \vec{n}_1)}{\vec{n}_1 \cdot (\vec{n}_2 \times \vec{n}_3)}
 =
-\frac{(d_2\vec{n}_1 - d_1\vec{n}_2) \times \vec{n}_3)}{(\vec{n}_1 \times \vec{n}_2) \cdot \vec{n}_3}
+\frac{(d_2\vec{n}_1 - d_1\vec{n}_2) \times \vec{n}_3}{(\vec{n}_1 \times \vec{n}_2) \cdot \vec{n}_3}
 =
-\frac{(d_2\vec{n}_1 - d_1\vec{n}_2) \times \vec{u})}{|\vec{u}|^2}
+\frac{(d_2\vec{n}_1 - d_1\vec{n}_2) \times \vec{u}}{|\vec{u}|^2}
 \end{equation}
 e l'equazione parametrica per la retta $L$ sarà:
 \begin{equation}
 L(s) =
-\frac{(d_2\vec{n}_1 - d_1\vec{n}_2) \times \vec{u})}{|\vec{u}|^2}+s\vec{u}
+\frac{(d_2\vec{n}_1 - d_1\vec{n}_2) \times \vec{u}}{|\vec{u}|^2}+s\vec{u}
 \end{equation}
 dove $\vec{u}=\vec{n}_1 \times \vec{n}_2$.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}{.65\linewidth}
+		\begin{pseudoc}
+	u = n_1 $\times$ n_2;
+	if ( u.norm() > epsilon ) {
+		d_1 = - V_1 $\cdot$ n_1;
+		d_2 = - V_2 $\cdot$ n_2;
+		u_1 = d_1 * n_1;
+		u_2 = - d_2 * n_2;
+		P_0 = (u1 + u2) $\times$ u / (u $\cdot$ u);
+		return true;
+	} else {
+		return false;
+	}
+		\end{pseudoc}
+	\end{subfigure}
+	\caption{Schema per del codice per l'intersezione piano-piano.}
+\end{figure}
 %
 \subsubsection{Piano-Segmento}
+Nello spazio delle coordinate tridimensionali, una linea $L$ può essere o parallela a un piano $P$ o può intersecarlo in un singolo punto. Sia $L$ data dall'equazione parametrica:
+\begin{equation}
+P(s) = P_0 + s(P_1-P_0) = P_0 + s\vec{u}
+\end{equation}
+mentre il piano $P$ sia dato da un punto $V_0$ appartenente ad esso e da un vettore normale $\vec{n} = (a,b,c)$. Per prima cosa è necessario controllare se $L$ è parallelo a $P$ verificando se $\vec{n}\cdot\vec{u} = 0$, il che significa che il vettore di direzione della linea $\vec{u}$ è perpendicolare al piano normale $\vec{n}$. Se questo è vero, allora $L$ e $P$ sono paralleli e non si intersecano, oppure $L$ giace totalmente nel piano $P$. Disgiunzione o coincidenza possono essere determinate testando se in $P$ esiste un punto specifico di $L$, per esempio $P_0$, ovvero se soddisfa l'equazione di linea implicita:
+\begin{equation}
+\vec{n} \cdot (P_0-V_0) = 0
+\end{equation}
+Se la linea e il piano non sono paralleli, allora $L$ e $P$ si intersecano in un unico punto $P(s_I)$. Nel punto di intersezione, il vettore $P(s)-V_0 = \vec{w} + s\vec{u}$ è perpendicolare a $\vec{n}$, dove $\vec{w} = P0-V0$. Ciò equivale alla condizione del prodotto scalare:
+\begin{equation}
+\vec{n} \cdot (\vec{w}+s\vec{u}) = 0
+\end{equation}
+Risolvendo si ottiene:
+\begin{equation}
+s_I = -\frac{\vec{n}\cdot\vec{w}}{\vec{n}\cdot\vec{u}}
+=
+-\frac{\vec{n}\cdot(V_0-P_0)}{\vec{n}\cdot(P_1-P_0)}
+\end{equation}
+Se la linea $L$ è un segmento finito da $P_0$ a $P_1$, è sufficiente verificare che $0 \leq s_I \leq 1$ per verificare che vi sia un'intersezione tra il segmento e il piano. Per raggio, c'è invece un'intersezione con il piano quando $s_I \geq 0$.
+
+\begin{figure}[htbp]
+	\centering
+	\tdplotsetmaincoords{70}{110}
+	\begin{tikzpicture}[tdplot_main_coords]
+	\draw[-latex] (0,0,0) -- (4,0,0) node[left] {$x$};
+	\draw[-latex] (0,0,0) -- (0,4,0) node[below] {$y$};
+	\draw[-latex] (0,0,0) -- (0,0,4) node[left] {$z$};
+	
+	\draw[fill=gray!10,opacity=0.5] (-3,-3,0) -- (-3,3,0) -- (3,3,0) -- (3,-3,0) -- cycle;
+	\draw[-stealth,thick] (0,-0.75,3.25) node[above] {$P_0$} -- (0,1.25,1.25) node[above right] {$P_1$};
+	\draw (0,-0.5,2.25) node[below left] {$\vec{w}$};
+	\draw (0,0.25,2.25) node[above right] {$\vec{u}$};
+	\draw[-stealth,thick] (0,0,0) -- (0,-0.75,3.25);
+	\draw[dashed] (0,1.25,1.25) -- (0,2.5,0);
+	\draw[fill] (0,2.5,0) circle [radius=1pt];
+	\draw (0,2.5,0) node[below left] {$P(s_I)$};
+	\draw (0,2,0.5) node[right] {$P(s)$};
+	\draw[fill] (0,2,.5) circle [radius=1pt];
+	\draw[-stealth,thick] (1,-2,0) -- (1,-2,2) node[left] {$\vec{n}$};
+	\end{tikzpicture}
+	\caption{Vettori dei piani $P_1$, $P_2$ e della retta $L$.}
+\end{figure}
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}{.65\linewidth}
+		\begin{pseudoc}
+	u = P_1 - P_0;
+	d = v_0 $\cdot$ n;
+	s = -(P_1 $\cdot$ n) + d) / (u $\cdot$ n);
+	if (s >= 0 && s <= 1) {
+		P_sI = P_0 + u * s;
+		return true;
+	} else {
+		return false;
+	}
+		\end{pseudoc}
+	\end{subfigure}
+	\caption{Schema per del codice per l'intersezione piano-segmento.}
+\end{figure}
 %
 \subsubsection{Piano-Triangolo}
+Per risolvere l'intersezione piano triangolo bastaunsare la soluzione precedentemente trovata per il problame dell'intersezione tra piano e segmento. Nello specifico, basta trattare i lati del triangolo come tre segmenti distinti e per ognuno di esso applicare la funzione per l'intersezione piano-segmento. Vi saranno tre possibili soluzioni:
+\begin{itemize}
+	\item il triangolo non viene intersecato dal piano;
+	\item il triangolo viene intersecato dal piano in uno dei suoi tre vertici;
+	\item il triangolo viene intersecato dal piano, formando quindi due punti d'intersezione nel suo perimetro.
+\end{itemize}
+
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}{.7\linewidth}
+		\begin{pseudoc}
+	if ( intersectSegmentPlane( n, V_0, 1, IntPt_1 ))
+	{ IntPts.push_back(IntPt1); }
+	if ( intersectSegmentPlane( n, V_0, 2, IntPt2 ))
+	{ IntPts.push_back(IntPt2); }
+	if ( intersectSegmentPlane( n, V_0, 3, IntPt3 ))
+	{ IntPts.push_back(IntPt3); }
+	if ( IntPts.size() == 2 ) 
+	{ return true; }
+	else if ( IntPts.size() == 0 ) 
+	{ return false; }
+	else 
+	{ return false; }
+		\end{pseudoc}
+	\end{subfigure}
+	\caption{Schema per del codice per l'intersezione piano-triangolo.}
+\end{figure}
 %
 \subsubsection{Raggio-Triangolo}
-Dato un triangolo avente vertici $(A,B,C)$ e un raggio $R$ con origine $R_O$ e direzione $R_D$, il problema consiste nel capire se il raggio colpisce o meno il triangolo e, in tal caso, trovare il punto di intersezione $P$.
+Dato un triangolo avente vertici $(A,B,C)$ e un raggio $R$ con origine $R_O$ e direzione $\vec{R}_D$, il problema consiste nel capire se il raggio colpisce o meno il triangolo e, in tal caso, trovare il punto di intersezione $P$.
 %
 \begin{figure}[htbp]
 	\centering
@@ -348,7 +574,7 @@ Dato un triangolo avente vertici $(A,B,C)$ e un raggio $R$ con origine $R_O$ e d
 	\def\yd{1};
 	\def\mag{1.7};
 	\coordinate [label=above right:$P$] (P) at (\xp,\yp);
-	\coordinate [label={[shift={(0.1,0.1)}]$R_D$}] (RD) at (\xp+\xd,\yp+\yd);
+	\coordinate [label={[shift={(0.1,0.1)}]$\vec{R}_D$}] (RD) at (\xp+\xd,\yp+\yd);
 	\coordinate [label=above:$R_O$] (RO) at (\xp+\xd*\mag,\yp+\yd*\mag);
 	\draw[fill] (P) circle [radius=1pt];
 	\draw[fill] (RO) circle [radius=1pt];
@@ -382,16 +608,16 @@ e sviluppando si ottiene:
 \end{equation}
 Si noti che $(B-A)$ e $(C-A)$ sono i bordi $AB$ e $AC$ del triangolo $ABC$. L'intersezione $P$ può anche essere scritta usando l'equazione parametrica del raggio:
 \begin{equation}
-	P = R_O + tR_D
+	P = R_O + t\vec{R}_D
 	\label{eq2}
 \end{equation}
 dove $t$ è la distanza dall'origine del raggio all'intersezione $P$. Sostituendo $P$ nell'equazione \ref{eq1} con l'equazione del raggio si ottiene:
 \begin{equation}
 	\begin{split}
-	\begin{align}
-		R_O + tR_D =& A+u(B-A)+v(C-A)
+	\begin{aligned}
+		R_O + t\vec{R}_D =& A+u(B-A)+v(C-A)\\
 		O - A =& -tD+u(B-A)+v(C-A)
-	\end{align}
+	\end{aligned}
 	\end{split}
 	\label{eq3}
 \end{equation}
@@ -430,7 +656,7 @@ Si immagini ora di avere un punto $P$ all'interno del triangolo. Se si trasforma
 		\def\yd{0.8};
 		\def\mag{1.7};
 		\coordinate [label=above:$P$] (P) at (\xp,\yp);
-		\coordinate [label={[shift={(-0.3,-0.5)}]$R_D$}] (RD) at (\xp+\xd*1.1,\yp+\yd*1.1);
+		\coordinate [label={[shift={(-0.3,-0.5)}]$\vec{R}_D$}] (RD) at (\xp+\xd*1.1,\yp+\yd*1.1);
 		\coordinate [label=above:$R_O$] (RO) at (\xp+\xd*\mag*1.1,\yp+\yd*\mag*1.1);
 		\draw[fill] (P) circle [radius=1pt];
 		\draw[fill] (RO) circle [radius=1pt];
@@ -457,7 +683,7 @@ Si immagini ora di avere un punto $P$ all'interno del triangolo. Se si trasforma
 		\def\yd{1};
 		\def\mag{1.7};
 		\coordinate [label=right:$P$] (P) at (\xp,\yp);
-		\coordinate [label={[shift={(-0.35,-0.15)}]$R_D$}] (RD) at (\xp+\xd,\yp+\yd);
+		\coordinate [label={[shift={(-0.35,-0.15)}]$\vec{R}_D$}] (RD) at (\xp+\xd,\yp+\yd);
 		\coordinate [label=above:$R_O$] (RO) at (\xp+\xd*\mag,\yp+\yd*\mag);
 		\draw[fill] (P) circle [radius=1pt];
 		\draw[fill] (RO) circle [radius=1pt];

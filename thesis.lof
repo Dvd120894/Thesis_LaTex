@@ -38,13 +38,27 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.7}{\ignorespaces Schemi del codice per l'intersezione punto-cerchio.\relax }}{27}{figure.caption.28}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Rappresentazione del problema di intersezione raggio-triangolo.\relax }}{29}{figure.caption.29}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Schema per del codice per l'intersezione segmento-cerchio.\relax }}{29}{figure.caption.29}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Transformation and base change of ray in M\"oller-Trumbore algorithm.\relax }}{30}{figure.caption.30}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Rappresentazione del problema di intersezione piano-piano.\relax }}{30}{figure.caption.30}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Schemi per l'\textit {output} dell'intersezione punto-cerchio.\relax }}{32}{figure.caption.31}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Vettori dei piani $P_1$, $P_2$ e della retta $L$.\relax }}{31}{figure.caption.31}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Schema per del codice per l'intersezione raggio-triangolo con \textit {back-face culling}.\relax }}{32}{figure.caption.32}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Schema per del codice per l'intersezione piano-piano.\relax }}{31}{figure.caption.32}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Vettori dei piani $P_1$, $P_2$ e della retta $L$.\relax }}{32}{figure.caption.33}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Schema per del codice per l'intersezione piano-segmento.\relax }}{33}{figure.caption.34}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Schema per del codice per l'intersezione piano-triangolo.\relax }}{33}{figure.caption.35}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Rappresentazione del problema di intersezione raggio-triangolo.\relax }}{34}{figure.caption.36}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Transformation and base change of ray in M\"oller-Trumbore algorithm.\relax }}{35}{figure.caption.37}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Schemi per l'\textit {output} dell'intersezione punto-cerchio.\relax }}{37}{figure.caption.38}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Schema per del codice per l'intersezione raggio-triangolo con \textit {back-face culling}.\relax }}{37}{figure.caption.39}
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
@@ -52,9 +66,9 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Rappresentazione degli assi del sistema di riferimento della vettura secondo la convenzione ISO-V.\relax }}{43}{figure.caption.54}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Rappresentazione degli assi del sistema di riferimento della vettura secondo la convenzione ISO-V.\relax }}{49}{figure.caption.61}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Rappresentazione degli assi del sistema di riferimento dello pneumatico secondo la convenzione ISO-C.\relax }}{44}{figure.caption.55}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Rappresentazione degli assi del sistema di riferimento dello pneumatico secondo la convenzione ISO-C.\relax }}{50}{figure.caption.62}
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
