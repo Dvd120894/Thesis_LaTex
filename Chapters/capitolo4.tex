@@ -116,7 +116,7 @@ Questa classe contiene tutte le informazioni necessarie per definire geometricam
 		\texttt{real\_type} & \texttt{SidewallHeight} & $\bullet$ & & Altezza della spalla \\ \hline
 		\texttt{real\_type} & \texttt{TireDiameter} & $\bullet$ & & Diametro dello pneumatico\\ \hline
 	\end{tabular}
-	\caption{Attributi della classe \texttt{BBox2D}.}
+	\caption{Attributi della classe \texttt{ETRTO}.}
 	\label{}
 \end{table}
 %
@@ -139,8 +139,6 @@ Questa classe contiene tutte le informazioni per definire e manipolare una terna
 	\caption{Attributi della classe \texttt{ReferenceFrame}.}
 	\label{}
 \end{table}
-%
-% CONTROLLA	re da qui in giù
 %
 \paragraph{\texttt{Shadow}}
 Questa classe serve a rappresentare l'ombra dello pneumatico nello spazio bidimensionale. È molto simile alla \texttt{RDF::BBox2D} precedentemente presentata, ma a differenza di quest'ultima permette di calcolare anche l'albero per oggetti di tipo \ac{AABB} a una sola foglia, relativo alla stessa ombra dello pneumatico. I metodi più importanti di questa classe sono i seguenti.
@@ -215,6 +213,16 @@ Questa libreria è implementata usando la tecnica di \textit{template metaprogra
 %
 \subsection{\texttt{Clothoids}}
 Questa libreria nasce per il \textit{fitting} dei polinomi di Hermite di tipo $G^1$ e $G^2$ con clotoidi, \textit{spline} di clotoidi, archi circolari e \textit{biarc}. In questo lavoro di tesi la libreria \texttt{Clothoids} è stata usata per sfruttare l'implementazione dell'oggetto albero per oggetti di tipo \ac{AABB}.
+%
+\subsection{\texttt{Doxygen}}
+\texttt{Doxygen} è un \textit{software} comunemente utilizzato per generare documentazione direttamente dalle annotazioni nei file \texttt{C++}. Questo \textit{tool} supporta anche altri linguaggi di programmazione popolari come \texttt{C}, \texttt{Objective-C}, \texttt{C\#}, \texttt{PHP},  \texttt{Java},  \texttt{Python}, \texttt{Fortran},  \texttt{VHDL},  \texttt{Tcl} e in una certa misura  \texttt{D}.
+
+\texttt{Doxygen} può essere utile per i seguenti motivi.
+\begin{itemize}
+	\item Può generare una documentazione da utilizzare \textit{online} (in \texttt{HTML}) e/o un manuale di riferimento \textit{offline} (in \LaTeX) da una serie di \textit{file} sorgente oppurtunamente annotati. C'è anche il supporto per generare \textit{output} in \texttt{RTF} (MicroSoft Word), \texttt{PostScript}, \texttt{PDF} con \textit{hyperlink} e \texttt{HTML} compresso. La documentazione viene estratta direttamente dalle fonti, il che rende molto più semplice mantenere la documentazione coerente con il codice sorgente.
+	\item È possibile configurare \texttt{doxygen} per estrarre la struttura del codice da \textit{file} sorgente non documentati. Questo è molto utile per analizzare rapidamente ed efficaciemente i \textit{file} sorgente di grandi dimensioni. Doxygen può anche visualizzare le relazioni tra i vari elementi mediante grafici di dipendenza, diagrammi di ereditarietà e diagrammi di collaborazione, tutti generati automaticamente.
+\end{itemize}
+\texttt{Doxygen} è sviluppato su Mac OS X e Linux, ma è configurato per essere altamente portabile. Di conseguenza, funziona anche con la maggior parte degli altri sistemi Unix. Inoltre, sono disponibili eseguibili per Windows.
 %
 \section{Utilizzo e Prestazioni}
 

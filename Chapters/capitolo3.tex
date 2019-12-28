@@ -76,10 +76,13 @@ La geometria computazionale è la branca dell'informatica che studia le struttur
 
 In questo capitolo tutti gli algoritmi che verranno utilizzati in seguito durante l'analisi geometrica dell'intersezione tra pneumatico e superficie stradale saranno trattati. Questi algoritmi sono la soluzione di alcuni semplici ma molto importanti problemi, che devono essere risolti in modo efficiente. In particolare le intersezioni tra:
 \begin{itemize}
-	\item punto e segmento (sul piano);
-	\item punto e circonferenza (sul piano);
-	\item raggio e circonferenza (sul piano);
-	\item raggio e triangolo (sullo spazio);
+	\item punto e segmento (nel piano);
+	\item punto e cerchio (nel piano);
+	\item segmento e circonferenza (nel piano);
+	\item piano e piano (nello spazio);
+	\item piano e segmento (nello spazio);
+	\item piano e triangolo (nello spazio);
+	\item raggio e triangolo (nello spazio);
 \end{itemize}
 saranno esaminati al fine di trovare la massima prestazione in termini di efficienza computazionale.
 %
@@ -100,7 +103,7 @@ Dato un punto $P = (x_p, y_p)$ e un segmento definito da due punti $A = (x_A, y_
 	\draw[fill] (P) circle [radius=1pt] node[above] {$P$};
 	\draw[thick](A) -- (B);
 	\end{tikzpicture}
-	\caption{Schema grafico per l'intersezione punto-segmento}
+	\caption{Schema del problema di intersezione punto-segmento}
 \end{figure}
 \noindent
 Per determinare se il punto $P$ è intermo al segmento si eseguiranno i seguenti step.
@@ -295,7 +298,7 @@ Il valore in \textit{output} può essere anche una variabile booleana il cui val
 \label{Pointcircle}
 \end{figure}
 %
-\subsubsection{Segmento-Cerchio}
+\subsubsection{Segmento-Circonferenza}
 Per l'intersezione di un segmento, avente punto iniziale e finale rispettivamente $P_0$ e $P_1$, con una circonferenza, avente centro $C=(x_c,y_c)$, è necessario prima di tutto riscrivere le equazione di entrambe le entità come:
 \begin{equation}
 ax+by=c
@@ -310,6 +313,24 @@ per la circonferenza. Assumendo che il centro $C$ sia posto sull'origine, la pre
 x^2 + y^2 = r^2
 \label{eqcircle}
 \end{equation}
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	\def\r{2};
+	\coordinate (C) at (0,0);
+	\coordinate (P0) at (-4,-1);
+	\coordinate (P1) at (4,-1);
+	\draw[thick, fill=gray!10](C) circle (\r);
+	\draw[fill] (C) circle [radius=1pt];
+	\draw[fill] (P0) circle [radius=1pt];
+	\draw[fill] (P1) circle [radius=1pt];
+	\draw[thick](P0) -- (P1) node[above] {$P_1$} node[pos=0, above] {$P_0$};
+	\draw(C) -- ({sqrt(\r)},{sqrt(\r)}) node[pos=0.4, above] {$r$};
+	\draw[fill] ({-sqrt(3)/2*\r},{-0.5*\r}) circle [radius=1pt] node[below left] {$(x_1,y_1)$};
+	\draw[fill] ({sqrt(3)/2*\r},{-0.5*\r}) circle [radius=1pt] node[below right] {$(x_2,y_2)$};
+	\end{tikzpicture}
+	\caption{Schema del problema di intersezione punto-circonferenza.}
+\end{figure}
 Per trovere i termini $a$, $b$ e $c$ del segmento è necessario calcolare la direzione del segmento come differenza tra il punto finale e iniziale del segmento:
 \begin{equation}
 \vec{d} = P_1 - P_0 
@@ -336,8 +357,8 @@ oppure:
 \begin{equation}
 y_{1/2} = \frac{bc \mp a \sqrt{r^2 (a^2 + b^2)-c^2}}{a ^ 2 + b ^ 2}
 \end{equation}
-Se $r^2 (a^2 + b^2)-c^2 \geq 0$ vale come una disuguaglianza stretta, esistono due punti di intersezione; in questo caso la linea è chiamata una linea secante del cerchio e il segmento di linea che collega i punti di intersezione è chiamato accordo del cerchio.\\
-Se invece vale $r^2 (a^2 + b^2)-c^2 = 0$, allora esiste solo un punto di intersezione e la linea è tangente al cerchio. Se la disuguaglianza debole non regge, la linea non interseca la circonferenza.\\
+Se $r^2 (a^2 + b^2)-c^2 \geq 0$ vale come una disuguaglianza stretta, esistono due punti di intersezione.\\
+Se invece vale $r^2 (a^2 + b^2)-c^2 = 0$, allora esiste solo un punto di intersezione e la linea è tangente alla circonferenza. Se la disuguaglianza debole non regge, la linea non interseca la circonferenza.\\
 \noindent
 Dal punto di vista del codice l'\textit{output} può essere un intero il cui valore può essere:
 \begin{itemize}
@@ -346,6 +367,58 @@ Dal punto di vista del codice l'\textit{output} può essere un intero il cui val
 	\item \texttt{2} se la linea interseca la circonferenza in due punti.
 \end{itemize}
 
+\begin{figure}[h]
+	\hfill
+	\begin{subfigure}{.3\textwidth}
+		\centering
+		\begin{tikzpicture}
+		\def\r{1.5};
+		\coordinate (C) at (0,0);
+		\coordinate (P0) at (-2,-1.75);
+		\coordinate (P1) at (2,-1.75);
+		\draw[thick, fill=gray!10](C) circle (\r);
+		\draw(C) node {\texttt{0}};
+		\draw[fill] (P0) circle [radius=1pt];
+		\draw[fill] (P1) circle [radius=1pt];
+		\draw[thick](P0) -- (P1) node[above] {$P_1$} node[pos=0, above] {$P_0$};
+		\end{tikzpicture}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{.3\textwidth}
+		\centering
+		\begin{tikzpicture}
+		\def\r{1.5};
+		\coordinate (C) at (0,0);
+		\coordinate (P0) at (-2,-1.5);
+		\coordinate (P1) at (2,-1.5);
+		\draw[thick, fill=gray!10](C) circle (\r);
+		\draw(C) node {\texttt{1}};
+		\draw[fill] (P0) circle [radius=1pt];
+		\draw[fill] (P1) circle [radius=1pt];
+		\draw[thick](P0) -- (P1) node[above] {$P_1$} node[pos=0, above] {$P_0$};
+		\draw[fill] (0,-\r) circle [radius=1pt];
+		\end{tikzpicture}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{.3\textwidth}
+		\centering
+		\begin{tikzpicture}
+		\def\r{1.5};
+		\coordinate (C) at (0,0);
+		\coordinate (P0) at (-2,-0.75);
+		\coordinate (P1) at (2,-0.75);
+		\draw[thick, fill=gray!10](C) circle (\r);
+		\draw(C) node {\texttt{2}};
+		\draw[fill] (P0) circle [radius=1pt];
+		\draw[fill] (P1) circle [radius=1pt];
+		\draw[thick](P0) -- (P1) node[above] {$P_1$} node[pos=0, above] {$P_0$};
+		\draw[fill] ({-sqrt(3)/2*\r},{-0.5*\r}) circle [radius=1pt];
+		\draw[fill] ({sqrt(3)/2*\r},{-0.5*\r}) circle [radius=1pt];
+		\end{tikzpicture}
+	\end{subfigure}
+	\hfill
+	\caption{Schemi per l'\textit{output} dell'intersezione segmento-cerchio.}
+\end{figure}
 \begin{figure}[htbp]
 	\centering
 	\begin{subfigure}{.65\linewidth}
@@ -401,7 +474,7 @@ dove $P = (x, y, z)$. I piani $P_1$ e $P_2$ sono paralleli ogni volta che i loro
 	\node[anchor=south east,align=center] (line) at (3,-1.5,3.5) {$L$};
 	\draw[-latex] (line) to[out=0,in=135] (x);
 	\end{tikzpicture}
-	\caption{Rappresentazione del problema di intersezione piano-piano.}
+	\caption{Schemi del problema di intersezione piano-piano.}
 \end{figure}
 
 Dopo aver calcolato $\vec{n}_1 \times \vec{n}_2$, per determinare univocamente la linea di intersezione, è necessario trovare un punto di essa. Cioè, un punto $P_0 = (x_0, y_0, z_0)$ che si trova in entrambi i piani. Si può trovare una soluzione comune delle equazioni implicite per $P_1$ e $P_2$. Ma ci sono solo due equazioni nelle tre incognite poiché il punto $P_0$ può trovarsi ovunque sulla linea monodimensionale $L$. Quindi è necessario aggiungere un altro vincolo da risolvere per un $P_0$ specifico. Esistono diversi modi per farlo, il più semplice è attraverso l'aggiunta dei un terzo piano $P_3$ avente equazione implicita $\vec{n}_3 \cdot P = 0$ dove $\vec{n}_3 = \vec{n}_1 \times \vec{n}_2$ e $d_3 = 0$ (ovvero passa attraverso l'origine). Questo metodo è funzionante poiché: 
@@ -513,12 +586,11 @@ Se la linea $L$ è un segmento finito da $P_0$ a $P_1$, è sufficiente verificar
 \end{figure}
 \begin{figure}[htbp]
 	\centering
-	\begin{subfigure}{.65\linewidth}
+	\begin{subfigure}{.5\linewidth}
 		\begin{pseudoc}
 	u = P_1 - P_0;
-	d = v_0 $\cdot$ n;
-	s = -(P_1 $\cdot$ n) + d) / (u $\cdot$ n);
-	if (s >= 0 && s <= 1) {
+	s = n $\cdot$ (V_0 - P_0) / (u $\cdot$ n);
+	if ( s >= 0 && s <= 1 ) {
 		P_sI = P_0 + u * s;
 		return true;
 	} else {
@@ -581,7 +653,7 @@ Dato un triangolo avente vertici $(A,B,C)$ e un raggio $R$ con origine $R_O$ e d
 	\draw[-stealth] (RO) -- (RD);
 	\draw[dashed] (RD) -- (P);
 	\end{tikzpicture}
-	\caption{Rappresentazione del problema di intersezione raggio-triangolo.}
+	\caption{Schema del problema di intersezione raggio-triangolo.}
 \end{figure}
 %
 Negli ultimi decenni, sono stati proposti numerosi algoritmi per risolvere questo problema, esistono quindi diverse soluzioni al problema di intersezione raggio-triangolo. Tre degli algoritmi più importanti sono:
@@ -692,7 +764,7 @@ Si immagini ora di avere un punto $P$ all'interno del triangolo. Se si trasforma
 		\end{tikzpicture}
 	\end{subfigure}
 	\hfill
-	\caption{Transformation and base change of ray in M\"oller-Trumbore algorithm.}
+	\caption{Cambiamento di coordinate nell'algoritmo di M\"oller-Trumbore.}
 \end{figure}
 
 Geometricamente, si è appena chiarito il significato di $u$ e $v$. Si consideri ora l'elemento $t$. Esso è il terzo asse del sistema di coordinate $u$ e $v$ appena introdotto. Si sà inoltre che $t$ esprime la distanza dall'origine del raggio a $P$, il punto di intersezione, si è quindi creato un sistema di coordinate che consentirà di esprimere univocamente la posizione del punto d'intersezione $P$ in termini di coordinate baricentriche e distanza dall'origine del raggio a quel punto sul triangolo.
