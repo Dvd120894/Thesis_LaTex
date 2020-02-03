@@ -211,6 +211,31 @@
       \verb http://dx.doi.org/10.1080/10867651.1997.10487468
       \endverb
     \endentry
+    \entry{Ginebra}{book}{}
+      \name{author}{1}{}{%
+        {{hash=d9661fb3f9f009bf547c086f3bafe2f3}{%
+           family={Normalización\bibnamedelima (Ginebra)},
+           familyi={N\bibinitperiod\bibinitdelim (\bibinitperiod},
+           given={Organización\bibnamedelima Internacional},
+           giveni={O\bibinitperiod\bibinitdelim I\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ISO}%
+      }
+      \strng{namehash}{d9661fb3f9f009bf547c086f3bafe2f3}
+      \strng{fullhash}{d9661fb3f9f009bf547c086f3bafe2f3}
+      \strng{authornamehash}{d9661fb3f9f009bf547c086f3bafe2f3}
+      \strng{authorfullhash}{d9661fb3f9f009bf547c086f3bafe2f3}
+      \field{sortinit}{N}
+      \field{sortinithash}{1163c28585427c673ad5a010cbf82f52}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{ISBN 9781439838983}
+      \field{title}{Road Vehicles, Vehicle	Dynamics and Road-holdin Ability: Vocabulary}
+      \field{year}{1991}
+    \endentry
     \entry{hans}{book}{}
       \name{author}{1}{}{%
         {{hash=5339f0eb21a903f86d94f875925d4f66}{%
@@ -231,6 +256,27 @@
       \field{year}{2012}
       \field{dateera}{ce}
     \endentry
+    \entry{Rill}{book}{}
+      \name{author}{1}{}{%
+        {{hash=1f90ac6b92be53f987c8d926eae47c1f}{%
+           family={Rill},
+           familyi={R\bibinitperiod},
+           given={Georg},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{1f90ac6b92be53f987c8d926eae47c1f}
+      \strng{fullhash}{1f90ac6b92be53f987c8d926eae47c1f}
+      \strng{authornamehash}{1f90ac6b92be53f987c8d926eae47c1f}
+      \strng{authorfullhash}{1f90ac6b92be53f987c8d926eae47c1f}
+      \field{sortinit}{R}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{ISBN 9781439838983}
+      \field{month}{09}
+      \field{title}{Road Vehicle Dynamics - Fundamentals and Modeling}
+      \field{year}{2011}
+    \endentry
     \entry{rill}{book}{}
       \name{author}{1}{}{%
         {{hash=1f90ac6b92be53f987c8d926eae47c1f}{%
@@ -250,6 +296,39 @@
       \field{title}{Road vehicle dynamics: fundamentals and modeling}
       \field{year}{2011}
       \field{dateera}{ce}
+    \endentry
+    \entry{Schramm}{book}{}
+      \name{author}{3}{}{%
+        {{hash=f75cc8a074098c5192bc22620544238d}{%
+           family={Schramm},
+           familyi={S\bibinitperiod},
+           given={Dieter},
+           giveni={D\bibinitperiod}}}%
+        {{hash=f2de39bf735cd403437d1b3131a62504}{%
+           family={Hiller},
+           familyi={H\bibinitperiod},
+           given={Manfred},
+           giveni={M\bibinitperiod}}}%
+        {{hash=adf8cab9c53dc6d4349bc5244ee288a6}{%
+           family={Bardini},
+           familyi={B\bibinitperiod},
+           given={Roberto},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Publishing Company, Incorporated}%
+      }
+      \strng{namehash}{12590d866546f890777b1cfc35dc7484}
+      \strng{fullhash}{12590d866546f890777b1cfc35dc7484}
+      \strng{authornamehash}{12590d866546f890777b1cfc35dc7484}
+      \strng{authorfullhash}{12590d866546f890777b1cfc35dc7484}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{3540360441}
+      \field{title}{Vehicle Dynamics: Modeling and Simulation}
+      \field{year}{2014}
     \endentry
   \endsortlist
 \endrefsection

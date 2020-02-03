@@ -1,17 +1,17 @@
-\chapter{Il Pneumatico}
+\chapter{Lo Pneumatico}
 \label{Pneumatico}
 %
 \section{Introduzione}
 Gli pneumatici sono probabilmente i componenti più complessi di un'auto in quanto combinano decine di componenti che devono essere formati, assemblati e combinati assieme. Il successo del prodotto finale dipende dalla loro capacità di fondere tutti i componenti separati in un prodotto dal materiale coeso che soddisfa le esigenze del conducente \cite{rill}. Gli pneumatici sono caratterizzati da un comportamento altamente non lineare con una dipendenza da diversi fattori costruttivi e ambientali.
 %
-\section{Geometria dello Pneumatico secondo ETRTO}
+\section{Geometria}
 Quando si fa riferimento ai dati puramente geometrici, viene utilizzata una forma abbreviata della notazione completa prevista dall'ente di normazione \ac{ETRTO}. Assumendo di avere un pneumatico generico la notazione che identificherà la geometria sarà del tipo $a$/$b$R$c$. Dove:
 \begin{itemize}
-	\item $a$ rappresenta larghezza nominale del pneumatico nel punto più largo;
+	\item $a$ rappresenta larghezza nominale dello pneumatico nel punto più largo;
 	\item $b$ rappresenta percentuale dell'altezza della spalla dello pneumatico in relazione alla larghezza dello stesso;
 	\item $c$ rappresenta il diametro dei cerchi ai quali lo pneumatico si adatta.
 \end{itemize}
-Facendo un esempio, 195/55R16 significherebbe che la larghezza nominale del pneumatico è di circa 195 mm nel punto più largo, l'altezza della spalla dello pneumatico è il 55\% della larghezza, ovvero 107 mm in questo caso, e che il pneumatico si adatta a dei cerchi di 16 pollici di diametro. Con questa notazione è possibile calcolare direttamente il diametro esterno teorico dello pneumatico tramite la seguente:
+Si prenda come esempio la seguente formula: 195/55R16. La larghezza nominale dello pneumatico è di circa 195 mm nel punto più largo, l'altezza della spalla corrisponde al 55\% della larghezza - ovvero 107 mm - e il diametro dei cerchi ai quali lo pneumatico si adatta è di 16 pollici.  Con questa notazione è possibile calcolare direttamente il diametro esterno teorico dello pneumatico tramite la seguente:
 %
 \begin{equation}
 \phi_e = \frac{2ab}{25.4}+c \quad \text{[in]} \qquad
@@ -21,7 +21,7 @@ Facendo un esempio, 195/55R16 significherebbe che la larghezza nominale del pneu
 \noindent
 Riprendendo l'esempio usato sopra, il diametro esterno risulterà dunque 24.44 in o 621 mm.\\
 Meno comunemente usato negli Stati Uniti e in Europa (ma spesso in Giappone) è una notazione che indica l'intero diametro del pneumatico invece delle proporzioni dell'altezza della parete laterale, quindi non secondo \ac{ETRTO}. Per fare lo stesso esempio, una ruota da 16 pollici avrebbe un diametro di 406 mm. L'aggiunta del doppio dell'altezza del pneumatico (2$\times$107 mm) produce un diametro totale di 620 mm. Quindi, un pneumatico 195/55R16 potrebbe in alternativa essere etichettato 195/620R16.\\
-Anche se questo è teoricamente ambiguo, in pratica queste due notazioni possono essere facilmente distinte perché l'altezza della parete laterale di un pneumatico automobilistico è in genere molto inferiore alla larghezza. Quindi, quando l'altezza è espressa come percentuale della larghezza, è quasi sempre inferiore al 100\% (e certamente meno del 200\%). Al contrario, i diametri degli pneumatici del veicolo sono sempre superiori a 200 mm. Pertanto, se il secondo numero è superiore a 200, allora è quasi certo che viene utilizzata la notazione giapponese, se è inferiore a 200 allora viene utilizzata la notazione USA/europea.
+Anche se queste due notazioni sono teoricamente ambigue, in pratica possono essere facilmente distinte perché l'altezza della parete laterale di uno pneumatico automobilistico è in genere molto inferiore alla larghezza. Quindi, quando l'altezza è espressa come percentuale della larghezza, è quasi sempre inferiore al 100\% (e certamente meno del 200\%). Al contrario, i diametri degli pneumatici del veicolo sono sempre superiori a 200 mm. Pertanto, se il secondo numero è superiore a 200, allora è quasi certo che viene utilizzata la notazione giapponese, se è inferiore a 200 allora viene utilizzata la notazione USA/europea.
 
 \begin{figure}[h]
 	\centering
@@ -30,7 +30,7 @@ Anche se questo è teoricamente ambiguo, in pratica queste due notazioni possono
 	\label{tiremeasures}
 \end{figure}
 %
-\section{La Modellizzazione dello Pneumatico}
+\section{Modellizzazione}
 Le forze di contatto tra la superficie stradale e lo pneumatico possono essere descritte completamente da un vettore di forza risultante applicato in un punto specifico dell'impronta di contatto e da una coppia risultante, come illustrato nella \figurename{  \ref{tireforces}}.
 
 \begin{figure}[h!]
@@ -47,11 +47,12 @@ Le forze di contatto tra la superficie stradale e lo pneumatico possono essere d
 		\centering
 		\includegraphics[width=\linewidth]{Figures/tire_forces}
 	\end{subfigure}
-\caption{Forze e coppie generate dal contatto pneumatico-strada.}
+\caption{Forze e coppie generate dal contatto pneumatico/strada.}
+Da: \citeauthor{Rill}, \citetitle{Rill}.
 \label{tireforces}
 \end{figure}
 %
-Come componenti cruciali per la movimentazione dei veicoli e il comportamento di guida, le forze degli pneumatici richiedono particolare attenzione soprattutto quando, assieme al comportamento stazionario, anche il comportamento non stazionario dev'essere considerato.
+Come componenti cruciali per la movimentazione dei veicoli e il comportamento di guida, le forze degli pneumatici richiedono particolare attenzione soprattutto perché deve essere considerato anche il comportamento non stazionario.
 
 Attualmente, è possibile suddividere i modelli di pneumatico in tre gruppi:
 \begin{itemize}
@@ -61,11 +62,9 @@ Attualmente, è possibile suddividere i modelli di pneumatico in tre gruppi:
 \end{itemize}
 
 \noindent
-La prima tipologia di modello tenta di rappresentare le caratteristiche fisiche del pneumatico attraverso una descrizione puramente matematica. Pertanto questi tipi di modelli partono da un curve caratteristiche ricavate sperimentalmente e cercano di derivare un comportamento approssimativo dall'interpolazione di un grande insieme di dati. Un esempio ben noto di questo approccio è il \textbf{modello di Pacejka} o \textbf{\textit{Magic Formula}} \cite{hans}. Questo tipo di modellazione è adatta per la simulazione di guida dove il comportamento di interesse è per lo più la guidabilità del veicolo e le frequenze di uscita sono ben al di sotto delle frequenze di risonanza della cintura dello pneumatico. I modelli fisici o i modelli ad alta frequenza, come i modelli agli elementi finiti, sono in grado di rilevare fenomeni di risonanza a frequenza più elevata. Ciò permette di valutare la confortevolezza di guida di un veicolo. Dal punto di vista del calcolo, i modelli fisici complessi richiedono molto tempo al calcolatore per essere risolti, nonché di molti dati. Al contrario dei più veloci modelli matematici, che però richiedono un'accurata pre-elaborazione dei dati sperimentali. La terza tipologia di modelli consiste in un'estensione dei modelli matematici attraverso le leggi fisiche al fine di coprire una gamma di frequenza più ampia.
+La prima tipologia di modello tenta di rappresentare le caratteristiche fisiche dello pneumatico attraverso una descrizione puramente matematica. Pertanto questi tipi di modelli partono da un curve caratteristiche ricavate sperimentalmente e cercano di derivare un comportamento approssimativo dall'interpolazione di un grande insieme di dati. Un esempio ben noto di questo approccio è il \textbf{modello di Pacejka} o \textbf{\textit{Magic Formula}} \cite{hans}. Questo tipo di modellazione è adatta per la simulazione di guida in cui il comportamento di interesse è per lo più la guidabilità del veicolo e le frequenze di uscita sono ben al di sotto delle frequenze di risonanza della cintura dello pneumatico. I modelli fisici o i modelli ad alta frequenza, come i modelli agli elementi finiti, sono in grado di rilevare fenomeni di risonanza a frequenza più elevata. Ciò permette di valutare il comfort di guida di un veicolo. Dal punto di vista del calcolo, i modelli fisici complessi richiedono molto tempo al calcolatore per essere risolti, nonché di molti dati, al contrario dei più veloci modelli matematici, che richiedono un'accurata pre-elaborazione dei dati sperimentali. La terza tipologia di modelli consiste in un'estensione dei modelli matematici attraverso le leggi fisiche al fine di coprire una gamma di frequenza più ampia.
 
 Il modello di pneumatico sviluppato nel modello di veicolo e il tipo di interfaccia di pneumatico/strada presentato da \citeauthor{Larcher} in \cite{Larcher} si basa sulla \textit{Magic Formula} 6.2.
-%
-\section{Il Modello della \textit{Magic Formula}}
 %
 \subsection{La \textit{Magic Formula}}
 Uno dei modelli di pneumatici più utilizzati è il cosiddetto modello \textit{Magic Formula} sviluppato da \citeauthor{bakker} in \cite{bakker}. Questo modello è stato poi rivisto e l'ultima versione è riportata in \cite{hans}. Il modello \textit{Magic Formula} consiste in una pura descrizione matematica del rapporto input-output del contatto pneumatico-strada. Questa formulazione collega le variabili di forza con lo slip rigido del corpo che vengono trattati nelle sezioni successive. La forma generale della funzione di descrizione può essere scritta come:
@@ -88,7 +87,8 @@ e dove $y(x)$ può essere la forza longitudinale $F_x$ , la forza laterale $F_y$
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.58\linewidth]{Figures/pacejka}
-	\caption{Curve caratteristiche generiche degli pneumatici derivate con il metodo della \textit{Magic Formula}}
+	\caption{Curve caratteristiche generiche degli pneumatici derivate con il metodo della \textit{Magic Formula}.}
+	Da: \citeauthor{Schramm}, \citetitle{Schramm}.
 	\label{pacejka}
 \end{figure}
 
@@ -99,7 +99,7 @@ La posizione e l'orientamento della ruota in relazione al sistema fissato a terr
 z=z(x,y)
 \end{equation}
 %
-su una superficie irregolare, il punto di contatto $P$ non può essere calcolato direttamente. Così, come prima approssimazione siamo in grado di identificare un punto $P^\star$, che è definito come una semplice traslazione del centro ruota $M$:
+su una superficie irregolare, il punto di contatto $P$ non può essere calcolato direttamente. Come prima approssimazione si è quindi in grado di identificare un punto $P^\star$ come una semplice traslazione del centro ruota $M$:
 %
 \begin{equation}
 P^\star = M-R_0\textbf{\textit{e}}_{zC}
@@ -123,6 +123,7 @@ dove $R_0$ è il raggio dello pneumatico indeformato e $\textbf{\textit{e}}_{zC}
 		\includegraphics[width=\linewidth]{Figures/contact_geometry_2}
 	\end{subfigure}
 	\caption{Geometria del contatto pneumatico-strada.}
+	Da: \citeauthor{Rill}, \citetitle{Rill}.
 	\label{contactgeometry}
 \end{figure}
 %
@@ -172,11 +173,12 @@ Al fine di campionare l'impronta di contatto nel modo più efficiente possibile,
 	\centering
 	\includegraphics[width=0.5\linewidth]{Figures/local_track}
 	\caption{Punti campionati nel piano locale della superficie stradale.}
+	Da: \citeauthor{Rill}, \citetitle{Rill}.
 	\label{localtrack}
 \end{figure}
 %
 \noindent
-Ora la componente $z$ in corrispondenza dei quattro punti campione viene valutata attraverso la funzione $z(x,y)$ precedentemente definita. Quindi, aggiornando la terza coordinata dei punti di campionamento $Q^\star_i$, otteniamo i corrispondenti punti campione $Q_i$ sulla superficie della pista locale. La linea fissata dai punti $Q_1$, $Q_2$ e rispettivamente $Q_3$, $Q_4$, può ora essere utilizzata per definire la normale al piano strada locale (\figurename \ref{localplane}). Pertanto, il vettore normale è definito come:
+Ora la componente $z$ in corrispondenza dei quattro punti campione viene valutata attraverso la funzione $z(x,y)$ precedentemente definita. Quindi, aggiornando la terza coordinata dei punti di campionamento $Q^\star_i$, si ottenengono i corrispondenti punti campione $Q_i$ sulla superficie della pista locale. La linea fissata dai punti $Q_1$, $Q_2$ e rispettivamente $Q_3$, $Q_4$, può ora essere utilizzata per definire la normale al piano strada locale (\figurename \ref{localplane}). Pertanto, il vettore normale è definito come:
 %
 \begin{equation}
 \textbf{\textit{e}}_n = \frac{\textbf{\textit{r}}_{Q_1 Q_2} \times \textbf{\textit{r}}_{Q_4 Q_3}}{|\textbf{\textit{r}}_{Q_1 Q_2} \times \textbf{\textit{r}}_{Q_4 Q_3}|}
@@ -193,7 +195,7 @@ P = \frac{1}{4}\begin{bmatrix}
 \end{bmatrix}
 \end{equation}
 %
-Infine possiamo mettere assieme tutte le componenti del piano di riferimento del punto di contatto finale ottenendo:
+Infine si può mettere assieme tutte le componenti del piano di riferimento del punto di contatto $P$ ottenendo:
 %
 \begin{equation}
 RF_{PC} = \left[
@@ -210,5 +212,6 @@ Attraverso questo approccio, la normale del piano strada locale $\textbf{\textit
 	\centering
 	\includegraphics[width=\linewidth]{Figures/local_plane}
 	\caption{Inclinazione longitudinale e laterale del piano strada locale.}
+	Da: \citeauthor{Rill}, \citetitle{Rill}.
 	\label{localplane}
 \end{figure}

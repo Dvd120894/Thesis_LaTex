@@ -43,13 +43,13 @@
 %------------------------------------------------
 % Thesis Information
 
-\title{\textbf{Algoritmi per la Valutazione del Contatto tra Pneumatico e Strada in Soft Real Time}} % Thesis title
+\title{\textbf{Valutazione \textit{Real-Time} del Contatto Pneumatico/Strada con Algoritmi Dedicati}} % Thesis title
 
-\author{Davide Stocco} % Author name
+%\author{Davide Stocco} % Author name
 
 \date{Anno Accademico 2019 $\cdot$ 2020} % The date
 
-\newcommand{\institution}{\large{Universit\'a degli Studi di Trento}\xspace} % University/institution name
+\newcommand{\institution}{\large\uppercase{Universit\'a degli Studi di Trento}\xspace} % University/institution name
 
 \newcommand{\department}{\large{Dipartimento di Ingegneria Industriale}\xspace} % Department name
 
@@ -80,26 +80,38 @@
 
 \renewcommand{\maketitlehooka}{
 \centering
-\vspace{-2em}
-\includegraphics[width=4cm]{Figures/unitn}\\[.5cm] % Institution logo
-\institution\\[.1cm] % Print institution name
-\emph{\department}\\[.2cm] % Print department name
-\scalebox{0.8}{CORSO DI LAUREA MAGISTRALE IN INGEGNERIA MECCATRONICA} % Degree or other information
+\vspace{-3em}
+\includegraphics[width=4cm]{Figures/unitn}\\[.55cm] % Institution logo
+\textbf{\institution}\\ % Print institution name
 \par
 \hrulefill
 \vfill
-Tesi di Laurea
+\emph{\department}\\[.2cm] % Print department name
+\scalebox{1}{Laurea Magistrale in Ingegneria Meccatronica} % Degree or other information
 \vfill}
 \renewcommand{\maketitlehookb}{\vfill}
 \renewcommand{\maketitlehookc}{
-\vfill
 \begin{flushleft}
-Relatore:\\
-\textbf{Prof. Enrico Bertolazzi}\\%[.3cm] % Supervisor's name
+	\begin{tabular}{cc}
+	\begin{minipage}[t]{0.475\textwidth}
+		Relatore:\\
+		\textbf{Prof. Enrico Bertolazzi}\\[.3cm]
+		Co-relatore:\\
+		\textbf{Dott. Ing. Matteo Ragni}
+	\end{minipage}
+	& 
+	\begin{minipage}[t]{0.475\textwidth}
+		\begin{flushright}
+	    Candidato:\\
+		\textbf{Davide Stocco}
+		\end{flushright}
+	\end{minipage}
+\end{tabular}
 \end{flushleft}
-\vfill}
-\preauthor{\begin{flushright} Laureando:\\\bfseries} % Text prior to the author name - right aligned and bold
-\postauthor{\end{flushright}} % After the author name, stop right alignment
+\vspace{2cm}
+\vfill
+\par
+\hrulefill}
 
 %----------------------------------------------------------------------------------------
 
