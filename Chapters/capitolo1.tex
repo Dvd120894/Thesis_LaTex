@@ -128,7 +128,7 @@ dove $R_0$ è il raggio dello pneumatico indeformato e $\textbf{\textit{e}}_{zC}
 \end{figure}
 %
 \noindent
-La prima stima del sistema di riferimento del punto di contatto $RF_{PC^\star}$ è una terna con origine in $P^\star$ e orientazione degli assi definiti dall'orientazione del sistema di riferimento della ruota.
+La prima stima del sistema di riferimento del punto di contatto $RF_{PC^\star}$ è una terna con origine in $P^\star$ e orientazione degli assi definiti dall'orientazione del sistema di riferimento della ruota. Notare che l'origine di $RF_{PC^\star}$ corrisponde alla proiezione lungo l'asse $z$ del sistema di riferimento della ruota sulla \textit{mesh} rappresentante la strada.
 %
 \begin{equation}
 RF_{PC^\star} = \left[
@@ -140,7 +140,7 @@ RF_{PC^\star} = \left[
 \end{array}\right]
 \end{equation}\\
 %
-Ora, i vettori di unità $\textbf{\textit{e}}_x$ ed $\textbf{\textit{e}}_y$, che descrivono il piano locale nel punto $P$, possono essere ottenuti dalle seguenti equazioni:
+Ora, i versori $\textbf{\textit{e}}_x$ ed $\textbf{\textit{e}}_y$, che descrivono il piano locale nel punto $P$, possono essere ottenuti dalle seguenti equazioni:
 %
 \begin{equation}
 \textbf{\textit{e}}_x = \frac{\textbf{\textit{e}}_{yC}\times\textbf{\textit{e}}_{n}}{|\textbf{\textit{e}}_{yC}\times\textbf{\textit{e}}_{n}|}
@@ -195,6 +195,16 @@ P = \frac{1}{4}\begin{bmatrix}
 \end{bmatrix}
 \end{equation}
 %
+È ora necessario spostare il punto di contatto $P$ in modo da ricondursi alle condizioni tali per cui il modello di Pacejka è valido. Per fare ciò si andrà a sfuttare un algoritmo di intersezione piano-raggio. Si troverà dapprima la componente della normale al piano strada giacente sul piano mediano dello pneumatico $\textbf{\textit{e}}_{n_{XZ}}$, si spostarà dunque il punto $P$ sulla proiezione del punto $M$ sul piano strada locale con direzione $-\textbf{\textit{e}}_{n_{XZ}}$ il come illustrato in \figurename{  \ref{localplane}}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{Figures/local_plane}
+	\caption{Inclinazione del piano strada locale e spostamento del punto di contatto in relazione alla normale.}
+	Da: \citeauthor{Rill}, \citetitle{Rill}.
+	\label{localplane}
+\end{figure}
+
 Infine si può mettere assieme tutte le componenti del piano di riferimento del punto di contatto $P$ ottenendo:
 %
 \begin{equation}
@@ -206,12 +216,4 @@ RF_{PC} = \left[
 0 & 0 & 0 & 1
 \end{array}\right]
 \end{equation}\\
-Attraverso questo approccio, la normale del piano strada locale $\textbf{\textit{e}}_{n}$ insieme al punto di contatto locale $P$, sono in grado di rappresentare l'irregolarità della strada in modo soddisfacente. Come accade in realtà, bordi taglienti o discontinuità del manto stradale saranno smussate da questo approccio. Alcuni casi dimostrativi sono illustrati nella \figurename{  \ref{localplane}}.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\linewidth]{Figures/local_plane}
-	\caption{Inclinazione longitudinale e laterale del piano strada locale.}
-	Da: \citeauthor{Rill}, \citetitle{Rill}.
-	\label{localplane}
-\end{figure}
+Attraverso questo approccio, la normale del piano strada locale $\textbf{\textit{e}}_{n}$ insieme al punto di contatto locale $P$, sono in grado di rappresentare l'irregolarità della strada in modo soddisfacente. Come accade in realtà, bordi taglienti o discontinuità del manto stradale saranno smussate da questo approccio.

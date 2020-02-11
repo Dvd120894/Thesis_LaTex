@@ -2,24 +2,20 @@
 \label{rdf}
 %
 \section{Introduzione}
-Oltre allo pnumatico, la superfice stradale rappresenta il secondo importante elemento che definisce il contatto. Perchè una superficie stradale possa essere facilmente utilizzata da un calcolatore deve essere prima discretizzata. La discretizzazione in questo caso avviene mediante la rappresentazione della superficie stessa in una \textit{mesh} triangolare. La \textit{mesh}, è contenuta in un file formato \ac{RDF}, che contiene le posizione $(x,y,z)$ di ogni vertice e i numeri di identificazione per ognuno dei tre vertici del triangolo, per ogni trangolo.
-
-È importante notare che la discretizzazione del manto stradale è un passaggio molto importante in quando, se campionatonato troppo grossolanamente potrebbe influire negativamente sui risultati dei calcoli per l'estrazione del piano strada locale. In altre parole, una semplificazione troppo spinta, potrebbe causare degli errori tali da incorrere in risultati troppo approssimativi e non rispecchianti la realtà. Al contrario, una \textit{mesh} troppo fitta, complica inutilmente i calcoli, dilatando sensibilmente i tempi di esecuzione. È bene quindi discretizzare più densamente in maniera oculata e solo dove occore realmente, ovvero in prossimità di cordoli, marciapiedi o qualsiasi tipo di ostacolo che potrebbe influire sulle performance della vettura. 
+Oltre allo pnumatico, la superfice stradale rappresenta il secondo importante elemento che definisce il contatto. Perchè una superficie stradale possa essere facilmente utilizzata da un calcolatore deve essere prima discretizzata. La discretizzazione in questo caso avviene mediante la rappresentazione della superficie stessa in una \textit{mesh} triangolare. La \textit{mesh}, è contenuta in un file formato \ac{RDF}, che contiene le posizioni $(x,y,z)$ di ogni vertice e i numeri di identificazione per ognuno dei tre vertici del triangolo, per ogni trangolo.\\
+\indent È importante notare che la discretizzazione del manto stradale è un processo molto importante in quando, se campionato troppo grossolanamente potrebbe influire negativamente sui risultati dei calcoli per l'estrazione del piano strada locale. In altre parole, una semplificazione eccessiva, potrebbe causare degli errori tali da incorrere in risultati troppo approssimativi e non rispecchianti la realtà. Al contrario, una \textit{mesh} troppo fitta, aumenta inutilmente i calcoli da eseguire, dilatando quindi i tempi di esecuzione. È bene quindi discretizzare più densamente in maniera oculata e solo dove occore realmente, ovvero in prossimità di cordoli, marciapiedi o qualsiasi tipo di ostacolo che potrebbe influire sulle performance della vettura. 
 %
 \section{Il Formato RDF}
 %
 \subsection{Superfici Semplici}
-Sfortunatamente, non esistono standard universalmente riconosciuti per il formato RDF. In linea di massima le superfici stradali sono definite nei \textit{road data file} (\texttt{*.rdf}). Questa tipologia di file è composto da varie sezioni, indicate da parentesi quadre.
+Sfortunatamente, non esistono standard universalmente riconosciuti per il formato RDF. In linea di massima le superfici stradali sono definite nei \textit{Road Data File} (\texttt{*.rdf}). Questa tipologia di file è composto da varie sezioni, indicate da parentesi quadre.
 
 \begin{pseudoc}
 	{ Comments section }
 	
 	[UNITS]
 	LENGTH = 'meter'
-	FORCE = 'newton'
 	ANGLE = 'degree'
-	MASS = 'kg'
-	TIME = 'sec'
 	
 	[MODEL]
 	ROAD\_TYPE = '...'
@@ -28,14 +24,14 @@ Sfortunatamente, non esistono standard universalmente riconosciuti per il format
 	...
 \end{pseudoc}
 
-Nella sezione \texttt{[UNITS]}, vengono impostate le unità utilizzate nel file di dati stradali. La sezione \texttt{[MODEL]} viene invece utilizzata per specificare il tipo di strada, del tipo:
+Nella sezione \texttt{[UNITS]}, vengono impostate le unità di misura utilizzate nel file di dati stradali. La sezione \texttt{[MODEL]} viene invece utilizzata per specificare la morfologia della superfice stradale, del tipo:
 \begin{itemize}
-	\item \texttt{ROAD\_TYPE = 'flat'}: come indica già il nome, si tratta di una superficie stradale piana.
-	\item \texttt{ROAD\_TYPE = 'plank'}: dove questa strada è composta da un singolo scalino o dosso orientato perpendicolarmente o obliquo rispetto all'asse $X$, con o senza bordi smussati.
-	\item \texttt{ROAD\_TYPE = 'poly\_line'}: ovvero l'altezza della strada è in funzione della distanza percorsa.
-	\item \texttt{ROAD\_TYPE = 'sine'}: dove la superficie stradale è costituita da una o più onde sinusoidali con lunghezza d'onda costante.
+	\item \texttt{ROAD\_TYPE = 'flat'}: superficie stradale piana.
+	\item \texttt{ROAD\_TYPE = 'plank'}: singolo scalino o dosso orientato perpendicolarmente o obliquo rispetto all'asse $X$, con o senza bordi smussati.
+	\item \texttt{ROAD\_TYPE = 'poly\_line'}: altezza della strada è in funzione della distanza percorsa.
+	\item \texttt{ROAD\_TYPE = 'sine'}: superficie stradale costituita da una o più onde sinusoidali con lunghezza d'onda costante.
 \end{itemize}
-La sezione \texttt{[PARAMETERS]} contiene parametri generali e parametri specifici del tipo di superficie stradale.
+La sezione \texttt{[PARAMETERS]} contiene parametri generali e specifici per il tipo di superficie stradale.
 
 I parametri per ogni tipologia di superficie stradale sono elencati di seguito:
 \begin{itemize}
@@ -103,7 +99,7 @@ I parametri per ogni tipologia di superficie stradale sono elencati di seguito:
 \subsection{Superfici Complesse}
 Sfortunatamente, queste informazioni appena descritte permettono di costruire strade troppo semplicistiche e approssimative, che non rispecchiano la realtà. È quindi necessario inserire i risultati della discretizzazione della superficie stradale sopra citati.
 
-Per descrivere una superficie stradale composta da una \textit{mesh} di triangoli si userà la seguente formattazione del file.
+Per descrivere una superficie stradale composta da una \textit{mesh} di triangoli si userà la seguente struttura dati.
 \begin{itemize}
 	\item \texttt{[NODES]}: presenti nella prima sezione e dove vengono descritti sotto forma di una quartina $(id,x,y,z)$ data dal numero di identificazione e dalle coordinate nello spazio.
 	\item \texttt{[ELEMENTS]}: presenti nella seconda sezione e dove vengono descritti sotto forma di una quartina $(n_1,n_2,n_3,\mu)$ data dal numero di identificazione dei tre vertici componenti $i$-esimo triangolo e dal coefficente di attrito presente nella faccia.
@@ -154,3 +150,14 @@ Esempio:
 	0.0  1.0  0.0
 	0.0  0.0  1.0
 \end{pseudoc}
+%
+\section{Parsificazione}
+%
+\subsection{Introduzione}
+La parsificazione o analisi sintattica è un processo che analizza un flusso continuo di dati in ingresso (letti per esempio da un file o una tastiera) in modo da determinare la correttezza della sua struttura grazie ad una data grammatica formale. Un \textit{parser} è un programma che esegue questo compito. Nella maggior parte dei casi, l'analisi sintattica opera su una sequenza di \textit{token} in cui l'analizzatore lessicale spezzetta l'input.
+%
+\subsection{Parsificazione del formato RDF}
+Nel lavoro svolto è stato creato un algoritmo per parsificare i file di tipo \ac{RDF} che descrivono superfici complesse. Purtroppo, come precedentemente detto, non esiste uno standard universalmente riconosciuto per questo formato. Creare dunque un \textit{parser} o definire un generatore di \textit{parser} è arduo. Si è quindi optato per la creazione di un \textit{parser} che rilevi solo i nodi (\texttt{[NODES]}), li salvi temporaneamente e, dopo aver immagazzinato anche i dati relativi agli elementi (\texttt{[ELEMENTS]}), instanzi un oggetto \textit{mesh}, composto dai nodi dichiarati nella sezione elementi. Gli altri parametri non sono stati considerati.
+
+Come verrà richiamato nelle conclusioni, l'importanza di definire uno standard per il formato \ac{RDF} è di cruciale importanza. In questo modo si potrà creare un generatore di \textit{parser} con una grammatica e un lessico ben definiti, nonché aumentarne l'efficienza e la stabilità.
+%

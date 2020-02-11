@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  3 FEB 2020 18:47
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  11 FEB 2020 13:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1945,19 +1945,20 @@ Overfull \vbox (21.4681pt too high) detected at line 137
 [10]
 File: Figures/local_track.png Graphic file (type QTm)
  <use  "Figures/local_track.png" > [11]
-Overfull \vbox (21.4681pt too high) detected at line 204
- []
-
-
-Overfull \vbox (21.4681pt too high) detected at line 204
- []
-
-
-Overfull \vbox (21.4681pt too high) detected at line 204
- []
-
 File: Figures/local_plane.png Graphic file (type QTm)
-<use  "Figures/local_plane.png" >) [12]
+ <use  "Figures/local_plane.png" >
+Overfull \vbox (21.4681pt too high) detected at line 214
+ []
+
+
+Overfull \vbox (21.4681pt too high) detected at line 214
+ []
+
+
+Overfull \vbox (21.4681pt too high) detected at line 214
+ []
+
+) [12]
 \openout2 = `Chapters/capitolo2.aux'.
 
  (./Chapters/capitolo2.tex
@@ -1979,64 +1980,75 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-) [14] [15]
-[16] [17]) [18]
-\openout2 = `Chapters/capitolo3.aux'.
-
- (./Chapters/capitolo3.tex
-Underfull \hbox (badness 10000) in paragraph at lines 10--11
-
+)
+Overfull \hbox (1.80003pt too wide) in paragraph at lines 30--31
+[]\TU/lmtt/m/n/12 ROAD_TYPE = 'plank'\TU/AdobeCaslonPro(0)/m/n/12 : singolo sca
+lino o dosso orientato perpendicolarmen-
  []
 
-[19
+[14] [15] [16] [17] [18]) [19]
+\openout2 = `Chapters/capitolo3.aux'.
+
+ (./Chapters/capitolo3.tex [20
 
 
 
 ]
 Package acronym Info: Label `acro:BVH' newly defined as it shall be overridden
-although it is yet undefined on input line 18.
+although it is yet undefined on input line 7.
+
+Underfull \vbox (badness 3884) has occurred while \output is active []
+
+ [21]
 Package acronym Info: Label `acro:MBB' newly defined as it shall be overridden
-although it is yet undefined on input line 23.
- [20]
+although it is yet undefined on input line 12.
 Package acronym Info: Label `acro:AABB' newly defined as it shall be overridden
 
-although it is yet undefined on input line 26.
+although it is yet undefined on input line 15.
 File: Figures/AABB.png Graphic file (type QTm)
- <use  "Figures/AABB.png" >
+
+<use  "Figures/AABB.png" >
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 Package acronym Info: Label `acro:AOBB' newly defined as it shall be overridden
 
-although it is yet undefined on input line 38.
- [21]
+although it is yet undefined on input line 27.
+[22]
 Package acronym Info: Label `acro:BB' newly defined as it shall be overridden
-although it is yet undefined on input line 44.
- [22]
-Overfull \hbox (20.72409pt too wide) in paragraph at lines 50--52
+although it is yet undefined on input line 33.
+ [23]
+Overfull \hbox (20.72409pt too wide) in paragraph at lines 39--41
 []\TU/AdobeCaslonPro(0)/m/n/12 Volendo intersecare due semplici [][], quali $\O
 ML/cmm/m/it/12 A \OT1/cmr/m/n/12 = []$
  []
 
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 54.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 43.
 
-Overfull \hbox (3.00012pt too wide) in paragraph at lines 64--65
+Overfull \hbox (3.00012pt too wide) in paragraph at lines 53--54
 []\TU/AdobeCaslonPro(0)/m/n/12 Riduzione del numero di comparazioni da effettua
 re per ottenere l’intersezione
  []
 
 Package acronym Info: Label `acro:CAD' newly defined as it shall be overridden
-although it is yet undefined on input line 71.
+although it is yet undefined on input line 60.
 Package acronym Info: Label `acro:CAM' newly defined as it shall be overridden
-although it is yet undefined on input line 71.
+although it is yet undefined on input line 60.
 Package acronym Info: Label `acro:CAE' newly defined as it shall be overridden
-although it is yet undefined on input line 71.
+although it is yet undefined on input line 60.
 Package acronym Info: Label `acro:GIS' newly defined as it shall be overridden
-although it is yet undefined on input line 71.
-[23]
+although it is yet undefined on input line 60.
+[24]
 Package acronym Info: Label `acro:CAGD' newly defined as it shall be overridden
 
-although it is yet undefined on input line 74.
+although it is yet undefined on input line 63.
+ [25]
 Missing character: There is no ; in font nullfont!
- [24]
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -2044,49 +2056,48 @@ Missing character: There is no ; in font nullfont!
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[25] [26]
+[26] [27]
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-Overfull \hbox (16.43364pt too wide) in paragraph at lines 266--267
+Overfull \hbox (16.43364pt too wide) in paragraph at lines 256--257
  [][] 
  []
-
-[27]
-Missing character: There is no ; in font nullfont!
-
-
-Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 349.
 
 [28]
 Missing character: There is no ; in font nullfont!
 
-Overfull \hbox (15.33252pt too wide) in paragraph at lines 384--385
- [][] 
- []
 
-Missing character: There is no ; in font nullfont!
-
-Overfull \hbox (15.33252pt too wide) in paragraph at lines 400--401
- [][] 
- []
-
-Missing character: There is no ; in font nullfont!
-
-Overfull \hbox (15.33252pt too wide) in paragraph at lines 417--418
- [][] 
- []
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 339.
 
 [29]
+Missing character: There is no ; in font nullfont!
+
+Overfull \hbox (15.33252pt too wide) in paragraph at lines 374--375
+ [][] 
+ []
+
+Missing character: There is no ; in font nullfont!
+
+Overfull \hbox (15.33252pt too wide) in paragraph at lines 390--391
+ [][] 
+ []
+
+Missing character: There is no ; in font nullfont!
+
+Overfull \hbox (15.33252pt too wide) in paragraph at lines 407--408
+ [][] 
+ []
+
 LaTeX Font Info:    Font shape `TU/Optima(0)/m/n' will be
-(Font)              scaled to size 10.79993pt on input line 462.
+(Font)              scaled to size 10.79993pt on input line 452.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `Optima' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [30] [31] [32]
-Overfull \hbox (13.92337pt too wide) in paragraph at lines 609--610
+[30] [31] [32] [33] [34]
+Overfull \hbox (13.92337pt too wide) in paragraph at lines 599--600
 []\TU/AdobeCaslonPro(0)/m/n/12 il triangolo viene intersecato dal piano, forman
 do quindi due punti d’intersezione
  []
@@ -2096,12 +2107,8 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
-
-Underfull \vbox (badness 7631) has occurred while \output is active []
-
- [33]
-[34]
-Overfull \hbox (9.07133pt too wide) in paragraph at lines 680--682
+[35]
+Overfull \hbox (9.07133pt too wide) in paragraph at lines 670--672
 \TU/AdobeCaslonPro(0)/m/n/12 Si noti che $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 B \
 OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 A\OT1/cmr/m/n/12 )$ \TU/AdobeCaslonPro(0)/
 m/n/12 e $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 C \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/i
@@ -2112,14 +2119,14 @@ ro(0)/m/n/12 del triangolo $\OML/cmm/m/it/12 ABC$\TU/AdobeCaslonPro(0)/m/n/12 .
  []
 
 
-Overfull \hbox (25.1515pt too wide) in paragraph at lines 685--687
+Overfull \hbox (25.1515pt too wide) in paragraph at lines 675--677
 \TU/AdobeCaslonPro(0)/m/n/12 dove $\OML/cmm/m/it/12 t$ \TU/AdobeCaslonPro(0)/m/
 n/12 è la distanza dall’origine del raggio all’intersezione $\OML/cmm/m/it/12 P
 $\TU/AdobeCaslonPro(0)/m/n/12 . Sostituendo $\OML/cmm/m/it/12 P$ \TU/AdobeCaslo
 nPro(0)/m/n/12 nell’equazione
  []
 
-[35]
+[36]
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
@@ -2130,7 +2137,7 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
- [36]
+ [37]
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
@@ -2146,10 +2153,14 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
-) [37] [38]
+) [38] [39]
 \openout2 = `Chapters/capitolo4.aux'.
 
- (./Chapters/capitolo4.tex
+ (./Chapters/capitolo4.tex [40
+
+
+
+]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 7.
 
@@ -2159,36 +2170,32 @@ mina il dominio della [][] settando tutti i quattro valori su \TU/lmtt/m/n/12 q
 uietNaN\TU/AdobeCaslonPro(0)/m/n/12 . 
  []
 
-[39
-
-
-
-]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[40]
-Overfull \hbox (13.87198pt too wide) in paragraph at lines 72--79
- [][] 
- []
-
 [41]
-Overfull \hbox (2.50798pt too wide) in paragraph at lines 110--119
- [][] 
- []
-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [42]
-Overfull \hbox (5.9615pt too wide) in paragraph at lines 146--147
+Overfull \hbox (13.87198pt too wide) in paragraph at lines 73--80
+ [][] 
+ []
+
+[43]
+Overfull \hbox (2.50798pt too wide) in paragraph at lines 111--120
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[44]
+Overfull \hbox (5.9615pt too wide) in paragraph at lines 147--148
 []\TU/lmtt/m/n/12 clear $\OMS/cmsy/m/n/12 ^^@$ \TU/AdobeCaslonPro(0)/m/n/12 Eli
 mina il dominio dell’ombra settando tutti i suoi valori su \TU/lmtt/m/n/12 quie
 tNaN\TU/AdobeCaslonPro(0)/m/n/12 . 
  []
 
 
-Overfull \hbox (13.87198pt too wide) in paragraph at lines 151--161
+Overfull \hbox (13.87198pt too wide) in paragraph at lines 152--162
  [][] 
  []
 
@@ -2196,20 +2203,20 @@ Overfull \hbox (13.87198pt too wide) in paragraph at lines 151--161
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (7.00816pt too wide) in paragraph at lines 166--179
+Overfull \hbox (7.00816pt too wide) in paragraph at lines 167--180
 \TU/AdobeCaslonPro(0)/m/n/12 sce la geometria dello pneumatico in condizione di
  riposo e la classe \TU/lmtt/m/n/12 ReferenceFrame
  []
 
-[43] [44]
-Overfull \hbox (6.76797pt too wide) in paragraph at lines 193--202
+[45] [46]
+Overfull \hbox (6.76797pt too wide) in paragraph at lines 194--203
  [][] 
  []
 
-[45]) [46]
+[47]) [48]
 \openout2 = `Chapters/conclusione.aux'.
 
- (./Chapters/conclusione.tex) [47
+ (./Chapters/conclusione.tex) [49
 
 
 
@@ -2217,7 +2224,7 @@ Overfull \hbox (6.76797pt too wide) in paragraph at lines 193--202
 \openout2 = `Chapters/appendici_codice.aux'.
 
  (./Chapters/appendici_codice.tex
-[48
+[50
 
 
 
@@ -2241,42 +2248,36 @@ esentazione degli assi del sistema di riferimento dello
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[49]
+[51]
 Overfull \vbox (21.4681pt too high) detected at line 33
  []
 
-[50] [51] [52
+[52] [53] [54
 
-] (../TireGround/include/TireGround.hh
+] (../TireGround/include/TireGround.hh [55]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <8> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 33.
- [53])
-(../TireGround/include/RoadRDF.hh [54]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [55]
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 38.
+)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [56]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [57]
+(../TireGround/include/RoadRDF.hh [57]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [58]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [59])
-(../TireGround/src/RoadRDF.cc [60]
+ [59]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [60]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [61]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [62]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [63]
+ [62])
+(../TireGround/src/RoadRDF.cc [63]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [64]
@@ -2285,17 +2286,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [65]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [66])
-(../TireGround/include/PatchTire.hh [67]
+ [66]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [67]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [68]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [69]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [70]
+ [69])
+(../TireGround/include/PatchTire.hh [70]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [71]
@@ -2316,8 +2317,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [76]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [77])
-(../TireGround/src/PatchTire.cc [78]
+ [77]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [78]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [79]
@@ -2333,34 +2336,108 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [83]
-Missing character: There is no α in font [lmmono8-regular]:!
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [84]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [85])
-[86] (../TireGround/tests/Geometry-test1.cc [87
-
-])
-(../TireGround/tests/Geometry-test2.cc [88]
+ [85]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [89])
-(../TireGround/tests/Geometry-test3.cc [90])
+ [86]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [87]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [88]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [89]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [90])
+(../TireGround/src/PatchTire.cc
+Underfull \vbox (badness 3679) has occurred while \output is active []
+
+ [91]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [92]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [93]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [94]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [95]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [96]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [97]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [98]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [99]
+Missing character: There is no α in font [lmmono8-regular]:!
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [100]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [101]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [102]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [103]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [104]
+Missing character: There is no α in font [lmmono8-regular]:!
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [105]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [106]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [107])
+[108] (../TireGround/tests/Geometry-test1.cc [109
+
+])
+(../TireGround/tests/Geometry-test2.cc [110]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [111])
+(../TireGround/tests/Geometry-test3.cc [112])
 (../TireGround/tests/Geometry-test4.cc)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [91]
-(../TireGround/tests/MagicFormula-test1.cc [92])
-(../TireGround/tests/MagicFormula-test2.cc [93])) [94] [95
+ [113]
+(../TireGround/tests/MagicFormula-test1.cc [114])
+(../TireGround/tests/MagicFormula-test2.cc [115]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [116]))
+[117] [118
 
 
+] [119
 
 ]
 No file thesis.ind.
-[96]
+[120]
 \tf@toc=\write9
 \openout9 = `thesis.toc'.
 
@@ -2387,12 +2464,12 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45954 strings out of 495023
- 875895 string characters out of 6178392
- 1497718 words of memory out of 5000000
- 49027 multiletter control sequences out of 15000+600000
+ 46085 strings out of 495023
+ 877939 string characters out of 6178392
+ 1510812 words of memory out of 5000000
+ 49158 multiletter control sequences out of 15000+600000
  17540 words of font info for 115 fonts, out of 8000000 for 9000
  18 hyphenation exceptions out of 8191
  63i,22n,68p,10523b,5349s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (110 pages).
+Output written on thesis.pdf (134 pages).

@@ -5,7 +5,7 @@
 La libreria \texttt{TireGround} è stata organizzata in tre parti, definite dagli stessi \textit{namespaces}. In seguito verranno riportate le informazioni di maggior rilievo per ognuna delle tre parti della libreria.
 %
 \subsection{\textit{Namespace} \texttt{TireGround}}
-In questo \textit{namespace}, vengono raccolti i tipi dichiarati con \texttt{typedef}, comuni ai \textit{namespaces} \texttt{RDF} e \texttt{PatchTire}
+In questo \textit{namespace} vengono raccolti i tipi dichiarati con \texttt{typedef} comuni ai \textit{namespaces} \texttt{RDF} e \texttt{PatchTire}
 %
 \subsection{\textit{Namespace} \texttt{RDF}} 
 In questo \textit{namespace} vengono raccolti alcuni tipi dichiarati con \texttt{typedef} presenti solo nel namespace \texttt{RDF}. Lo spazio dei nomi \texttt{RDF} contiene tutti le classi e la funzioni per gestire la \textit{mesh} a partire dal file in formato \ac{RDF}.
@@ -43,6 +43,7 @@ Questa classe contiene tutte le informazioni geometriche per definire e manipola
 		\hline 
 		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ \hline 
 		\texttt{vec3} & \texttt{Vertices[3]} & $\bullet$ & $\bullet$ & Vertici del triangolo \\ \hline 
+		\texttt{vec3} & \texttt{Normal} & $\bullet$ & $\bullet$ & Normale al triangolo \\ \hline 
 		\texttt{BBox2D} & \texttt{TriangleBBox} & $\bullet$ & $\bullet$ & \ac{BB} del triangolo \\ \hline
 	\end{tabular}
 	\caption{Attributi della classe \texttt{Triangle3D}.}
@@ -97,7 +98,7 @@ Questa classe contiene tutte le informazioni geometriche per definire e manipola
 		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ \hline 
 		\texttt{vec2} & \texttt{OriginXZ} & $\bullet$ & $\bullet$ & Coordinate \textit{XZ} del disco \\ \hline 
 		\texttt{real\_type} & \texttt{OffsetY} & $\bullet$ & $\bullet$ & Coordinata $Y$ del disco \\ \hline
-		\texttt{real\_type} & \texttt{Radius} & $\bullet$ & $\bullet$ & Circonferenza del disco \\ \hline
+		\texttt{real\_type} & \texttt{Radius} & $\bullet$ & $\bullet$ & Raggio del disco \\ \hline
 	\end{tabular}
 	\caption{Attributi della classe \texttt{Disk}.}
 	\label{}
@@ -163,14 +164,16 @@ Questa classe serve a rappresentare l'ombra dello pneumatico nello spazio bidime
 \end{table}
 %
 \paragraph{\texttt{Tire}}
-Questa classe serve a rappresentare lo pneumatico nelle coordinate dello spazio tridimensionale. Consiste nel punto di giunzione tra la classe \texttt{ETRTO} che definisce la geometria dello pneumatico in condizione di riposo e la classe \texttt{ReferenceFrame} che ne definisce invece la posizione nello spazio.
+Questa classe serve a rappresentare lo pneumatico nelle coordinate dello spazio tridimensionale. Consiste nel punto di giunzione tra la classe \texttt{ETRTO} che definisce la geometria dello pneumatico in condizione di riposo e la classe \texttt{ReferenceFrame} che ne definisce invece la posizione nello spazio. Essa viene definita con alcuni metodi puri virtuali.
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline 
 		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ \hline 
+		\texttt{SamplingGrid} & \texttt{Precision} & & & Precisione dei calcoli \\ \hline 
 		\texttt{ETRTO} & \texttt{TireGeometry} & & & Geometria \\ \hline 
 		\texttt{ReferenceFrame} & \texttt{RF} & $\bullet$ & $\bullet$ & Posizione \\ \hline
+		\texttt{int\_type} & \texttt{TirePose} & $\bullet$ & $\bullet$ & \textit{Flag} per la posizione \\ \hline
 	\end{tabular}
 	\caption{Attributi della classe \texttt{Tire}.}
 	\label{}

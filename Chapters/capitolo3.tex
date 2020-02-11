@@ -1,16 +1,5 @@
-\chapter{Algoritmi}
+\chapter{Algoritmi Geometrici}
 \label{Geom_Algos}
-%
-\section{Parsificazione}
-%
-\subsection{Introduzione}
-La parsificazione o analisi sintattica è un processo che analizza un flusso continuo di dati in ingresso (letti per esempio da un file o una tastiera) in modo da determinare la correttezza della sua struttura grazie ad una data grammatica formale. Un \textit{parser} è un programma che esegue questo compito. Nella maggior parte dei casi, l'analisi sintattica opera su una sequenza di \textit{token} in cui l'analizzatore lessicale spezzetta l'input.
-%
-\subsection{Parsificazione del formato RDF}
-Nel lavoro svolto è stato creato un algoritmo per pardificare i file di tipo \ac{RDF} che descrivono superfici complesse. Purtroppo, come precedentemente detto, non esiste uno standard universalmente riconosciuto per questo formato. Creare dunque un \textit{parser} o definire un generatore di parser è arduo. Si è quindi optato per la creazione di un \textit{parser} che rilevi solo i nodi (\texttt{[NODES]}), li salvi temporaneamente e, dopo aver immagazzinato anche i dati relativi agli elementi (\texttt{[ELEMENTS]}), instanzi un oggetto \textit{mesh}, composto dai nodi dichiarati nella sezione elementi. Gli altri parametri non sono stati considerati.\\
-
-Come verrà richiamato nelle conclusioni, l'importanza di definire uno standard per il formato \ac{RDF} è di cruciale importanza. In questo modo si potrà creare un generatore di parser con una grammatica e un lessico ben definiti, nonché aumentarne l'efficienza e la stabilità.
-%
 %
 \section{\textit{Bounding Volume Hierarchy}}
 %
@@ -81,6 +70,7 @@ In questo capitolo tutti gli algoritmi che verranno utilizzati in seguito durant
 	\item segmento e circonferenza (nel piano);
 	\item piano e piano (nello spazio);
 	\item piano e segmento (nello spazio);
+	\item piano e raggio (nello spazio);
 	\item piano e triangolo (nello spazio);
 	\item raggio e triangolo (nello spazio);
 \end{itemize}
@@ -541,26 +531,26 @@ dove $\vec{u}=\vec{n}_1 \times \vec{n}_2$.
 	\caption{Schema per del codice per l'intersezione piano-piano.}
 \end{figure}
 %
-\subsubsection{Piano-Segmento}
+\subsubsection{Piano-Segmento e Piano-Raggio}
 Nello spazio delle coordinate tridimensionali, una linea $L$ può essere o parallela a un piano $P$ o può intersecarlo in un singolo punto. Sia $L$ data dall'equazione parametrica:
 \begin{equation}
-P(s) = P_0 + s(P_1-P_0) = P_0 + s\vec{u}
+P(t) = P_0 + t(P_1-P_0) = P_0 + t\vec{u}
 \end{equation}
 mentre il piano $P$ sia dato da un punto $V_0$ appartenente ad esso e da un vettore normale $\vec{n} = (a,b,c)$. Per prima cosa è necessario controllare se $L$ è parallelo a $P$ verificando se $\vec{n}\cdot\vec{u} = 0$, il che significa che il vettore di direzione della linea $\vec{u}$ è perpendicolare al piano normale $\vec{n}$. Se questo è vero, allora $L$ e $P$ sono paralleli e non si intersecano, oppure $L$ giace totalmente nel piano $P$. Disgiunzione o coincidenza possono essere determinate testando se in $P$ esiste un punto specifico di $L$, per esempio $P_0$, ovvero se soddisfa l'equazione di linea implicita:
 \begin{equation}
 \vec{n} \cdot (P_0-V_0) = 0
 \end{equation}
-Se la linea e il piano non sono paralleli, allora $L$ e $P$ si intersecano in un unico punto $P(s_I)$. Nel punto di intersezione, il vettore $P(s)-V_0 = \vec{w} + s\vec{u}$ è perpendicolare a $\vec{n}$, dove $\vec{w} = P_0-V_0$. Ciò equivale alla condizione del prodotto scalare:
+Se la linea e il piano non sono paralleli, allora $L$ e $P$ si intersecano in un unico punto $P(t_I)$. Nel punto di intersezione, il vettore $P(t)-V_0 = \vec{w} + t\vec{u}$ è perpendicolare a $\vec{n}$, dove $\vec{w} = P_0-V_0$. Ciò equivale alla condizione del prodotto scalare:
 \begin{equation}
-\vec{n} \cdot (\vec{w}+s\vec{u}) = 0
+\vec{n} \cdot (\vec{w}+t\vec{u}) = 0
 \end{equation}
 Risolvendo si ottiene:
 \begin{equation}
-s_I = -\frac{\vec{n}\cdot\vec{w}}{\vec{n}\cdot\vec{u}}
+t_I = -\frac{\vec{n}\cdot\vec{w}}{\vec{n}\cdot\vec{u}}
 =
 -\frac{\vec{n}\cdot(V_0-P_0)}{\vec{n}\cdot(P_1-P_0)}
 \end{equation}
-Se la linea $L$ è un segmento finito da $P_0$ a $P_1$, è sufficiente verificare che $0 \leq s_I \leq 1$ per verificare che vi sia un'intersezione tra il segmento e il piano. Per raggio, c'è invece un'intersezione con il piano quando $s_I \geq 0$.
+Se la linea $L$ è un segmento finito da $P_0$ a $P_1$, è sufficiente verificare che $0 \leq t_I \leq 1$ per verificare che vi sia un'intersezione tra il segmento e il piano. Per raggio, c'è invece un'intersezione con il piano quando $t_I \geq 0$.
 
 \begin{figure}[htbp]
 	\centering
@@ -577,8 +567,8 @@ Se la linea $L$ è un segmento finito da $P_0$ a $P_1$, è sufficiente verificar
 	\draw[-stealth,thick] (0,0,0) -- (0,-0.75,3.25);
 	\draw[dashed] (0,1.25,1.25) -- (0,2.5,0);
 	\draw[fill] (0,2.5,0) circle [radius=1pt];
-	\draw (0,2.5,0) node[below left] {$P(s_I)$};
-	\draw (0,2,0.5) node[right] {$P(s)$};
+	\draw (0,2.5,0) node[below left] {$P(t_I)$};
+	\draw (0,2,0.5) node[right] {$P(t)$};
 	\draw[fill] (0,2,.5) circle [radius=1pt];
 	\draw[-stealth,thick] (1,-2,0) -- (1,-2,2) node[left] {$\vec{n}$};
 	\end{tikzpicture}
@@ -589,9 +579,9 @@ Se la linea $L$ è un segmento finito da $P_0$ a $P_1$, è sufficiente verificar
 	\begin{subfigure}{.5\linewidth}
 		\begin{pseudoc}
 	u = P_1 - P_0;
-	s = n $\cdot$ (V_0 - P_0) / (u $\cdot$ n);
-	if ( s >= 0 && s <= 1 ) {
-		P_sI = P_0 + u * s;
+	t = n $\cdot$ (V_0 - P_0) / (u $\cdot$ n);
+	if ( t >= 0 && t <= 1 ) {
+		P_tI = P_0 + u * t;
 		return true;
 	} else {
 		return false;
