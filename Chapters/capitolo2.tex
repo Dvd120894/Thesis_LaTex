@@ -1,4 +1,4 @@
-\chapter{Lo Pneumatico}
+\chapter{Lo pneumatico}
 \label{Pneumatico}
 %
 \section{Introduzione}
@@ -100,11 +100,13 @@ Ed è proprio nell'inclinazione tra piano strada e sistema di riferimento del ce
 	\label{pacejka}
 \end{figure}
 %
-\subsection{Contatto con la Superficie Stradale}
+\section{Contatto con la superficie stradale}
 %
-Si analizzaranno ora le due metodologie, di complessità cresciente, per ricavare l'inclinazione tra piano strada e sistema di riferimento del centro ruota. Dapprima si utilizzerà un metodo a disco singolo presentato in \cite{Rill}, successivamente si passerà ad un modello a più dischi, così da coprire una superficie stradale maggiore e avere quindi risultati più precisi, soprattutto in prossimità di variazioni repentine del manto stradale.
+Si analizzaranno ora le quattro metodologie, di complessità cresciente, per ricavare l'inclinazione tra piano strada e sistema di riferimento del centro ruota. Dapprima si utilizzerà un metodo a disco singolo presentato in \cite{Rill}, successivamente si passerà ad un modello a più dischi, così da coprire una superficie stradale maggiore e avere quindi risultati più precisi, soprattutto in prossimità di variazioni repentine del manto stradale.
 %
-\subsubsection{Modello a Disco Singolo}
+\subsection{Modello di pneumatico a disco singolo}
+%
+\subsubsection{Contatto di Rill}
 La posizione e l'orientamento della ruota in relazione al sistema fissato a terra sono dati dalla terna di riferimento del vettore ruota $RF_{wh}$, che viene calcolata istante per istante risolvendo le equazioni dinamiche del sistema ottenuto nel Capitolo 2 in \cite{Larcher}. Supponendo che il profilo stradale sia rappresentato da una funzione arbitraria a due coordinate spaziali del tipo: 
 %
 \begin{equation}
@@ -235,6 +237,34 @@ RF_{MF} = \left[
 \end{array}\right]
 \end{equation}\\
 Attraverso questo approccio, la normale del piano strada locale $\textbf{\textit{e}}_{n}$ insieme al punto di contatto sul piano strada locale $P_{PL}$ e al punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$, sono in grado di rappresentare l'irregolarità della strada in modo soddisfacente ma comunque approssimativo, infatti, bordi taglienti o discontinuità del manto stradale saranno smussate da questo approccio.
+
+Nel caso specifico di questo lavoro la superficie stradale non è rappresentata da una funzione del tipo $z(x,y)$ ma bensì da una serie di triangoli. Questo comporta l'impossibilità di valutare la terza coordinata dei punti di campionamento $Q_i^\star$. Per sopperire a questo problema si utilizzerà l'algoritmo per l'intersezione tra raggio e triangolo presentato nel Capitolo \ref{Geom_Algos}. Si definirano dunque i punti di origine dei raggi direttamente nel sistema di riferimento della ruota $RF_{wh}$ come:
+\begin{equation}
+\begin{split}
+Q^\star_{1,2} = M \pm \textbf{\textit{r}}_{Q^\star_{1,2}} = P^\star \pm \Delta x \textbf{\textit{e}}_{xC} \\
+Q^\star_{3,4} = M \pm \textbf{\textit{r}}_{Q^\star_{3,4}} = P^\star \pm \Delta y \textbf{\textit{e}}_{yC}
+\end{split}
+\end{equation}
+dai quali partiranno i raggi con direzione $-z_C$ che intersecheranno la \textit{mesh} nei punti $(Q_1, Q_2, Q_3, Q_4)$.
 %
-\subsubsection{Modello a più Dischi}
-Nel modello a più dischi, lo pneumatico sarà rappresentato da più dischi rigidi indeformabili disposti uniformemente lungo la sezione dello stesso. A differenza del caso a singolo disco non sia andrà più a campionare la strada nei quattro punti $Q_i$, si andrà invece a calcolare 
+\subsubsection{Contatto ponderato in base all'area}
+Alternativamente a quello appena visto, si può utilizzare un modello di contatto ponderato in base all'area di intersezione. In altre, parole si andrà a valutare triangolo per triangolo l'intersezione con il disco indeformabile. Prima di tutto di intersecherà il triangolo nello spazio con il piano in cui giace il disco trovando dunque un segmento. Successivamente si valuterà l'intersezione di questo segmento con il disco, valutando l'area tra il segmento stesso e il semicerchio inferiore del disco. Attraverso questa area si potrà pesare la normale alla faccia del triangolo considerato e quindi effettuare una media ponderata con tutti gli atri triangoli che insersecano il disco.
+
+% DISEGNARE AREA TRA SEGMENTO  E DISCO
+
+Questo metodo è ovviamente utilizzabile solo nel caso di strada rappresentata tramite \textit{mesh} triangolare. A differenza dal modello di \cite{Rill}, permette di non approssimare la superficie stradale mediante soli quattro punti ma invece di avere una rappresentazione che sfrutta tutti i dati messi a disposizione dalla discretizzazione del manto stradale.
+%
+\subsection{Modello di pneumatico a più dischi d'instersezione}
+%
+Nel modello a più dischi, lo pneumatico sarà rappresentato da più dischi rigidi indeformabili disposti uniformemente lungo la sezione dello stesso. Essi potranno avere raggio uguale o diverso l'uno dall'altro, in modo da rappresentare una forma specifica dello pneumatico.
+
+% DISEGNARE DISCHI COSTRUTTORI
+
+Anche se questo modello di pneumatico è costituito da più dischi, il punto di contatto $P_{MF}$ utilizzato per valutare la formula di Pacejka verrà comunque considerato nel disco "virtuale" giacente sul piano mediano dello pneumatico. Equivalentemente, anche il punto di contatto con la \textit{mesh} $P_{PL}$ verrà considerato nel mediesimo piano.
+%
+\subsubsection{Contatto tramite campionamento}
+
+%
+\subsubsection{Contatto ponderato in base all'area d'instersezione}
+%
+
