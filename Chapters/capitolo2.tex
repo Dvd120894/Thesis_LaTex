@@ -1,163 +1,240 @@
-\chapter{La Superficie Stradale}
-\label{rdf}
+\chapter{Lo Pneumatico}
+\label{Pneumatico}
 %
 \section{Introduzione}
-Oltre allo pnumatico, la superfice stradale rappresenta il secondo importante elemento che definisce il contatto. Perchè una superficie stradale possa essere facilmente utilizzata da un calcolatore deve essere prima discretizzata. La discretizzazione in questo caso avviene mediante la rappresentazione della superficie stessa in una \textit{mesh} triangolare. La \textit{mesh}, è contenuta in un file formato \ac{RDF}, che contiene le posizioni $(x,y,z)$ di ogni vertice e i numeri di identificazione per ognuno dei tre vertici del triangolo, per ogni trangolo.\\
-\indent È importante notare che la discretizzazione del manto stradale è un processo molto importante in quando, se campionato troppo grossolanamente potrebbe influire negativamente sui risultati dei calcoli per l'estrazione del piano strada locale. In altre parole, una semplificazione eccessiva, potrebbe causare degli errori tali da incorrere in risultati troppo approssimativi e non rispecchianti la realtà. Al contrario, una \textit{mesh} troppo fitta, aumenta inutilmente i calcoli da eseguire, dilatando quindi i tempi di esecuzione. È bene quindi discretizzare più densamente in maniera oculata e solo dove occore realmente, ovvero in prossimità di cordoli, marciapiedi o qualsiasi tipo di ostacolo che potrebbe influire sulle performance della vettura. 
+Gli pneumatici sono probabilmente i componenti più complessi di un'auto in quanto combinano decine di componenti che devono essere formati, assemblati e combinati assieme. Il successo del prodotto finale dipende dalla loro capacità di fondere tutti i componenti separati in un prodotto dal materiale coeso che soddisfa le esigenze del conducente \cite{rill}. Essi sono caratterizzati da un comportamento altamente non lineare con una forte dipendenza da diversi fattori costruttivi e ambientali.
 %
-\section{Il Formato RDF}
-%
-\subsection{Superfici Semplici}
-Sfortunatamente, non esistono standard universalmente riconosciuti per il formato RDF. In linea di massima le superfici stradali sono definite nei \textit{Road Data File} (\texttt{*.rdf}). Questa tipologia di file è composto da varie sezioni, indicate da parentesi quadre.
-
-\begin{pseudoc}
-	{ Comments section }
-	
-	[UNITS]
-	LENGTH = 'meter'
-	ANGLE = 'degree'
-	
-	[MODEL]
-	ROAD\_TYPE = '...'
-	
-	[PARAMETERS]
-	...
-\end{pseudoc}
-
-Nella sezione \texttt{[UNITS]}, vengono impostate le unità di misura utilizzate nel file di dati stradali. La sezione \texttt{[MODEL]} viene invece utilizzata per specificare la morfologia della superfice stradale, del tipo:
+\section{Geometria}
+Quando si fa riferimento ai dati puramente geometrici, viene utilizzata una forma abbreviata della notazione completa prevista dall'ente di normazione \ac{ETRTO}. Assumendo di avere un pneumatico generico la notazione che identificherà la geometria sarà del tipo $a$ / $b$ R $c$. Dove:
 \begin{itemize}
-	\item \texttt{ROAD\_TYPE = 'flat'}: superficie stradale piana.
-	\item \texttt{ROAD\_TYPE = 'plank'}: singolo scalino o dosso orientato perpendicolarmente o obliquo rispetto all'asse $X$, con o senza bordi smussati.
-	\item \texttt{ROAD\_TYPE = 'poly\_line'}: altezza della strada è in funzione della distanza percorsa.
-	\item \texttt{ROAD\_TYPE = 'sine'}: superficie stradale costituita da una o più onde sinusoidali con lunghezza d'onda costante.
+	\item $a$ rappresenta larghezza nominale dello pneumatico nel punto più largo;
+	\item $b$ rappresenta percentuale dell'altezza della spalla dello pneumatico in relazione alla larghezza dello stesso;
+	\item $c$ rappresenta il diametro dei cerchi ai quali lo pneumatico si adatta.
 \end{itemize}
-La sezione \texttt{[PARAMETERS]} contiene parametri generali e specifici per il tipo di superficie stradale.
+Si prenda come esempio la seguente denominazione \ac{ETRTO}: 195/55R16. La larghezza nominale dello pneumatico è di circa 195 mm nel punto più largo, l'altezza della spalla corrisponde al 55\% della larghezza $-$ ovvero 107 mm $-$ e il diametro dei cerchi ai quali lo pneumatico si adatta è di 16 pollici. Con questa notazione è possibile calcolare direttamente il diametro esterno teorico dello pneumatico tramite una delle seguenti formule:
+%
+\begin{equation}
+\phi_e = \frac{2ab}{25.4}+c \quad \text{[in]} \qquad
+\end{equation}
+\begin{equation}
+\phi_e = 2ab+25.4c \quad \text{[mm]}
+\end{equation}
+%
+\noindent
+Riprendendo l'esempio usato sopra, il diametro esterno risulterà dunque 24.44 in o 621 mm.\\
+Meno comunemente usato negli USA e in Europa (ma spesso in Giappone) è una notazione che indica l'intero diametro del pneumatico invece delle proporzioni dell'altezza della spalla laterale, quindi non secondo \ac{ETRTO}. Per fare lo stesso esempio, un cerchio da 16 pollici avrebbe un diametro di 406 mm. L'aggiunta del doppio dell'altezza del pneumatico (2$\times$107 mm) produce un diametro totale di 620 mm. Quindi, un pneumatico 195/55R16 potrebbe in alternativa essere etichettato come 195/620R16. Anche se queste due notazioni sono teoricamente ambigue, in pratica possono essere facilmente distinte perché l'altezza della parete laterale di uno pneumatico automobilistico è in genere molto inferiore alla larghezza. Quindi, quando l'altezza è espressa come percentuale della larghezza, è quasi sempre inferiore al 100\% (e certamente meno del 200\%). Al contrario, i diametri degli pneumatici del veicolo sono sempre superiori a 200 mm. Pertanto, se il secondo numero è superiore a 200, allora è quasi certo che viene utilizzata la notazione giapponese, se è inferiore a 200 allora viene utilizzata la notazione USA/europea.
 
-I parametri per ogni tipologia di superficie stradale sono elencati di seguito:
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Figures/tire_measures}
+	\caption{Esempio di misure, secondo la notazione ETRTO, riportate sulla spalla dello pneumatico.}
+	\label{tiremeasures}
+\end{figure}
+%
+\section{Modellizzazione}
+Le forze di contatto tra la superficie stradale e lo pneumatico possono essere descritte da un vettore di forza risultante applicato in un punto specifico dell'impronta di contatto e da una coppia risultante, come illustrato nella \figurename{  \ref{tireforces}}.
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.4\linewidth}
+		$F_x$ \quad forza longitudinale\\
+		$F_y$ \quad forza laterale\\
+		$F_z$ \quad forza verticale\\
+		$T_x$ \quad coppia di sovrasterzo\\
+		$T_y$ \quad resistenza al rotolamento\\
+		$T_z$ \quad coppia di autoallineamento
+	\end{subfigure}
+	\begin{subfigure}{0.4\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{Figures/tire_forces}
+	\end{subfigure}
+\caption{Forze e coppie generate dal contatto pneumatico/strada.}
+Da: \citeauthor{Rill}, \citetitle{Rill}.
+\label{tireforces}
+\end{figure}
+%
+Come componenti cruciali per la movimentazione dei veicoli e il comportamento di guida, le forze degli pneumatici richiedono particolare attenzione soprattutto perché deve essere considerato anche il comportamento non stazionario. Attualmente, è possibile suddividere i modelli di pneumatico in tre gruppi:
 \begin{itemize}
-	\item Generali:
-	\begin{itemize}
-		\item \texttt{MU}: è il fattore di correzione dell'attrito stradale (non il valore dell'attrito stesso), da moltiplicare con i fattori di ridimensionamento LMU del modello di pneumatico.\\
-		Impostazione predefinita: \texttt{MU = 1.0}.
-		\item \texttt{OFFSET}: è l'offset verticale del terreno rispetto al sistema di riferimento inerziale.
-		\item \texttt{ROTATION\_ANGLE\_XY\_PLANE}: è l'angolo di rotazione del piano $XY$ attorno all'asse $Z$ della strada, ovvero la definizione dell'asse $X$ positivo della strada rispetto al sistema di riferimento inerziale.
-	\end{itemize}
-	\item Strada con scalino:
-	\begin{itemize}
-		\item \texttt{HEIGHT}: altezza dello scalino.
-		\item \texttt{START}: distanza lungo l'asse $X$ della strada all'inizio dello scalino.
-		\item \texttt{LENGTH}: lunghezza dello scalino (escluso lo smusso) lungo l'asse $X$ della strada.
-		\item \texttt{BEVEL\_EDGE\_LENGTH}: lunghezza del bordo smussato a $45°$ dello scalino.
-		\item \texttt{DIRECTION}: rotazione dello scalino attorno all'asse $Z$, rispetto all'asse $Y$ della strada.\\
-		Se lo scalino è posizionato trasversalmente, \texttt{DIRECTION = 0}. Se lo scalino è posto lungo l'asse $X$, \texttt{DIRECTION = 90}.
-	\end{itemize}
-	\item Polilinea:\\
-	Il blocco \texttt{[PARAMETERS]} deve avere un sottoblocco chiamato \texttt{(XZ\_DATA)} e costituito da tre colonne di dati numerici:
-	\begin{itemize}
-		\item La colonna 1 è un insieme di valori $X$ in ordine crescente.
-		\item Le colonne 2 e 3 sono insiemi di rispettivi valori $Z$ per la traccia sinistra e destra.
-	\end{itemize}
-	Esempio:
-	\begin{pseudoc}
-	[PARAMETERS]
-	MU = 1.0
-	OFFSET = 0.0
-	ROTATION_ANGLE_XY_PLANE = 0.0 
-	
-	{ X_road	Z_left	Z_right }
-	(XZ_DATA)
-	-1.0e04	0	0
-	0.0500	0	0
-	0.1000	0	0
-	0.1500	0	0
-	... ... ...
-	\end{pseudoc}
-	\item Sinusoide:\\
-	La strada a superficie sinusoidale è implementata come:
-	\begin{equation}
-	z(x)=\frac{H}{2}\left( 1 - \cos \left( \frac{2\pi \cdot (x-x_i)}{L} \right)   \right) 
-	\end{equation}
-	dove	
-	\begin{itemize}
-	 	\item $z$: coordinata verticale della strada;
-	 	\item $H$: altezza;
-	 	\item $x$: posizione attuale;
-	 	\item $x_i$: inizio dell'onda sinusoidale;
-	 	\item $L$: semi-periodo dell'onda sinusoidale.
-	\end{itemize}
-	I parametri sono:	
-	\begin{itemize}
-		\item \texttt{HEIGHT}: altezza dell'onda sinusoidale.
-		\item \texttt{START}: distanza lungo l'asse $X$ della strada all'inizio dell'onda sinusoidale.
-		\item \texttt{LENGTH}: lunghezza dell'onda sinusoidale lungo l'asse $X$ della strada.
-		\item \texttt{DIRECTION}: rotazione dell'onda sinusoidale attorno all'asse $Z$, rispetto all'asse $Y$ della strada.\\
-		Se l'onda sinusoidale è posizionata trasversalmente, \texttt{DIRECTION = 0}. Se l'onda sinusoidale è posta lungo l'asse $X$, \texttt{DIRECTION = 90}.
-	\end{itemize}
+	\item modelli matematici;
+	\item modelli fisici;
+	\item combinazione dei precedenti.
 \end{itemize}
-%
-%
-\subsection{Superfici Complesse}
-Sfortunatamente, queste informazioni appena descritte permettono di costruire strade troppo semplicistiche e approssimative, che non rispecchiano la realtà. È quindi necessario inserire i risultati della discretizzazione della superficie stradale sopra citati.
 
-Per descrivere una superficie stradale composta da una \textit{mesh} di triangoli si userà la seguente struttura dati.
+\noindent
+La prima tipologia di modello tenta di rappresentare le caratteristiche fisiche dello pneumatico attraverso una descrizione puramente matematica. Pertanto, questo tipo di modelli parte da un curve caratteristiche ricavate sperimentalmente e cercano di derivare un comportamento approssimativo dall'interpolazione di un grande insieme di dati. Un esempio ben noto di questo approccio è il \textbf{modello di Pacejka} o \textbf{\textit{Magic Formula}} \cite{hans}. Questo tipo di modellazione è adatta per la simulazione di guida in cui il comportamento di interesse è per lo più la guidabilità del veicolo e le frequenze di uscita sono ben al di sotto delle frequenze di risonanza della cintura dello pneumatico. I modelli fisici o i modelli ad alta frequenza, come i modelli agli elementi finiti, sono in grado di rilevare fenomeni di risonanza a frequenza più elevata. Ciò permette di valutare il comfort di guida di un veicolo. Dal punto di vista del calcolo, i modelli fisici complessi richiedono molto tempo al calcolatore per essere risolti, nonché di molti dati, al contrario dei più veloci modelli matematici, che richiedono un'accurata pre-elaborazione dei dati sperimentali. La terza tipologia di modelli consiste in un'estensione dei modelli matematici attraverso le leggi fisiche al fine di coprire una gamma di frequenza più ampia.
+
+Il modello di pneumatico sviluppato nel modello di veicolo e il tipo di interfaccia di pneumatico/strada presentato da \citeauthor{Larcher} in \cite{Larcher} si basa sulla \textit{Magic Formula} 6.2.
+%
+\subsection{La \textit{Magic Formula}}
+Uno dei modelli di pneumatici più utilizzati è il cosiddetto modello \textit{Magic Formula} sviluppato da \citeauthor{bakker} in \cite{bakker}. Questo modello è stato poi rivisto e l'ultima versione è riportata in \cite{hans}. Il modello \textit{Magic Formula} consiste in una pura descrizione matematica del rapporto input-output del contatto pneumatico/strada. Questa formulazione collega le variabili di forza con lo slip rigido del corpo che vengono trattati nelle sezioni successive. La forma generale della funzione di descrizione può essere scritta come:
+%
+\begin{equation}
+y(x) = D\sin\{C\arctan[B(x + S_h ) - E(B(x + S_h ) - \arctan(B(x + S_h )))]\} + S_v
+\end{equation}
+%
+dove i fattori rappresentano:
 \begin{itemize}
-	\item \texttt{[NODES]}: presenti nella prima sezione e dove vengono descritti sotto forma di una quartina $(id,x,y,z)$ data dal numero di identificazione e dalle coordinate nello spazio.
-	\item \texttt{[ELEMENTS]}: presenti nella seconda sezione e dove vengono descritti sotto forma di una quartina $(n_1,n_2,n_3,\mu)$ data dal numero di identificazione dei tre vertici componenti $i$-esimo triangolo e dal coefficente di attrito presente nella faccia.
+	\item $B$ la rigidezza;
+	\item $C$ la forma;
+	\item $D$ il valore massimo della forza o coppia;
+	\item $E$ la curvatura in corrispondenza del valore massimo;
+	\item $S_v$ lo spostamento in verticale della curva caratteristica;
+	\item $S_h$ lo spostamento in orizzontale della curva caratteristica.
 \end{itemize}
-Esempio:
-\begin{pseudoc}
-	[NODES]
-	{ id x_coord y_coord z_coord }
-	0 2.64637 35.8522 -1.59419e-005 
-	1 4.54089 33.7705 -1.60766e-005 
-	2 4.52126 35.8761 -1.62482e-005 
-	3 2.66601 33.7456 -1.57714e-005 
-	4 0.771484 35.8282 -1.56367e-005 
-	5 0.791126 33.7206 -1.5465e-005
-	... ... ... ...
-	
-	[ELEMENTS]
-	{ n1 n2 n3 mu }
-	1 2 3 1.0 
-	2 1 4 1.0 
-	5 4 1 1.0 
-	... ... ... ...
-\end{pseudoc}
-
-Ulteriori parametri possono essere aggiunti prima della dichiarazaione dei nodi della \textit{mesh}.
+e dove $y(x)$ può rappresentare la forza longitudinale $F_x$ , la forza laterale $F_y$ o la coppia di autoallineamento $M_z$, mentre $x$ è la componente di slip corrispondente. In \figurename{ \ref{pacejka}} sono illustrate le curve caratteristiche generiche degli pneumatici derivate con il metodo della \textit{Magic Formula}.\\
+Per poter utilizzare la \textit{Magic Formula} è necessario conoscere:
 \begin{itemize}
-	\item \texttt{X\_SCALE}: riscala i punti delle coordinate dei nodi lungo l'asse $X$.
-	\item \texttt{Y\_SCALE}: riscala i punti delle coordinate dei nodi lungo l'asse $Y$.
-	\item \texttt{Z\_SCALE}: riscala i punti delle coordinate dei nodi lungo l'asse $Z$.
-	\item \texttt{ORIGIN}: definisce la posizione dell'origine della sistema di riferimento della superficie stradale.
-	\item \texttt{UP}: definisce la direzione positiva dell'asse $Z$.
-	\item \texttt{[ORIENTATION]}: ruota i punti delle coordinate dei nodi secondo la matrice definita.
+	\item la geometria dello pneumatico;
+	\item lo slittamento (o \textit{slip});
+	\item la forza verticale applicata allo pneumatico;
+	\item la penetrazione in corrispondenza del punto di contatto e la sua derivata nel tempo;
+	\item l'inclinazione tra piano strada e sistema di riferimento del centro ruota (angolo di camber relativo).
 \end{itemize}
-Esempio:
-\begin{pseudoc}
-	X_SCALE
-	1000.0
-	Y_SCALE
-	1000.0
-	Z_SCALE
-	1000.0
-	ORIGIN
-	0 0 0
-	UP
-	0.0,0.0,1.0
-	ORIENTATION
-	1.0  0.0  0.0
-	0.0  1.0  0.0
-	0.0  0.0  1.0
-\end{pseudoc}
+Ed è proprio nell'inclinazione tra piano strada e sistema di riferimento del centro ruota che si porrà una maggiore attenzione in quanto elemento fondamentale per ricavare l'effettivo punto di contatto dell'interazione pneumatico/strada.
 %
-\section{Parsificazione}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.58\linewidth]{Figures/pacejka}
+	\caption{Curve caratteristiche generiche degli pneumatici derivate con il metodo della \textit{Magic Formula}.}
+	Da: \citeauthor{Schramm}, \citetitle{Schramm}.
+	\label{pacejka}
+\end{figure}
 %
-\subsection{Introduzione}
-La parsificazione o analisi sintattica è un processo che analizza un flusso continuo di dati in ingresso (letti per esempio da un file o una tastiera) in modo da determinare la correttezza della sua struttura grazie ad una data grammatica formale. Un \textit{parser} è un programma che esegue questo compito. Nella maggior parte dei casi, l'analisi sintattica opera su una sequenza di \textit{token} in cui l'analizzatore lessicale spezzetta l'input.
+\subsection{Contatto con la Superficie Stradale}
 %
-\subsection{Parsificazione del formato RDF}
-Nel lavoro svolto è stato creato un algoritmo per parsificare i file di tipo \ac{RDF} che descrivono superfici complesse. Purtroppo, come precedentemente detto, non esiste uno standard universalmente riconosciuto per questo formato. Creare dunque un \textit{parser} o definire un generatore di \textit{parser} è arduo. Si è quindi optato per la creazione di un \textit{parser} che rilevi solo i nodi (\texttt{[NODES]}), li salvi temporaneamente e, dopo aver immagazzinato anche i dati relativi agli elementi (\texttt{[ELEMENTS]}), instanzi un oggetto \textit{mesh}, composto dai nodi dichiarati nella sezione elementi. Gli altri parametri non sono stati considerati.
+Si analizzaranno ora le due metodologie, di complessità cresciente, per ricavare l'inclinazione tra piano strada e sistema di riferimento del centro ruota. Dapprima si utilizzerà un metodo a disco singolo presentato in \cite{Rill}, successivamente si passerà ad un modello a più dischi, così da coprire una superficie stradale maggiore e avere quindi risultati più precisi, soprattutto in prossimità di variazioni repentine del manto stradale.
+%
+\subsubsection{Modello a Disco Singolo}
+La posizione e l'orientamento della ruota in relazione al sistema fissato a terra sono dati dalla terna di riferimento del vettore ruota $RF_{wh}$, che viene calcolata istante per istante risolvendo le equazioni dinamiche del sistema ottenuto nel Capitolo 2 in \cite{Larcher}. Supponendo che il profilo stradale sia rappresentato da una funzione arbitraria a due coordinate spaziali del tipo: 
+%
+\begin{equation}
+z=z(x,y)
+\end{equation}
+%
+su una superficie irregolare, il punto di contatto con il piano locale $P_{PL}$ non può essere calcolato direttamente. Nel metodo a disco singolo presentato in \cite{Rill} da \citeauthor{Rill}, come prima approssimazione si identifica un punto di contatto $P^\star$ come una semplice traslazione del centro ruota $M$:
+%
+\begin{equation}
+P^\star = M-R_0\textbf{\textit{e}}_{zC}
+\begin{bmatrix}
+x^\star\\
+y^\star\\
+z^\star
+\end{bmatrix}
+\end{equation}
+%
+dove $R_0$ è il raggio dello pneumatico indeformato ed $\textbf{\textit{e}}_{zC}$ è il vettore unitario che definisce l'asse $z_C$ del sistema di riferimento della ruota.
 
-Come verrà richiamato nelle conclusioni, l'importanza di definire uno standard per il formato \ac{RDF} è di cruciale importanza. In questo modo si potrà creare un generatore di \textit{parser} con una grammatica e un lessico ben definiti, nonché aumentarne l'efficienza e la stabilità.
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{Figures/contact_geometry_1}
+	\end{subfigure}
+	\begin{subfigure}{0.35\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{Figures/contact_geometry_2}
+	\end{subfigure}
+	\caption{Geometria del contatto pneumatico-strada.}
+	Da: \citeauthor{Rill}, \citetitle{Rill}.
+	\label{contactgeometry}
+\end{figure}
 %
+\noindent
+La prima stima del sistema di riferimento del punto di contatto $RF_{P^\star}$ è una terna con origine in $P^\star$ e orientazione degli assi definiti dall'orientazione del sistema di riferimento della ruota. Si noti che l'origine di $RF_{P^\star}$ corrisponde alla proiezione lungo l'asse $z_C$ del sistema di riferimento della ruota.
+%
+\begin{equation}
+RF_{P^\star} = \left[
+\begin{array}{ccc|c}
+& & & x^\star\\
+\multicolumn{3}{c|}{\multirow{3}{*}{\raisebox{20mm}{\scalebox{1.5}{$[R_{RF_{wh}}]$}}}} & y^\star\\
+& & & z^\star\\ \hline
+0 & ~~0 & 0 & 1
+\end{array}\right]
+\end{equation}\\
+%
+Al fine di ottenere una buona approssimazione del piano strada locale in termini di inclinazione longitudinale e laterale, sono stati utilizzati i quattro punti di campionamento $(Q^\star_1, Q^\star_2, Q^\star_3, Q^\star_4)$, rappresentati graficamente in \figurename{ \ref{localtrack}}. I punti di campionamento sono definiti nel sistema di riferimento temporaneo del punto di contatto $RF_{P^\star}$ e lo spostamento longitudinale e laterale sono definiti dall'origine, ovvero dallo stesso $P^\star$. I vettori di spostamento sono definiti come:
+%
+\begin{equation}
+\begin{split}
+\textbf{\textit{r}}_{Q^\star_{1,2}} = \pm \Delta x \textbf{\textit{e}}_{xP^\star} = \pm \Delta x \textbf{\textit{e}}_{xC} \\
+\textbf{\textit{r}}_{Q^\star_{3,4}} = \pm \Delta y \textbf{\textit{e}}_{yP^\star} = \pm \Delta y \textbf{\textit{e}}_{yC}
+\end{split}
+\end{equation}
+%
+e quindi, i quattro punti di campionamento sono:
+%
+\begin{equation}
+\begin{split}
+Q^\star_{1,2} = P^\star \pm \textbf{\textit{r}}_{Q^\star_{1,2}} = P^\star \pm \Delta x \textbf{\textit{e}}_{xC} \\
+Q^\star_{3,4} = P^\star \pm \textbf{\textit{r}}_{Q^\star_{3,4}} = P^\star \pm \Delta y \textbf{\textit{e}}_{yC}
+\end{split}
+\end{equation}
+%
+Al fine di campionare il terreno nel modo più efficace possibile, le distanze di $\Delta x$ e $\Delta y$, dell'equazione precedente, vengono regolate in base al raggio del pneumatico indeformato $R_0$ e alla larghezza del pneumatico $B$. I valori di queste due quantità possono essere trovate in \cite{Rill} e sono $\Delta x = 0.1 R_0$ e $\Delta x = 0.3 B$. Attraverso questa definizione, si può ottenere un comportamento sufficientemente realistico durante la simulazione.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{Figures/local_track}
+	\caption{Punti campionati nel piano locale della superficie stradale.}
+	Da: \citeauthor{Rill}, \citetitle{Rill}.
+	\label{localtrack}
+\end{figure}
+%
+\noindent
+Ora la componente $z$ in corrispondenza dei quattro punti campione viene valutata attraverso la funzione $z(x,y)$ precedentemente definita. Quindi, aggiornando la terza coordinata dei punti di campionamento $Q^\star_i$, si ottenengono i corrispondenti punti campione $Q_i$ sulla superficie della pista locale. La linea fissata dai punti $Q_1$, $Q_2$ e $Q_3$, $Q_4$, può ora essere utilizzata per definire la normale al piano strada locale (\figurename \ref{localplane}). Pertanto, il vettore normale è definito come:
+%
+\begin{equation}
+\textbf{\textit{e}}_n = \frac{\textbf{\textit{r}}_{Q_1 Q_2} \times \textbf{\textit{r}}_{Q_4 Q_3}}{|\textbf{\textit{r}}_{Q_1 Q_2} \times \textbf{\textit{r}}_{Q_4 Q_3}|}
+\label{normale}
+\end{equation}
+%
+Ora, i versori $\textbf{\textit{e}}_x$ ed $\textbf{\textit{e}}_y$, che descrivono l'inclinazione del piano locale nel possono essere ottenuti dalle seguenti equazioni:
+%
+\begin{equation}
+\textbf{\textit{e}}_x = \frac{\textbf{\textit{e}}_{yC}\times\textbf{\textit{e}}_{n}}{|\textbf{\textit{e}}_{yC}\times\textbf{\textit{e}}_{n}|}
+\qquad
+\textbf{\textit{e}}_{y} = \textbf{\textit{e}}_{n}\times\textbf{\textit{e}}_{x}
+\label{terna}
+\end{equation}
+%
+dove sono $\textbf{\textit{r}}_{Q_2 Q_1}$ e $\textbf{\textit{r}}_{Q_4 Q_3}$ sono i vettori che puntano rispettivamente da $Q_1$ a $Q_2$ e da $Q_3$ a $Q_4$. Applicando la \eqref{terna} è ora possibile calcolare i vettori unitari $\textbf{\textit{e}}_{x}$ e $\textbf{\textit{e}}_{y}$ del piano locale di contatto. Per definire univocamente il piano strada, oltre alla normale calcolata in \eqref{normale}, viene utilizzato il punto $P_n$ dato dal valore medio delle tre coordinate spaziali dei quattro punti campione.
+%
+\begin{equation}
+P_n = \frac{1}{4}\begin{bmatrix}
+\sum_{i=1}^{4} x_i \\
+\sum_{i=1}^{4} y_i \\
+\sum_{i=1}^{4} z_i
+\end{bmatrix}
+\end{equation}
+%
+È infine necessario ricondursi alle condizioni tali per cui il modello di Pacejka è valido trovando il punto di contatto sul piano strada locale $P_{PL}$ e il punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$ dove effettivamente agiranno le forze ricavate mediante la \textit{Magic Formula}. Si troverà dapprima la componente della normale al piano strada $\textbf{\textit{e}}_{n_{XZ}}$ sul piano in cui giace il singolo disco indeformabile. $P_{MF}$ sarà dunque trovato a partire dal centro ruota $M$, moltiplicando scalarmente il versore $\textbf{\textit{e}}_{n_{XZ}}$ per il raggio del disco indeformabile $R_0$, ovvero:
+%
+\begin{equation}
+P_{MF} = R_0\textbf{\textit{e}}_{n_{XZ}}
+\end{equation}
+%
+Come illustrato in \figurename{ \ref{localplane}}, il punto di contatto sul piano strada locale $P_{PL}$ viene invece calcolato sfuttando un algoritmo di intersezione piano-raggio (che si tratterà nel Capitolo \ref{Geom_Algos}). $P_{PL}$ giacerà dunque sulla proiezione in direzione $-\textbf{\textit{e}}_{n_{XZ}}$ del punto $M$ sulla retta individuata dal punto $P_n$ e normale $\textbf{\textit{e}}_{n_{XZ}}$.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{Figures/local_plane}
+	\caption{Spostamento del punto di contatto $P_{PL}$ in relazione alla normale $\textbf{\textit{e}}_{n_{XZ}}$.}
+	Da: \citeauthor{Rill}, \citetitle{Rill}.
+	\label{localplane}
+\end{figure}
+
+Infine si può mettere assieme tutte le componenti del piano di riferimento del punto di contatto $P_{MF}$ ottenendo il relativo sistema di riferimento:
+%
+\begin{equation}
+RF_{MF} = \left[
+\begin{array}{ccc|c}
+& & & x_{P_{MF}}\\
+\multirow{3}{*}{\raisebox{20mm}{\scalebox{1.5}{$\left[\textbf{\textit{e}}_x\right]$}}} & \multirow{3}{*}{\raisebox{20mm}{\scalebox{1.5}{$\left[\textbf{\textit{e}}_y\right]$}}} & \multirow{3}{*}{\raisebox{20mm}{\scalebox{1.5}{$\left[\textbf{\textit{e}}_z\right]$}}} & y_{P_{MF}}\\
+& & & z_{P_{MF}}\\ \hline
+0 & 0 & 0 & 1
+\end{array}\right]
+\end{equation}\\
+Attraverso questo approccio, la normale del piano strada locale $\textbf{\textit{e}}_{n}$ insieme al punto di contatto sul piano strada locale $P_{PL}$ e al punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$, sono in grado di rappresentare l'irregolarità della strada in modo soddisfacente ma comunque approssimativo, infatti, bordi taglienti o discontinuità del manto stradale saranno smussate da questo approccio.
+%
+\subsubsection{Modello a più Dischi}
+Nel modello a più dischi, lo pneumatico sarà rappresentato da più dischi rigidi indeformabili disposti uniformemente lungo la sezione dello stesso. A differenza del caso a singolo disco non sia andrà più a campionare la strada nei quattro punti $Q_i$, si andrà invece a calcolare 
