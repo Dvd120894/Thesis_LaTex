@@ -227,5 +227,118 @@ Questa libreria nasce per il \textit{fitting} dei polinomi di Hermite di tipo $G
 \end{itemize}
 \texttt{Doxygen} è sviluppato su Mac OS X e Linux, ma è configurato per essere altamente portabile. Di conseguenza, funziona anche con la maggior parte degli altri sistemi Unix. Inoltre, sono disponibili eseguibili per Windows.
 %
-\section{Utilizzo e Prestazioni}
-
+\section{Utilizzo}
+La libreria \texttt{TireGround} è stata pensata per essere semplice da utilizzare. Si vedranno ora i vari passi per per utilizzarla in maniera appropriata.
+%
+\subsection{Caricare la \textit{mesh}}
+Per caricare la superficie stradale, rappresentata dalla \textit{mesh} triangolare contenuta nel file \ac{RDF}, è sufficiente stfruttare il costruttore della classe \texttt{MeshSurface} che prende in \textit{input} l'indirizzo al file.
+\begin{pseudoc}
+	RDF::MeshSurface Road("./file.rdf");
+\end{pseudoc}
+%
+\subsection{Creare lo pneumatico}
+Per creare lo pneumatico a singolo disco è suffieciente utilizzare il costruttore di \textit{default} della classe \texttt{MagicFormula}.
+\begin{pseudoc}
+	PatchTire::Tire* TireSD = new PatchTire::MagicFormula(
+		SectionWidth, // Sezione laterale dello pneumatico [mm]
+		AspectRatio,  // Aspect ratio percentuale dello pneumatico
+		RimDiameter,  // Diametro del cerchio [in]
+		Threshold     // Threshold per passare dal modello di contatto ponderato in base all'area di intersezione a quello di Rill 
+		);
+\end{pseudoc}
+Nel caso invece si voglia creare unoo pneumatico a più dischi si utilizzerà uno dei costruttori della classe \texttt{MultiDisk}. Per il caso di pneumatico a più dischi con raggio uniforme si avrà:
+\begin{pseudoc}
+	PatchTire::Tire* TireMD = new PatchTire::MultiDisk(
+		SectionWidth, // Sezione laterale dello pneumatico [mm]
+		AspectRatio,  // Aspect ratio percentuale dello pneumatico
+		RimDiameter,  // Diametro del cerchio [in]
+		PointsNumber, // Numero di punti di campionamento per ogni disco
+		DisksNumber,  // Numero di dischi totale
+		Threshold     // Threshold per passare dal modello di contatto ponderato in base all'area di intersezione a quello di Rill 
+		);
+\end{pseudoc}
+Nel caso di pneumatico a più dischi con raggio di raccordo sulla spalla si avrà invece:
+\begin{pseudoc}
+	PatchTire::Tire* TireMD = new PatchTire::MultiDisk(
+		SectionWidth, // Sezione laterale dello pneumatico [mm]
+		AspectRatio,  // Aspect ratio percentuale dello pneumatico
+		RimDiameter,  // Diametro del cerchio [in]
+		SideRadius,   // Raggio di raccordo sulla spalla [mm]
+		PointsNumber, // Numero di punti di campionamento per ogni disco
+		DisksNumber,  // Numero di dischi totale
+		Threshold     // Threshold per passare dal modello di contatto ponderato in base all'area di intersezione a quello di Rill 
+		);
+\end{pseudoc}
+Infine, nel caso si voglia creare uno pneumatico a più dischi con forma personalizzata:
+\begin{pseudoc}
+	PatchTire::Tire* TireMD = new PatchTire::MultiDisk(
+		SectionWidth, // Sezione laterale dello pneumatico [mm]
+		AspectRatio,  // Aspect ratio percentuale dello pneumatico
+		RimDiameter,  // Diametro del cerchio [in]
+		RadiusVec,    // Vettore dei raggi dei dischi [m]
+		PointsNumber, // Numero di punti di campionamento per ogni disco
+		Threshold     // Threshold per passare dal modello di contatto ponderato in base all'area di intersezione a quello di Rill 
+		);
+\end{pseudoc}
+%
+\subsection{Orientazione dello pneumatico e valutazione del contatto}
+Per orientazione dello pneumatico e valutarne il contatto con il manto stradale si utilizzerà il metodo \texttt{setup} della classe \texttt{Tire}.
+\begin{pseudoc}
+bool Out = TireMD->setup(
+	Road,     // Superficie stradale
+	TransfMat // Matrice di trasformazione 4x4 per orientare lo pneumatico
+	);
+\end{pseudoc}
+Per estrarre i risultati si andranno a inizializzazione delle variabili reali o vettoriali e poi saranno modificate dai metodi della classe \texttt{Tire} sotto elencati.
+\begin{pseudoc}
+	// Inizializzazione delle variabili
+	PatchTire::vec3 N;
+	PatchTire::vec3 P;
+	PatchTire::real_type Friction;
+	PatchTire::real_type Rho;
+	PatchTire::real_type RhoDot;
+	PatchTire::real_type RelativeCamber;
+	PatchTire::real_type Friction;
+	PatchTire::real_type Area;
+	PatchTire::real_type Volume;
+	PatchTire::real_type RelativeCamber;
+	
+	// Estrazione dei dati
+	TireMD->getNormal(N);
+	TireMD->getPoint(P);
+	TireMD->getFriction(Friction);
+	TireMD->getRho(Rho);
+	TireMD->getRhoDot(PreviousRho,TimeStep,RhoDot);
+	TireMD->getRelativeCamber(RelativeCamber);
+	TireMD->getArea(Area);
+	TireMD->getVolume(Volume);
+	TireMD->getRelativeCamber(RelativeCamber)
+	
+	// Estrazione della dimensione appropriata della struttura dati
+	PatchTire::int_type size = TireSD->getDisksNumber();
+	
+	// Inizializzazione dei vettori con dimensione appropriata
+	PatchTire::row_vec3 NVec(size);
+	PatchTire::row_vec3 PVec(size);
+	PatchTire::row_vecN FrictionVec(size);
+	PatchTire::row_vecN RhoVec(size);
+	PatchTire::row_vecN RhoDotVec(size);
+	PatchTire::row_vecN RelativeCamberVec(size);
+	PatchTire::row_vecN FrictionVec(size);
+	PatchTire::row_vecN AreaVec(size);
+	PatchTire::row_vecN VolumeVec(size);
+	PatchTire::row_vecN RelativeCamberVec(size);
+	
+	// Estrazione dei dati in vettori
+	TireMD->getNormal(NVec);
+	TireMD->getPoint(PVec);
+	TireMD->getFriction(FrictionVec);
+	TireMD->getRho(RhoVec);
+	TireMD->getRhoDot(PreviousRho,TimeStep,RhoDotVec);
+	TireMD->getRelativeCamber(RelativeCamberVec);
+	TireMD->getArea(AreaVec);
+	TireMD->getVolume(VolumeVec);
+	TireMD->getRelativeCamber(RelativeCamberVec)
+\end{pseudoc}
+%
+\section{Prestazioni}

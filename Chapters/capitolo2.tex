@@ -252,7 +252,7 @@ dai quali partiranno i raggi con direzione $-z_C$ che intersecheranno la \textit
 \subsubsection{Contatto ponderato in base all'area d'intersezione}
 %
 \paragraph{Piano locale}
-Alternativamente a quello appena visto, si può utilizzare un modello di contatto ponderato in base all'area di intersezione. In altre, parole si andrà a valutare triangolo per triangolo l'intersezione con il disco indeformabile. Prima di tutto di intersecherà il triangolo nello spazio con il piano in cui giace il disco trovando dunque un segmento. Successivamente si valuterà l'intersezione di questo segmento con il disco, valutando l'area tra il segmento stesso e il semicerchio inferiore del disco.
+Alternativamente a quello appena visto, si può utilizzare un modello di contatto ponderato in base all'area di intersezione. In altre, parole si andrà a valutare triangolo per triangolo l'intersezione con il disco indeformabile. Prima di tutto di intersecherà il triangolo nello spazio con il piano in cui giace il disco trovando dunque un segmento. Successivamente si valuterà l'intersezione di questo segmento con il disco, calcolando l'area tra il segmento stesso e il semicerchio inferiore del disco.
 
 % DISEGNARE AREA TRA SEGMENTO  E DISCO
 
@@ -274,15 +274,87 @@ dove:
 Questo metodo è ovviamente utilizzabile solo nel caso di strada rappresentata tramite \textit{mesh} triangolare. A differenza dal modello di \cite{Rill}, permette di non approssimare la superficie stradale mediante soli quattro punti ma invece di avere una rappresentazione che sfrutta tutti i dati messi a disposizione dalla discretizzazione del manto stradale.
 %
 \paragraph{Punti di contatto}
-Per trovare il punto di contatto con la \textit{mesh} $P_{PL}$ e il punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$ precedentemente definiti, si andrà a ripetere l'operazione in \ref{Punti_contatto_rill} per trovare la componente della normale al piano strada $\textbf{\textit{e}}_{n_{XZ}}$ sul piano in cui giace il singolo disco indeformabile. A differenza del modello di contatto di Rill, non si ha ora una definizione univoca del piano strada locale. Infatti, l'unica conponente ad ora conoscita è il versore risultante normale al terreno $\textbf{\textit{e}}_n$. Per ricavare il punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$ si utilizzerà la \eqref{puntoMF}, mentre per il punto sulla \textit{mesh} $P_{PL}$ si andrà ad utilizzare un algoritmo d'intersezione tra raggio e la superficie stradale, dove l'origine del raggio sarà il centro ruota e la direzione $-\textbf{\textit{e}}_{n_{XZ}}$.
+Per trovare il punto di contatto con la \textit{mesh} $P_{PL}$ e il punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$ precedentemente definiti, si andrà a ripetere l'operazione in \ref{Punti_contatto_rill} per trovare la componente della normale al piano strada $\textbf{\textit{e}}_{n_{XZ}}$ sul piano in cui giace il singolo disco indeformabile. A differenza del modello di contatto di Rill, non si ha ora una definizione univoca del piano strada locale. Infatti, l'unica componente ad ora conoscita è il versore risultante normale al terreno $\textbf{\textit{e}}_n$. Per ricavare il punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$ si utilizzerà la \eqref{puntoMF}, mentre per il punto sulla \textit{mesh} $P_{PL}$ si andrà ad utilizzare un algoritmo d'intersezione tra raggio e la superficie stradale, dove l'origine del raggio sarà il centro ruota e la direzione $-\textbf{\textit{e}}_{n_{XZ}}$.
 %
 \subsection{Modello di pneumatico a più dischi}
 %
 Nel modello a più dischi, lo pneumatico sarà rappresentato da più dischi rigidi indeformabili disposti uniformemente lungo la sezione dello stesso. Essi potranno avere raggio uguale o diverso l'uno dall'altro, in modo da rappresentare una forma specifica dello pneumatico.
 
-% DISEGNARE DISCHI COSTRUTTORI
+\begin{figure}[h!]
+	\hfill
+	\begin{subfigure}{.3\textwidth}
+		\centering
+		\begin{tikzpicture}
+		\def\axisl{2};
+		\def\zd{1.3};
+		\draw[-stealth] (-\axisl,0) -- (\axisl,0) node[below]{$x_C$};
+		\draw[-stealth] (0,-\axisl) -- (0,\axisl) node[left]{$z_C$};
+		
+		\draw[line width=0.35mm] (-1,-\axisl/\zd) -- (-1,\axisl/\zd);
+		\draw[line width=0.35mm] (-0.75,-\axisl/\zd) -- (-0.75,\axisl/\zd);
+		\draw[line width=0.35mm] (-0.5,-\axisl/\zd) -- (-0.5,\axisl/\zd);
+		\draw[line width=0.35mm] (-0.25,-\axisl/\zd) -- (-0.25,\axisl/\zd);
+		
+		\draw[line width=0.35mm] (0,-\axisl/\zd) -- (0,\axisl/\zd);
 
-Anche se questo modello di pneumatico è costituito da più dischi, il punto di contatto $P_{MF}$ utilizzato per valutare la formula di Pacejka verrà comunque considerato nel disco "virtuale" giacente sul piano mediano dello pneumatico. Equivalentemente, anche il punto di contatto con la \textit{mesh} $P_{PL}$ verrà considerato nel mediesimo piano.
+		\draw[line width=0.35mm] (0.25,-\axisl/\zd) -- (0.25,\axisl/\zd);
+		\draw[line width=0.35mm] (0.5,-\axisl/\zd) -- (0.5,\axisl/\zd);
+		\draw[line width=0.35mm] (0.75,-\axisl/\zd) -- (0.75,\axisl/\zd);
+		\draw[line width=0.35mm] (1,-\axisl/\zd) -- (1,\axisl/\zd);
+		\end{tikzpicture}
+		\caption{Raggio uniforme}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{.3\textwidth}
+		\centering
+		\begin{tikzpicture}
+		\def\axisl{2};
+		\def\zd{1.3};
+		\draw[-stealth] (-\axisl,0) -- (\axisl,0) node[below]{$x_C$};
+		\draw[-stealth] (0,-\axisl) -- (0,\axisl) node[left]{$z_C$};
+		
+		\draw[line width=0.35mm] (-1,-\axisl/\zd+0.5) -- (-1,\axisl/\zd-0.5);
+		\draw[line width=0.35mm] (-0.75,-\axisl/\zd+0.5-0.5*1.41/2) -- (-0.75,\axisl/\zd-0.5+0.5*1.41/2);
+		\draw[line width=0.35mm] (-0.5,-\axisl/\zd) -- (-0.5,\axisl/\zd);
+		\draw[line width=0.35mm] (-0.25,-\axisl/\zd) -- (-0.25,\axisl/\zd);
+		
+		\draw[line width=0.35mm] (0,-\axisl/\zd) -- (0,\axisl/\zd);
+		
+		\draw[line width=0.35mm] (0.25,-\axisl/\zd) -- (0.25,\axisl/\zd);
+		\draw[line width=0.35mm] (0.5,-\axisl/\zd) -- (0.5,\axisl/\zd);
+		\draw[line width=0.35mm] (0.75,-\axisl/\zd+0.5-0.5*1.41/2) -- (0.75,\axisl/\zd-0.5+0.5*1.41/2);
+		\draw[line width=0.35mm] (1,-\axisl/\zd+0.5) -- (1,\axisl/\zd-0.5);
+		\end{tikzpicture}
+		\caption{Spalla raccordata}
+	\end{subfigure}
+	\hfill
+		\begin{subfigure}{.3\textwidth}
+		\centering
+		\begin{tikzpicture}
+		\def\axisl{2};
+		\def\zd{1.3};
+		\draw[-stealth] (-\axisl,0) -- (\axisl,0) node[below]{$x_C$};
+		\draw[-stealth] (0,-\axisl) -- (0,\axisl) node[left]{$z_C$};
+		
+		\draw[line width=0.35mm] (-1,-\axisl/\zd+0.25) -- (-1,\axisl/\zd-0.25);
+		\draw[line width=0.35mm] (-0.75,-\axisl/\zd) -- (-0.75,\axisl/\zd);
+		\draw[line width=0.35mm] (-0.5,-\axisl/\zd+0.1) -- (-0.5,\axisl/\zd-0.1);
+		\draw[line width=0.35mm] (-0.25,-\axisl/\zd+0.2) -- (-0.25,\axisl/\zd-0.2);
+		
+		\draw[line width=0.35mm] (0,-\axisl/\zd+0.3) -- (0,\axisl/\zd-0.3);
+		
+		\draw[line width=0.35mm] (0.25,-\axisl/\zd+0.2) -- (0.25,\axisl/\zd-0.2);
+		\draw[line width=0.35mm] (0.5,-\axisl/\zd+0.1) -- (0.5,\axisl/\zd-0.1);
+		\draw[line width=0.35mm] (0.75,-\axisl/\zd) -- (0.75,\axisl/\zd);
+		\draw[line width=0.35mm] (1,-\axisl/\zd+0.25) -- (1,\axisl/\zd-0.25);
+		\end{tikzpicture}
+		\caption{Profilo personalizzato}
+	\end{subfigure}
+	\hfill
+	\caption{Disposizione dei dischi.}
+\end{figure}
+
+Anche se questo modello di pneumatico è costituito da più dischi, il punto di contatto $P_{MF}$ utilizzato per valutare la formula di Pacejka verrà comunque considerato nel disco fittizio giacente sul piano $XZ$ dello pneumatico. Equivalentemente, anche il punto di contatto con la \textit{mesh} $P_{PL}$ verrà considerato nel mediesimo piano.
 %
 \subsubsection{Contatto ponderato in base all'area d'instersezione}
 \paragraph{Piano locale}
@@ -292,7 +364,7 @@ Analogamente al modello di pneumatico a singolo disco, si può effettuare la ste
 \textbf{\textit{e}}_{n_{D_j}} = \sum_{i=0}^{N_T}A_i\textbf{\textit{e}}_{n_i}
 \end{equation}
 %
-Per combinare assieme i versori normali $\textbf{\textit{e}}_{n_{D_i}}$ relativi ai dischi si effetturà una nuova media ponderata pesata questa volta sull'area totale all'interno del disco e sotto la superficie della \textit{mesh}. La formula diventerà:
+Per combinare assieme i versori normali $\textbf{\textit{e}}_{n_{D_j}}$ relativi ai dischi si effetturà una nuova media ponderata pesata questa volta sull'area totale all'interno del disco e sotto la superficie della \textit{mesh}. La formula sarà dunque:
 %
 \begin{equation}
 \textbf{\textit{e}}_n = \sum_{j=0}^{N_D}A_{D_j}\textbf{\textit{e}}_{n_{D_j}}
@@ -302,17 +374,49 @@ dove:
 \begin{itemize}
 	\item $N_D$ è il numero di dischi totali rappresentanti lo pneumatico;
 	\item $\textbf{\textit{e}}_n$ è il versore normale risultante;
-	\item $\textbf{\textit{e}}_{n_{D_j}}$ è il versore normale associata al $j$-esimo disco;
+	\item $\textbf{\textit{e}}_{n_{D_j}}$ è il versore normale associato al $j$-esimo disco;
 	\item $A_{D_j}$ l'area d'intersezione all'interno del disco e sotto la superficie della \textit{mesh} dell'$j$-esimo disco.
 \end{itemize}
 
 \paragraph{Punti di contatto}
-Avendo ora a disposizione il versore normale risultante $\textbf{\textit{e}}_n$, si può ora trovare i punti $P_{MF}$ e $P_{PL}$ adottando il medesimo metodo utilizato in \ref{Contatto_Rill}. Si noti che anche lo pneumatico è rapprensentato da più dischi, per ricondursi alle condizioni tali per cui il modello di Pacejka è valido, è necessario immaginare che ci sia sempre un disco fittizio giacente sul piano mediano della ruota.
+Avendo ora a disposizione il versore normale risultante $\textbf{\textit{e}}_n$, si può ora trovare i punti $P_{MF}$ e $P_{PL}$ adottando il medesimo metodo utilizato in \ref{Contatto_Rill}. Si noti che anche se lo pneumatico è rapprensentato da più dischi, per ricondursi alle condizioni tali per cui il modello di Pacejka è valido, è necessario immaginare che ci sia sempre un disco fittizio giacente sul piano $XZ$ della ruota.
 %
 \subsubsection{Contatto tramite campionamento}
 \paragraph{Piano locale}
-Nel caso in cui la densità della \textit{mesh} sia troppo alta, effettuare il calcolo per il modello di contatto ponderato in base all'area d'instersezione precedentemente presentato, può essere molto dispendioso in termini di numero totale di calcoli, e quindi di tempo. Per sopperire a questo problema, se il numero di triangoli è supreriore ad un certo \textit{threshold}, si andrà a campionare la \textit{mesh} triangolare in corrispondenza del piano in cui giacciono i dischi. Il versore normale risultante $\textbf{\textit{e}}_n$ non verrà più calcolato mediante una media ponderata ma bensì attravarso una media semplice tra tutti i punti campionati lungo il disco.
+Nel caso in cui la densità della \textit{mesh} sia troppo alta, effettuare il calcolo per il modello di contatto ponderato in base all'area d'instersezione precedentemente presentato, può essere molto dispendioso in termini di calcoli, e quindi di tempo. Per sopperire a questo problema, se il numero di triangoli è superiore ad un certo \textit{threshold}, si andrà a campionare la \textit{mesh} triangolare in corrispondenza del piano in cui giacciono i dischi. In particolare, per campionare la \textit{mesh} si sfrutterà l'algoritmo di intersezione tra raggio e triangolo che verrà presentato nel Capitolo \ref{Geom_Algos}. Attraverso questo algoritmo, suppenendo che il raggio abbia la stessa direzione dell'asse $z_C$, si andranno a memorizzare le normali alle faccie dei triangoli campionati. Il versore normale risultante $\textbf{\textit{e}}_n$ non verrà più calcolato mediante una media ponderata ma bensì attravarso una media semplice tra tutti i punti campionati lungo il disco.
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\def\axisl{3};
+	\def\zd{1.9};
+	\draw[-stealth] (-\axisl,0) -- (\axisl,0) node[below]{$x_C$};
+	\draw[-stealth] (0,-\axisl) -- (0,\axisl) node[left]{$z_C$};
+	\draw[thick] (0,0) circle (2);
+	
+	\draw[-stealth,line width=0.15mm] (-2,0) --  (-2,-\axisl/\zd+0.35);
+	\draw[-stealth,line width=0.15mm] (-1.75,0) -- (-1.75,-\axisl/\zd);
+	\draw[-stealth,line width=0.15mm] (-1.5,0) -- (-1.5,-\axisl/\zd+0.05);
+	\draw[-stealth,line width=0.15mm] (-1.25,0) -- (-1.25,-\axisl/\zd+0.21);
+	\draw[-stealth,line width=0.15mm] (-1,0) --  (-1,-\axisl/\zd+0.45);
+	\draw[-stealth,line width=0.15mm] (-0.75,0) -- (-0.75,-\axisl/\zd);
+	\draw[-stealth,line width=0.15mm] (-0.5,0) -- (-0.5,-\axisl/\zd+0.1);
+	\draw[-stealth,line width=0.15mm] (-0.25,0) -- (-0.25,-\axisl/\zd+0.2);
+	
+	\draw[-stealth,line width=0.15mm] (0,0) -- (0,-\axisl/\zd+0.3);
+	
+	\draw[-stealth,line width=0.15mm] (0.25,0) -- (0.25,-\axisl/\zd+0.4);
+	\draw[-stealth,line width=0.15mm] (0.5,0) -- (0.5,-\axisl/\zd+0.3);
+	\draw[-stealth,line width=0.15mm] (0.75,0) -- (0.75,-\axisl/\zd);
+	\draw[-stealth,line width=0.15mm] (1,0) -- (1,-\axisl/\zd+0.25);
+	\draw[-stealth,line width=0.15mm] (1.25,0) -- (1.25,-\axisl/\zd+0.1);
+	\draw[-stealth,line width=0.15mm] (1.5,0) -- (1.5,-\axisl/\zd+0.1);
+	\draw[-stealth,line width=0.15mm] (1.75,0) -- (1.75,-\axisl/\zd);
+	\draw[-stealth,line width=0.15mm] (2,0) -- (2,-\axisl/\zd+0.22);
+	\end{tikzpicture}
+	\caption{Campionamento della \textit{mesh} triangolare in corrispondenza del piano in cui giace l'$i$-esimo disco. I raggi partono dall'asse $x_C$ in direzione $z_C$.}
+\end{figure}
 
 \paragraph{Punti di contatto}
-Avendo ora a disposizione il versore normale risultante $\textbf{\textit{e}}_n$, si può ora trovare i punti $P_{MF}$ e $P_{PL}$ adottando il medesimo metodo utilizato in \ref{Contatto_Rill}, sempre tenedo conto che ambo i punti giaceranno sul disco fittizio giacente sul piano mediano della ruota. 
+Avendo ora a disposizione il versore normale risultante $\textbf{\textit{e}}_n$, si può ora trovare i punti $P_{MF}$ e $P_{PL}$ adottando il medesimo metodo utilizato in \ref{Contatto_Rill}, sempre tenedo conto che ambo i punti giaceranno sul disco fittizio giacente sul piano $XZ$ della ruota. 
 

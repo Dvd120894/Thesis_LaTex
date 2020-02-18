@@ -1,4 +1,4 @@
-\chapter{Algoritmi Geometrici}
+\chapter{Algoritmi}
 \label{Geom_Algos}
 %
 \section{\textit{Bounding Volume Hierarchy}}
@@ -29,7 +29,7 @@ Il \ac{MBB} orientato arbitrariamente (\ac{AOBB}) è il rettangolo di delimitazi
 \subsubsection{\textit{Object Oriented Bounding Box}}
 Nel caso in cui un oggetto abbia un proprio sistema di coordinate locale, può essere utile memorizzare un rettangolo di selezione relativo a questi assi, che non richiede alcuna trasformazione quando cambia l'orientazione dell'oggetto stesso.
 
-\subsection{Intersezione tra Alberi AABB}
+\subsection{Intersezione tra alberi AABB}
 Per il rilevamento delle collisioni tra oggetti in due dimensioni, l'intersezione tra alberi di tipo \ac{AABB}, è l'algoritmo più veloce per determinare se le due entità di gioco si sovrappongono o meno, e in che parti. Nello specifico, ciò consiste nel controllare le posizioni delle \textit{i}-esime \ac{BB} nello spazio delle coordinate bidimensionali per vedere se si sovrappongono.
 
 Il vincolo di allineamento dei rettangoli agli assi è presente per motivi di prestazioni, infatti, l'area di sovrapposizione tra due riquadri non ruotati può essere controllata solo con confronti logici. Mentre i riquadri ruotati richiedono ulteriori operazioni trigonometriche, che sono più lente da calcolare. Inoltre, se si hanno entità che possono ruotare, le dimensioni dei rettangoli e/o sotto-rettangoli dovranno modificarsi in modo da avvolgere ancora l'oggetto o si dovrà optare per un altro tipo di geometria di delimitazione, come le sfere (che sono invarianti alla rotazione).
@@ -54,7 +54,7 @@ Volendo intersecare un albero di tipo \ac{AABB} e una semplice \ac{BB}, basterà
 	\item Riduzione del numero di trangoli da processare per ottenere il piano strada locale e il punto di contatto virtuale dello pneumatico. Infatti, vengono solamente processati quelli posti in corrispondenza del'ombra dello pneumatico.
 \end{itemize}
 %
-\section{Algoritmi Geometrici}
+\section{Algoritmi geometrici}
 %
 \subsection{Introduzione}
 La geometria computazionale è la branca dell'informatica che studia le strutture dati e gli algoritmi efficienti per la soluzione di problemi di natura geometrica e la loro implementazione al calcolatore. Storicamente, è considerato uno dei campi più antichi del calcolo, anche se la geometria computazionale moderna è uno sviluppo recente. La ragione principale per lo sviluppo della geometria computazionale è stata dovuta ai progressi compiuti nella computer grafica, \ac{CAD}, \ac{CAM} e nella visualizzazione matematica. Ad oggi, le applicazioni della geometria computazionale si trovano nella robotica, nella progettazione di circuiti integrati, nella visione artificiale, in \ac{CAE} e nel \ac{GIS}. I rami principali della geometria computazionale sono:
@@ -76,7 +76,7 @@ In questo capitolo tutti gli algoritmi che verranno utilizzati in seguito durant
 \end{itemize}
 saranno esaminati al fine di trovare la massima prestazione in termini di efficienza computazionale.
 %
-\subsection{Intersezione tra Entità Geometriche}
+\subsection{Intersezione tra entità geometriche}
 %
 \subsubsection{Punto-Segmento}
 Dato un punto $P = (x_p, y_p)$ e un segmento definito da due punti $A = (x_A, y_B)$ e $B = (x_B, y_B)$.
