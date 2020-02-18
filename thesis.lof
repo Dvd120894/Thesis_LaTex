@@ -16,63 +16,63 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Curve caratteristiche generiche degli pneumatici derivate con il metodo della \textit {Magic Formula}.\relax }}{17}{figure.caption.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Geometria del contatto pneumatico-strada.\relax }}{19}{figure.caption.9}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Geometria del contatto pneumatico-strada.\relax }}{19}{figure.caption.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Punti campionati nel piano locale della superficie stradale.\relax }}{20}{figure.caption.10}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Punti campionati nel piano locale della superficie stradale.\relax }}{20}{figure.caption.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Spostamento del punto di contatto $P_{PL}$ in relazione alla normale $\textbf {\textit {e}}_{n_{XZ}}$.\relax }}{21}{figure.caption.11}
-\defcounter {refsection}{0}\relax 
-\addvspace {10pt}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Esempio di albero di tipo AABB.\relax }}{27}{figure.caption.15}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Schema del problema di intersezione punto-segmento\relax }}{30}{figure.caption.23}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Schemi per l'\textit {output} dell'intersezione punto-segmento.\relax }}{31}{figure.caption.24}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Schema del codice per l'intersezione punto-segmento.\relax }}{31}{figure.caption.25}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Schema del problema di intersezione punto-cerchio.\relax }}{31}{figure.caption.26}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Schemi per l'\textit {output} dell'intersezione punto-cerchio.\relax }}{32}{figure.caption.27}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Schemi del codice per l'intersezione punto-cerchio.\relax }}{32}{figure.caption.28}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Schema del problema di intersezione punto-circonferenza.\relax }}{33}{figure.caption.29}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Schemi per l'\textit {output} dell'intersezione segmento-cerchio.\relax }}{34}{figure.caption.30}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Schema per del codice per l'intersezione segmento-cerchio.\relax }}{35}{figure.caption.31}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Schemi del problema di intersezione piano-piano.\relax }}{36}{figure.caption.32}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Vettori dei piani $P_1$, $P_2$ e della retta $L$.\relax }}{36}{figure.caption.33}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Schema per del codice per l'intersezione piano-piano.\relax }}{37}{figure.caption.34}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Vettori dei piani $P_1$, $P_2$ e della retta $L$.\relax }}{38}{figure.caption.35}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Schema per del codice per l'intersezione piano-segmento.\relax }}{39}{figure.caption.36}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Schema per del codice per l'intersezione piano-triangolo.\relax }}{39}{figure.caption.37}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Schema del problema di intersezione raggio-triangolo.\relax }}{40}{figure.caption.38}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Cambiamento di coordinate nell'algoritmo di M\"oller-Trumbore.\relax }}{41}{figure.caption.39}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Schemi per l'\textit {output} dell'intersezione punto-cerchio.\relax }}{43}{figure.caption.40}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Schema per del codice per l'intersezione raggio-triangolo con \textit {back-face culling}.\relax }}{43}{figure.caption.41}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Punti di contatto $P_{PL}$ e $P_{MF}$ in relazione alla normale $\textbf {\textit {e}}_{n_{XZ}}$.\relax }}{21}{figure.caption.13}
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Esempio di albero di tipo AABB.\relax }}{29}{figure.caption.24}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Schema del problema di intersezione punto-segmento\relax }}{32}{figure.caption.31}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Schemi per l'\textit {output} dell'intersezione punto-segmento.\relax }}{33}{figure.caption.32}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Schema del codice per l'intersezione punto-segmento.\relax }}{33}{figure.caption.33}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Schema del problema di intersezione punto-cerchio.\relax }}{33}{figure.caption.34}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Schemi per l'\textit {output} dell'intersezione punto-cerchio.\relax }}{34}{figure.caption.35}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Schemi del codice per l'intersezione punto-cerchio.\relax }}{34}{figure.caption.36}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Schema del problema di intersezione punto-circonferenza.\relax }}{35}{figure.caption.37}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Schemi per l'\textit {output} dell'intersezione segmento-cerchio.\relax }}{36}{figure.caption.38}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Schema per del codice per l'intersezione segmento-cerchio.\relax }}{37}{figure.caption.39}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Schemi del problema di intersezione piano-piano.\relax }}{38}{figure.caption.40}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Vettori dei piani $P_1$, $P_2$ e della retta $L$.\relax }}{38}{figure.caption.41}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Schema per del codice per l'intersezione piano-piano.\relax }}{39}{figure.caption.42}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Vettori dei piani $P_1$, $P_2$ e della retta $L$.\relax }}{40}{figure.caption.43}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Schema per del codice per l'intersezione piano-segmento.\relax }}{41}{figure.caption.44}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Schema per del codice per l'intersezione piano-triangolo.\relax }}{41}{figure.caption.45}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Schema del problema di intersezione raggio-triangolo.\relax }}{42}{figure.caption.46}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Cambiamento di coordinate nell'algoritmo di M\"oller-Trumbore.\relax }}{43}{figure.caption.47}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Schemi per l'\textit {output} dell'intersezione punto-cerchio.\relax }}{45}{figure.caption.48}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Schema per del codice per l'intersezione raggio-triangolo con \textit {back-face culling}.\relax }}{45}{figure.caption.49}
+\defcounter {refsection}{0}\relax 
+\addvspace {10pt}
+\defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Rappresentazione degli assi del sistema di riferimento della vettura secondo la convenzione ISO-V.\relax }}{55}{figure.caption.63}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Rappresentazione degli assi del sistema di riferimento della vettura secondo la convenzione ISO-V.\relax }}{57}{figure.caption.71}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Rappresentazione degli assi del sistema di riferimento dello pneumatico secondo la convenzione ISO-C.\relax }}{56}{figure.caption.64}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Rappresentazione degli assi del sistema di riferimento dello pneumatico secondo la convenzione ISO-C.\relax }}{58}{figure.caption.72}
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 

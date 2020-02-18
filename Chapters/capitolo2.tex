@@ -20,7 +20,6 @@ Si prenda come esempio la seguente denominazione \ac{ETRTO}: 195/55R16. La largh
 \phi_e = 2ab+25.4c \quad \text{[mm]}
 \end{equation}
 %
-\noindent
 Riprendendo l'esempio usato sopra, il diametro esterno risulterà dunque 24.44 in o 621 mm.\\
 Meno comunemente usato negli USA e in Europa (ma spesso in Giappone) è una notazione che indica l'intero diametro del pneumatico invece delle proporzioni dell'altezza della spalla laterale, quindi non secondo \ac{ETRTO}. Per fare lo stesso esempio, un cerchio da 16 pollici avrebbe un diametro di 406 mm. L'aggiunta del doppio dell'altezza del pneumatico (2$\times$107 mm) produce un diametro totale di 620 mm. Quindi, un pneumatico 195/55R16 potrebbe in alternativa essere etichettato come 195/620R16. Anche se queste due notazioni sono teoricamente ambigue, in pratica possono essere facilmente distinte perché l'altezza della parete laterale di uno pneumatico automobilistico è in genere molto inferiore alla larghezza. Quindi, quando l'altezza è espressa come percentuale della larghezza, è quasi sempre inferiore al 100\% (e certamente meno del 200\%). Al contrario, i diametri degli pneumatici del veicolo sono sempre superiori a 200 mm. Pertanto, se il secondo numero è superiore a 200, allora è quasi certo che viene utilizzata la notazione giapponese, se è inferiore a 200 allora viene utilizzata la notazione USA/europea.
 
@@ -60,7 +59,6 @@ Come componenti cruciali per la movimentazione dei veicoli e il comportamento di
 	\item combinazione dei precedenti.
 \end{itemize}
 
-\noindent
 La prima tipologia di modello tenta di rappresentare le caratteristiche fisiche dello pneumatico attraverso una descrizione puramente matematica. Pertanto, questo tipo di modelli parte da un curve caratteristiche ricavate sperimentalmente e cercano di derivare un comportamento approssimativo dall'interpolazione di un grande insieme di dati. Un esempio ben noto di questo approccio è il \textbf{modello di Pacejka} o \textbf{\textit{Magic Formula}} \cite{hans}. Questo tipo di modellazione è adatta per la simulazione di guida in cui il comportamento di interesse è per lo più la guidabilità del veicolo e le frequenze di uscita sono ben al di sotto delle frequenze di risonanza della cintura dello pneumatico. I modelli fisici o i modelli ad alta frequenza, come i modelli agli elementi finiti, sono in grado di rilevare fenomeni di risonanza a frequenza più elevata. Ciò permette di valutare il comfort di guida di un veicolo. Dal punto di vista del calcolo, i modelli fisici complessi richiedono molto tempo al calcolatore per essere risolti, nonché di molti dati, al contrario dei più veloci modelli matematici, che richiedono un'accurata pre-elaborazione dei dati sperimentali. La terza tipologia di modelli consiste in un'estensione dei modelli matematici attraverso le leggi fisiche al fine di coprire una gamma di frequenza più ampia.
 
 Il modello di pneumatico sviluppato nel modello di veicolo e il tipo di interfaccia di pneumatico/strada presentato da \citeauthor{Larcher} in \cite{Larcher} si basa sulla \textit{Magic Formula} 6.2.
@@ -102,11 +100,14 @@ Ed è proprio nell'inclinazione tra piano strada e sistema di riferimento del ce
 %
 \section{Contatto con la superficie stradale}
 %
-Si analizzaranno ora le quattro metodologie, di complessità cresciente, per ricavare l'inclinazione tra piano strada e sistema di riferimento del centro ruota. Dapprima si utilizzerà un metodo a disco singolo presentato in \cite{Rill}, successivamente si passerà ad un modello a più dischi, così da coprire una superficie stradale maggiore e avere quindi risultati più precisi, soprattutto in prossimità di variazioni repentine del manto stradale.
+Si analizzaranno ora le quattro metodologie di complessità cresciente per ricavare l'inclinazione del piano locale e i punti di contatto sulla superficie stradale $P_{PL}$, nonché sulla circonferenza del disco indeformabile $P_{MF}$ dove effettivamente agiranno le forze ricavate mediante la \textit{Magic Formula}. Dapprima si utilizzerà un metodo a disco singolo presentato in \cite{Rill}, successivamente si passerà ad un modello a più dischi, così da coprire una superficie stradale maggiore e avere quindi risultati più precisi, soprattutto in prossimità di variazioni repentine del manto stradale.
 %
 \subsection{Modello di pneumatico a disco singolo}
 %
 \subsubsection{Contatto di Rill}
+\label{Contatto_Rill}
+%
+\paragraph{Piano locale}
 La posizione e l'orientamento della ruota in relazione al sistema fissato a terra sono dati dalla terna di riferimento del vettore ruota $RF_{wh}$, che viene calcolata istante per istante risolvendo le equazioni dinamiche del sistema ottenuto nel Capitolo 2 in \cite{Larcher}. Supponendo che il profilo stradale sia rappresentato da una funzione arbitraria a due coordinate spaziali del tipo: 
 %
 \begin{equation}
@@ -140,10 +141,9 @@ dove $R_0$ è il raggio dello pneumatico indeformato ed $\textbf{\textit{e}}_{zC
 	Da: \citeauthor{Rill}, \citetitle{Rill}.
 	\label{contactgeometry}
 \end{figure}
-%
-\noindent
-La prima stima del sistema di riferimento del punto di contatto $RF_{P^\star}$ è una terna con origine in $P^\star$ e orientazione degli assi definiti dall'orientazione del sistema di riferimento della ruota. Si noti che l'origine di $RF_{P^\star}$ corrisponde alla proiezione lungo l'asse $z_C$ del sistema di riferimento della ruota.
-%
+
+La prima stima del sistema di riferimento del punto di contatto $RF_{P^\star}$ è una terna con origine in $P^\star$ e la medesima orientazione degli assi del sistema di riferimento della ruota. Si noti dunque che l'origine di $RF_{P^\star}$ corrisponde alla proiezione lungo l'asse $z_C$ del sistema di riferimento della ruota.
+
 \begin{equation}
 RF_{P^\star} = \left[
 \begin{array}{ccc|c}
@@ -153,7 +153,7 @@ RF_{P^\star} = \left[
 0 & ~~0 & 0 & 1
 \end{array}\right]
 \end{equation}\\
-%
+
 Al fine di ottenere una buona approssimazione del piano strada locale in termini di inclinazione longitudinale e laterale, sono stati utilizzati i quattro punti di campionamento $(Q^\star_1, Q^\star_2, Q^\star_3, Q^\star_4)$, rappresentati graficamente in \figurename{ \ref{localtrack}}. I punti di campionamento sono definiti nel sistema di riferimento temporaneo del punto di contatto $RF_{P^\star}$ e lo spostamento longitudinale e laterale sono definiti dall'origine, ovvero dallo stesso $P^\star$. I vettori di spostamento sono definiti come:
 %
 \begin{equation}
@@ -181,9 +181,8 @@ Al fine di campionare il terreno nel modo più efficace possibile, le distanze d
 	Da: \citeauthor{Rill}, \citetitle{Rill}.
 	\label{localtrack}
 \end{figure}
-%
-\noindent
-Ora la componente $z$ in corrispondenza dei quattro punti campione viene valutata attraverso la funzione $z(x,y)$ precedentemente definita. Quindi, aggiornando la terza coordinata dei punti di campionamento $Q^\star_i$, si ottenengono i corrispondenti punti campione $Q_i$ sulla superficie della pista locale. La linea fissata dai punti $Q_1$, $Q_2$ e $Q_3$, $Q_4$, può ora essere utilizzata per definire la normale al piano strada locale (\figurename \ref{localplane}). Pertanto, il vettore normale è definito come:
+
+Ora la componente $z$ in corrispondenza dei quattro punti campione viene valutata attraverso la funzione $z(x,y)$ precedentemente definita. Quindi, aggiornando la terza coordinata dei punti di campionamento $Q^\star_i$, si ottenengono i corrispondenti punti campione $Q_i$ sulla superficie. La linea fissata dai punti $Q_1$, $Q_2$ e $Q_3$, $Q_4$, può ora essere utilizzata per definire la normale al piano strada locale (\figurename{ \ref{localplane}}). Pertanto, il vettore normale è definito come:
 %
 \begin{equation}
 \textbf{\textit{e}}_n = \frac{\textbf{\textit{r}}_{Q_1 Q_2} \times \textbf{\textit{r}}_{Q_4 Q_3}}{|\textbf{\textit{r}}_{Q_1 Q_2} \times \textbf{\textit{r}}_{Q_4 Q_3}|}
@@ -209,19 +208,22 @@ P_n = \frac{1}{4}\begin{bmatrix}
 \end{bmatrix}
 \end{equation}
 %
-È infine necessario ricondursi alle condizioni tali per cui il modello di Pacejka è valido trovando il punto di contatto sul piano strada locale $P_{PL}$ e il punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$ dove effettivamente agiranno le forze ricavate mediante la \textit{Magic Formula}. Si troverà dapprima la componente della normale al piano strada $\textbf{\textit{e}}_{n_{XZ}}$ sul piano in cui giace il singolo disco indeformabile. $P_{MF}$ sarà dunque trovato a partire dal centro ruota $M$, moltiplicando scalarmente il versore $\textbf{\textit{e}}_{n_{XZ}}$ per il raggio del disco indeformabile $R_0$, ovvero:
+\paragraph{Punti di contatto}
+\label{Punti_contatto_rill}
+È infine necessario ricondursi alle condizioni tali per cui il modello di Pacejka è valido trovando il punto di contatto sul piano strada locale $P_{PL}$ e il punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$ dove effettivamente agiranno le forze ricavate mediante la \textit{Magic Formula}. Si troverà dapprima la componente della normale al piano strada $\textbf{\textit{e}}_{n_{XZ}}$ sul piano in cui giace il singolo disco indeformabile. $P_{MF}$ sarà dunque trovato a partire dal centro ruota $M$, moltiplicando scalarmente il versore $-\textbf{\textit{e}}_{n_{XZ}}$ per il raggio del disco indeformabile $R_0$, ovvero:
 %
 \begin{equation}
-P_{MF} = R_0\textbf{\textit{e}}_{n_{XZ}}
+P_{MF} = -R_0\textbf{\textit{e}}_{n_{XZ}}
+\label{puntoMF}
 \end{equation}
 %
 Come illustrato in \figurename{ \ref{localplane}}, il punto di contatto sul piano strada locale $P_{PL}$ viene invece calcolato sfuttando un algoritmo di intersezione piano-raggio (che si tratterà nel Capitolo \ref{Geom_Algos}). $P_{PL}$ giacerà dunque sulla proiezione in direzione $-\textbf{\textit{e}}_{n_{XZ}}$ del punto $M$ sulla retta individuata dal punto $P_n$ e normale $\textbf{\textit{e}}_{n_{XZ}}$.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\linewidth]{Figures/local_plane}
-	\caption{Spostamento del punto di contatto $P_{PL}$ in relazione alla normale $\textbf{\textit{e}}_{n_{XZ}}$.}
-	Da: \citeauthor{Rill}, \citetitle{Rill}.
+	\includegraphics[width=0.6\linewidth]{Figures/local_plane_PL}
+	\includegraphics[width=0.6\linewidth]{Figures/local_plane_MF}
+	\caption{Punti di contatto $P_{PL}$ e $P_{MF}$ in relazione alla normale $\textbf{\textit{e}}_{n_{XZ}}$.}
 	\label{localplane}
 \end{figure}
 
@@ -236,7 +238,7 @@ RF_{MF} = \left[
 0 & 0 & 0 & 1
 \end{array}\right]
 \end{equation}\\
-Attraverso questo approccio, la normale del piano strada locale $\textbf{\textit{e}}_{n}$ insieme al punto di contatto sul piano strada locale $P_{PL}$ e al punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$, sono in grado di rappresentare l'irregolarità della strada in modo soddisfacente ma comunque approssimativo, infatti, bordi taglienti o discontinuità del manto stradale saranno smussate da questo approccio.
+Attraverso questo approccio, la normale del piano strada locale $\textbf{\textit{e}}_{n}$ insieme al punto di contatto sul piano strada locale $P_{PL}$ e al punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$, sono in grado di rappresentare l'irregolarità della strada in modo soddisfacente ma comunque approssimativo, infatti, bordi taglienti o discontinuità del manto stradale saranno involontariamente filtrate da questo approccio.
 
 Nel caso specifico di questo lavoro la superficie stradale non è rappresentata da una funzione del tipo $z(x,y)$ ma bensì da una serie di triangoli. Questo comporta l'impossibilità di valutare la terza coordinata dei punti di campionamento $Q_i^\star$. Per sopperire a questo problema si utilizzerà l'algoritmo per l'intersezione tra raggio e triangolo presentato nel Capitolo \ref{Geom_Algos}. Si definirano dunque i punti di origine dei raggi direttamente nel sistema di riferimento della ruota $RF_{wh}$ come:
 \begin{equation}
@@ -247,14 +249,34 @@ Q^\star_{3,4} = M \pm \textbf{\textit{r}}_{Q^\star_{3,4}} = P^\star \pm \Delta y
 \end{equation}
 dai quali partiranno i raggi con direzione $-z_C$ che intersecheranno la \textit{mesh} nei punti $(Q_1, Q_2, Q_3, Q_4)$.
 %
-\subsubsection{Contatto ponderato in base all'area}
-Alternativamente a quello appena visto, si può utilizzare un modello di contatto ponderato in base all'area di intersezione. In altre, parole si andrà a valutare triangolo per triangolo l'intersezione con il disco indeformabile. Prima di tutto di intersecherà il triangolo nello spazio con il piano in cui giace il disco trovando dunque un segmento. Successivamente si valuterà l'intersezione di questo segmento con il disco, valutando l'area tra il segmento stesso e il semicerchio inferiore del disco. Attraverso questa area si potrà pesare la normale alla faccia del triangolo considerato e quindi effettuare una media ponderata con tutti gli atri triangoli che insersecano il disco.
+\subsubsection{Contatto ponderato in base all'area d'intersezione}
+%
+\paragraph{Piano locale}
+Alternativamente a quello appena visto, si può utilizzare un modello di contatto ponderato in base all'area di intersezione. In altre, parole si andrà a valutare triangolo per triangolo l'intersezione con il disco indeformabile. Prima di tutto di intersecherà il triangolo nello spazio con il piano in cui giace il disco trovando dunque un segmento. Successivamente si valuterà l'intersezione di questo segmento con il disco, valutando l'area tra il segmento stesso e il semicerchio inferiore del disco.
 
 % DISEGNARE AREA TRA SEGMENTO  E DISCO
 
+Attraverso questa area si potrà pesare la normale alla faccia del triangolo considerato e quindi effettuare una media ponderata con tutti gli atri triangoli che insersecano il disco, ovvero:
+%
+\begin{equation}
+\textbf{\textit{e}}_n = \sum_{i=0}^{N_T}A_i\textbf{\textit{e}}_{n_i}
+\label{ponderata}
+\end{equation}
+%
+dove:
+\begin{itemize}
+	\item $N_T$ è il numero di triangoli all'interno della \ac{BB} rappresentante l'ombra dello pneumatico;
+	\item $\textbf{\textit{e}}_n$ è il versore normale risultante;
+	\item $\textbf{\textit{e}}_{n_i}$ è il versore normale dell'$i$-esimo triangolo;
+	\item $A_i$ l'area tra il segmento creato dall'intersezione piano-trangolo e il semicerchio inferiore del disco dell'$i$-esimo triangolo.
+\end{itemize}
+
 Questo metodo è ovviamente utilizzabile solo nel caso di strada rappresentata tramite \textit{mesh} triangolare. A differenza dal modello di \cite{Rill}, permette di non approssimare la superficie stradale mediante soli quattro punti ma invece di avere una rappresentazione che sfrutta tutti i dati messi a disposizione dalla discretizzazione del manto stradale.
 %
-\subsection{Modello di pneumatico a più dischi d'instersezione}
+\paragraph{Punti di contatto}
+Per trovare il punto di contatto con la \textit{mesh} $P_{PL}$ e il punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$ precedentemente definiti, si andrà a ripetere l'operazione in \ref{Punti_contatto_rill} per trovare la componente della normale al piano strada $\textbf{\textit{e}}_{n_{XZ}}$ sul piano in cui giace il singolo disco indeformabile. A differenza del modello di contatto di Rill, non si ha ora una definizione univoca del piano strada locale. Infatti, l'unica conponente ad ora conoscita è il versore risultante normale al terreno $\textbf{\textit{e}}_n$. Per ricavare il punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$ si utilizzerà la \eqref{puntoMF}, mentre per il punto sulla \textit{mesh} $P_{PL}$ si andrà ad utilizzare un algoritmo d'intersezione tra raggio e la superficie stradale, dove l'origine del raggio sarà il centro ruota e la direzione $-\textbf{\textit{e}}_{n_{XZ}}$.
+%
+\subsection{Modello di pneumatico a più dischi}
 %
 Nel modello a più dischi, lo pneumatico sarà rappresentato da più dischi rigidi indeformabili disposti uniformemente lungo la sezione dello stesso. Essi potranno avere raggio uguale o diverso l'uno dall'altro, in modo da rappresentare una forma specifica dello pneumatico.
 
@@ -262,9 +284,35 @@ Nel modello a più dischi, lo pneumatico sarà rappresentato da più dischi rigi
 
 Anche se questo modello di pneumatico è costituito da più dischi, il punto di contatto $P_{MF}$ utilizzato per valutare la formula di Pacejka verrà comunque considerato nel disco "virtuale" giacente sul piano mediano dello pneumatico. Equivalentemente, anche il punto di contatto con la \textit{mesh} $P_{PL}$ verrà considerato nel mediesimo piano.
 %
-\subsubsection{Contatto tramite campionamento}
-
-%
 \subsubsection{Contatto ponderato in base all'area d'instersezione}
+\paragraph{Piano locale}
+Analogamente al modello di pneumatico a singolo disco, si può effettuare la stessa operazione su ogni disco per trovare il versore normale risultante $\textbf{\textit{e}}_{n_{D_j}}$ relativo al contatto del $j$-esimo disco. La \eqref{ponderata} diventerà dunque:
 %
+\begin{equation}
+\textbf{\textit{e}}_{n_{D_j}} = \sum_{i=0}^{N_T}A_i\textbf{\textit{e}}_{n_i}
+\end{equation}
+%
+Per combinare assieme i versori normali $\textbf{\textit{e}}_{n_{D_i}}$ relativi ai dischi si effetturà una nuova media ponderata pesata questa volta sull'area totale all'interno del disco e sotto la superficie della \textit{mesh}. La formula diventerà:
+%
+\begin{equation}
+\textbf{\textit{e}}_n = \sum_{j=0}^{N_D}A_{D_j}\textbf{\textit{e}}_{n_{D_j}}
+\end{equation}
+%
+dove:
+\begin{itemize}
+	\item $N_D$ è il numero di dischi totali rappresentanti lo pneumatico;
+	\item $\textbf{\textit{e}}_n$ è il versore normale risultante;
+	\item $\textbf{\textit{e}}_{n_{D_j}}$ è il versore normale associata al $j$-esimo disco;
+	\item $A_{D_j}$ l'area d'intersezione all'interno del disco e sotto la superficie della \textit{mesh} dell'$j$-esimo disco.
+\end{itemize}
+
+\paragraph{Punti di contatto}
+Avendo ora a disposizione il versore normale risultante $\textbf{\textit{e}}_n$, si può ora trovare i punti $P_{MF}$ e $P_{PL}$ adottando il medesimo metodo utilizato in \ref{Contatto_Rill}. Si noti che anche lo pneumatico è rapprensentato da più dischi, per ricondursi alle condizioni tali per cui il modello di Pacejka è valido, è necessario immaginare che ci sia sempre un disco fittizio giacente sul piano mediano della ruota.
+%
+\subsubsection{Contatto tramite campionamento}
+\paragraph{Piano locale}
+Nel caso in cui la densità della \textit{mesh} sia troppo alta, effettuare il calcolo per il modello di contatto ponderato in base all'area d'instersezione precedentemente presentato, può essere molto dispendioso in termini di numero totale di calcoli, e quindi di tempo. Per sopperire a questo problema, se il numero di triangoli è supreriore ad un certo \textit{threshold}, si andrà a campionare la \textit{mesh} triangolare in corrispondenza del piano in cui giacciono i dischi. Il versore normale risultante $\textbf{\textit{e}}_n$ non verrà più calcolato mediante una media ponderata ma bensì attravarso una media semplice tra tutti i punti campionati lungo il disco.
+
+\paragraph{Punti di contatto}
+Avendo ora a disposizione il versore normale risultante $\textbf{\textit{e}}_n$, si può ora trovare i punti $P_{MF}$ e $P_{PL}$ adottando il medesimo metodo utilizato in \ref{Contatto_Rill}, sempre tenedo conto che ambo i punti giaceranno sul disco fittizio giacente sul piano mediano della ruota. 
 

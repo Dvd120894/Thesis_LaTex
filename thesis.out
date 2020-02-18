@@ -17,10 +17,10 @@
 \BOOKMARK [1][-]{section.3.4}{Contatto\040con\040la\040superficie\040stradale}{chapter.3}% 17
 \BOOKMARK [2][-]{subsection.3.4.1}{Modello\040di\040pneumatico\040a\040disco\040singolo}{section.3.4}% 18
 \BOOKMARK [3][-]{subsubsection.3.4.1.1}{Contatto\040di\040Rill}{subsection.3.4.1}% 19
-\BOOKMARK [3][-]{subsubsection.3.4.1.2}{Contatto\040ponderato\040in\040base\040all'area}{subsection.3.4.1}% 20
-\BOOKMARK [2][-]{subsection.3.4.2}{Modello di pneumatico a più dischi d'instersezione}{section.3.4}% 21
-\BOOKMARK [3][-]{subsubsection.3.4.2.1}{Contatto\040tramite\040campionamento}{subsection.3.4.2}% 22
-\BOOKMARK [3][-]{subsubsection.3.4.2.2}{Contatto\040ponderato\040in\040base\040all'area\040d'instersezione}{subsection.3.4.2}% 23
+\BOOKMARK [3][-]{subsubsection.3.4.1.2}{Contatto\040ponderato\040in\040base\040all'area\040d'intersezione}{subsection.3.4.1}% 20
+\BOOKMARK [2][-]{subsection.3.4.2}{Modello di pneumatico a più dischi}{section.3.4}% 21
+\BOOKMARK [3][-]{subsubsection.3.4.2.1}{Contatto\040ponderato\040in\040base\040all'area\040d'instersezione}{subsection.3.4.2}% 22
+\BOOKMARK [3][-]{subsubsection.3.4.2.2}{Contatto\040tramite\040campionamento}{subsection.3.4.2}% 23
 \BOOKMARK [0][-]{chapter.4}{Algoritmi\040Geometrici}{}% 24
 \BOOKMARK [1][-]{section.4.1}{Bounding\040Volume\040Hierarchy}{chapter.4}% 25
 \BOOKMARK [2][-]{subsection.4.1.1}{Introduzione}{section.4.1}% 26
@@ -66,4 +66,4 @@
 \BOOKMARK [1][-]{section.Alph3.3}{Tests per il Modello a più Dischi}{appendix.Alph3}% 66
 \BOOKMARK [2][-]{subsection.Alph3.3.1}{MultiDisk-test1.cc}{section.Alph3.3}% 67
 \BOOKMARK [2][-]{subsection.Alph3.3.2}{MultiDisk-test2.cc}{section.Alph3.3}% 68
-\BOOKMARK [0][-]{section*.66}{Bibliografia}{}% 69
+\BOOKMARK [0][-]{section*.74}{Bibliografia}{}% 69

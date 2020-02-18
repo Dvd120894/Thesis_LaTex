@@ -42,122 +42,138 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.4.1.1}Contatto di Rill}{18}{subsubsection.3.4.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.4.1.2}Contatto ponderato in base all'area}{22}{subsubsection.3.4.1.2}
+\contentsline {paragraph}{Piano locale}{18}{section*.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.2}Modello di pneumatico a più dischi d'instersezione}{22}{subsection.3.4.2}
+\contentsline {paragraph}{Punti di contatto}{21}{section*.12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.4.2.1}Contatto tramite campionamento}{23}{subsubsection.3.4.2.1}
+\contentsline {subsubsection}{\numberline {3.4.1.2}Contatto ponderato in base all'area d'intersezione}{22}{subsubsection.3.4.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.4.2.2}Contatto ponderato in base all'area d'instersezione}{23}{subsubsection.3.4.2.2}
+\contentsline {paragraph}{Piano locale}{22}{section*.14}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {4}Algoritmi Geometrici}{25}{chapter.4}
+\contentsline {paragraph}{Punti di contatto}{23}{section*.16}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}\textit {Bounding Volume Hierarchy}}{25}{section.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Modello di pneumatico a più dischi}{23}{subsection.3.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.1}Introduzione}{25}{subsection.4.1.1}
+\contentsline {subsubsection}{\numberline {3.4.2.1}Contatto ponderato in base all'area d'instersezione}{24}{subsubsection.3.4.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.2}\textit {Minimum Bounding Box}}{26}{subsection.4.1.2}
+\contentsline {paragraph}{Piano locale}{24}{section*.17}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.1.2.1}\textit {Axis Aligned Bounding Box}}{26}{subsubsection.4.1.2.1}
+\contentsline {paragraph}{Punti di contatto}{24}{section*.18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.1.2.2}\textit {Arbitrarily Oriented Bounding Box}}{26}{subsubsection.4.1.2.2}
+\contentsline {subsubsection}{\numberline {3.4.2.2}Contatto tramite campionamento}{25}{subsubsection.3.4.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.1.2.3}\textit {Object Oriented Bounding Box}}{27}{subsubsection.4.1.2.3}
+\contentsline {paragraph}{Piano locale}{25}{section*.19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.3}Intersezione tra Alberi AABB}{27}{subsection.4.1.3}
+\contentsline {paragraph}{Punti di contatto}{25}{section*.20}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Algoritmi Geometrici}{29}{section.4.2}
+\contentsline {chapter}{\chapternumberline {4}Algoritmi Geometrici}{27}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.1}Introduzione}{29}{subsection.4.2.1}
+\contentsline {section}{\numberline {4.1}\textit {Bounding Volume Hierarchy}}{27}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.2}Intersezione tra Entità Geometriche}{30}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.1.1}Introduzione}{27}{subsection.4.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.2.1}Punto-Segmento}{30}{subsubsection.4.2.2.1}
+\contentsline {subsection}{\numberline {4.1.2}\textit {Minimum Bounding Box}}{28}{subsection.4.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.2.2}Punto-Cerchio}{30}{subsubsection.4.2.2.2}
+\contentsline {subsubsection}{\numberline {4.1.2.1}\textit {Axis Aligned Bounding Box}}{28}{subsubsection.4.1.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.2.3}Segmento-Circonferenza}{33}{subsubsection.4.2.2.3}
+\contentsline {subsubsection}{\numberline {4.1.2.2}\textit {Arbitrarily Oriented Bounding Box}}{28}{subsubsection.4.1.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.2.4}Piano-Piano}{34}{subsubsection.4.2.2.4}
+\contentsline {subsubsection}{\numberline {4.1.2.3}\textit {Object Oriented Bounding Box}}{29}{subsubsection.4.1.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.2.5}Piano-Segmento e Piano-Raggio}{37}{subsubsection.4.2.2.5}
+\contentsline {subsection}{\numberline {4.1.3}Intersezione tra Alberi AABB}{29}{subsection.4.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.2.6}Piano-Triangolo}{38}{subsubsection.4.2.2.6}
+\contentsline {section}{\numberline {4.2}Algoritmi Geometrici}{31}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.2.7}Raggio-Triangolo}{39}{subsubsection.4.2.2.7}
+\contentsline {subsection}{\numberline {4.2.1}Introduzione}{31}{subsection.4.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {5}La Libreria \texttt {TireGround}}{45}{chapter.5}
+\contentsline {subsection}{\numberline {4.2.2}Intersezione tra Entità Geometriche}{32}{subsection.4.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Organizzazione}{45}{section.5.1}
+\contentsline {subsubsection}{\numberline {4.2.2.1}Punto-Segmento}{32}{subsubsection.4.2.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.1}\textit {Namespace} \texttt {TireGround}}{45}{subsection.5.1.1}
+\contentsline {subsubsection}{\numberline {4.2.2.2}Punto-Cerchio}{32}{subsubsection.4.2.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.2}\textit {Namespace} \texttt {RDF}}{45}{subsection.5.1.2}
+\contentsline {subsubsection}{\numberline {4.2.2.3}Segmento-Circonferenza}{35}{subsubsection.4.2.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {BBox2D}}{45}{section*.42}
+\contentsline {subsubsection}{\numberline {4.2.2.4}Piano-Piano}{36}{subsubsection.4.2.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {Triangle3D}}{46}{section*.44}
+\contentsline {subsubsection}{\numberline {4.2.2.5}Piano-Segmento e Piano-Raggio}{39}{subsubsection.4.2.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {TriangleRoad}}{46}{section*.46}
+\contentsline {subsubsection}{\numberline {4.2.2.6}Piano-Triangolo}{40}{subsubsection.4.2.2.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {MeshSurface}}{47}{section*.48}
+\contentsline {subsubsection}{\numberline {4.2.2.7}Raggio-Triangolo}{41}{subsubsection.4.2.2.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.3}\textit {Namespace} \texttt {PatchTire}}{47}{subsection.5.1.3}
+\contentsline {chapter}{\chapternumberline {5}La Libreria \texttt {TireGround}}{47}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {Disk}}{47}{section*.50}
+\contentsline {section}{\numberline {5.1}Organizzazione}{47}{section.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {ETRTO}}{48}{section*.52}
+\contentsline {subsection}{\numberline {5.1.1}\textit {Namespace} \texttt {TireGround}}{47}{subsection.5.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {ReferenceFrame}}{48}{section*.54}
+\contentsline {subsection}{\numberline {5.1.2}\textit {Namespace} \texttt {RDF}}{47}{subsection.5.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {Shadow}}{49}{section*.56}
+\contentsline {paragraph}{\texttt {BBox2D}}{47}{section*.50}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {Tire}}{50}{section*.58}
+\contentsline {paragraph}{\texttt {Triangle3D}}{48}{section*.52}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\texttt {MagicFormula}}{50}{section*.60}
+\contentsline {paragraph}{\texttt {TriangleRoad}}{48}{section*.54}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Librerie Esterne}{51}{section.5.2}
+\contentsline {paragraph}{\texttt {MeshSurface}}{49}{section*.56}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.1}\texttt {Eigen3}}{51}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.1.3}\textit {Namespace} \texttt {PatchTire}}{49}{subsection.5.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.2}\texttt {Clothoids}}{52}{subsection.5.2.2}
+\contentsline {paragraph}{\texttt {Disk}}{49}{section*.58}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.3}\texttt {Doxygen}}{52}{subsection.5.2.3}
+\contentsline {paragraph}{\texttt {ETRTO}}{50}{section*.60}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Utilizzo e Prestazioni}{52}{section.5.3}
+\contentsline {paragraph}{\texttt {ReferenceFrame}}{50}{section*.62}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {6}Conclusioni e Lavoro Futuro}{53}{chapter.6}
+\contentsline {paragraph}{\texttt {Shadow}}{51}{section*.64}
 \defcounter {refsection}{0}\relax 
-\contentsline {appendix}{\chapternumberline {A}Convenzioni e Notazioni}{55}{appendix.Alph1}
+\contentsline {paragraph}{\texttt {Tire}}{52}{section*.66}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.0.1}Sistemi di Riferimento}{55}{subsection.Alph1.0.1}
+\contentsline {paragraph}{\texttt {MagicFormula}}{52}{section*.68}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.0.2}Matrice di Trasformazione}{56}{subsection.Alph1.0.2}
+\contentsline {section}{\numberline {5.2}Librerie Esterne}{53}{section.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {appendix}{\chapternumberline {B}Documentazione della Libreria C++}{59}{appendix.Alph2}
+\contentsline {subsection}{\numberline {5.2.1}\texttt {Eigen3}}{53}{subsection.5.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {appendix}{\chapternumberline {C}Codice dei Tests}{151}{appendix.Alph3}
+\contentsline {subsection}{\numberline {5.2.2}\texttt {Clothoids}}{54}{subsection.5.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C.1}Tests Geometrici}{151}{section.Alph3.1}
+\contentsline {subsection}{\numberline {5.2.3}\texttt {Doxygen}}{54}{subsection.5.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.1.1}Geometry-test1.cc}{151}{subsection.Alph3.1.1}
+\contentsline {section}{\numberline {5.3}Utilizzo e Prestazioni}{54}{section.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.1.2}Geometry-test2.cc}{152}{subsection.Alph3.1.2}
+\contentsline {chapter}{\chapternumberline {6}Conclusioni e Lavoro Futuro}{55}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.1.3}Geometry-test3.cc}{154}{subsection.Alph3.1.3}
+\contentsline {appendix}{\chapternumberline {A}Convenzioni e Notazioni}{57}{appendix.Alph1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.1.4}Geometry-test4.cc}{155}{subsection.Alph3.1.4}
+\contentsline {subsection}{\numberline {A.0.1}Sistemi di Riferimento}{57}{subsection.Alph1.0.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C.2}Tests per il Modello a Singolo Disco}{156}{section.Alph3.2}
+\contentsline {subsection}{\numberline {A.0.2}Matrice di Trasformazione}{58}{subsection.Alph1.0.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.2.1}MagicFormula-test1.cc}{156}{subsection.Alph3.2.1}
+\contentsline {appendix}{\chapternumberline {B}Documentazione della Libreria C++}{61}{appendix.Alph2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.2.2}MagicFormula-test2.cc}{157}{subsection.Alph3.2.2}
+\contentsline {appendix}{\chapternumberline {C}Codice dei Tests}{153}{appendix.Alph3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C.3}Tests per il Modello a più Dischi}{158}{section.Alph3.3}
+\contentsline {section}{\numberline {C.1}Tests Geometrici}{153}{section.Alph3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.3.1}MultiDisk-test1.cc}{158}{subsection.Alph3.3.1}
+\contentsline {subsection}{\numberline {C.1.1}Geometry-test1.cc}{153}{subsection.Alph3.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.3.2}MultiDisk-test2.cc}{159}{subsection.Alph3.3.2}
+\contentsline {subsection}{\numberline {C.1.2}Geometry-test2.cc}{154}{subsection.Alph3.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliografia}{163}{section*.66}
+\contentsline {subsection}{\numberline {C.1.3}Geometry-test3.cc}{156}{subsection.Alph3.1.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {C.1.4}Geometry-test4.cc}{157}{subsection.Alph3.1.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {C.2}Tests per il Modello a Singolo Disco}{158}{section.Alph3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {C.2.1}MagicFormula-test1.cc}{158}{subsection.Alph3.2.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {C.2.2}MagicFormula-test2.cc}{159}{subsection.Alph3.2.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {C.3}Tests per il Modello a più Dischi}{160}{section.Alph3.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {C.3.1}MultiDisk-test1.cc}{160}{subsection.Alph3.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {C.3.2}MultiDisk-test2.cc}{161}{subsection.Alph3.3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliografia}{165}{section*.74}
