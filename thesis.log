@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  18 FEB 2020 12:40
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  18 FEB 2020 15:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1698,6 +1698,12 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
 ) (./Chapters/conclusione.aux) (./Chapters/appendici_codice.aux))
 \openout1 = `thesis.aux'.
 
@@ -2262,7 +2268,7 @@ Overfull \hbox (13.87198pt too wide) in paragraph at lines 73--80
  []
 
 [49]
-Overfull \hbox (2.50798pt too wide) in paragraph at lines 111--120
+Overfull \hbox (2.50798pt too wide) in paragraph at lines 112--121
  [][] 
  []
 
@@ -2270,47 +2276,35 @@ Overfull \hbox (2.50798pt too wide) in paragraph at lines 111--120
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [50]
-Overfull \hbox (5.9615pt too wide) in paragraph at lines 147--148
+Overfull \hbox (5.9615pt too wide) in paragraph at lines 148--149
 []\TU/lmtt/m/n/12 clear $\OMS/cmsy/m/n/12 ^^@$ \TU/AdobeCaslonPro(0)/m/n/12 Eli
 mina il dominio dell’ombra settando tutti i suoi valori su \TU/lmtt/m/n/12 quie
 tNaN\TU/AdobeCaslonPro(0)/m/n/12 . 
  []
 
-
-Overfull \hbox (13.87198pt too wide) in paragraph at lines 152--162
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (7.00816pt too wide) in paragraph at lines 167--182
+[51]
+Overfull \hbox (7.00816pt too wide) in paragraph at lines 180--195
 \TU/AdobeCaslonPro(0)/m/n/12 sce la geometria dello pneumatico in condizione di
  riposo e la classe \TU/lmtt/m/n/12 ReferenceFrame
  []
 
-[51] [52]
-Overfull \hbox (6.76797pt too wide) in paragraph at lines 196--205
+[52]
+Overfull \hbox (0.71599pt too wide) in paragraph at lines 221--236
  [][] 
  []
 
-[53] [54] [55] [56]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [57])
-[58]
+[53] [54] [55] [56] [57] [58]) [59]
 \openout2 = `Chapters/conclusione.aux'.
 
- (./Chapters/conclusione.tex) [59
+ (./Chapters/conclusione.tex [60
 
 
 
-]
+]) [61]
 \openout2 = `Chapters/appendici_codice.aux'.
 
- (./Chapters/appendici_codice.tex
-[60
+
+(./Chapters/appendici_codice.tex [62
 
 
 
@@ -2334,11 +2328,11 @@ esentazione degli assi del sistema di riferimento dello
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[61]
+[63]
 Overfull \vbox (21.4681pt too high) detected at line 33
  []
 
-[62] [63] [64
+[64] [65] [66
 
 ]
 File: refman.pdf Graphic file (type QTm)
@@ -2349,7 +2343,7 @@ File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page1>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page1> [65]
+ <use  "refman.pdf"  page1> [67]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page1>
@@ -2357,14 +2351,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page1>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page1> [66]
+<use  "refman.pdf"  page1> [68]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page2>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page2>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page2> [67]
+ <use  "refman.pdf"  page2> [69]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page3>
@@ -2372,14 +2366,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page3>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page3> [68]
+<use  "refman.pdf"  page3> [70]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page4>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page4>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page4> [69]
+ <use  "refman.pdf"  page4> [71]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page5>
@@ -2387,14 +2381,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page5>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page5> [70]
+<use  "refman.pdf"  page5> [72]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page6>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page6>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page6> [71]
+ <use  "refman.pdf"  page6> [73]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page7>
@@ -2402,14 +2396,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page7>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page7> [72]
+<use  "refman.pdf"  page7> [74]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page8>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page8>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page8> [73]
+ <use  "refman.pdf"  page8> [75]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page9>
@@ -2417,14 +2411,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page9>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page9> [74]
+<use  "refman.pdf"  page9> [76]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page10>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page10>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page10> [75]
+ <use  "refman.pdf"  page10> [77]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page11>
@@ -2432,14 +2426,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page11>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page11> [76]
+<use  "refman.pdf"  page11> [78]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page12>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page12>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page12> [77]
+ <use  "refman.pdf"  page12> [79]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page13>
@@ -2447,14 +2441,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page13>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page13> [78]
+<use  "refman.pdf"  page13> [80]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page14>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page14>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page14> [79]
+ <use  "refman.pdf"  page14> [81]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page15>
@@ -2462,14 +2456,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page15>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page15> [80]
+<use  "refman.pdf"  page15> [82]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page16>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page16>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page16> [81]
+ <use  "refman.pdf"  page16> [83]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page17>
@@ -2477,14 +2471,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page17>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page17> [82]
+<use  "refman.pdf"  page17> [84]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page18>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page18>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page18> [83]
+ <use  "refman.pdf"  page18> [85]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page19>
@@ -2492,14 +2486,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page19>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page19> [84]
+<use  "refman.pdf"  page19> [86]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page20>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page20>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page20> [85]
+ <use  "refman.pdf"  page20> [87]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page21>
@@ -2507,14 +2501,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page21>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page21> [86]
+<use  "refman.pdf"  page21> [88]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page22>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page22>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page22> [87]
+ <use  "refman.pdf"  page22> [89]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page23>
@@ -2522,14 +2516,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page23>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page23> [88]
+<use  "refman.pdf"  page23> [90]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page24>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page24>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page24> [89]
+ <use  "refman.pdf"  page24> [91]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page25>
@@ -2537,14 +2531,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page25>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page25> [90]
+<use  "refman.pdf"  page25> [92]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page26>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page26>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page26> [91]
+ <use  "refman.pdf"  page26> [93]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page27>
@@ -2552,14 +2546,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page27>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page27> [92]
+<use  "refman.pdf"  page27> [94]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page28>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page28>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page28> [93]
+ <use  "refman.pdf"  page28> [95]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page29>
@@ -2567,14 +2561,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page29>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page29> [94]
+<use  "refman.pdf"  page29> [96]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page30>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page30>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page30> [95]
+ <use  "refman.pdf"  page30> [97]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page31>
@@ -2582,14 +2576,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page31>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page31> [96]
+<use  "refman.pdf"  page31> [98]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page32>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page32>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page32> [97]
+ <use  "refman.pdf"  page32> [99]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page33>
@@ -2597,14 +2591,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page33>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page33> [98]
+<use  "refman.pdf"  page33> [100]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page34>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page34>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page34> [99]
+ <use  "refman.pdf"  page34> [101]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page35>
@@ -2612,14 +2606,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page35>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page35> [100]
+<use  "refman.pdf"  page35> [102]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page36>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page36>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page36> [101]
+ <use  "refman.pdf"  page36> [103]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page37>
@@ -2627,14 +2621,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page37>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page37> [102]
+<use  "refman.pdf"  page37> [104]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page38>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page38>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page38> [103]
+ <use  "refman.pdf"  page38> [105]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page39>
@@ -2642,14 +2636,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page39>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page39> [104]
+<use  "refman.pdf"  page39> [106]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page40>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page40>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page40> [105]
+ <use  "refman.pdf"  page40> [107]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page41>
@@ -2657,14 +2651,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page41>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page41> [106]
+<use  "refman.pdf"  page41> [108]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page42>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page42>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page42> [107]
+ <use  "refman.pdf"  page42> [109]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page43>
@@ -2672,14 +2666,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page43>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page43> [108]
+<use  "refman.pdf"  page43> [110]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page44>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page44>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page44> [109]
+ <use  "refman.pdf"  page44> [111]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page45>
@@ -2687,14 +2681,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page45>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page45> [110]
+<use  "refman.pdf"  page45> [112]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page46>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page46>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page46> [111]
+ <use  "refman.pdf"  page46> [113]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page47>
@@ -2702,14 +2696,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page47>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page47> [112]
+<use  "refman.pdf"  page47> [114]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page48>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page48>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page48> [113]
+ <use  "refman.pdf"  page48> [115]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page49>
@@ -2717,14 +2711,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page49>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page49> [114]
+<use  "refman.pdf"  page49> [116]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page50>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page50>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page50> [115]
+ <use  "refman.pdf"  page50> [117]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page51>
@@ -2732,14 +2726,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page51>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page51> [116]
+<use  "refman.pdf"  page51> [118]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page52>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page52>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page52> [117]
+ <use  "refman.pdf"  page52> [119]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page53>
@@ -2747,14 +2741,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page53>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page53> [118]
+<use  "refman.pdf"  page53> [120]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page54>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page54>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page54> [119]
+ <use  "refman.pdf"  page54> [121]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page55>
@@ -2762,14 +2756,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page55>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page55> [120]
+<use  "refman.pdf"  page55> [122]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page56>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page56>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page56> [121]
+ <use  "refman.pdf"  page56> [123]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page57>
@@ -2777,14 +2771,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page57>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page57> [122]
+<use  "refman.pdf"  page57> [124]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page58>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page58>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page58> [123]
+ <use  "refman.pdf"  page58> [125]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page59>
@@ -2792,14 +2786,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page59>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page59> [124]
+<use  "refman.pdf"  page59> [126]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page60>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page60>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page60> [125]
+ <use  "refman.pdf"  page60> [127]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page61>
@@ -2807,14 +2801,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page61>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page61> [126]
+<use  "refman.pdf"  page61> [128]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page62>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page62>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page62> [127]
+ <use  "refman.pdf"  page62> [129]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page63>
@@ -2822,14 +2816,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page63>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page63> [128]
+<use  "refman.pdf"  page63> [130]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page64>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page64>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page64> [129]
+ <use  "refman.pdf"  page64> [131]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page65>
@@ -2837,14 +2831,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page65>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page65> [130]
+<use  "refman.pdf"  page65> [132]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page66>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page66>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page66> [131]
+ <use  "refman.pdf"  page66> [133]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page67>
@@ -2852,14 +2846,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page67>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page67> [132]
+<use  "refman.pdf"  page67> [134]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page68>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page68>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page68> [133]
+ <use  "refman.pdf"  page68> [135]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page69>
@@ -2867,14 +2861,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page69>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page69> [134]
+<use  "refman.pdf"  page69> [136]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page70>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page70>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page70> [135]
+ <use  "refman.pdf"  page70> [137]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page71>
@@ -2882,14 +2876,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page71>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page71> [136]
+<use  "refman.pdf"  page71> [138]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page72>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page72>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page72> [137]
+ <use  "refman.pdf"  page72> [139]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page73>
@@ -2897,14 +2891,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page73>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page73> [138]
+<use  "refman.pdf"  page73> [140]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page74>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page74>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page74> [139]
+ <use  "refman.pdf"  page74> [141]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page75>
@@ -2912,14 +2906,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page75>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page75> [140]
+<use  "refman.pdf"  page75> [142]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page76>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page76>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page76> [141]
+ <use  "refman.pdf"  page76> [143]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page77>
@@ -2927,14 +2921,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page77>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page77> [142]
+<use  "refman.pdf"  page77> [144]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page78>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page78>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page78> [143]
+ <use  "refman.pdf"  page78> [145]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page79>
@@ -2942,14 +2936,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page79>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page79> [144]
+<use  "refman.pdf"  page79> [146]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page80>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page80>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page80> [145]
+ <use  "refman.pdf"  page80> [147]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page81>
@@ -2957,14 +2951,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page81>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page81> [146]
+<use  "refman.pdf"  page81> [148]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page82>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page82>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page82> [147]
+ <use  "refman.pdf"  page82> [149]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page83>
@@ -2972,14 +2966,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page83>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page83> [148]
+<use  "refman.pdf"  page83> [150]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page84>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page84>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page84> [149]
+ <use  "refman.pdf"  page84> [151]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page85>
@@ -2987,14 +2981,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page85>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page85> [150]
+<use  "refman.pdf"  page85> [152]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page86>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page86>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page86> [151]
+ <use  "refman.pdf"  page86> [153]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page87>
@@ -3002,14 +2996,14 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page87>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page87> [152]
+<use  "refman.pdf"  page87> [154]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page88>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page88>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page88> [153]
+ <use  "refman.pdf"  page88> [155]
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page89>
@@ -3017,41 +3011,41 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page89>
 File: refman.pdf Graphic file (type QTm)
 
-<use  "refman.pdf"  page89> [154]
+<use  "refman.pdf"  page89> [156]
 File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page90>
 File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page90>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page90> [155] [156
+ <use  "refman.pdf"  page90> [157] [158
 
 ]
-(../TireGround/tests/Geometry-test1.cc [157])
-(../TireGround/tests/Geometry-test2.cc [158]
+(../TireGround/tests/Geometry-test1.cc [159])
+(../TireGround/tests/Geometry-test2.cc [160]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [159])
-(../TireGround/tests/Geometry-test3.cc [160])
+ [161])
+(../TireGround/tests/Geometry-test3.cc [162])
 (../TireGround/tests/Geometry-test4.cc)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [161]
-(../TireGround/tests/MagicFormula-test1.cc [162])
-(../TireGround/tests/MagicFormula-test2.cc [163])
-(../TireGround/tests/MultiDisk-test1.cc [164])
-(../TireGround/tests/MultiDisk-test2.cc [165]
+ [163]
+(../TireGround/tests/MagicFormula-test1.cc [164])
+(../TireGround/tests/MagicFormula-test2.cc [165])
+(../TireGround/tests/MultiDisk-test1.cc [166])
+(../TireGround/tests/MultiDisk-test2.cc [167]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [166]))
-[167] [168
+ [168]))
+[169] [170
 
 
-] [169
+] [171
 
 ]
 No file thesis.ind.
-[170]
+[172]
 \tf@toc=\write9
 \openout9 = `thesis.toc'.
 
@@ -3078,12 +3072,12 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46096 strings out of 495023
- 879665 string characters out of 6178392
- 1510650 words of memory out of 5000000
- 49153 multiletter control sequences out of 15000+600000
+ 46103 strings out of 495023
+ 879776 string characters out of 6178392
+ 1510642 words of memory out of 5000000
+ 49160 multiletter control sequences out of 15000+600000
  17524 words of font info for 113 fonts, out of 8000000 for 9000
  18 hyphenation exceptions out of 8191
  63i,22n,68p,10523b,5355s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (184 pages).
+Output written on thesis.pdf (186 pages).

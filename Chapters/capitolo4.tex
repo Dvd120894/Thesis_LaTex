@@ -89,7 +89,8 @@ Questa classe contiene tutte le informazioni geometriche per definire e manipola
 	\item \texttt{isPointInside} $-$ Controlla se un punto generico nello spazio bidimensionale, definito dal piano in cui giace lo stesso disco, si trova all'interno o all'esterno della circonferenza.
 	\item \texttt{intersectSegment} $-$ Trova i punti di intersezione tra la circonferenza esterna del disco e un segmento bidimensionale, che dev'essere definito nel piano in cui giace lo stesso disco. L'intero di \textit{output} fornisce il numero di punti di intersezione.
 	\item \texttt{intersectPlane} $-$ Interseca il disco con un piano definito da normale e punto noto. In \textit{output} fornisce l'entità geometrica creata dall'intersezione sotto forma di punto noto e direzione della retta.
-	\item \texttt{getPatchLength} $-$ Funzione in \textit{overloading} che consente, attraverso vari tipolgie in \textit{input} di trovare la lunghezza del tratto interno al disco e che può essere creato da un piano, da dei triangoli, da un segmento bidimensionale o da una spezzata bidimensionale.
+	\item \texttt{contactTriangles} $-$ Funzione in \textit{overloading} che consente di ottenere il versore normale e cefficiente attrito medi ponderati sull'area, nonchél'area di contatto stessa all'interno del singolo disco a partire da una serie di triangoli.
+	\item \texttt{contactPlane} $-$ Funzione in \textit{overloading} che consente di ottenere l'area di contatto all'interno del singolo disco dato un piano.
 \end{itemize}
 \begin{table}[h!]
 	\centering
@@ -142,7 +143,7 @@ Questa classe contiene tutte le informazioni per definire e manipolare una terna
 \end{table}
 %
 \paragraph{\texttt{Shadow}}
-Questa classe serve a rappresentare l'ombra dello pneumatico nello spazio bidimensionale. È molto simile alla \texttt{RDF::BBox2D} precedentemente presentata, ma a differenza di quest'ultima permette di calcolare anche l'albero per oggetti di tipo \ac{AABB} a una sola foglia, relativo alla stessa ombra dello pneumatico. I metodi più importanti di questa classe sono i seguenti.
+Questa classe serve a rappresentare l'ombra dello pneumatico nello spazio bidimensionale. È molto simile alla \texttt{RDF::BBox2D} precedentemente presentata, ma a differenza di quest'ultima permette di calcola l'albero per oggetti di tipo \ac{AABB} a una sola foglia, relativo alla stessa ombra totale, della parte superiore e della parte inferiore del \ac{BB} tridimensionale che racchiude lo pneumatico nello spazio. I metodi più importanti di questa classe sono i seguenti.
 \begin{itemize}
 	\item \texttt{clear} $-$ Elimina il dominio dell'ombra settando tutti i suoi valori su \texttt{quietNaN}.
 	\item \texttt{update} $-$ Aggiorna il dominio dell'ombra settando tutti i suoi valori secondo il massimo ingombro dato dalla geometria dello pneumatico e dalla sua posizione nello spazio.
@@ -152,19 +153,31 @@ Questa classe serve a rappresentare l'ombra dello pneumatico nello spazio bidime
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline 
 		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ \hline 
-		\texttt{real\_type} & \texttt{Xmin} & $\bullet$ & $\bullet$ & $X_{min}$ dell'ombra \\ \hline 
-		\texttt{real\_type} & \texttt{Ymin} & $\bullet$ & $\bullet$ & $Y_{min}$ dell'ombra \\ \hline
-		\texttt{real\_type} & \texttt{Xmax} & $\bullet$ & $\bullet$ & $X_{max}$ dell'ombra \\ \hline
-		\texttt{real\_type} & \texttt{Ymax} & $\bullet$ & $\bullet$ & $Y_{max}$ dell'ombra \\ \hline
-		\texttt{std::vector<PtrBBox>} & \texttt{PtrBBoxVec} & $\bullet$ & & \ac{BB} dell'ombra \\ \hline
-		\texttt{PtrAABB} & \texttt{PtrTree} & $\bullet$ & & Albero di tipo \ac{AABB} \\ \hline
+		\texttt{PtrAABB} & \texttt{PtrTree} & $\bullet$ & & Albero \ac{AABB} totale\\ \hline
+		\texttt{PtrAABB} & \texttt{PtrTree\_U} & $\bullet$ & & Albero \ac{AABB} parte superiore \\ \hline
+		\texttt{PtrAABB} & \texttt{PtrTree\_L} & $\bullet$ & & Albero \ac{AABB} parte inferiore \\ \hline
 	\end{tabular}
 	\caption{Attributi della classe \texttt{Shadow}.}
 	\label{}
 \end{table}
 %
+\paragraph{\texttt{SamplingGrid}}
+Questa classe contiene tutti i parametri che riguardano la precisione dei calcoli che verranno effettuati nel calcolo della normale al terreno, punto e area di contatto.
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline 
+		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ \hline 
+		\texttt{int\_type} & \texttt{PointsN} & $\bullet$ & $\bullet$ & N° di punti di campionamento \\ \hline 
+		\texttt{int\_type} & \texttt{DisksN} & $\bullet$ & $\bullet$ & N° di dischi \\ \hline 
+		\texttt{int\_type} & \texttt{Switch} & $\bullet$ & $\bullet$ & \textit{Threshold} per il tipo contatto \\ \hline
+	\end{tabular}
+	\caption{Attributi della classe \texttt{SamplingGrid}.}
+	\label{}
+\end{table}
+%
 \paragraph{\texttt{Tire}}
-Questa classe serve a rappresentare lo pneumatico nelle coordinate dello spazio tridimensionale. Consiste nel punto di giunzione tra la classe \texttt{ETRTO} che definisce la geometria dello pneumatico in condizione di riposo e la classe \texttt{ReferenceFrame} che ne definisce invece la posizione nello spazio. Essa viene definita con alcuni metodi puri virtuali.
+Questa classe serve a rappresentare lo pneumatico nelle coordinate dello spazio tridimensionale. Consiste nel punto di giunzione tra la classe \texttt{ETRTO} che definisce la geometria dello pneumatico in condizione di riposo e la classe \texttt{ReferenceFrame} che ne definisce invece la posizione nello spazio. È una classe virtuale in uqanto viene definita con alcuni metodi puri virtuali. Questi metodi verranno poi sostituiti con nelle classi figlie.
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|}
@@ -179,30 +192,48 @@ Questa classe serve a rappresentare lo pneumatico nelle coordinate dello spazio 
 	\label{}
 \end{table}
 %
-\paragraph{\texttt{MagicFormula}}
-Questa classe calcola tutti i parametri necessari per valutare il contatto tra pneumatico e terreno attraverso la \textit{Magic Formula}. I metodi più importanti di questa classe sono i seguenti.
+\paragraph{\texttt{MagicFormula} e \texttt{MultiDisk}}
+Queste classe calcolano tutti i parametri necessari per valutare il contatto tra pneumatico a disco singolo e terreno attraverso la formula di Pacejka. Il metodo più importante di queste classi è
 \begin{itemize}
 	\item \texttt{setup} $-$ Consente di riposizionare la ruota all'interno della \textit{mesh}.
-	\item \texttt{pointSampling} $-$ Interseca i triangoli in corrispondenza dell'ombra dello pneumatico con un raggio, definito da direzione e punto di partenza, e ne calcola il punto di intersezione.
-	\item \texttt{fourPointsSampling} $-$ Effettua l'intersezione tra i triangoli in corrispondenza dell'ombra dello pneumatico e quattro reggi, il cui punto di partenza e direzione sono prestabiliti della geometria e posizione nello spazio. Con i quattro punti di intersezione e la normale è possibile stabilire il punto di contatto virtuale.
-	\item \texttt{calculateLocalRoadPlane} $-$ Calcola la normale del piano strada locale.
 	\item \texttt{calculateRelativeCamber} $-$ Calcola il camber relativo.
-	\item \texttt{getContactDepth} $-$ Calcola l'affondamento del disco nel piano strada locale.
-	\item \texttt{getContactArea} $-$ Funzione in \textit{overloading} che calcola l'area dell'impronta contatto dello pneumatico (considerato come un cilindro) in via approssimata.
-	\item \texttt{getContactVolume} $-$ Calcola il volume di intersezione approssimato tra terreno e pneumatico (considerato come un cilindro)
+	\item \texttt{getRho} $-$ Calcola l'affondamento del disco nel piano strada locale.
+	\item \texttt{gettArea} $-$ Calcola l'area d'intersezione dei dischi.
 \end{itemize}
 \begin{table}[h!]
 	\centering
-	\begin{tabular}{|c|c|c|c|c|}
+	\begin{tabular}{|c|c|c|c|}
 		\hline 
-		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ \hline 
-		\texttt{Disk} & \texttt{SingleDisk} &  &  & Disco rigido \\ \hline 
-		\texttt{vec3} & \texttt{ContactNormal} & $\bullet$ &  & Normale del piano strada \\ \hline
-		\texttt{vec3} & \texttt{ContactPoint} & $\bullet$ &  & Punto di contatto virtuale \\ \hline
-		\texttt{real\_type} & \texttt{ContactFriction} & $\bullet$ &  & Coefficiente di attrito locale \\ \hline
-		\texttt{real\_type} & \texttt{RelativeCamber} & $\bullet$ &  & Camber relativo \\ \hline
+		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textbf{Descrizione} \\ \hline 
+		\texttt{Disk} & \texttt{SingleDisk} &  & Disco rigido \\ \hline 
+		\texttt{vec3} & \texttt{Normal} & $\bullet$ & Versore del piano strada \\ \hline
+		\texttt{vec3} & \texttt{MeshPoint} & $\bullet$ & Punto di contatto sulla \textit{mesh} \\ \hline
+		\texttt{vec3} & \texttt{MeshPoint} & $\bullet$ & Punto di contatto sul disco \\ \hline
+		\texttt{real\_type} & \texttt{Friction} & $\bullet$ & Coefficiente di attrito locale \\ \hline
+		\texttt{real\_type} & \texttt{Area} & $\bullet$ & Area d'intersezione \\ \hline
 	\end{tabular}
 	\caption{Attributi della classe \texttt{MagicFormula}.}
+	\label{}
+\end{table}
+%
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline 
+		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textbf{Descrizione} \\ \hline 
+		\texttt{Disk} & \texttt{DiskVec} &  & Vettore dei dischi \\ \hline 
+		\texttt{vec3} & \texttt{NormalVec} & $\bullet$ & Vettore dei versori normali \\ \hline
+		\texttt{vec3} & \texttt{MeshPointVec} & $\bullet$ & Vettore dei punti di contatto sulla \textit{mesh} \\ \hline
+		\texttt{vec3} & \texttt{MeshPointVec} & $\bullet$ & Vettore dei punto di contatto sul disco \\ \hline
+		\texttt{real\_type} & \texttt{FrictionVec} & $\bullet$ & Vettore dei coefficienti di attrito locale \\ \hline
+		\texttt{real\_type} & \texttt{AreaVec} & $\bullet$ & Vettore delle aree d'intersezione \\ \hline
+		\texttt{vec3} & \texttt{Normal} & $\bullet$ & Versore del piano strada \\ \hline
+		\texttt{vec3} & \texttt{MeshPoint} & $\bullet$ & Punto di contatto singolo sulla \textit{mesh} \\ \hline
+		\texttt{vec3} & \texttt{MeshPoint} & $\bullet$ & Punto di contatto singolo sul disco \\ \hline
+		\texttt{real\_type} & \texttt{Friction} & $\bullet$ & Coefficiente di attrito locale \\ \hline
+		\texttt{real\_type} & \texttt{Area} & $\bullet$ & Area totale d'intersezione \\ \hline
+	\end{tabular}
+	\caption{Attributi della classe \texttt{MultiDisk}.}
 	\label{}
 \end{table}
 %
@@ -230,16 +261,16 @@ Questa libreria nasce per il \textit{fitting} dei polinomi di Hermite di tipo $G
 \section{Utilizzo}
 La libreria \texttt{TireGround} è stata pensata per essere semplice da utilizzare. Si vedranno ora i vari passi per per utilizzarla in maniera appropriata.
 %
-\subsection{Caricare la \textit{mesh}}
+\paragraph{Caricare la \textit{mesh}}
 Per caricare la superficie stradale, rappresentata dalla \textit{mesh} triangolare contenuta nel file \ac{RDF}, è sufficiente stfruttare il costruttore della classe \texttt{MeshSurface} che prende in \textit{input} l'indirizzo al file.
 \begin{pseudoc}
 	RDF::MeshSurface Road("./file.rdf");
 \end{pseudoc}
 %
-\subsection{Creare lo pneumatico}
+\paragraph{Creare lo pneumatico}
 Per creare lo pneumatico a singolo disco è suffieciente utilizzare il costruttore di \textit{default} della classe \texttt{MagicFormula}.
 \begin{pseudoc}
-	PatchTire::Tire* TireSD = new PatchTire::MagicFormula(
+	PatchTire::Tire* SampleTire = new PatchTire::MagicFormula(
 		SectionWidth, // Sezione laterale dello pneumatico [mm]
 		AspectRatio,  // Aspect ratio percentuale dello pneumatico
 		RimDiameter,  // Diametro del cerchio [in]
@@ -248,7 +279,7 @@ Per creare lo pneumatico a singolo disco è suffieciente utilizzare il costrutto
 \end{pseudoc}
 Nel caso invece si voglia creare unoo pneumatico a più dischi si utilizzerà uno dei costruttori della classe \texttt{MultiDisk}. Per il caso di pneumatico a più dischi con raggio uniforme si avrà:
 \begin{pseudoc}
-	PatchTire::Tire* TireMD = new PatchTire::MultiDisk(
+	PatchTire::Tire* SampleTire = new PatchTire::MultiDisk(
 		SectionWidth, // Sezione laterale dello pneumatico [mm]
 		AspectRatio,  // Aspect ratio percentuale dello pneumatico
 		RimDiameter,  // Diametro del cerchio [in]
@@ -259,7 +290,7 @@ Nel caso invece si voglia creare unoo pneumatico a più dischi si utilizzerà un
 \end{pseudoc}
 Nel caso di pneumatico a più dischi con raggio di raccordo sulla spalla si avrà invece:
 \begin{pseudoc}
-	PatchTire::Tire* TireMD = new PatchTire::MultiDisk(
+	PatchTire::Tire* SampleTire = new PatchTire::MultiDisk(
 		SectionWidth, // Sezione laterale dello pneumatico [mm]
 		AspectRatio,  // Aspect ratio percentuale dello pneumatico
 		RimDiameter,  // Diametro del cerchio [in]
@@ -271,7 +302,7 @@ Nel caso di pneumatico a più dischi con raggio di raccordo sulla spalla si avr�
 \end{pseudoc}
 Infine, nel caso si voglia creare uno pneumatico a più dischi con forma personalizzata:
 \begin{pseudoc}
-	PatchTire::Tire* TireMD = new PatchTire::MultiDisk(
+	PatchTire::Tire* SampleTire = new PatchTire::MultiDisk(
 		SectionWidth, // Sezione laterale dello pneumatico [mm]
 		AspectRatio,  // Aspect ratio percentuale dello pneumatico
 		RimDiameter,  // Diametro del cerchio [in]
@@ -281,15 +312,15 @@ Infine, nel caso si voglia creare uno pneumatico a più dischi con forma persona
 		);
 \end{pseudoc}
 %
-\subsection{Orientazione dello pneumatico e valutazione del contatto}
-Per orientazione dello pneumatico e valutarne il contatto con il manto stradale si utilizzerà il metodo \texttt{setup} della classe \texttt{Tire}.
+\paragraph{Orientazione dello pneumatico e valutazione del contatto}
+Per orientare lo pneumatico e valutarne il contatto con il manto stradale si utilizzerà il metodo \texttt{setup} della classe \texttt{Tire}.
 \begin{pseudoc}
 bool Out = TireMD->setup(
 	Road,     // Superficie stradale
 	TransfMat // Matrice di trasformazione 4x4 per orientare lo pneumatico
 	);
 \end{pseudoc}
-Per estrarre i risultati si andranno a inizializzazione delle variabili reali o vettoriali e poi saranno modificate dai metodi della classe \texttt{Tire} sotto elencati.
+Per estrarre i risultati si andranno dapprima a inizializzazione delle variabili reali o vettoriali come segue.
 \begin{pseudoc}
 	// Inizializzazione delle variabili
 	PatchTire::vec3 N;
@@ -302,17 +333,6 @@ Per estrarre i risultati si andranno a inizializzazione delle variabili reali o 
 	PatchTire::real_type Area;
 	PatchTire::real_type Volume;
 	PatchTire::real_type RelativeCamber;
-	
-	// Estrazione dei dati
-	TireMD->getNormal(N);
-	TireMD->getPoint(P);
-	TireMD->getFriction(Friction);
-	TireMD->getRho(Rho);
-	TireMD->getRhoDot(PreviousRho,TimeStep,RhoDot);
-	TireMD->getRelativeCamber(RelativeCamber);
-	TireMD->getArea(Area);
-	TireMD->getVolume(Volume);
-	TireMD->getRelativeCamber(RelativeCamber)
 	
 	// Estrazione della dimensione appropriata della struttura dati
 	PatchTire::int_type size = TireSD->getDisksNumber();
@@ -328,17 +348,46 @@ Per estrarre i risultati si andranno a inizializzazione delle variabili reali o 
 	PatchTire::row_vecN AreaVec(size);
 	PatchTire::row_vecN VolumeVec(size);
 	PatchTire::row_vecN RelativeCamberVec(size);
+\end{pseudoc}
+Successivamente verranno modificate dai metodi della classe \texttt{Tire} come:
+\begin{pseudoc}
+	// Estrazione dei dati
+	SampleTire->getNormal(N);
+	SampleTire->getPoint(P);
+	SampleTire->getFriction(Friction);
+	SampleTire->getRho(Rho);
+	SampleTire->getRhoDot(PreviousRho,TimeStep,RhoDot);
+	SampleTire->getRelativeCamber(RelativeCamber);
+	SampleTire->getArea(Area);
+	SampleTire->getVolume(Volume);
+	SampleTire->getRelativeCamber(RelativeCamber)
 	
 	// Estrazione dei dati in vettori
-	TireMD->getNormal(NVec);
-	TireMD->getPoint(PVec);
-	TireMD->getFriction(FrictionVec);
-	TireMD->getRho(RhoVec);
-	TireMD->getRhoDot(PreviousRho,TimeStep,RhoDotVec);
-	TireMD->getRelativeCamber(RelativeCamberVec);
-	TireMD->getArea(AreaVec);
-	TireMD->getVolume(VolumeVec);
-	TireMD->getRelativeCamber(RelativeCamberVec)
+	SampleTire->getNormal(NVec);
+	SampleTire->getPoint(PVec);
+	SampleTire->getFriction(FrictionVec);
+	SampleTire->getRho(RhoVec);
+	SampleTire->getRhoDot(PreviousRho,TimeStep,RhoDotVec);
+	SampleTire->getRelativeCamber(RelativeCamberVec);
+	SampleTire->getArea(AreaVec);
+	SampleTire->getVolume(VolumeVec);
+	SampleTire->getRelativeCamber(RelativeCamberVec)
 \end{pseudoc}
+%
+\paragraph{Casi particolari}
+Nel caso in cui la variabile booleana in \textit{output} dal metodo \texttt{setup} precedentemente chiamato sia falsa, si prospettano due casi.
+%
+\paragraph{Pneumatico fuori \textit{mesh}} Se, oltre alla condizione sulla variabile booleana in \textit{output}, la lista di triangoli intersecati dall'ombra dello pneumatico è vuota. Per effettuare questo test si può intersecare l'albero della \textit{mesh} con l'albero a una foglia di dell'ombra dello pneumatico.
+\begin{pseudoc}
+	bool List = Road.intersectAABBtree(SampleTire.getAABBtree());
+\end{pseudoc}
+Se la variabile booleana in \textit{output} dal metodo \texttt{intersectAABBtree} è falsa allora la lista è vuota e lo pneumatico sarà quindi considerato fuori dalla superficie stradale descritta nel file \ac{RDF}.
+%
+\paragraph{Pneumatico in volo}
+Se, oltre alla condizione sulla variabile booleana in \textit{output}, la lista di triangoli intersecati dall'ombra dello pneumatico non è vuota. Per effettuare questo test si può intersecare l'albero della \textit{mesh} con l'albero a una foglia di dell'ombra dello pneumatico. I parametri d'intersezione vanno settati dall'esterno della libreria \texttt{TireGround} a seconda della morfologia del terreno fuori dalla \textit{mesh}.
+\begin{pseudoc}
+	bool List = Road.intersectAABBtree(SampleTire.getAABBtree());
+\end{pseudoc}
+Se la variabile booleana in \textit{output} dal metodo \texttt{intersectAABBtree} è vera allora la lista non è vuota e lo pneumatico sarà quindi considerato in volo sopra la superficie stradale descritta nel file \ac{RDF}. In questo caso i parametri d'intersezione vanno settati come intersezione nulla.
 %
 \section{Prestazioni}
