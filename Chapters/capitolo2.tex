@@ -1,7 +1,6 @@
 \chapter{Lo pneumatico}
 \label{Pneumatico}
 %
-\section{Introduzione}
 Gli pneumatici sono probabilmente i componenti più complessi di un'auto in quanto combinano decine di componenti che devono essere formati, assemblati e combinati assieme. Il successo del prodotto finale dipende dalla loro capacità di fondere tutti i componenti separati in un prodotto dal materiale coeso che soddisfa le esigenze del conducente \cite{rill}. Essi sono caratterizzati da un comportamento altamente non lineare con una forte dipendenza da diversi fattori costruttivi e ambientali.
 %
 \section{Geometria}
@@ -254,7 +253,24 @@ dai quali partiranno i raggi con direzione $-z_C$ che intersecheranno la \textit
 \paragraph{Piano locale}
 Alternativamente a quello appena visto, si può utilizzare un modello di contatto ponderato in base all'area di intersezione. In altre, parole si andrà a valutare triangolo per triangolo l'intersezione con il disco indeformabile. Prima di tutto di intersecherà il triangolo nello spazio con il piano in cui giace il disco trovando dunque un segmento. Successivamente si valuterà l'intersezione di questo segmento con il disco, calcolando l'area tra il segmento stesso e il semicerchio inferiore del disco.
 
-% DISEGNARE AREA TRA SEGMENTO  E DISCO
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\def\axisl{3};
+	\def\zd{1.9};
+	\draw[-stealth] (-\axisl,0) -- (\axisl,0) node[below]{$x_C$};
+	\draw[-stealth] (0,-\axisl) -- (0,\axisl) node[left]{$z_C$};
+	\draw[thick] (0,0) circle (2);
+	
+	\draw[] (-1,-0.8) node[above]{$A$} --  (1,-1.1) node[above]{$B$};
+	\draw[dashed] (-1,-0.8) --  (-1,-2*0.866) node[below]{$A'$};
+	\draw[dashed] (1,-1.1) --  (1,-2*0.866) node[below]{$B'$};
+	
+	\draw[] (-1,-0.8)  --  (-2.5,-1.1);
+	\draw[] (1,-1.1)  --  (2.5,-1.1);	
+	\end{tikzpicture}
+	\caption{Dato un generico triangolo che, intersecando il piano in cui giace il disco, crea il segmento dato dai punti $A$ e $B$. L'area di intersezione associata al triangolo è l'area della regione racchiusa dai segmenti $B'B$, $AB$, $AA'$ e dall'arco di cisconferenza $A'B'$.}
+\end{figure}
 
 Attraverso questa area si potrà pesare la normale alla faccia del triangolo considerato e quindi effettuare una media ponderata con tutti gli atri triangoli che insersecano il disco, ovvero:
 %
@@ -286,9 +302,9 @@ Nel modello a più dischi, lo pneumatico sarà rappresentato da più dischi rigi
 		\centering
 		\begin{tikzpicture}
 		\def\axisl{2};
-		\def\zd{1.3};
-		\draw[-stealth] (-\axisl,0) -- (\axisl,0) node[below]{$x_C$};
-		\draw[-stealth] (0,-\axisl) -- (0,\axisl) node[left]{$z_C$};
+		\def\zd{1};
+		\draw[-stealth] (-0.8*\axisl,0) -- (0.8*\axisl,0) node[below]{$y_C$};
+		\draw[-stealth] (0,-1.3*\axisl) -- (0,1.3*\axisl) node[left]{$z_C$};
 		
 		\draw[line width=0.35mm] (-1,-\axisl/\zd) -- (-1,\axisl/\zd);
 		\draw[line width=0.35mm] (-0.75,-\axisl/\zd) -- (-0.75,\axisl/\zd);
@@ -309,9 +325,9 @@ Nel modello a più dischi, lo pneumatico sarà rappresentato da più dischi rigi
 		\centering
 		\begin{tikzpicture}
 		\def\axisl{2};
-		\def\zd{1.3};
-		\draw[-stealth] (-\axisl,0) -- (\axisl,0) node[below]{$x_C$};
-		\draw[-stealth] (0,-\axisl) -- (0,\axisl) node[left]{$z_C$};
+		\def\zd{1};
+		\draw[-stealth] (-0.8*\axisl,0) -- (0.8*\axisl,0) node[below]{$y_C$};
+		\draw[-stealth] (0,-1.3*\axisl) -- (0,1.3*\axisl) node[left]{$z_C$};
 		
 		\draw[line width=0.35mm] (-1,-\axisl/\zd+0.5) -- (-1,\axisl/\zd-0.5);
 		\draw[line width=0.35mm] (-0.75,-\axisl/\zd+0.5-0.5*1.41/2) -- (-0.75,\axisl/\zd-0.5+0.5*1.41/2);
@@ -332,9 +348,9 @@ Nel modello a più dischi, lo pneumatico sarà rappresentato da più dischi rigi
 		\centering
 		\begin{tikzpicture}
 		\def\axisl{2};
-		\def\zd{1.3};
-		\draw[-stealth] (-\axisl,0) -- (\axisl,0) node[below]{$x_C$};
-		\draw[-stealth] (0,-\axisl) -- (0,\axisl) node[left]{$z_C$};
+		\def\zd{1};
+		\draw[-stealth] (-0.8*\axisl,0) -- (0.8*\axisl,0) node[below]{$y_C$};
+		\draw[-stealth] (0,-1.3*\axisl) -- (0,1.3*\axisl) node[left]{$z_C$};
 		
 		\draw[line width=0.35mm] (-1,-\axisl/\zd+0.25) -- (-1,\axisl/\zd-0.25);
 		\draw[line width=0.35mm] (-0.75,-\axisl/\zd) -- (-0.75,\axisl/\zd);
@@ -355,6 +371,26 @@ Nel modello a più dischi, lo pneumatico sarà rappresentato da più dischi rigi
 \end{figure}
 
 Anche se questo modello di pneumatico è costituito da più dischi, il punto di contatto $P_{MF}$ utilizzato per valutare la formula di Pacejka verrà comunque considerato nel disco fittizio giacente sul piano $XZ$ dello pneumatico. Equivalentemente, anche il punto di contatto con la \textit{mesh} $P_{PL}$ verrà considerato nel mediesimo piano.
+
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\def\axisl{2};
+	\def\zd{1};
+	\draw[-stealth] (-0.8*\axisl,0) -- (0.8*\axisl,0) node[below]{$y_C$};
+	\draw[-stealth] (0,-1.3*\axisl) -- (0,1.3*\axisl) node[left]{$z_C$};
+	
+	\draw[line width=0.35mm] (-0.75,-\axisl/\zd) -- (-0.75,\axisl/\zd);
+	\draw[line width=0.35mm] (-0.25,-\axisl/\zd) -- (-0.25,\axisl/\zd);
+	
+	\draw[dashed, line width=0.5mm] (0,-\axisl/\zd) -- (0,\axisl/\zd);
+	
+	\draw[line width=0.35mm] (0.25,-\axisl/\zd) -- (0.25,\axisl/\zd);
+	\draw[line width=0.35mm] (0.75,-\axisl/\zd) -- (0.75,\axisl/\zd);
+	\end{tikzpicture}
+	\caption{Pneumatico rappresentato da dischi a raggio uniforme. Notare il disco fittizio giacente sul piano $XZ$ in linea tratteggiata.}
+\end{figure}
+
 %
 \subsubsection{Contatto ponderato in base all'area d'instersezione}
 \paragraph{Piano locale}
@@ -378,6 +414,58 @@ dove:
 	\item $A_{D_j}$ l'area d'intersezione all'interno del disco e sotto la superficie della \textit{mesh} dell'$j$-esimo disco.
 \end{itemize}
 
+\begin{figure}
+	\centering
+	\tdplotsetmaincoords{70}{110}
+	\tdplotsetrotatedcoords{90}{90}{0}
+	\begin{tikzpicture}[tdplot_main_coords]
+	
+	\draw[-stealth] (0,0,0) -- (8,0,0) node[anchor=north east]{$x_C$};
+	\draw[-stealth] (0,0,0) -- (0,3,0) node[anchor=north west]{$y_C$};
+	\draw[-stealth] (0,0,0) -- (0,0,5) node[anchor=north west]{$z_C$};
+	
+	\def\r{4};
+	\draw[-stealth] (0,1.6,-\r+0.5) -- (0,1.6,-\r+1.5);
+	\draw[-stealth] (0,1.2,-\r+0.5-0.5*1.41/2) -- (0-0.1,1.2+0.1,-\r+1.5-0.5*1.41/2);
+	\draw[-stealth] (0,0.8,-\r) -- (0,0.8,-\r+1);
+	\draw[-stealth] (0,0.4,-\r) -- (0+0.1,0.4-0.1,-\r+1);
+	\draw[-stealth] (0,0,-\r) -- (0+0.05,0-0.1,-\r+1);
+	\draw[-stealth] (0,-0.4,-\r) -- (0,-0.4,-\r+1);
+	\draw[-stealth] (0,-0.8,-\r) -- (0+0.1,-0.8+0.1,-\r+1);
+	\draw[-stealth] (0,-1.2,-\r+0.5-0.5*1.41/2) -- (0,-1.2,-\r+1.5-0.5*1.41/2);
+	\draw[-stealth] (0,-1.6,-\r+0.5) -- (0,-1.6,-\r+1.5);
+	
+	\begin{scope}[tdplot_rotated_coords]
+	\tdplotdrawarc[tdplot_rotated_coords,thick]{(0,0,1.6)}{\r-0.5}{0}{360}{}{}
+	
+	\tdplotdrawarc[tdplot_rotated_coords,thick]{(0,0,1.2)}{\r-0.5+0.5*1.41/2}{3}{-228}{}{}
+	\tdplotdrawarc[tdplot_rotated_coords, dashed,thick]{(0,0,1.2)}{\r-0.5+0.5*1.41/2}{3}{360-228}{}{}
+	
+	\tdplotdrawarc[tdplot_rotated_coords,thick]{(0,0,0.8)}{\r}{-9}{-217}{}{}
+	\tdplotdrawarc[tdplot_rotated_coords, dashed,thick]{(0,0,0.8)}{\r}{-9}{360-217}{}{}
+	
+	\tdplotdrawarc[tdplot_rotated_coords,thick]{(0,0,0.4)}{\r}{-15}{-210}{}{}
+	\tdplotdrawarc[tdplot_rotated_coords, dashed,thick]{(0,0,0.4)}{\r}{-15}{360-210}{}{}
+	
+	\tdplotdrawarc[tdplot_rotated_coords,thick]{(0,0,0)}{\r}{-15}{-210}{}{}
+	\tdplotdrawarc[tdplot_rotated_coords, dashed,thick]{(0,0,0)}{\r}{-15}{360-210}{}{}
+	
+	\tdplotdrawarc[tdplot_rotated_coords,thick]{(0,0,-0.4)}{\r}{-15}{-210}{}{}
+	\tdplotdrawarc[tdplot_rotated_coords, dashed,thick]{(0,0,-0.4)}{\r}{-15}{360-210}{}{}
+	
+	\tdplotdrawarc[tdplot_rotated_coords,thick]{(0,0,-0.8)}{\r}{-15}{-210}{}{}
+	\tdplotdrawarc[tdplot_rotated_coords, dashed,thick]{(0,0,-0.8)}{\r}{-15}{360-210}{}{}
+	
+	\tdplotdrawarc[tdplot_rotated_coords,thick]{(0,0,-1.2)}{\r-0.5+0.5*1.41/2}{-17}{-205}{}{}
+	\tdplotdrawarc[tdplot_rotated_coords, dashed,thick]{(0,0,-1.2)}{\r-0.5+0.5*1.41/2}{-17}{360-205}{}{}
+	
+	\tdplotdrawarc[tdplot_rotated_coords,thick]{(0,0,-1.6)}{\r-0.5}{-30}{-195}{}{}
+	\tdplotdrawarc[tdplot_rotated_coords, dashed,thick]{(0,0,-1.6)}{\r-0.5}{-20}{360-195}{}{}
+	\end{scope}
+	\end{tikzpicture}
+	\caption{Normali associate ai vari dischi dello pneumatico.}
+\end{figure}
+
 \paragraph{Punti di contatto}
 Avendo ora a disposizione il versore normale risultante $\textbf{\textit{e}}_n$, si può ora trovare i punti $P_{MF}$ e $P_{PL}$ adottando il medesimo metodo utilizato in \ref{Contatto_Rill}. Si noti che anche se lo pneumatico è rapprensentato da più dischi, per ricondursi alle condizioni tali per cui il modello di Pacejka è valido, è necessario immaginare che ci sia sempre un disco fittizio giacente sul piano $XZ$ della ruota.
 %
@@ -387,32 +475,32 @@ Nel caso in cui la densità della \textit{mesh} sia troppo alta, effettuare il c
 
 \begin{figure}
 	\centering
-	\begin{tikzpicture}
+		\begin{tikzpicture}
 	\def\axisl{3};
-	\def\zd{1.9};
+	\def\zd{3.5};
 	\draw[-stealth] (-\axisl,0) -- (\axisl,0) node[below]{$x_C$};
 	\draw[-stealth] (0,-\axisl) -- (0,\axisl) node[left]{$z_C$};
 	\draw[thick] (0,0) circle (2);
 	
-	\draw[-stealth,line width=0.15mm] (-2,0) --  (-2,-\axisl/\zd+0.35);
-	\draw[-stealth,line width=0.15mm] (-1.75,0) -- (-1.75,-\axisl/\zd);
-	\draw[-stealth,line width=0.15mm] (-1.5,0) -- (-1.5,-\axisl/\zd+0.05);
-	\draw[-stealth,line width=0.15mm] (-1.25,0) -- (-1.25,-\axisl/\zd+0.21);
-	\draw[-stealth,line width=0.15mm] (-1,0) --  (-1,-\axisl/\zd+0.45);
-	\draw[-stealth,line width=0.15mm] (-0.75,0) -- (-0.75,-\axisl/\zd);
-	\draw[-stealth,line width=0.15mm] (-0.5,0) -- (-0.5,-\axisl/\zd+0.1);
-	\draw[-stealth,line width=0.15mm] (-0.25,0) -- (-0.25,-\axisl/\zd+0.2);
+	\draw[-stealth] (-2,0) --  (-2,-\axisl/\zd);
+	%\draw[-stealth] (-1.75,0) -- (-1.75,-\axisl/\zd);
+	\draw[-stealth] (-1.5,0) -- (-1.5,-\axisl/\zd);
+	%\draw[-stealth] (-1.25,0) -- (-1.25,-\axisl/\zd);
+	\draw[-stealth] (-1,0) --  (-1,-\axisl/\zd);
+	%\draw[-stealth] (-0.75,0) -- (-0.75,-\axisl/\zd);
+	\draw[-stealth] (-0.5,0) -- (-0.5,-\axisl/\zd);
+	%\draw[-stealth] (-0.25,0) -- (-0.25,-\axisl/\zd);
+	\draw[-stealth] (0,0) -- (0,-\axisl/\zd);
+	%\draw[-stealth] (0.25,0) -- (0.25,-\axisl/\zd);
+	\draw[-stealth] (0.5,0) -- (0.5,-\axisl/\zd);
+	%\draw[-stealth] (0.75,0) -- (0.75,-\axisl/\zd);
+	\draw[-stealth] (1,0) node[above]{Raggi}-- (1,-\axisl/\zd);
+	%\draw[-stealth] (1.25,0) -- (1.25,-\axisl/\zd);
+	\draw[-stealth] (1.5,0) -- (1.5,-\axisl/\zd);
+	%\draw[-stealth] (1.75,0) -- (1.75,-\axisl/\zd);
+	\draw[-stealth] (2,0) -- (2,-\axisl/\zd);
 	
-	\draw[-stealth,line width=0.15mm] (0,0) -- (0,-\axisl/\zd+0.3);
-	
-	\draw[-stealth,line width=0.15mm] (0.25,0) -- (0.25,-\axisl/\zd+0.4);
-	\draw[-stealth,line width=0.15mm] (0.5,0) -- (0.5,-\axisl/\zd+0.3);
-	\draw[-stealth,line width=0.15mm] (0.75,0) -- (0.75,-\axisl/\zd);
-	\draw[-stealth,line width=0.15mm] (1,0) -- (1,-\axisl/\zd+0.25);
-	\draw[-stealth,line width=0.15mm] (1.25,0) -- (1.25,-\axisl/\zd+0.1);
-	\draw[-stealth,line width=0.15mm] (1.5,0) -- (1.5,-\axisl/\zd+0.1);
-	\draw[-stealth,line width=0.15mm] (1.75,0) -- (1.75,-\axisl/\zd);
-	\draw[-stealth,line width=0.15mm] (2,0) -- (2,-\axisl/\zd+0.22);
+	\draw[] (-2.3,-1.3) -- (-1,-1.1) --  (1,-1.4) -- (2.3,-1.3) node[below]{Terreno};
 	\end{tikzpicture}
 	\caption{Campionamento della \textit{mesh} triangolare in corrispondenza del piano in cui giace l'$i$-esimo disco. I raggi partono dall'asse $x_C$ in direzione $z_C$.}
 \end{figure}
