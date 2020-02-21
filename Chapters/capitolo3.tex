@@ -8,10 +8,10 @@ Una \ac{BVH} è una struttura ad albero su un insieme di oggetti geometrici. Tut
 Sebbene il confinamento degli oggetti nei volumi di delimitazione e l'esecuzione di test di collisione su di essi prima del test della geometria dell'oggetto stesso semplifichino i test e possano comportare miglioramenti significativi delle prestazioni, è ancora in corso lo stesso numero di test a coppie tra volumi di delimitazione. Organizzando i volumi di delimitazione in una gerarchia di volumi di delimitazione, la complessità temporale (il numero di test eseguiti) può essere ridotta logaritmicamente nel numero di oggetti. Con una tale gerarchia in atto, durante i test di collisione, i volumi secondari non devono essere esaminati se i loro volumi principali non sono intersecati.
 %
 \subsection{Struttura di tipo "\textit{Minimum Bounding Box}"}
-In geometria, il rettangolo minimo o più piccolo (o \ac{MBB}) per racchiudere un insieme di punti $S$ in $N$ dimensioni è l'rettangolo con la misura più piccola (area, volume o ipervolume in dimensioni superiori) all'interno del quale si trovano tutti i punti.  Il termine "iper-rettangolo (o più semplicemente \textit{box}) deriva dal suo utilizzo nel sistema di coordinate cartesiane, dove viene effettivamente visualizzato come un rettangolo (caso bidimensionale), parallelepipedo rettangolare (caso tridimensionale), ecc. Nel caso bidimensionale viene chiamato rettangolo di delimitazione minimo.
+In geometria, il rettangolo minimo o più piccolo (o \ac{MBB}) per racchiudere un insieme di punti $S$ in $N$ dimensioni è l'rettangolo con la misura più piccola (area, volume o iper-volume in dimensioni superiori) all'interno del quale si trovano tutti i punti.  Il termine iper-rettangolo (o più semplicemente \textit{box}) deriva dal suo utilizzo nel sistema di coordinate cartesiane, dove viene effettivamente visualizzato come un rettangolo (caso bidimensionale), parallelepipedo rettangolare (caso tridimensionale), ecc. Nel caso bidimensionale viene chiamato rettangolo di delimitazione minimo.
 %
 \subsubsection{Struttura di tipo "\textit{Axis Aligned Bounding Box}"}
-Il \ac{MBB} allineato agli'assi (\ac{AABB}) per un determinato set di punti è il rettangolo di delimitazione minimo soggetto al vincolo che i bordi del rettangolo sono paralleli agli assi cartesiani. È il prodotto cartesiano di $N$ intervalli ciascuno dei quali è definito da un valore minimo e un valore massimo della coordinata corrispondente per i punti in $S$.
+Il \ac{MBB} allineato agli assi (\ac{AABB}) per un determinato set di punti è il rettangolo di delimitazione minimo soggetto al vincolo che i bordi del rettangolo sono paralleli agli assi cartesiani. È il prodotto cartesiano di $N$ intervalli ciascuno dei quali è definito da un valore minimo e un valore massimo della coordinata corrispondente per i punti in $S$.
 
 I rettangoli di delimitazione minimi allineati all'asse vengono utilizzati per determinare la posizione approssimativa di un oggetto e come descrittore molto semplice della sua forma. Ad esempio, nella geometria computazionale e nelle sue applicazioni quando è necessario trovare intersezioni nel set di oggetti, il controllo iniziale sono le intersezioni tra i loro \ac{MBB}. Dato che di solito è un'operazione molto meno costosa del controllo dell'intersezione effettiva (perché richiede solo confronti di coordinate), consente di escludere rapidamente i controlli delle coppie che sono molto distanti.
 
@@ -33,7 +33,7 @@ Per il rilevamento delle collisioni tra oggetti in due dimensioni, l'intersezion
 
 Il vincolo di allineamento dei rettangoli agli assi è presente per motivi di prestazioni, infatti, l'area di sovrapposizione tra due riquadri non ruotati può essere controllata solo con confronti logici. Mentre i riquadri ruotati richiedono ulteriori operazioni trigonometriche, che sono più lente da calcolare. Inoltre, se si hanno entità che possono ruotare, le dimensioni dei rettangoli e/o sotto-rettangoli dovranno modificarsi in modo da avvolgere ancora l'oggetto o si dovrà optare per un altro tipo di geometria di delimitazione, come le sfere (che sono invarianti alla rotazione).
 
-Nel caso specifico, l'ombra dello pneumatico sarà rappresentata da un albero di tipo \ac{AABB} con una sola foglia. Ovvero si andrà a rappresentare lo pneumatico con una \ac{BB} avente lati uguali e rappresentanti il massimo ingombro che può avere nello spazio. Si andrà inoltre ad incrementare del 10\% ognuno di questi lati in modo da tenere conto dell'angolo di camber, che portrebbe portare i punti di campionamento del terreno fuori dall'ombra. La strada, contrariamente al pneumatico, verrà tenuta come riferimento assoluto. In altre parole, una volta effettuato la parsificazione del file \ac{RDF}, verrà calcolato l'albero di tipo \ac{AABB}. Lo pneumatico si muoverà all'interno della \textit{mesh} e la sua ombra verrà ricalcolata e intersecata con l'albero \ac{AABB} per ottenere tutti i triangoli in corrispondenza della stessa.
+Nel caso specifico, l'ombra dello pneumatico sarà rappresentata da un albero di tipo \ac{AABB} con una sola foglia. Ovvero si andrà a rappresentare lo pneumatico con una \ac{BB} avente lati uguali e rappresentanti il massimo ingombro che può avere nello spazio. Si andrà inoltre ad incrementare del 10\% ognuno di questi lati in modo da tenere conto dell'angolo di camber, che potrebbe portare i punti di campionamento del terreno fuori dall'ombra. La strada, contrariamente allo pneumatico, verrà tenuta come riferimento assoluto. In altre parole, una volta effettuata l'analisi sintattico-grammaticale del file \ac{RDF}, verrà calcolato l'albero di tipo \ac{AABB}. Lo pneumatico si muoverà all'interno della \textit{mesh} e la sua ombra verrà ricalcolata e intersecata con l'albero \ac{AABB} per ottenere tutti i triangoli in corrispondenza della stessa.
 
 Volendo intersecare due semplici \ac{BB}, quali $A = \left[ \texttt{A.minX}, \texttt{A.maxX} ;  \texttt{A.minY}, \texttt{A.maxY} \right]$ e $B = \left[ \texttt{B.minX}, \texttt{B.maxX} ;  \texttt{B.minY}, \texttt{B.maxY} \right]$, verrà usata la seguente funzione.
 \vspace{.8em}
@@ -47,10 +47,10 @@ Volendo intersecare due semplici \ac{BB}, quali $A = \left[ \texttt{A.minX}, \te
 \noindent
 Volendo intersecare un albero di tipo \ac{AABB} e una semplice \ac{BB}, basterà ripetere a più step la funzione precedente lungo i rami dell'albero. Una volta arrivati a una o più foglia avremo tutti gli oggetti (o triangoli nel caso specifico) che sono posti in corrispondenza della \ac{BB} (od ombra dello pneumatico nel caso specifico). Questi triangoli verranno poi usati per determinare il piano strada locale e il punto di contatto virtuale dello pneumatico.
 
-È imporatante notare che il metodo appena visto, presenta numerosi vantaggi.
+È importante notare che il metodo appena visto, presenta numerosi vantaggi.
 \begin{itemize}
-	\item Riduzione del numero di comparazioni da effettuare per ottenere l'intersezione \ac{BB}-albero \ac{AABB}. Infatti, la \textit{mesh} può contenere decine di migliaia di trangoli, il metodo presentato consente di ridurre logarirmicamente il numero di comparazioni necessarie per ottenere il risultato.
-	\item Riduzione del numero di trangoli da processare per ottenere il piano strada locale e il punto di contatto virtuale dello pneumatico. Infatti, vengono solamente processati quelli posti in corrispondenza del'ombra dello pneumatico.
+	\item Riduzione del numero di comparazioni da effettuare per ottenere l'intersezione \ac{BB}-albero \ac{AABB}. Infatti, la \textit{mesh} può contenere decine di migliaia di triangoli, il metodo presentato consente di ridurre logaritmicamente il numero di comparazioni necessarie per ottenere il risultato.
+	\item Riduzione del numero di triangoli da processare per ottenere il piano strada locale e il punto di contatto virtuale dello pneumatico. Infatti, vengono solamente processati quelli posti in corrispondenza dell'ombra dello pneumatico.
 \end{itemize}
 %
 \section{Algoritmi geometrici}
@@ -62,7 +62,7 @@ La geometria computazionale è la branca dell'informatica che studia le struttur
 	\item \textit{Geometria di calcolo} numerica (o \ac{CAGD}), che si occupa principalmente di rappresentare oggetti del mondo reale in forme adatte per i calcoli informatici nei sistemi \ac{CAD} e \ac{CAM}. Questo ramo può essere visto come uno sviluppo della geometria descrittiva ed è spesso considerato un ramo della computer grafica o del \ac{CAD}. Entità importanti di questo ramo sono superfici e curve parametriche, come ad esempio le \textit{spline} e \textit{curve di Bézier}.
 \end{itemize}
 
-In questo capitolo tutti gli algoritmi che verranno utilizzati in seguito durante l'analisi geometrica dell'intersezione tra pneumatico e superficie stradale saranno trattati. Questi algoritmi sono la soluzione di alcuni semplici ma molto importanti problemi, che devono essere risolti in modo efficiente. In particolare le intersezioni tra:
+In questo capitolo tutti gli algoritmi che verranno utilizzati in seguito durante l'analisi geometrica dell'intersezione tra pneumatico e superficie stradale saranno trattati. Questi algoritmi sono la soluzione di alcuni semplici ma molto importanti problemi, che devono essere risolti in modo efficiente. In particolare, le intersezioni tra:
 \begin{itemize}
 	\item punto e segmento (nel piano);
 	\item punto e cerchio (nel piano);
@@ -95,7 +95,7 @@ Dato un punto $P = (x_p, y_p)$ e un segmento definito da due punti $A = (x_A, y_
 	\caption{Schema del problema di intersezione punto-segmento}
 \end{figure}
 \noindent
-Per determinare se il punto $P$ è intermo al segmento si eseguiranno i seguenti step.
+Per determinare se il punto $P$ è interno al segmento si eseguiranno i seguenti step.
 \begin{enumerate}
 	\item Creazione di un vettore $\vv{AB}$ e di un vettore $\vv{AP}$.
 	\item Calcolo il prodotto vettoriale  $\vv{P_1P_2} \times  \vv{PP_1}$, se il modulo del vettore risultante è nullo allora il punto $P$ appartiene al segmento considerato.
@@ -293,7 +293,7 @@ Per l'intersezione di un segmento, avente punto iniziale e finale rispettivament
 ax+by=c
 \label{eqretta}
 \end{equation}
-per il segemento e:
+per il segmento e:
 \begin{equation}
 (x-x_c)^2 + (y-y_c)^2 = r^2
 \end{equation}
@@ -320,11 +320,11 @@ x^2 + y^2 = r^2
 	\end{tikzpicture}
 	\caption{Schema del problema di intersezione punto-circonferenza.}
 \end{figure}
-Per trovere i termini $a$, $b$ e $c$ del segmento è necessario calcolare la direzione del segmento come differenza tra il punto finale e iniziale del segmento:
+Per trovare i termini $a$, $b$ e $c$ del segmento è necessario calcolare la direzione del segmento come differenza tra il punto finale e iniziale del segmento:
 \begin{equation}
 \vec{d} = P_1 - P_0 
 \end{equation}
-È neccerio anche trovare il vettore tra l'origine e il punto $P_1$:
+È neccessario anche trovare il vettore tra l'origine e il punto $P_1$:
 \begin{equation}
 \vec{P}_{O1} = P_1 - O
 \end{equation}
@@ -338,7 +338,7 @@ I termini $a$, $b$ e $c$ del segmento saranno quini pari a:
 	\end{split}
 \end{aligned}
 \end{equation}
-Risolvere l'equazione \ref{eqretta} per $x$ o $y$ è ora molto semplice. Basta infatti sostituirla nell'equazione \ref{eqcircle} per ottere le soluzioni $(x_1, y_1)$ e $(x_2, y_2)$ con:
+Risolvere l'equazione \ref{eqretta} per $x$ o $y$ è ora molto semplice. Basta infatti sostituirla nell'equazione \ref{eqcircle} per ottenere le soluzioni $(x_1, y_1)$ e $(x_2, y_2)$ con:
 \begin{equation}
 x_{1/2} = \frac{ac \pm b \sqrt{r^2 (a^2 + b^2)-c^2}}{a ^ 2 + b ^ 2}
 \end{equation}
@@ -466,12 +466,12 @@ dove $P = (x, y, z)$. I piani $P_1$ e $P_2$ sono paralleli ogni volta che i loro
 	\caption{Schemi del problema di intersezione piano-piano.}
 \end{figure}
 
-Dopo aver calcolato $\vec{n}_1 \times \vec{n}_2$, per determinare univocamente la linea di intersezione, è necessario trovare un punto di essa. Cioè, un punto $P_0 = (x_0, y_0, z_0)$ che si trova in entrambi i piani. Si può trovare una soluzione comune delle equazioni implicite per $P_1$ e $P_2$. Ma ci sono solo due equazioni nelle tre incognite poiché il punto $P_0$ può trovarsi ovunque sulla linea monodimensionale $L$. Quindi è necessario aggiungere un altro vincolo da risolvere per un $P_0$ specifico. Esistono diversi modi per farlo, il più semplice è attraverso l'aggiunta dei un terzo piano $P_3$ avente equazione implicita $\vec{n}_3 \cdot P = 0$ dove $\vec{n}_3 = \vec{n}_1 \times \vec{n}_2$ e $d_3 = 0$ (ovvero passa attraverso l'origine). Questo metodo è funzionante poiché: 
+Dopo aver calcolato $\vec{n}_1 \times \vec{n}_2$, per determinare univocamente la linea di intersezione, è necessario trovare un punto di essa. Cioè, un punto $P_0 = (x_0, y_0, z_0)$ che si trova in entrambi i piani. Si può trovare una soluzione comune delle equazioni implicite per $P_1$ e $P_2$. Ma ci sono solo due equazioni nelle tre incognite poiché il punto $P_0$ può trovarsi ovunque sulla linea monodimensionale $L$. Quindi è necessario aggiungere un altro vincolo da risolvere per un $P_0$ specifico. Esistono diversi modi per farlo, il più semplice è attraverso l'aggiunta di un terzo piano $P_3$ avente equazione implicita $\vec{n}_3 \cdot P = 0$ dove $\vec{n}_3 = \vec{n}_1 \times \vec{n}_2$ e $d_3 = 0$ (ovvero passa attraverso l'origine). Questo metodo è funzionante poiché: 
 \begin{itemize}
 	\item $L$ è perpendicolare a $P_3$ e quindi lo interseca;
 	\item i vettori $\vec{n}_1$, $\vec{n}_2$ e $\vec{n}_3$ sono linearmente indipendenti.
 \end{itemize}
-Pertanto i piani $P_1$, $P_2$ e $P_3$ si intersecano in un unico punto $P_0$ che deve trovarsi su $L$. 
+Pertanto, i piani $P_1$, $P_2$ e $P_3$ si intersecano in un unico punto $P_0$ che deve trovarsi su $L$. 
 
 \begin{figure}
 	\centering
@@ -495,7 +495,7 @@ Nello specifico, la formula per l'intersezione di tre piani è:
 \begin{equation}
 P_0 =  \frac{-d_1(\vec{n}_2 \times \vec{n}_3) - d_2(\vec{n}_3 \times \vec{n}_1) - d_3(\vec{n}_1 \times \vec{n}_2)}{\vec{n}_1 \cdot (\vec{n}_2 \times \vec{n}_3)}
 \end{equation}
-e ponendo $d_3 = 0$ per $P_3$, si otteniene:
+e ponendo $d_3 = 0$ per $P_3$, si ottiene:
 \begin{equation}
 P_0 =  \frac{-d_1(\vec{n}_2 \times \vec{n}_3) - d_2(\vec{n}_3 \times \vec{n}_1)}{\vec{n}_1 \cdot (\vec{n}_2 \times \vec{n}_3)}
 =
@@ -591,7 +591,7 @@ Se la linea $L$ è un segmento finito da $P_0$ a $P_1$, è sufficiente verificar
 \end{figure}
 %
 \subsubsection{Piano-Triangolo}
-Per risolvere l'intersezione piano triangolo bastaunsare la soluzione precedentemente trovata per il problame dell'intersezione tra piano e segmento. Nello specifico, basta trattare i lati del triangolo come tre segmenti distinti e per ognuno di esso applicare la funzione per l'intersezione piano-segmento. Vi saranno tre possibili soluzioni:
+Per risolvere l'intersezione piano triangolo basta usare la soluzione precedentemente trovata per il problema dell'intersezione tra piano e segmento. Nello specifico, basta trattare i lati del triangolo come tre segmenti distinti e per ognuno di esso applicare la funzione per l'intersezione piano-segmento. Vi saranno tre possibili soluzioni:
 \begin{itemize}
 	\item il triangolo non viene intersecato dal piano;
 	\item il triangolo viene intersecato dal piano in uno dei suoi tre vertici;
@@ -647,12 +647,12 @@ Dato un triangolo avente vertici $(A,B,C)$ e un raggio $R$ con origine $R_O$ e d
 %
 Negli ultimi decenni, sono stati proposti numerosi algoritmi per risolvere questo problema, esistono quindi diverse soluzioni al problema di intersezione raggio-triangolo. Tre degli algoritmi più importanti sono:
 \begin{itemize}
-	\item l'agoritmo di \textit{Badouel};
-	\item l'agoritmo di \textit{Segura};
-	\item l'agoritmo di \textit{M\"oller} e \textit{Trumbore}.
+	\item l'algoritmo di \textit{Badouel};
+	\item l'algoritmo di \textit{Segura};
+	\item l'algoritmo di \textit{M\"oller} e \textit{Trumbore}.
 \end{itemize}
 \noindent
-Come \citeauthor{RayTriangle} afferma in \cite{RayTriangle}, l'algoritmo di M\"oller-Trumbore's è il più veloce quando il piano normale e/o il piano di proiezione non sono stati precedentemente memorizzati, come nel caso specifico di questa tesi.
+Come \citeauthor{RayTriangle} afferma in \cite{RayTriangle}, l'algoritmo di M\"oller-Trumbore è il più veloce quando il piano normale e/o il piano di proiezione non sono stati precedentemente memorizzati, come nel caso specifico di questa tesi.
 
 La teoria alla base di questo algoritmo è spiegata estensivamente in \cite{Moller}. In particolare, l'algoritmo sfrutta la parametrizzazione di $P$, il punto di intersezione, in termini delle coordinate baricentriche, ovvero:
 \begin{equation}
@@ -756,7 +756,7 @@ Si immagini ora di avere un punto $P$ all'interno del triangolo. Se si trasforma
 	\caption{Cambiamento di coordinate nell'algoritmo di M\"oller-Trumbore.}
 \end{figure}
 
-Geometricamente, si è appena chiarito il significato di $u$ e $v$. Si consideri ora l'elemento $t$. Esso è il terzo asse del sistema di coordinate $u$ e $v$ appena introdotto. Si sà inoltre che $t$ esprime la distanza dall'origine del raggio a $P$, il punto di intersezione, si è quindi creato un sistema di coordinate che consentirà di esprimere univocamente la posizione del punto d'intersezione $P$ in termini di coordinate baricentriche e distanza dall'origine del raggio a quel punto sul triangolo.
+Geometricamente, si è appena chiarito il significato di $u$ e $v$. Si consideri ora l'elemento $t$. Esso è il terzo asse del sistema di coordinate $u$ e $v$ appena introdotto. Si sa inoltre che $t$ esprime la distanza dall'origine del raggio a $P$, il punto di intersezione, si è quindi creato un sistema di coordinate che consentirà di esprimere univocamente la posizione del punto d'intersezione $P$ in termini di coordinate baricentriche e distanza dall'origine del raggio a quel punto sul triangolo.
 
 M\"oller e Trumbore spiegano che la prima parte dell'equazione \ref{eq4} (il termine $O-A$) può essere vista come una trasformazione che sposta il triangolo dalla sua posizione spaziale mondiale originale all'origine (il primo vertice del triangolo coincide con l'origine). L'altro lato dell'equazione ha l'effetto di trasformare il punto di intersezione dallo spazio $(x,y,z)$ nello spazio $(t,u,v)$ come spiegato precedentemente.
 

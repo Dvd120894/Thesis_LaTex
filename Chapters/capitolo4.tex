@@ -62,9 +62,9 @@ Questa classe contiene tutte le informazioni geometriche e non geometriche per d
 \end{table}
 %
 \paragraph{\texttt{MeshSurface}}
-Questa classe contiene il vettore di puntatori di tipo \texttt{std::shared}-\texttt{\_ptr} alle istanze della classe \texttt{TriangleRoad} che vengono create durante la parsificazione del file \ac{RDF}. Inoltre contiene il vettore di puntatori alle \ac{BB} di tipo \texttt{PtrBBox}, che è necessario per calcolare l'albero \ac{AABB}. Quest'ultimo esiste come ulteriore attributo della classe sotto forma di puntatore \texttt{PtrAABB}. I metodi più importanti di questa classe sono i seguenti.
+Questa classe contiene il vettore di puntatori di tipo \texttt{std::shared}-\texttt{\_ptr} alle istanze della classe \texttt{TriangleRoad} che vengono create durante la parsificazione del file \ac{RDF}. Inoltre, contiene il vettore di puntatori alle \ac{BB} di tipo \texttt{PtrBBox}, che è necessario per calcolare l'albero \ac{AABB}. Quest'ultimo esiste come ulteriore attributo della classe sotto forma di puntatore \texttt{PtrAABB}. I metodi più importanti di questa classe sono i seguenti.
 \begin{itemize}
-	\item \texttt{set} $-$ Copia la mesh.
+	\item \texttt{set} $-$ Copia la \textit{mesh}.
 	\item \texttt{LoadFile} $-$ Parsifica il file dato come \textit{input} e crea le istanze \texttt{TriangleRoad} che costituiscono la \textit{mesh}.
 	\item \texttt{updateIntersection} $-$ Interseca l'albero di tipo \ac{AABB} della \textit{mesh} con un altro albero esterno di tipo \ac{AABB} e ne restituisce il vettore dei puntatori di tipo \texttt{std::shared\_ptr} alle istanze della classe \texttt{TriangleRoad} che vengono intersecate.
 \end{itemize}
@@ -89,7 +89,7 @@ Questa classe contiene tutte le informazioni geometriche per definire e manipola
 	\item \texttt{isPointInside} $-$ Controlla se un punto generico nello spazio bidimensionale, definito dal piano in cui giace lo stesso disco, si trova all'interno o all'esterno della circonferenza.
 	\item \texttt{intersectSegment} $-$ Trova i punti di intersezione tra la circonferenza esterna del disco e un segmento bidimensionale, che dev'essere definito nel piano in cui giace lo stesso disco. L'intero di \textit{output} fornisce il numero di punti di intersezione.
 	\item \texttt{intersectPlane} $-$ Interseca il disco con un piano definito da normale e punto noto. In \textit{output} fornisce l'entità geometrica creata dall'intersezione sotto forma di punto noto e direzione della retta.
-	\item \texttt{contactTriangles} $-$ Funzione in \textit{overloading} che consente di ottenere il versore normale e cefficiente attrito medi ponderati sull'area, nonchél'area di contatto stessa all'interno del singolo disco a partire da una serie di triangoli.
+	\item \texttt{contactTriangles} $-$ Funzione in \textit{overloading} che consente di ottenere il versore normale e coefficiente attrito medi ponderati sull'area, nonché l'area di contatto stessa all'interno del singolo disco a partire da una serie di triangoli.
 	\item \texttt{contactPlane} $-$ Funzione in \textit{overloading} che consente di ottenere l'area di contatto all'interno del singolo disco dato un piano.
 \end{itemize}
 \begin{table}[h!]
@@ -127,7 +127,7 @@ Questa classe contiene tutte le informazioni per definire e manipolare una terna
 \begin{itemize}
 	\item \texttt{setTotalTransformationMatrix} $-$ Posiziona nello spazio il sistema di riferimento grazie alla matrice di trasformazione $4\times4$ fornita come \textit{input}.
 	\item \texttt{getEulerAngleX} $-$ Ottiene l'angolo creato dalla rotazione attorno all'asse $Y$ del sistema di riferimento locale rispetto a quello assoluto (lo stesso della \textit{mesh}). L'angolo viene ottenuto in seguito alla fattorizzazione $R_z(\Omega) R_x(\gamma) R_y(\theta)$ e utilizzando il metodo di Eulero.
-	\item \texttt{getEulerAngleY} $-$ Come il metodo \texttt{getEulerAngleX}, ma usato per il ottenere l'angolo creato dalla rotazione attorno all'asse $Y$.
+	\item \texttt{getEulerAngleY} $-$ Come il metodo \texttt{getEulerAngleX}, ma usato per ottenere l'angolo creato dalla rotazione attorno all'asse $Y$.
 	\item \texttt{getEulerAngleZ} $-$ Come il metodo \texttt{getEulerAngleX}, ma usato per il ottenere l'angolo creato dalla rotazione attorno all'asse $Z$.
 \end{itemize}
 \begin{table}[h!]
@@ -177,7 +177,7 @@ Questa classe contiene tutti i parametri che riguardano la precisione dei calcol
 \end{table}
 %
 \paragraph{\texttt{Tire}}
-Questa classe serve a rappresentare lo pneumatico nelle coordinate dello spazio tridimensionale. Consiste nel punto di giunzione tra la classe \texttt{ETRTO} che definisce la geometria dello pneumatico in condizione di riposo e la classe \texttt{ReferenceFrame} che ne definisce invece la posizione nello spazio. È una classe virtuale in uqanto viene definita con alcuni metodi puri virtuali. Questi metodi verranno poi sostituiti con nelle classi figlie.
+Questa classe serve a rappresentare lo pneumatico nelle coordinate dello spazio tridimensionale. Consiste nel punto di giunzione tra la classe \texttt{ETRTO} che definisce la geometria dello pneumatico in condizione di riposo e la classe \texttt{ReferenceFrame} che ne definisce invece la posizione nello spazio. È una classe virtuale in quanto viene definita con alcuni metodi puri virtuali. Questi metodi verranno poi sostituiti con nelle classi figlie.
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|}
@@ -193,7 +193,7 @@ Questa classe serve a rappresentare lo pneumatico nelle coordinate dello spazio 
 \end{table}
 %
 \paragraph{\texttt{MagicFormula} e \texttt{MultiDisk}}
-Queste classe calcolano tutti i parametri necessari per valutare il contatto tra pneumatico a disco singolo e terreno attraverso la formula di Pacejka. Il metodo più importante di queste classi è
+Queste classi calcolano tutti i parametri necessari per valutare il contatto tra pneumatico a disco singolo e terreno attraverso la formula di Pacejka. Il metodo più importante di queste classi è
 \begin{itemize}
 	\item \texttt{setup} $-$ Consente di riposizionare la ruota all'interno della \textit{mesh}.
 	\item \texttt{calculateRelativeCamber} $-$ Calcola il camber relativo.
@@ -224,7 +224,7 @@ Queste classe calcolano tutti i parametri necessari per valutare il contatto tra
 		\texttt{Disk} & \texttt{DiskVec} &  & Vettore dei dischi \\ \hline 
 		\texttt{vec3} & \texttt{NormalVec} & $\bullet$ & Vettore dei versori normali \\ \hline
 		\texttt{vec3} & \texttt{MeshPointVec} & $\bullet$ & Vettore dei punti di contatto sulla \textit{mesh} \\ \hline
-		\texttt{vec3} & \texttt{MeshPointVec} & $\bullet$ & Vettore dei punto di contatto sul disco \\ \hline
+		\texttt{vec3} & \texttt{DiskPointVec} & $\bullet$ & Vettore dei punti di contatto sul disco \\ \hline
 		\texttt{real\_type} & \texttt{FrictionVec} & $\bullet$ & Vettore dei coefficienti di attrito locale \\ \hline
 		\texttt{real\_type} & \texttt{AreaVec} & $\bullet$ & Vettore delle aree d'intersezione \\ \hline
 		\texttt{vec3} & \texttt{Normal} & $\bullet$ & Versore del piano strada \\ \hline
@@ -249,16 +249,16 @@ Questa libreria è implementata usando la tecnica di \textit{template metaprogra
 Questa libreria nasce per il \textit{fitting} dei polinomi di Hermite di tipo $G^1$ e $G^2$ con clotoidi, \textit{spline} di clotoidi, archi circolari e \textit{biarc}. In questo lavoro di tesi la libreria \texttt{Clothoids} è stata usata per sfruttare l'implementazione dell'oggetto albero per oggetti di tipo \ac{AABB}.
 %
 \section{Utilizzo}
-La libreria \texttt{TireGround} è stata pensata per essere semplice da utilizzare. Si vedranno ora i vari passi per per utilizzarla in maniera appropriata.
+La libreria \texttt{TireGround} è stata pensata per essere semplice da utilizzare. Si vedranno ora i vari passi per utilizzarla in maniera appropriata.
 %
 \paragraph{Caricare la \textit{mesh}}
-Per caricare la superficie stradale, rappresentata dalla \textit{mesh} triangolare contenuta nel file \ac{RDF}, è sufficiente stfruttare il costruttore della classe \texttt{MeshSurface} che prende in \textit{input} l'indirizzo al file.
+Per caricare la superficie stradale, rappresentata dalla \textit{mesh} triangolare contenuta nel file \ac{RDF}, è sufficiente sfruttare il costruttore della classe \texttt{MeshSurface} che prende in \textit{input} l'indirizzo al file.
 \begin{pseudoc}
 	RDF::MeshSurface Road("./file.rdf");
 \end{pseudoc}
 %
 \paragraph{Creare lo pneumatico}
-Per creare lo pneumatico a singolo disco è suffieciente utilizzare il costruttore di \textit{default} della classe \texttt{MagicFormula}.
+Per creare lo pneumatico a singolo disco è sufficiente utilizzare il costruttore di \textit{default} della classe \texttt{MagicFormula}.
 \begin{pseudoc}
 	PatchTire::Tire* SampleTire = new PatchTire::MagicFormula(
 		SectionWidth, // Sezione laterale dello pneumatico [mm]
@@ -267,7 +267,7 @@ Per creare lo pneumatico a singolo disco è suffieciente utilizzare il costrutto
 		Threshold     // Threshold per passare dal modello di contatto ponderato in base all'area di intersezione a quello di Rill 
 		);
 \end{pseudoc}
-Nel caso invece si voglia creare unoo pneumatico a più dischi si utilizzerà uno dei costruttori della classe \texttt{MultiDisk}. Per il caso di pneumatico a più dischi con raggio uniforme si avrà:
+Nel caso invece si voglia creare uno pneumatico a più dischi si utilizzerà uno dei costruttori della classe \texttt{MultiDisk}. Per il caso di pneumatico a più dischi con raggio uniforme si avrà:
 \begin{pseudoc}
 	PatchTire::Tire* SampleTire = new PatchTire::MultiDisk(
 		SectionWidth, // Sezione laterale dello pneumatico [mm]

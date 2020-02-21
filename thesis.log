@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  21 FEB 2020 17:28
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  21 FEB 2020 20:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1993,13 +1993,7 @@ erà una \TU/AdobeCaslonPro(0)/m/it/12 mesh \TU/AdobeCaslonPro(0)/m/n/12 poligon
 ale. Quest’ultima
  []
 
-[8] [9]
-Overfull \hbox (31.94014pt too wide) in paragraph at lines 162--163
-[]\TU/AdobeCaslonPro(0)/m/n/12 Nel lavoro svolto è stato creato un algoritmo pe
-r eseguire l’analisi sintatto-grammaticale
- []
-
-[10]
+[8] [9] [10]
 File: Figures/mesh.png Graphic file (type QTm)
  <use  "Figures/mesh.png" >
 File: Figures/mesh_1.png Graphic file (type QTm)
@@ -2212,18 +2206,19 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `Optima' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-[38] [39] [40] [41] [42]
+[38] [39] [40] [41]
 Overfull \hbox (13.92337pt too wide) in paragraph at lines 598--599
 []\TU/AdobeCaslonPro(0)/m/n/12 il triangolo viene intersecato dal piano, forman
 do quindi due punti d’intersezione
  []
 
+[42]
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
-[43]
+ [43]
 Overfull \hbox (9.07133pt too wide) in paragraph at lines 669--671
 \TU/AdobeCaslonPro(0)/m/n/12 Si noti che $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 B \
 OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 A\OT1/cmr/m/n/12 )$ \TU/AdobeCaslonPro(0)/
@@ -2328,7 +2323,13 @@ Overfull \hbox (0.71599pt too wide) in paragraph at lines 221--236
 [55]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 243.
- [56] [57] [58] [59]) [60]
+
+Overfull \hbox (33.56339pt too wide) in paragraph at lines 255--256
+\TU/AdobeCaslonPro(0)/m/n/12 golare contenuta nel file [][], è sufficiente sfru
+ttare il costruttore della classe \TU/lmtt/m/n/12 MeshSurface
+ []
+
+[56] [57] [58] [59]) [60]
 \openout2 = `Chapters/conclusione.aux'.
 
  (./Chapters/conclusione.tex
@@ -3022,4 +3023,103 @@ File: refman.pdf Graphic file (type QTm)
  <use  "refman.pdf"  page85>
 File: refman.pdf Graphic file (type QTm)
 
-<
+<use  "refman.pdf"  page85> [152]
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page86>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page86>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page86> [153]
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page87>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page87>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page87> [154]
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page88>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page88>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page88> [155]
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page89>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page89>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page89> [156]
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page90>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page90>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page90> [157] [158
+
+]
+(../TireGround/tests/Geometry-test1.cc [159])
+(../TireGround/tests/Geometry-test2.cc [160]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [161])
+(../TireGround/tests/Geometry-test3.cc [162])
+(../TireGround/tests/Geometry-test4.cc)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [163]
+(../TireGround/tests/MagicFormula-test1.cc [164])
+(../TireGround/tests/MagicFormula-test2.cc [165])
+(../TireGround/tests/MultiDisk-test1.cc [166])
+(../TireGround/tests/MultiDisk-test2.cc [167]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [168]))
+[169] [170
+
+
+] [171
+
+]
+No file thesis.ind.
+[172]
+\tf@toc=\write9
+\openout9 = `thesis.toc'.
+
+\tf@lof=\write10
+\openout10 = `thesis.lof'.
+
+\tf@lot=\write11
+\openout11 = `thesis.lot'.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 215.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 215.
+ (./thesis.aux (./acronyms.aux) (./Chapters/introduzione.aux)
+(./Chapters/capitolo1.aux) (./Chapters/capitolo2.aux) (./Chapters/capitolo3.aux
+) (./Chapters/capitolo4.aux) (./Chapters/conclusione.aux)
+(./Chapters/appendici_codice.aux))
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 215.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 215.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package logreq Info: Writing requests to 'thesis.run.xml'.
+\openout1 = `thesis.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 46281 strings out of 495023
+ 883452 string characters out of 6178392
+ 1511056 words of memory out of 5000000
+ 49335 multiletter control sequences out of 15000+600000
+ 17524 words of font info for 113 fonts, out of 8000000 for 9000
+ 18 hyphenation exceptions out of 8191
+ 63i,22n,68p,10523b,5355s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on thesis.pdf (186 pages).
