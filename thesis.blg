@@ -1,20 +1,20 @@
 [0] Config.pm:354> INFO - This is Biber 2.7 (beta)
 [0] Config.pm:357> INFO - Logfile is 'thesis.blg'
-[37] biber:303> INFO - === mer feb 19, 2020, 12:18:36
-[56] Biber.pm:360> INFO - Reading 'thesis.bcf'
-[145] Biber.pm:836> INFO - Found 11 citekeys in bib section 0
-[162] Biber.pm:3671> INFO - Processing section 0
-[179] Biber.pm:3841> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
-[180] bibtex.pm:1424> INFO - Decoding LaTeX character macros into UTF-8
-[187] bibtex.pm:1281> INFO - Found BibTeX data source 'bibliography.bib'
-[188] Utils.pm:164> WARN - Possible typo (case mismatch) between datasource keys: 'Rill' and 'rill' in file 'bibliography.bib'
-[191] Utils.pm:164> WARN - Entry 'Larcher' (bibliography.bib): Invalid format 'October 23, 2019' of date field 'date' - ignoring
-[238] Utils.pm:164> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[238] Utils.pm:164> WARN - BibTeX subsystem: author, warning: comma(s) at end of name (removing)
-[262] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[262] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
-[262] Biber.pm:3500> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'it-IT'
-[262] Biber.pm:3506> INFO - No sort tailoring available for locale 'it-IT'
-[276] bbl.pm:608> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[278] bbl.pm:712> INFO - Output to thesis.bbl
-[279] Biber.pm:110> INFO - WARNINGS: 4
+[41] biber:303> INFO - === ven feb 21, 2020, 14:27:25
+[63] Biber.pm:360> INFO - Reading 'thesis.bcf'
+[214] Biber.pm:836> INFO - Found 11 citekeys in bib section 0
+[244] Biber.pm:3671> INFO - Processing section 0
+[266] Biber.pm:3841> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[268] bibtex.pm:1424> INFO - Decoding LaTeX character macros into UTF-8
+[277] bibtex.pm:1281> INFO - Found BibTeX data source 'bibliography.bib'
+[279] Utils.pm:164> WARN - Possible typo (case mismatch) between datasource keys: 'Rill' and 'rill' in file 'bibliography.bib'
+[282] Utils.pm:164> WARN - Entry 'Larcher' (bibliography.bib): Invalid format 'October 23, 2019' of date field 'date' - ignoring
+[347] Utils.pm:164> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[347] Utils.pm:164> WARN - BibTeX subsystem: author, warning: comma(s) at end of name (removing)
+[379] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[379] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[379] Biber.pm:3500> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'it-IT'
+[379] Biber.pm:3506> INFO - No sort tailoring available for locale 'it-IT'
+[402] bbl.pm:608> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[405] bbl.pm:712> INFO - Output to thesis.bbl
+[406] Biber.pm:110> INFO - WARNINGS: 4

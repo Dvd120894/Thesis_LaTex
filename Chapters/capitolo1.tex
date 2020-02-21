@@ -1,8 +1,7 @@
 \chapter{La superficie stradale}
 \label{rdf}
 %
-\section{Introduzione}
-Oltre allo pnumatico, la superfice stradale rappresenta il secondo importante elemento che definisce il contatto. Perchè una superficie stradale possa essere facilmente utilizzata da un calcolatore deve essere prima discretizzata. La discretizzazione in questo caso avviene mediante la rappresentazione della superficie stessa in una \textit{mesh} triangolare. La \textit{mesh}, è contenuta in un file formato \ac{RDF}, che contiene le posizioni $(x,y,z)$ di ogni vertice e i numeri di identificazione per ognuno dei tre vertici del triangolo, per ogni trangolo.
+Oltre allo pnumatico, la superficie stradale rappresenta il secondo importante elemento che definisce il contatto. Perchè una superficie stradale possa essere facilmente utilizzata da un calcolatore deve essere prima discretizzata. La discretizzazione in questo caso avviene mediante la rappresentazione della superficie stessa in una \textit{mesh} triangolare. La \textit{mesh}, è contenuta in un file formato \ac{RDF}, che contiene le posizioni $(x,y,z)$ di ogni vertice e i numeri di identificazione per ognuno dei tre vertici del triangolo, per ogni trangolo.
 
 È importante notare che la discretizzazione del manto stradale è un processo molto importante in quando, se campionato troppo grossolanamente potrebbe influire negativamente sui risultati dei calcoli per l'estrazione del piano strada locale. In altre parole, una semplificazione eccessiva, potrebbe causare degli errori tali da incorrere in risultati troppo approssimativi e non rispecchianti la realtà. Al contrario, una \textit{mesh} troppo fitta, aumenta inutilmente i calcoli da eseguire, dilatando quindi i tempi di esecuzione. È bene quindi discretizzare più densamente in maniera oculata e solo dove occore realmente, ovvero in prossimità di cordoli, marciapiedi o qualsiasi tipo di ostacolo che potrebbe influire sulle performance della vettura.
 
@@ -11,7 +10,7 @@ Oltre alla dimensione dei singoli elementi costituenti la \textit{mesh}, è impo
 \section{Il formato RDF}
 %
 \subsection{Superfici semplici}
-Sfortunatamente, non esistono standard universalmente riconosciuti per il formato RDF. In linea di massima le superfici stradali sono definite nei \textit{Road Data File} (\texttt{*.rdf}). Questa tipologia di file è composto da varie sezioni, indicate da parentesi quadre.
+Sfortunatamente, non esistono \textit{standard} universalmente riconosciuti per il formato RDF. In linea di massima le superfici stradali sono definite nei \textit{Road Data File} (\texttt{*.rdf}). Questa tipologia di file è composto da varie sezioni, indicate da parentesi quadre.
 
 \begin{pseudoc}
 	{ Comments section }
@@ -102,7 +101,9 @@ I parametri per ogni tipologia di superficie stradale sono elencati di seguito:
 \subsection{Superfici complesse}
 Sfortunatamente, queste informazioni appena descritte permettono di costruire strade troppo semplicistiche e approssimative, che non rispecchiano la realtà. È quindi necessario inserire i risultati della discretizzazione della superficie stradale sopra citati.
 
-Per descrivere una superficie stradale composta da una \textit{mesh} di triangoli si userà la seguente struttura dati.
+Per descrivere la superficie stradale si utilizzerà una \textit{mesh} poligonale. Quest'ultima può essere rappresentata in vari modi, utilizzando diversi metodi per memorizzare i dati dei vertici, bordi e faccie. Nel caso specifico si andrà ad utilizzare una rappresentazione del tipo faccia-vertice. Le \textit{mesh} faccia-vertice rappresentano un oggetto come un insieme di facce e un insieme di vertici. Questa rappresentazione è generalmente la più utilizzata infatti permette una ricerca esplicita dei vertici di una faccia e delle facce che circondano un vertice.
+
+Per descrivere una superficie stradale composta da una \textit{mesh} di triangoli si utilizzerà quindi la seguente struttura dati:
 \begin{itemize}
 	\item \texttt{[NODES]}: presenti nella prima sezione e dove vengono descritti sotto forma di una quartina $(id,x,y,z)$ data dal numero di identificazione e dalle coordinate nello spazio.
 	\item \texttt{[ELEMENTS]}: presenti nella seconda sezione e dove vengono descritti sotto forma di una quartina $(n_1,n_2,n_3,\mu)$ data dal numero di identificazione dei tre vertici componenti $i$-esimo triangolo e dal coefficente di attrito presente nella faccia.
@@ -154,13 +155,21 @@ Esempio:
 	0.0  0.0  1.0
 \end{pseudoc}
 %
-\section{Parsificazione}
+\section{Analisi sintatto-grammaticale del formato RDF}
 %
-\subsection{Introduzione}
-La parsificazione o analisi sintattica è un processo che analizza un flusso continuo di dati in ingresso (letti per esempio da un file o una tastiera) in modo da determinare la correttezza della sua struttura grazie ad una data grammatica formale. Un \textit{parser} è un programma che esegue questo compito. Nella maggior parte dei casi, l'analisi sintattica opera su una sequenza di \textit{token} in cui l'analizzatore lessicale spezzetta l'input.
-%
-\subsection{Parsificazione del formato RDF}
-Nel lavoro svolto è stato creato un algoritmo per parsificare i file di tipo \ac{RDF} che descrivono superfici complesse. Purtroppo, come precedentemente detto, non esiste uno standard universalmente riconosciuto per questo formato. Creare dunque un \textit{parser} o definire un generatore di \textit{parser} è arduo. Si è quindi optato per la creazione di un \textit{parser} che rilevi solo i nodi (\texttt{[NODES]}), li salvi temporaneamente e, dopo aver immagazzinato anche i dati relativi agli elementi (\texttt{[ELEMENTS]}), instanzi un oggetto \textit{mesh}, composto dai nodi dichiarati nella sezione elementi. Gli altri parametri non sono stati considerati.
+L'analisi sintatto-grammaticale è un processo che analizza un flusso continuo di dati in ingresso (letti per esempio da un file o una tastiera) in modo da determinare la correttezza della sua struttura grazie ad una data grammatica formale. Un \textit{parser} è un programma che esegue questo compito. Nella maggior parte dei casi, l'analisi sintattica opera su una sequenza di \textit{tokens} in cui l'analizzatore lessicale spezzetta l'input.
 
-Come verrà richiamato nelle conclusioni, l'importanza di definire uno standard per il formato \ac{RDF} è di cruciale importanza. In questo modo si potrà creare un generatore di \textit{parser} con una grammatica e un lessico ben definiti, nonché aumentarne l'efficienza e la stabilità.
-%
+Nel lavoro svolto è stato creato un algoritmo per eseguire l'analisi sintatto-grammaticale dei file di tipo \ac{RDF} che descrivono superfici complesse. Purtroppo, come precedentemente affermato, non esiste uno \textit{standard} universalmente riconosciuto per questo formato. Creare dunque un \textit{parser} o definire un generatore di \textit{parser} è arduo. Si è quindi optato per la creazione di un programma che rilevi solo i nodi (\texttt{[NODES]}), li salvi temporaneamente e, dopo aver immagazzinato anche i dati relativi agli elementi (\texttt{[ELEMENTS]}), istanzi un oggetto \textit{mesh}, composto dai nodi dichiarati nella sezione degli elementi. Gli altri parametri non sono stati considerati.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{Figures/mesh}
+	\caption{Esempio di superficie rappresentata tramite \textit{mesh} triangolare.}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{Figures/mesh_1}
+	\caption{Intersezione stradale rappresentata tramite \textit{mesh} triangolare.}
+\end{figure}
+
+Come verrà richiamato nelle conclusioni, l'importanza di definire uno \textit{standard} per il formato \ac{RDF} è di cruciale importanza. In questo modo si potrà creare un generatore di \textit{parser} con una grammatica e un lessico ben definiti, nonché aumentarne l'efficienza e la stabilità.
