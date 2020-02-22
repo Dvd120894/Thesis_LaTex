@@ -1,4 +1,4 @@
-\chapter{La Libreria \texttt{TireGround}}
+\chapter{La libreria \texttt{TireGround}}
 \label{Codice}
 %
 \section{Organizzazione}
@@ -8,7 +8,7 @@ Verranno ora riportate le informazioni di maggior rilievo per ognuna delle due p
 
 
 \subsection{Gestione della superficie stradale} 
-La gestione della superficie stradale avviene all'interno del \texttt{namespace RDF}. In quest'ultimo vengono raccolti alcuni tipi dichiarati con \texttt{typedef} presenti solo nel \texttt{namespace RDF}. Lo spazio dei nomi \texttt{RDF} contiene tutti le classi e la funzioni per gestire la \textit{mesh} a partire dal file in formato \ac{RDF}.
+La gestione della superficie stradale avviene all'interno del \texttt{namespace RDF}. In quest'ultimo vengono raccolti alcuni tipi dichiarati con \texttt{typedef} presenti solo nel \texttt{namespace RDF}. Lo spazio dei nomi \texttt{RDF} contiene tutti le classi e la funzioni per gestire la \textit{mesh} a partire dal \textit{file} in formato \ac{RDF}.
 %
 \paragraph{\texttt{BBox2D}}
 Questa classe contiene tutte le informazioni per definire e manipolare una \ac{BB} bidimensionale. Consiste nella descrizione geometrica dell'oggetto \ac{BB}.  I metodi più importanti di questa classe sono i seguenti.
@@ -62,10 +62,10 @@ Questa classe contiene tutte le informazioni geometriche e non geometriche per d
 \end{table}
 %
 \paragraph{\texttt{MeshSurface}}
-Questa classe contiene il vettore di puntatori di tipo \texttt{std::shared}-\texttt{\_ptr} alle istanze della classe \texttt{TriangleRoad} che vengono create durante la parsificazione del file \ac{RDF}. Inoltre, contiene il vettore di puntatori alle \ac{BB} di tipo \texttt{PtrBBox}, che è necessario per calcolare l'albero \ac{AABB}. Quest'ultimo esiste come ulteriore attributo della classe sotto forma di puntatore \texttt{PtrAABB}. I metodi più importanti di questa classe sono i seguenti.
+Questa classe contiene il vettore di puntatori di tipo \texttt{std::shared}-\texttt{\_ptr} alle istanze della classe \texttt{TriangleRoad} che vengono create durante la parsificazione del \textit{file} \ac{RDF}. Inoltre, contiene il vettore di puntatori alle \ac{BB} di tipo \texttt{PtrBBox}, che è necessario per calcolare l'albero \ac{AABB}. Quest'ultimo esiste come ulteriore attributo della classe sotto forma di puntatore \texttt{PtrAABB}. I metodi più importanti di questa classe sono i seguenti.
 \begin{itemize}
 	\item \texttt{set} $-$ Copia la \textit{mesh}.
-	\item \texttt{LoadFile} $-$ Parsifica il file dato come \textit{input} e crea le istanze \texttt{TriangleRoad} che costituiscono la \textit{mesh}.
+	\item \texttt{LoadFile} $-$ Parsifica il \textit{file} dato come \textit{input} e crea le istanze \texttt{TriangleRoad} che costituiscono la \textit{mesh}.
 	\item \texttt{updateIntersection} $-$ Interseca l'albero di tipo \ac{AABB} della \textit{mesh} con un altro albero esterno di tipo \ac{AABB} e ne restituisce il vettore dei puntatori di tipo \texttt{std::shared\_ptr} alle istanze della classe \texttt{TriangleRoad} che vengono intersecate.
 \end{itemize}
 \begin{table}[h!]
@@ -252,7 +252,7 @@ Questa libreria nasce per il \textit{fitting} dei polinomi di Hermite di tipo $G
 La libreria \texttt{TireGround} è stata pensata per essere semplice da utilizzare. Si vedranno ora i vari passi per utilizzarla in maniera appropriata.
 %
 \paragraph{Caricare la \textit{mesh}}
-Per caricare la superficie stradale, rappresentata dalla \textit{mesh} triangolare contenuta nel file \ac{RDF}, è sufficiente sfruttare il costruttore della classe \texttt{MeshSurface} che prende in \textit{input} l'indirizzo al file.
+Per caricare la superficie stradale, rappresentata dalla \textit{mesh} triangolare contenuta nel \textit{file} \ac{RDF}, è sufficiente sfruttare il costruttore della classe \texttt{MeshSurface} che prende in \textit{input} l'indirizzo al \textit{file}.
 \begin{pseudoc}
 	RDF::MeshSurface Road("./file.rdf");
 \end{pseudoc}
@@ -260,7 +260,7 @@ Per caricare la superficie stradale, rappresentata dalla \textit{mesh} triangola
 \paragraph{Creare lo pneumatico}
 Per creare lo pneumatico a singolo disco è sufficiente utilizzare il costruttore di \textit{default} della classe \texttt{MagicFormula}.
 \begin{pseudoc}
-	PatchTire::Tire* SampleTire = new PatchTire::MagicFormula(
+	TireGround::Tire* SampleTire = new TireGround::MagicFormula(
 		SectionWidth, // Sezione laterale dello pneumatico [mm]
 		AspectRatio,  // Aspect ratio percentuale dello pneumatico
 		RimDiameter,  // Diametro del cerchio [in]
@@ -269,7 +269,7 @@ Per creare lo pneumatico a singolo disco è sufficiente utilizzare il costruttor
 \end{pseudoc}
 Nel caso invece si voglia creare uno pneumatico a più dischi si utilizzerà uno dei costruttori della classe \texttt{MultiDisk}. Per il caso di pneumatico a più dischi con raggio uniforme si avrà:
 \begin{pseudoc}
-	PatchTire::Tire* SampleTire = new PatchTire::MultiDisk(
+	TireGround::Tire* SampleTire = new TireGround::MultiDisk(
 		SectionWidth, // Sezione laterale dello pneumatico [mm]
 		AspectRatio,  // Aspect ratio percentuale dello pneumatico
 		RimDiameter,  // Diametro del cerchio [in]
@@ -280,7 +280,7 @@ Nel caso invece si voglia creare uno pneumatico a più dischi si utilizzerà uno
 \end{pseudoc}
 Nel caso di pneumatico a più dischi con raggio di raccordo sulla spalla si avrà invece:
 \begin{pseudoc}
-	PatchTire::Tire* SampleTire = new PatchTire::MultiDisk(
+	TireGround::Tire* SampleTire = new TireGround::MultiDisk(
 		SectionWidth, // Sezione laterale dello pneumatico [mm]
 		AspectRatio,  // Aspect ratio percentuale dello pneumatico
 		RimDiameter,  // Diametro del cerchio [in]
@@ -292,7 +292,7 @@ Nel caso di pneumatico a più dischi con raggio di raccordo sulla spalla si avr�
 \end{pseudoc}
 Infine, nel caso si voglia creare uno pneumatico a più dischi con forma personalizzata:
 \begin{pseudoc}
-	PatchTire::Tire* SampleTire = new PatchTire::MultiDisk(
+	TireGround::Tire* SampleTire = new TireGround::MultiDisk(
 		SectionWidth, // Sezione laterale dello pneumatico [mm]
 		AspectRatio,  // Aspect ratio percentuale dello pneumatico
 		RimDiameter,  // Diametro del cerchio [in]
@@ -313,31 +313,29 @@ bool Out = TireMD->setup(
 Per estrarre i risultati si andranno dapprima a inizializzazione delle variabili reali o vettoriali come segue.
 \begin{pseudoc}
 	// Inizializzazione delle variabili
-	PatchTire::vec3 N;
-	PatchTire::vec3 P;
-	PatchTire::real_type Friction;
-	PatchTire::real_type Rho;
-	PatchTire::real_type RhoDot;
-	PatchTire::real_type RelativeCamber;
-	PatchTire::real_type Friction;
-	PatchTire::real_type Area;
-	PatchTire::real_type Volume;
-	PatchTire::real_type RelativeCamber;
+	TireGround::vec3 N;
+	TireGround::vec3 P;
+	TireGround::real_type Friction;
+	TireGround::real_type Rho;
+	TireGround::real_type RhoDot;
+	TireGround::real_type RelativeCamber;
+	TireGround::real_type Area;
+	TireGround::real_type Volume;
+	TireGround::real_type RelativeCamber;
 	
 	// Estrazione della dimensione appropriata della struttura dati
-	PatchTire::int_type size = TireSD->getDisksNumber();
+	TireGround::int_type size = TireSD->getDisksNumber();
 	
 	// Inizializzazione dei vettori con dimensione appropriata
-	PatchTire::row_vec3 NVec(size);
-	PatchTire::row_vec3 PVec(size);
-	PatchTire::row_vecN FrictionVec(size);
-	PatchTire::row_vecN RhoVec(size);
-	PatchTire::row_vecN RhoDotVec(size);
-	PatchTire::row_vecN RelativeCamberVec(size);
-	PatchTire::row_vecN FrictionVec(size);
-	PatchTire::row_vecN AreaVec(size);
-	PatchTire::row_vecN VolumeVec(size);
-	PatchTire::row_vecN RelativeCamberVec(size);
+	TireGround::row_vec3 NVec(size);
+	TireGround::row_vec3 PVec(size);
+	TireGround::row_vecN FrictionVec(size);
+	TireGround::row_vecN RhoVec(size);
+	TireGround::row_vecN RhoDotVec(size);
+	TireGround::row_vecN RelativeCamberVec(size);
+	TireGround::row_vecN AreaVec(size);
+	TireGround::row_vecN VolumeVec(size);
+	TireGround::row_vecN RelativeCamberVec(size);
 \end{pseudoc}
 Successivamente verranno modificate dai metodi della classe \texttt{Tire} come:
 \begin{pseudoc}
@@ -369,16 +367,18 @@ Nel caso in cui la variabile booleana in \textit{output} dal metodo \texttt{setu
 %
 \paragraph{Pneumatico fuori \textit{mesh}} Se, oltre alla condizione sulla variabile booleana in \textit{output}, la lista di triangoli intersecati dall'ombra dello pneumatico è vuota. Per effettuare questo test si può intersecare l'albero della \textit{mesh} con l'albero a una foglia di dell'ombra dello pneumatico.
 \begin{pseudoc}
-	bool List = Road.intersectAABBtree(SampleTire.getAABBtree());
+	RDF::TriangleRoad_list TrianglesList;
+	bool List = Road.intersectAABBtree(TireSD->getAABBtree(), TrianglesList);
 \end{pseudoc}
-Se la variabile booleana in \textit{output} dal metodo \texttt{intersectAABBtree} è falsa allora la lista è vuota e lo pneumatico sarà quindi considerato fuori dalla superficie stradale descritta nel file \ac{RDF}.
+Se la variabile booleana in \textit{output} dal metodo \texttt{intersectAABBtree} è falsa allora la lista è vuota e lo pneumatico sarà quindi considerato fuori dalla superficie stradale descritta nel \textit{file} \ac{RDF}.
 %
 \paragraph{Pneumatico in volo}
 Se, oltre alla condizione sulla variabile booleana in \textit{output}, la lista di triangoli intersecati dall'ombra dello pneumatico non è vuota. Per effettuare questo test si può intersecare l'albero della \textit{mesh} con l'albero a una foglia di dell'ombra dello pneumatico. I parametri d'intersezione vanno settati dall'esterno della libreria \texttt{TireGround} a seconda della morfologia del terreno fuori dalla \textit{mesh}.
 \begin{pseudoc}
-	bool List = Road.intersectAABBtree(SampleTire.getAABBtree());
+	RDF::TriangleRoad_list TrianglesList;
+	bool List = Road.intersectAABBtree(TireSD->getAABBtree(), TrianglesList);
 \end{pseudoc}
-Se la variabile booleana in \textit{output} dal metodo \texttt{intersectAABBtree} è vera allora la lista non è vuota e lo pneumatico sarà quindi considerato in volo sopra la superficie stradale descritta nel file \ac{RDF}. In questo caso i parametri d'intersezione vanno settati come intersezione nulla.
+Se la variabile booleana in \textit{output} dal metodo \texttt{intersectAABBtree} è vera allora la lista non è vuota e lo pneumatico sarà quindi considerato in volo sopra la superficie stradale descritta nel \textit{file} \ac{RDF}. In questo caso i parametri d'intersezione vanno settati come intersezione nulla.
 %
 \section{Prestazioni}
 Testando il modello sul simulatore è stato possibile valutare la sua complessità computazionale. Le specifiche tecniche di questo simulatore sono:

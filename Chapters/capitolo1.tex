@@ -157,7 +157,7 @@ Esempio:
 %
 \section{Analisi sintattico-grammaticale del formato RDF}
 %
-L'analisi sintattico-grammaticale è un processo che analizza un flusso continuo di dati in ingresso (letti per esempio da un \textit{file} o una tastiera) in modo da determinare la correttezza della sua struttura grazie ad una data grammatica formale. Un \textit{parser} è un programma che esegue questo compito. Nella maggior parte dei casi, l'analisi sintattica opera su una sequenza di \textit{tokens} in cui l'analizzatore lessicale spezzetta l'input.
+L'analisi sintattico-grammaticale è un processo che analizza un flusso continuo di dati in ingresso (letti per esempio da un \textit{file} o una tastiera) in modo da determinare la correttezza della sua struttura grazie ad una data grammatica formale. Un \textit{parser} è un programma che esegue questo compito. Nella maggior parte dei casi, l'analisi sintattica opera su una sequenza di \textit{tokens} in cui l'analizzatore lessicale spezzetta l'\textit{input}.
 
 Nel lavoro svolto è stato creato un algoritmo per eseguire l'analisi sintattico-grammaticale dei \textit{file} di tipo \ac{RDF} che descrivono superfici complesse. Purtroppo, come precedentemente affermato, non esiste uno \textit{standard} universalmente riconosciuto per questo formato. Creare dunque un \textit{parser} o definire un generatore di \textit{parser} è arduo. Si è quindi optato per la creazione di un programma che rilevi solo i nodi (\texttt{[NODES]}), li salvi temporaneamente e, dopo aver immagazzinato anche i dati relativi agli elementi (\texttt{[ELEMENTS]}), istanzi un oggetto \textit{mesh}, composto dai nodi dichiarati nella sezione degli elementi. Gli altri parametri non sono stati considerati.
 

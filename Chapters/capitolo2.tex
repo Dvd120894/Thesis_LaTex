@@ -63,7 +63,7 @@ La prima tipologia di modello tenta di rappresentare le caratteristiche fisiche 
 Il modello di pneumatico sviluppato nel modello di veicolo e il tipo di interfaccia di pneumatico/strada presentato da \citeauthor{Larcher} in \cite{Larcher} si basa sulla \textit{Magic Formula} 6.2.
 %
 \subsection{Il modello di Pacejka}
-Uno dei modelli di pneumatici più utilizzati è il cosiddetto modello \textit{Magic Formula} sviluppato da \citeauthor{bakker} in \cite{bakker}. Questo modello è stato poi rivisto e l'ultima versione è riportata in \cite{hans}. Il modello \textit{Magic Formula} consiste in una pura descrizione matematica del rapporto input-output del contatto pneumatico/strada. Questa formulazione collega le variabili di forza con lo slip rigido del corpo che vengono trattati nelle sezioni successive. La forma generale della funzione di descrizione può essere scritta come:
+Uno dei modelli di pneumatici più utilizzati è il cosiddetto modello \textit{Magic Formula} sviluppato da \citeauthor{bakker} in \cite{bakker}. Questo modello è stato poi rivisto e l'ultima versione è riportata in \cite{hans}. Il modello \textit{Magic Formula} consiste in una pura descrizione matematica del rapporto \textit{input-output} del contatto pneumatico/strada. Questa formulazione collega le variabili di forza con lo slip rigido del corpo che vengono trattati nelle sezioni successive. La forma generale della funzione di descrizione può essere scritta come:
 %
 \begin{equation}
 y(x) = D\sin\{C\arctan[B(x + S_h ) - E(B(x + S_h ) - \arctan(B(x + S_h )))]\} + S_v
@@ -220,9 +220,41 @@ Come illustrato in \figurename{ \ref{localplane}}, il punto di contatto sul pian
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.6\linewidth]{Figures/local_plane_PL}
-	\includegraphics[width=0.6\linewidth]{Figures/local_plane_MF}
-	\caption{Punti di contatto $P_{PL}$ e $P_{MF}$ in relazione alla normale $\textbf{\textit{e}}_{n_{XZ}}$.}
+	\hfill
+	\begin{subfigure}{.49\textwidth}
+		\centering
+		\begin{tikzpicture}
+		\def\axisl{3};
+		\def\zd{1.9};
+		\draw[thick, fill=gray!10] (0,0) circle (2);
+		\draw[-stealth] (-\axisl,0) -- (\axisl,0) node[below]{$x_C$};
+		\draw[-stealth] (0,-\axisl) -- (0,\axisl) node[left]{$z_C$};
+		\draw[] (-2.5,-1)  -- (-1,-1.2) -- (1,-1.1) -- (2.5,-0.8) node[below]{\textit{Mesh}};
+		\draw[fill] (2.5,-0.8);
+		\draw[-stealth] (0,0) node[below left]{$\textbf{\textit{e}}_{n_{XZ}}$} -- (0.3,-0.7)  ;
+		\draw[dashed] (0.3,-0.7) -- (0.3*2.64,-0.7*2.64)  ;
+		\draw[fill] (0.3*2.64,-0.7*2.64) circle [radius=1pt] node[below right]{$P_{MF}$};
+		\draw[fill] (0.3*1.6,-0.7*1.6) circle [radius=1pt] node[above right]{$P_{PL}$};
+		\end{tikzpicture}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{.49\textwidth}
+		\begin{tikzpicture}
+		\def\axisl{3};
+		\def\zd{1.9};
+		\draw[thick, fill=gray!10] (0,0) circle (2);
+		\draw[-stealth] (-\axisl,0) -- (\axisl,0) node[below]{$x_C$};
+		\draw[-stealth] (0,-\axisl) -- (0,\axisl) node[left]{$z_C$};
+		\draw[] (-3,-1.2) -- (3,-1.1) node[below]{Piano locale};
+		\draw[fill] (2.5,-0.8);
+		\draw[-stealth] (0,0) node[below left]{$\textbf{\textit{e}}_{n_{XZ}}$} -- (0.3,-0.7)  ;
+		\draw[dashed] (0.3,-0.7) -- (0.3*2.64,-0.7*2.64)  ;
+		\draw[fill] (0.3*2.64,-0.7*2.64) circle [radius=1pt] node[below right]{$P_{MF}$};
+		\draw[fill] (0.3*1.63,-0.7*1.63) circle [radius=1pt] node[above right]{$P_{PL}$};
+		\end{tikzpicture}
+	\end{subfigure}
+	\hfill
+	\caption{Punti di contatto $P_{PL}$ e $P_{MF}$ in relazione alla normale $\textbf{\textit{e}}_{n_{XZ}}$ e al tipo di terreno.}
 	\label{localplane}
 \end{figure}
 
@@ -258,16 +290,12 @@ Alternativamente a quello appena visto, si può utilizzare un modello di contatt
 	\begin{tikzpicture}
 	\def\axisl{3};
 	\def\zd{1.9};
+	\draw[thick, fill=gray!10] (0,0) circle (2);
 	\draw[-stealth] (-\axisl,0) -- (\axisl,0) node[below]{$x_C$};
 	\draw[-stealth] (0,-\axisl) -- (0,\axisl) node[left]{$z_C$};
-	\draw[thick] (0,0) circle (2);
-	
-	\draw[] (-1,-0.8) node[above]{$A$} --  (1,-1.1) node[above]{$B$};
-	\draw[dashed] (-1,-0.8) --  (-1,-2*0.866) node[below]{$A'$};
-	\draw[dashed] (1,-1.1) --  (1,-2*0.866) node[below]{$B'$};
-	
-	\draw[] (-1,-0.8)  --  (-2.5,-1.1);
-	\draw[] (1,-1.1)  --  (2.5,-1.1) node[below]{\textit{Mesh}};	
+	\draw[fill] (-1,-0.8) circle [radius=1pt] node[above]{$A$} --  (1,-1.1) circle [radius=1pt] node[above]{$B$};
+	\draw[dashed, fill] (-1,-0.8) --  (-1,-2*0.866) circle [radius=1pt] node[below]{$A'$};
+	\draw[dashed, fill] (1,-1.1) --  (1,-2*0.866) circle [radius=1pt] node[below]{$B'$};	
 	\end{tikzpicture}
 	\caption{Dato un generico triangolo che, intersecando il piano in cui giace il disco, crea il segmento dato dai punti $A$ e $B$. L'area di intersezione associata al triangolo è l'area della regione racchiusa dai segmenti $B'B$, $AB$, $AA'$ e dall'arco di circonferenza $A'B'$.}
 \end{figure}
@@ -276,13 +304,16 @@ Alternativamente a quello appena visto, si può utilizzare un modello di contatt
 	\begin{tikzpicture}
 	\def\axisl{3};
 	\def\zd{1.9};
+	\draw[thick, fill=gray!10] (0,0) circle (2);
 	\draw[-stealth] (-\axisl,0) -- (\axisl,0) node[below]{$x_C$};
 	\draw[-stealth] (0,-\axisl) -- (0,\axisl) node[left]{$z_C$};
-	\draw[thick] (0,0) circle (2);
-	
-	\draw[] (-2.5,-1) -- (-1,-0.8) --  (0,-1.1) -- (1,-0.7) -- (2.5,-0.8) node[below]{\textit{Mesh}};
-	\draw[dashed] (-1,-0.8) --  (-1,-2*0.866);
-	\draw[dashed] (1,-0.7) --  (1,-2*0.866);
+	\draw[] (-2.5,-1)  -- (-1,-0.8) --  (0,-1.1) -- (1,-0.7) -- (2.5,-0.8) node[below]{\textit{Mesh}};
+	\draw[fill] (0,-1.1) circle [radius=1pt];
+	\draw[fill] (0,-2) circle [radius=1pt];
+	\draw[fill] (-1.78,-0.9) circle [radius=1pt];
+	\draw[fill] (1.85,-0.76) circle [radius=1pt];
+	\draw[dashed, fill] (-1,-0.8)  circle [radius=1pt] --  (-1,-2*0.866)  circle [radius=1pt];
+	\draw[dashed, fill] (1,-0.7)  circle [radius=1pt] --  (1,-2*0.866)  circle [radius=1pt];
 	\draw[]  (1.35,-0.8) node[below]{$D$};
 	\draw[]  (0.5,-1.2) node[below]{$C$};
 	\draw[]  (-0.5,-1.2) node[below]{$B$};
@@ -541,23 +572,19 @@ Nel caso in cui la densità della \textit{mesh} sia troppo alta, effettuare il c
 
 \begin{figure}
 	\centering
-		\begin{tikzpicture}
+	\begin{tikzpicture}
 	\def\axisl{3};
 	\def\zd{3.5};
+	\draw[thick, fill=gray!10] (0,0) circle (2);
 	\draw[-stealth] (-\axisl,0) -- (\axisl,0) node[below]{$x_C$};
 	\draw[-stealth] (0,-\axisl) -- (0,\axisl) node[left]{$z_C$};
-	\draw[thick] (0,0) circle (2);
-	
-	\draw[-stealth] (-1.75,0) -- (-1.75,-\axisl/\zd);
-	\draw[-stealth] (-1.25,0) --  (-1.25,-\axisl/\zd);
-	\draw[-stealth] (-0.75,0) --  (-0.75,-\axisl/\zd);
-	\draw[-stealth] (-0.25,0) -- (-0.25,-\axisl/\zd);
-	\draw[-stealth] (0.25,0) -- (0.25,-\axisl/\zd);
-	\draw[-stealth] (0.75,0) node[above]{Raggi}-- (0.75,-\axisl/\zd);
-	\draw[-stealth] (1.25,0) -- (1.25,-\axisl/\zd);
-	\draw[-stealth] (1.75,0) -- (1.75,-\axisl/\zd);
-
-	
+	\draw[-stealth] (-2,0) -- (-2,-1.26) node[]{\tiny$\times$};
+	\draw[-stealth] (2,0) -- (2,-1.32) node[]{\tiny$\times$};
+	\draw[-stealth] (-2*2/3,0) -- (-2*2/3,-1.16) node[]{\tiny$\times$};
+	\draw[-stealth] (2*2/3,0) -- (2*2/3,-1.38) node[]{\tiny$\times$};
+	\draw[-stealth] (-2/3,0) -- (-2/3,-1.16) node[]{\tiny$\times$};
+	\draw[-stealth] (2/3,0) node[above]{Raggi} -- (2/3,-1.35) node[]{\tiny$\times$};
+	\draw[-stealth] (0,0) -- (0,-1.26) node[]{\tiny$\times$};
 	\draw[] (-2.3,-1.3) -- (-1,-1.1) --  (1,-1.4) -- (2.3,-1.3) node[below]{\textit{Mesh}};
 	\end{tikzpicture}
 	\caption{Campionamento della \textit{mesh} triangolare in corrispondenza del piano in cui giace l'$i$-esimo disco. I raggi partono dall'asse $x_C$ in direzione $z_C$.}

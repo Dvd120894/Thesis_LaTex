@@ -46,15 +46,15 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.2}Modello di pneumatico a più dischi}{24}{subsection.3.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.3.2.1}Contatto ponderato in base all'area d'intersezione}{25}{subsubsection.3.3.2.1}
+\contentsline {subsubsection}{\numberline {3.3.2.1}Contatto ponderato in base all'area d'intersezione}{24}{subsubsection.3.3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Piano locale}{25}{section*.24}
+\contentsline {paragraph}{Piano locale}{24}{section*.24}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Punti di contatto}{26}{section*.26}
+\contentsline {paragraph}{Punti di contatto}{27}{section*.26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.3.2.2}Contatto tramite campionamento}{26}{subsubsection.3.3.2.2}
+\contentsline {subsubsection}{\numberline {3.3.2.2}Contatto tramite campionamento}{27}{subsubsection.3.3.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Piano locale}{26}{section*.27}
+\contentsline {paragraph}{Piano locale}{27}{section*.27}
 \defcounter {refsection}{0}\relax 
 \contentsline {paragraph}{Punti di contatto}{27}{section*.29}
 \defcounter {refsection}{0}\relax 
@@ -92,7 +92,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {4.2.2.7}Raggio-Triangolo}{43}{subsubsection.4.2.2.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {5}La Libreria \texttt {TireGround}}{49}{chapter.5}
+\contentsline {chapter}{\chapternumberline {5}La libreria \texttt {TireGround}}{49}{chapter.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.1}Organizzazione}{49}{section.5.1}
 \defcounter {refsection}{0}\relax 
@@ -138,7 +138,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {paragraph}{Casi particolari}{59}{section*.85}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Pneumatico fuori \textit {mesh}}{60}{section*.86}
+\contentsline {paragraph}{Pneumatico fuori \textit {mesh}}{59}{section*.86}
 \defcounter {refsection}{0}\relax 
 \contentsline {paragraph}{Pneumatico in volo}{60}{section*.87}
 \defcounter {refsection}{0}\relax 
@@ -146,17 +146,17 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\chapternumberline {6}Conclusioni e Lavoro Futuro}{61}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {appendix}{\chapternumberline {A}Convenzioni e Notazioni}{63}{appendix.Alph1}
+\contentsline {appendix}{\chapternumberline {A}Convenzioni e notazioni}{63}{appendix.Alph1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.0.1}Sistemi di Riferimento}{63}{subsection.Alph1.0.1}
+\contentsline {subsection}{\numberline {A.0.1}Sistemi di riferimento}{63}{subsection.Alph1.0.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.0.2}Matrice di Trasformazione}{64}{subsection.Alph1.0.2}
+\contentsline {subsection}{\numberline {A.0.2}Matrice di trasformazione}{64}{subsection.Alph1.0.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {appendix}{\chapternumberline {B}Documentazione della libreria \texttt {TireGround}}{67}{appendix.Alph2}
 \defcounter {refsection}{0}\relax 
-\contentsline {appendix}{\chapternumberline {C}Codice dei Tests}{159}{appendix.Alph3}
+\contentsline {appendix}{\chapternumberline {C}Codice dei test}{159}{appendix.Alph3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C.1}Tests Geometrici}{159}{section.Alph3.1}
+\contentsline {section}{\numberline {C.1}Test geometrici}{159}{section.Alph3.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {C.1.1}Geometry-test1.cc}{159}{subsection.Alph3.1.1}
 \defcounter {refsection}{0}\relax 
@@ -166,13 +166,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {C.1.4}Geometry-test4.cc}{163}{subsection.Alph3.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C.2}Tests per il Modello a Singolo Disco}{164}{section.Alph3.2}
+\contentsline {section}{\numberline {C.2}Tests per il modello a singolo disco}{164}{section.Alph3.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {C.2.1}MagicFormula-test1.cc}{164}{subsection.Alph3.2.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {C.2.2}MagicFormula-test2.cc}{165}{subsection.Alph3.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C.3}Tests per il Modello a più Dischi}{166}{section.Alph3.3}
+\contentsline {section}{\numberline {C.3}Tests per il modello a più dischi}{166}{section.Alph3.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {C.3.1}MultiDisk-test1.cc}{166}{subsection.Alph3.3.1}
 \defcounter {refsection}{0}\relax 

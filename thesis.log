@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  21 FEB 2020 20:17
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  22 FEB 2020 13:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2044,20 +2044,25 @@ File: Figures/local_track.png Graphic file (type QTm)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [19] [20]
-File: Figures/local_plane_PL.png Graphic file (type QTm)
- <use  "Figures/local_plane_PL.png" >
-File: Figures/local_plane_MF.png Graphic file (type QTm)
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
 
-<use  "Figures/local_plane_MF.png" >
-Overfull \vbox (21.4681pt too high) detected at line 235
+Overfull \hbox (10.14786pt too wide) in paragraph at lines 254--255
+[][] 
  []
 
 
-Overfull \vbox (21.4681pt too high) detected at line 235
+Overfull \vbox (21.4681pt too high) detected at line 267
  []
 
 
-Overfull \vbox (21.4681pt too high) detected at line 235
+Overfull \vbox (21.4681pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (21.4681pt too high) detected at line 267
  []
 
 [21]
@@ -2066,7 +2071,7 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Package acronym Info: Label `acro:BB' newly defined as it shall be overridden
-although it is yet undefined on input line 307.
+although it is yet undefined on input line 338.
  [22] [23]
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
@@ -2090,16 +2095,12 @@ Missing character: There is no ; in font nullfont!
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[24]
-Underfull \vbox (badness 2359) has occurred while \output is active []
-
- [25]
+[24] [25]
 Missing character: There is no ; in font nullfont!
-
-[26]
+ [26]
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
-) [27] [28]
+ [27]) [28]
 \openout2 = `Chapters/capitolo3.aux'.
 
  (./Chapters/capitolo3.tex
@@ -2324,9 +2325,10 @@ Overfull \hbox (0.71599pt too wide) in paragraph at lines 221--236
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 243.
 
-Overfull \hbox (33.56339pt too wide) in paragraph at lines 255--256
-\TU/AdobeCaslonPro(0)/m/n/12 golare contenuta nel file [][], è sufficiente sfru
-ttare il costruttore della classe \TU/lmtt/m/n/12 MeshSurface
+Overfull \hbox (32.27939pt too wide) in paragraph at lines 255--256
+\TU/AdobeCaslonPro(0)/m/n/12 golare contenuta nel \TU/AdobeCaslonPro(0)/m/it/12
+ file [][]\TU/AdobeCaslonPro(0)/m/n/12 , è sufficiente sfruttare il costruttore
+ della classe \TU/lmtt/m/n/12 MeshSurface
  []
 
 [56] [57] [58] [59]) [60]
@@ -2335,14 +2337,14 @@ ttare il costruttore della classe \TU/lmtt/m/n/12 MeshSurface
  (./Chapters/conclusione.tex
 File: Figures/brush_model.png Graphic file (type QTm)
 
-<use  "Figures/brush_model.png" >)
-Underfull \vbox (badness 10000) has occurred while \output is active []
+<use  "Figures/brush_model.png" >
+Underfull \vbox (badness 4846) has occurred while \output is active []
 
  [61
 
 
 
-]
+])
 [62]
 \openout2 = `Chapters/appendici_codice.aux'.
 
@@ -3114,10 +3116,10 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46281 strings out of 495023
- 883452 string characters out of 6178392
- 1511056 words of memory out of 5000000
- 49335 multiletter control sequences out of 15000+600000
+ 46289 strings out of 495023
+ 883582 string characters out of 6178392
+ 1511096 words of memory out of 5000000
+ 49345 multiletter control sequences out of 15000+600000
  17524 words of font info for 113 fonts, out of 8000000 for 9000
  18 hyphenation exceptions out of 8191
  63i,22n,68p,10523b,5355s stack positions out of 5000i,500n,10000p,200000b,80000s
