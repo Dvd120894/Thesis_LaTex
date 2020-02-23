@@ -26,15 +26,15 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Punti di contatto $P_{PL}$ e $P_{MF}$ in relazione alla normale $\textbf {\textit {e}}_{n_{XZ}}$ e al tipo di terreno.\relax }}{21}{figure.caption.15}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Dato un generico triangolo che, intersecando il piano in cui giace il disco, crea il segmento dato dai punti $A$ e $B$. L'area di intersezione associata al triangolo è l'area della regione racchiusa dai segmenti $B'B$, $AB$, $AA'$ e dall'arco di circonferenza $A'B'$.\relax }}{23}{figure.caption.17}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Dato un generico triangolo che, intersecando il piano in cui giace il disco, crea il segmento dato dai punti $A$ e $B$, l'area di intersezione è la regione racchiusa dai segmenti $B'B$, $AB$, $AA'$ e dall'arco di circonferenza $A'B'$.\relax }}{22}{figure.caption.17}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.8}{\ignorespaces I versori normali $\mathaccentV {vec}17E{N}_A$, $\mathaccentV {vec}17E{N}_B$, $\mathaccentV {vec}17E{N}_C$ e $\mathaccentV {vec}17E{N}_D$ vengono pesati per l'area delle rispettive regioni d'intersezione $A$, $B$, $C$ e $D$.\relax }}{23}{figure.caption.18}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces I versori normali $\mathaccentV {vec}17E{N}_A$, $\mathaccentV {vec}17E{N}_B$, $\mathaccentV {vec}17E{N}_C$ e $\mathaccentV {vec}17E{N}_D$ vengono ponderati in base all'area delle rispettive regioni d'intersezione $A$, $B$, $C$ e $D$.\relax }}{23}{figure.caption.18}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Disposizione dei dischi.\relax }}{25}{figure.caption.21}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Disposizione dei dischi.\relax }}{24}{figure.caption.21}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.10}{\ignorespaces Pneumatico rappresentato da dischi a raggio uniforme. Notare il disco fittizio giacente sul piano $XZ$ in linea tratteggiata.\relax }}{25}{figure.caption.22}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Momento creato dalla morfologia del terreno.\relax }}{26}{figure.caption.23}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Momento creato dalla morfologia del terreno.\relax }}{25}{figure.caption.23}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.12}{\ignorespaces Normali associate ai vari dischi dello pneumatico.\relax }}{26}{figure.caption.25}
 \defcounter {refsection}{0}\relax 
@@ -42,11 +42,11 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Esempio di albero di tipo AABB.\relax }}{31}{figure.caption.33}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Esempio di albero di tipo AABB.\relax }}{30}{figure.caption.33}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Schema del problema di intersezione punto-segmento\relax }}{34}{figure.caption.40}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Schemi per l'\textit {output} dell'intersezione punto-segmento.\relax }}{35}{figure.caption.41}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Schemi per l'\textit {output} dell'intersezione punto-segmento.\relax }}{34}{figure.caption.41}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Schema del codice per l'intersezione punto-segmento.\relax }}{35}{figure.caption.42}
 \defcounter {refsection}{0}\relax 
@@ -60,9 +60,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.9}{\ignorespaces Schemi per l'\textit {output} dell'intersezione segmento-cerchio.\relax }}{38}{figure.caption.47}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Schema per del codice per l'intersezione segmento-cerchio.\relax }}{39}{figure.caption.48}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Schema per del codice per l'intersezione segmento-cerchio.\relax }}{38}{figure.caption.48}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Schemi del problema di intersezione piano-piano.\relax }}{40}{figure.caption.49}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Schemi del problema di intersezione piano-piano.\relax }}{39}{figure.caption.49}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.12}{\ignorespaces Vettori dei piani $P_1$, $P_2$ e della retta $L$.\relax }}{40}{figure.caption.50}
 \defcounter {refsection}{0}\relax 
@@ -70,15 +70,15 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.14}{\ignorespaces Vettori dei piani $P_1$, $P_2$ e della retta $L$.\relax }}{42}{figure.caption.52}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Schema per del codice per l'intersezione piano-segmento.\relax }}{43}{figure.caption.53}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Schema per del codice per l'intersezione piano-segmento.\relax }}{42}{figure.caption.53}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.16}{\ignorespaces Schema per del codice per l'intersezione piano-triangolo.\relax }}{43}{figure.caption.54}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Schema del problema di intersezione raggio-triangolo.\relax }}{44}{figure.caption.55}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Schema del problema di intersezione raggio-triangolo.\relax }}{43}{figure.caption.55}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.18}{\ignorespaces Cambiamento di coordinate nell'algoritmo di M\"oller-Trumbore.\relax }}{45}{figure.caption.56}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Schemi per l'\textit {output} dell'intersezione punto-cerchio.\relax }}{47}{figure.caption.57}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Schemi per l'\textit {output} dell'intersezione punto-cerchio.\relax }}{46}{figure.caption.57}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.20}{\ignorespaces Schema per del codice per l'intersezione raggio-triangolo con \textit {back-face culling}.\relax }}{47}{figure.caption.58}
 \defcounter {refsection}{0}\relax 

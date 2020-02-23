@@ -3,17 +3,17 @@
 %
 \section{Struttura ad albero di tipo "\textit{Bounding Volume Hierarchy}"}
 %
-Una \ac{BVH} è una struttura ad albero su un insieme di oggetti geometrici. Tutti gli oggetti geometrici sono raccolti in volumi limite che formano i nodi fogliari dell'albero. Questi nodi vengono quindi raggruppati come piccoli insiemi e racchiusi in volumi di delimitazione più grandi. Questi, a loro volta, sono ancora raggruppati e racchiusi in altri volumi di delimitazione più grandi in modo ricorsivo, risultando infine in una struttura ad albero con un singolo volume di delimitazione nella parte superiore dell'albero. Le gerarchie di volumi limitanti vengono utilizzate per supportare in modo efficiente diverse operazioni su insiemi di oggetti geometrici, come ad esempio il rilevamento delle collisioni.
+Una \ac{BVH} è una struttura ad albero su un insieme di oggetti geometrici. Tutti gli oggetti geometrici sono raccolti in volumi limite che formano i nodi fogliari dell'albero. Questi nodi vengono quindi raggruppati come piccoli insiemi e racchiusi in volumi di delimitazione più grandi. Questi, a loro volta, sono ancora raggruppati e racchiusi in altri volumi di delimitazione più grandi in modo ricorsivo, risultando infine in una struttura ad albero con un singolo volume di delimitazione nella parte superiore dell'albero. Le strutture \ac{BVH} vengono utilizzate per supportare in modo efficiente diverse operazioni su insiemi di oggetti geometrici, come ad esempio il rilevamento delle collisioni.
 
-Sebbene il confinamento degli oggetti nei volumi di delimitazione e l'esecuzione di test di collisione su di essi prima del test della geometria dell'oggetto stesso semplifichino i test e possano comportare miglioramenti significativi delle prestazioni, è ancora in corso lo stesso numero di test a coppie tra volumi di delimitazione. Organizzando i volumi di delimitazione in una gerarchia di volumi di delimitazione, la complessità temporale (il numero di test eseguiti) può essere ridotta logaritmicamente nel numero di oggetti. Con una tale gerarchia in atto, durante i test di collisione, i volumi secondari non devono essere esaminati se i loro volumi principali non sono intersecati.
+Il confinamento degli oggetti nei volumi di delimitazione e l'esecuzione di test di collisione su di essi, prima di effettuare il test della geometria dell'oggetto stesso, comporta una semplificazione del problema e un miglioramenti significativi delle prestazioni. Organizzando i volumi di delimitazione in una strutture \ac{BVH}, la complessità temporale (il numero di test eseguiti) può essere ridotta logaritmicamente nel numero di oggetti. Con una tale struttura, durante i test di collisione, i volumi secondari non devono essere esaminati se i loro volumi principali non sono intersecati.
 %
 \subsection{Struttura di tipo "\textit{Minimum Bounding Box}"}
-In geometria, il rettangolo minimo o più piccolo (o \ac{MBB}) per racchiudere un insieme di punti $S$ in $N$ dimensioni è l'rettangolo con la misura più piccola (area, volume o iper-volume in dimensioni superiori) all'interno del quale si trovano tutti i punti.  Il termine iper-rettangolo (o più semplicemente \textit{box}) deriva dal suo utilizzo nel sistema di coordinate cartesiane, dove viene effettivamente visualizzato come un rettangolo (caso bidimensionale), parallelepipedo rettangolare (caso tridimensionale), ecc. Nel caso bidimensionale viene chiamato rettangolo di delimitazione minimo.
+In geometria, il rettangolo minimo o più piccolo (o \ac{MBB}) per racchiudere un insieme di punti $S$ in $N$ dimensioni è il rettangolo con la misura più piccola (area, volume o iper-volume in dimensioni superiori) all'interno del quale si trovano tutti i punti.  Il termine iper-rettangolo (o più semplicemente \textit{box}) deriva dal suo utilizzo nel sistema di coordinate cartesiane, dove viene effettivamente visualizzato come un rettangolo (caso bidimensionale), parallelepipedo rettangolare (caso tridimensionale), ecc. Nel caso bidimensionale viene chiamato rettangolo di delimitazione minimo.
 %
 \subsubsection{Struttura di tipo "\textit{Axis Aligned Bounding Box}"}
 Il \ac{MBB} allineato agli assi (\ac{AABB}) per un determinato set di punti è il rettangolo di delimitazione minimo soggetto al vincolo che i bordi del rettangolo sono paralleli agli assi cartesiani. È il prodotto cartesiano di $N$ intervalli ciascuno dei quali è definito da un valore minimo e un valore massimo della coordinata corrispondente per i punti in $S$.
 
-I rettangoli di delimitazione minimi allineati all'asse vengono utilizzati per determinare la posizione approssimativa di un oggetto e come descrittore molto semplice della sua forma. Ad esempio, nella geometria computazionale e nelle sue applicazioni quando è necessario trovare intersezioni nel set di oggetti, il controllo iniziale sono le intersezioni tra i loro \ac{MBB}. Dato che di solito è un'operazione molto meno costosa del controllo dell'intersezione effettiva (perché richiede solo confronti di coordinate), consente di escludere rapidamente i controlli delle coppie che sono molto distanti.
+I rettangoli di delimitazione minimi allineati all'asse vengono utilizzati per determinare la posizione approssimativa di un oggetto e come descrittore molto semplice della sua forma. Ad esempio, nella geometria computazionale e nelle sue applicazioni quando è necessario trovare intersezioni  di oggetti, in primo esame si valuteranno le intersezioni tra i loro \ac{MBB}. Questa operazione consente di escludere rapidamente i controlli delle coppie che sono molto distanti.
 
 \begin{figure}[h]
 	\centering
@@ -23,19 +23,27 @@ I rettangoli di delimitazione minimi allineati all'asse vengono utilizzati per d
 \end{figure}
 %
 \subsubsection{Struttura di tipo "\textit{Arbitrarily Oriented Bounding Box}"}
-Il \ac{MBB} orientato arbitrariamente (\ac{AOBB}) è il rettangolo di delimitazione minimo, calcolato senza vincoli per quanto riguarda l'orientamento del risultato. Gli algoritmi del rettangolo di delimitazione minimo basati sul metodo dei calibri rotanti possono essere utilizzati per trovare l'area di delimitazione dell'area minima o del perimetro minimo di un poligono convesso bidimensionale in tempo lineare e di un punto bidimensionale impostato nel tempo impiegato costruire il suo scafo convesso seguito da un calcolo del tempo lineare. Un algoritmo di pinze rotanti tridimensionali può trovare il rettangolo di delimitazione orientato arbitrariamente sul volume minimo di un punto tridimensionale impostato in tempo cubo.
+Il \ac{MBB} orientato arbitrariamente (\ac{AOBB}) è il rettangolo di delimitazione minimo, calcolato senza vincoli di orientazione.
 %
 \subsubsection{Struttura di tipo "\textit{Object Oriented Bounding Box}"}
 Nel caso in cui un oggetto abbia un proprio sistema di coordinate locale, può essere utile memorizzare un rettangolo di selezione relativo a questi assi, che non richiede alcuna trasformazione quando cambia l'orientazione dell'oggetto stesso.
 
 \subsection{Intersezione tra alberi di tipo AABB}
-Per il rilevamento delle collisioni tra oggetti in due dimensioni, l'intersezione tra alberi di tipo \ac{AABB}, è l'algoritmo più veloce per determinare se le due entità di gioco si sovrappongono o meno, e in che parti. Nello specifico, ciò consiste nel controllare le posizioni delle \textit{i}-esime \ac{BB} nello spazio delle coordinate bidimensionali per vedere se si sovrappongono.
+Per il rilevamento delle collisioni tra oggetti in due dimensioni, l'intersezione tra alberi di tipo \ac{AABB} è l'algoritmo più veloce per determinare se le due entità di gioco si sovrappongono o meno, e in che parti. Nello specifico, vengono controllate le posizioni delle \textit{i}-esime \ac{BB} nello spazio delle coordinate bidimensionali per vedere se si sovrappongono.
 
-Il vincolo di allineamento dei rettangoli agli assi è presente per motivi di prestazioni, infatti, l'area di sovrapposizione tra due riquadri non ruotati può essere controllata solo con confronti logici. Mentre i riquadri ruotati richiedono ulteriori operazioni trigonometriche, che sono più lente da calcolare. Inoltre, se si hanno entità che possono ruotare, le dimensioni dei rettangoli e/o sotto-rettangoli dovranno modificarsi in modo da avvolgere ancora l'oggetto o si dovrà optare per un altro tipo di geometria di delimitazione, come le sfere (che sono invarianti alla rotazione).
+Il vincolo di allineamento dei rettangoli agli assi è presente per motivi di prestazioni, infatti, l'area di sovrapposizione tra due rettangoli non ruotati può essere controllata solo tramite confronti logici. I riquadri ruotati richiedono invece ulteriori operazioni trigonometriche, che sono più lente da calcolare. Inoltre, se si hanno entità che possono ruotare, le dimensioni dei rettangoli e/o sotto-rettangoli dovranno modificarsi in modo da avvolgere ancora l'oggetto, altrimenti si dovrà optare per un altro tipo di geometria di delimitazione, come le sfere (che sono invarianti alla rotazione).
 
+% DA RISCRIVERE : CI SONO STATE MODIFICHE
 Nel caso specifico, l'ombra dello pneumatico sarà rappresentata da un albero di tipo \ac{AABB} con una sola foglia. Ovvero si andrà a rappresentare lo pneumatico con una \ac{BB} avente lati uguali e rappresentanti il massimo ingombro che può avere nello spazio. Si andrà inoltre ad incrementare del 10\% ognuno di questi lati in modo da tenere conto dell'angolo di camber, che potrebbe portare i punti di campionamento del terreno fuori dall'ombra. La strada, contrariamente allo pneumatico, verrà tenuta come riferimento assoluto. In altre parole, una volta effettuata l'analisi sintattico-grammaticale del \textit{file} \ac{RDF}, verrà calcolato l'albero di tipo \ac{AABB}. Lo pneumatico si muoverà all'interno della \textit{mesh} e la sua ombra verrà ricalcolata e intersecata con l'albero \ac{AABB} per ottenere tutti i triangoli in corrispondenza della stessa.
 
-Volendo intersecare due semplici \ac{BB}, quali $A = \left[ \texttt{A.minX}, \texttt{A.maxX} ;  \texttt{A.minY}, \texttt{A.maxY} \right]$ e $B = \left[ \texttt{B.minX}, \texttt{B.maxX} ;  \texttt{B.minY}, \texttt{B.maxY} \right]$, verrà usata la seguente funzione.
+Volendo intersecare due semplici \ac{BB}, quali 
+\begin{equation*}
+\begin{split}
+A = \left[ \texttt{A.minX}, \texttt{A.maxX},  \texttt{A.minY}, \texttt{A.maxY} \right]\\
+B = \left[ \texttt{B.minX}, \texttt{B.maxX},  \texttt{B.minY}, \texttt{B.maxY} \right]
+\end{split}
+\end{equation*}
+verrà usata la seguente funzione:
 \vspace{.8em}
 \begin{pseudoc}
 	function intersect(A,B) {
@@ -47,9 +55,9 @@ Volendo intersecare due semplici \ac{BB}, quali $A = \left[ \texttt{A.minX}, \te
 \noindent
 Volendo intersecare un albero di tipo \ac{AABB} e una semplice \ac{BB}, basterà ripetere a più step la funzione precedente lungo i rami dell'albero. Una volta arrivati a una o più foglia avremo tutti gli oggetti (o triangoli nel caso specifico) che sono posti in corrispondenza della \ac{BB} (od ombra dello pneumatico nel caso specifico). Questi triangoli verranno poi usati per determinare il piano strada locale e il punto di contatto virtuale dello pneumatico.
 
-È importante notare che il metodo appena visto, presenta numerosi vantaggi.
+È importante notare che il metodo appena visto, presenta numerosi vantaggi:
 \begin{itemize}
-	\item Riduzione del numero di comparazioni da effettuare per ottenere l'intersezione \ac{BB}-albero \ac{AABB}. Infatti, la \textit{mesh} può contenere decine di migliaia di triangoli, il metodo presentato consente di ridurre logaritmicamente il numero di comparazioni necessarie per ottenere il risultato.
+	\item Riduzione del numero di comparazioni da effettuare per ottenere l'intersezione \ac{BB}-albero \ac{AABB}. Il metodo presentato consente di ridurre logaritmicamente il numero di comparazioni necessarie per ottenere il risultato, dato che la \textit{mesh} può contenere decine di migliaia di triangoli.
 	\item Riduzione del numero di triangoli da processare per ottenere il piano strada locale e il punto di contatto virtuale dello pneumatico. Infatti, vengono solamente processati quelli posti in corrispondenza dell'ombra dello pneumatico.
 \end{itemize}
 %
