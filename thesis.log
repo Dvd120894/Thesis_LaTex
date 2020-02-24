@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  23 FEB 2020 16:16
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  24 FEB 2020 18:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1912,7 +1912,7 @@ Underfull \vbox (badness 2865) has occurred while \output is active []
 
 ]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 95.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 93.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `lmtt' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
@@ -2134,17 +2134,17 @@ re per ottenere l’intersezione
  []
 
 Package acronym Info: Label `acro:CAD' newly defined as it shall be overridden
-although it is yet undefined on input line 67.
+although it is yet undefined on input line 66.
 Package acronym Info: Label `acro:CAM' newly defined as it shall be overridden
-although it is yet undefined on input line 67.
+although it is yet undefined on input line 66.
 Package acronym Info: Label `acro:CAE' newly defined as it shall be overridden
-although it is yet undefined on input line 67.
+although it is yet undefined on input line 66.
 Package acronym Info: Label `acro:GIS' newly defined as it shall be overridden
-although it is yet undefined on input line 67.
+although it is yet undefined on input line 66.
 [32]
 Package acronym Info: Label `acro:CAGD' newly defined as it shall be overridden
 
-although it is yet undefined on input line 70.
+although it is yet undefined on input line 69.
 Missing character: There is no ; in font nullfont!
  [33]
 
@@ -2158,7 +2158,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-Overfull \hbox (16.43364pt too wide) in paragraph at lines 263--264
+Overfull \hbox (16.43364pt too wide) in paragraph at lines 262--263
  [][] 
  []
 
@@ -2172,42 +2172,42 @@ Package amsmath Warning: Cannot use `split' here;
 [37]
 Missing character: There is no ; in font nullfont!
 
-Overfull \hbox (15.33252pt too wide) in paragraph at lines 381--382
+Overfull \hbox (15.33252pt too wide) in paragraph at lines 382--383
  [][] 
  []
 
 Missing character: There is no ; in font nullfont!
 
-Overfull \hbox (15.33252pt too wide) in paragraph at lines 397--398
+Overfull \hbox (15.33252pt too wide) in paragraph at lines 398--399
  [][] 
  []
 
 Missing character: There is no ; in font nullfont!
 
-Overfull \hbox (15.33252pt too wide) in paragraph at lines 414--415
+Overfull \hbox (15.33252pt too wide) in paragraph at lines 415--416
  [][] 
  []
 
-[38]
 LaTeX Font Info:    Font shape `TU/Optima(0)/m/n' will be
-(Font)              scaled to size 10.79993pt on input line 459.
+(Font)              scaled to size 10.79993pt on input line 460.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `Optima' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [39] [40] [41]
-Overfull \hbox (13.92337pt too wide) in paragraph at lines 606--607
+[38] [39] [40] [41]
+Overfull \hbox (13.92337pt too wide) in paragraph at lines 607--608
 []\TU/AdobeCaslonPro(0)/m/n/12 il triangolo viene intersecato dal piano, forman
 do quindi due punti d’intersezione
  []
 
+[42]
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
-[42] [43]
-Overfull \hbox (9.07133pt too wide) in paragraph at lines 677--679
+ [43]
+Overfull \hbox (9.07133pt too wide) in paragraph at lines 678--680
 \TU/AdobeCaslonPro(0)/m/n/12 Si noti che $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 B \
 OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 A\OT1/cmr/m/n/12 )$ \TU/AdobeCaslonPro(0)/
 m/n/12 e $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 C \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/i
@@ -2218,7 +2218,7 @@ ro(0)/m/n/12 del triangolo $\OML/cmm/m/it/12 ABC$\TU/AdobeCaslonPro(0)/m/n/12 .
  []
 
 
-Overfull \hbox (25.1515pt too wide) in paragraph at lines 682--684
+Overfull \hbox (25.1515pt too wide) in paragraph at lines 683--685
 \TU/AdobeCaslonPro(0)/m/n/12 dove $\OML/cmm/m/it/12 t$ \TU/AdobeCaslonPro(0)/m/
 n/12 è la distanza dall’origine del raggio all’intersezione $\OML/cmm/m/it/12 P
 $\TU/AdobeCaslonPro(0)/m/n/12 . Sostituendo $\OML/cmm/m/it/12 P$ \TU/AdobeCaslo
@@ -2236,9 +2236,6 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
-
-Underfull \vbox (badness 6575) has occurred while \output is active []
-
  [45]
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
@@ -2255,8 +2252,7 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
-)
-[46] [47]
+) [46] [47]
 \openout2 = `Chapters/capitolo4.aux'.
 
  (./Chapters/capitolo4.tex [48
@@ -2264,15 +2260,14 @@ Missing character: There is no ; in font nullfont!
 
 
 ]
-Overfull \hbox (23.74414pt too wide) in paragraph at lines 11--13
-\TU/AdobeCaslonPro(0)/m/n/12 st’ultimo vengono raccolti alcuni tipi dichiarati 
-con \TU/lmtt/m/n/12 typedef \TU/AdobeCaslonPro(0)/m/n/12 presenti solo nel \TU/
-lmtt/m/n/12 namespace
+Overfull \hbox (6.92145pt too wide) in paragraph at lines 11--13
+\TU/AdobeCaslonPro(0)/m/n/12 processare una [][] bidimensionale. Consiste nella
+ descrizione geometrica dell’oggetto
  []
 
 
-Overfull \hbox (12.1215pt too wide) in paragraph at lines 16--17
-[]\TU/lmtt/m/n/12 clear $\OMS/cmsy/m/n/12 ^^@$ \TU/AdobeCaslonPro(0)/m/n/12 Eli
+Overfull \hbox (8.9535pt too wide) in paragraph at lines 13--14
+[]\TU/lmtt/m/n/12 clear $\OMS/cmsy/m/n/12 ^^@$ \TU/AdobeCaslonPro(0)/m/n/12 eli
 mina il dominio della [][] settando tutti i quattro valori su \TU/lmtt/m/n/12 q
 uietNaN\TU/AdobeCaslonPro(0)/m/n/12 . 
  []
@@ -2282,12 +2277,12 @@ uietNaN\TU/AdobeCaslonPro(0)/m/n/12 .
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [50]
-Overfull \hbox (13.87198pt too wide) in paragraph at lines 73--80
+Overfull \hbox (13.87198pt too wide) in paragraph at lines 70--77
  [][] 
  []
 
 [51]
-Overfull \hbox (2.50798pt too wide) in paragraph at lines 112--121
+Overfull \hbox (2.50798pt too wide) in paragraph at lines 109--118
  [][] 
  []
 
@@ -2295,28 +2290,22 @@ Overfull \hbox (2.50798pt too wide) in paragraph at lines 112--121
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [52]
-Overfull \hbox (5.9615pt too wide) in paragraph at lines 148--149
-[]\TU/lmtt/m/n/12 clear $\OMS/cmsy/m/n/12 ^^@$ \TU/AdobeCaslonPro(0)/m/n/12 Eli
+Overfull \hbox (2.7935pt too wide) in paragraph at lines 145--146
+[]\TU/lmtt/m/n/12 clear $\OMS/cmsy/m/n/12 ^^@$ \TU/AdobeCaslonPro(0)/m/n/12 eli
 mina il dominio dell’ombra settando tutti i suoi valori su \TU/lmtt/m/n/12 quie
 tNaN\TU/AdobeCaslonPro(0)/m/n/12 . 
  []
 
-[53]
-Overfull \hbox (7.00816pt too wide) in paragraph at lines 180--195
-\TU/AdobeCaslonPro(0)/m/n/12 sce la geometria dello pneumatico in condizione di
- riposo e la classe \TU/lmtt/m/n/12 ReferenceFrame
- []
-
-[54]
-Overfull \hbox (0.71599pt too wide) in paragraph at lines 221--236
+[53] [54]
+Overfull \hbox (0.71599pt too wide) in paragraph at lines 218--233
  [][] 
  []
 
 [55]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 243.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 240.
 
-Overfull \hbox (32.27939pt too wide) in paragraph at lines 255--256
+Overfull \hbox (32.27939pt too wide) in paragraph at lines 252--253
 \TU/AdobeCaslonPro(0)/m/n/12 golare contenuta nel \TU/AdobeCaslonPro(0)/m/it/12
  file [][]\TU/AdobeCaslonPro(0)/m/n/12 , è sufficiente sfruttare il costruttore
  della classe \TU/lmtt/m/n/12 MeshSurface
@@ -2328,14 +2317,14 @@ Overfull \hbox (32.27939pt too wide) in paragraph at lines 255--256
  (./Chapters/conclusione.tex
 File: Figures/brush_model.png Graphic file (type QTm)
 
-<use  "Figures/brush_model.png" >
+<use  "Figures/brush_model.png" >)
 Underfull \vbox (badness 4846) has occurred while \output is active []
 
  [61
 
 
 
-])
+]
 [62]
 \openout2 = `Chapters/appendici_codice.aux'.
 
@@ -3068,12 +3057,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [163]
 (../TireGround/tests/MagicFormula-test1.cc [164])
 (../TireGround/tests/MagicFormula-test2.cc [165])
-(../TireGround/tests/MultiDisk-test1.cc [166])
-(../TireGround/tests/MultiDisk-test2.cc [167]
+(../TireGround/tests/MultiDisk-test1.cc [166]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [168]))
-[169] [170
+ [167])
+(../TireGround/tests/MultiDisk-test2.cc [168])) [169] [170
 
 
 ] [171
@@ -3107,10 +3095,10 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46289 strings out of 495023
- 883582 string characters out of 6178392
- 1511096 words of memory out of 5000000
- 49345 multiletter control sequences out of 15000+600000
+ 46293 strings out of 495023
+ 883630 string characters out of 6178392
+ 1512358 words of memory out of 5000000
+ 49349 multiletter control sequences out of 15000+600000
  17524 words of font info for 113 fonts, out of 8000000 for 9000
  18 hyphenation exceptions out of 8191
  63i,22n,68p,10523b,5356s stack positions out of 5000i,500n,10000p,200000b,80000s

@@ -2,19 +2,16 @@
 \label{Codice}
 %
 \section{Organizzazione}
-La libreria \texttt{TireGround} è stata organizzata in due parti, la prima gestisce la superficie stradale mentre la seconda gestisce i modelli di pneumatico. Si sviluppa all'interno dell'omonimo \texttt{namespace TireGround} nel quale vengono inoltre dichiarati con \texttt{typedef} alcuni tipi che verranno utilizzati nelle due sottosezioni.
-
-Verranno ora riportate le informazioni di maggior rilievo per ognuna delle due parti della libreria.
-
+La libreria \texttt{TireGround} è stata organizzata in due parti, la prima gestisce la superficie stradale mentre la seconda gestisce i modelli di pneumatico. Si sviluppa all'interno dell'omonimo \textit{namespace} \texttt{TireGround} nel quale vengono inoltre dichiarati con \texttt{typedef} alcuni tipi che verranno utilizzati nelle due sottosezioni. Verranno ora riportate le informazioni di maggior rilievo per ognuna delle due parti della libreria.
 
 \subsection{Gestione della superficie stradale} 
-La gestione della superficie stradale avviene all'interno del \texttt{namespace RDF}. In quest'ultimo vengono raccolti alcuni tipi dichiarati con \texttt{typedef} presenti solo nel \texttt{namespace RDF}. Lo spazio dei nomi \texttt{RDF} contiene tutti le classi e la funzioni per gestire la \textit{mesh} a partire dal \textit{file} in formato \ac{RDF}.
+La gestione della superficie stradale avviene all'interno del \textit{namespace} \texttt{RDF}. In quest'ultimo vengono raccolti alcuni tipi dichiarati con \texttt{typedef} presenti solo nel \textit{namespace} \texttt{RDF}. Lo spazio dei nomi \texttt{RDF} contiene tutti le classi e la funzioni per gestire e processare la \textit{mesh} a partire dal \textit{file} in formato \ac{RDF}.
 %
 \paragraph{\texttt{BBox2D}}
-Questa classe contiene tutte le informazioni per definire e manipolare una \ac{BB} bidimensionale. Consiste nella descrizione geometrica dell'oggetto \ac{BB}.  I metodi più importanti di questa classe sono i seguenti.
+Questa classe contiene tutte le informazioni per definire, manipolare e processare una \ac{BB} bidimensionale. Consiste nella descrizione geometrica dell'oggetto \ac{BB}. I metodi più importanti di questa classe sono i seguenti.
 \begin{itemize}
-	\item \texttt{clear} $-$ Elimina il dominio della \ac{BB} settando tutti i quattro valori su \texttt{quietNaN}.
-	\item \texttt{updateBBox2D} $-$ Aggiorna il dominio della \ac{BB} settando i suoi valori secondo il massimo ingombro dato dai tre vertici nello spazio tridimensionale in \textit{input}.
+	\item \texttt{clear} $-$ elimina il dominio della \ac{BB} settando tutti i quattro valori su \texttt{quietNaN}.
+	\item \texttt{updateBBox2D} $-$ aggiorna il dominio della \ac{BB} settando i suoi valori secondo il massimo ingombro dato dai tre vertici nello spazio tridimensionale in \textit{input}.
 \end{itemize}
 \begin{table}[h!]
 	\centering
@@ -31,11 +28,11 @@ Questa classe contiene tutte le informazioni per definire e manipolare una \ac{B
 \end{table}
 %
 \paragraph{\texttt{Triangle3D}}
-Questa classe contiene tutte le informazioni geometriche per definire e manipolare un triangolo con vertici nello spazio tridimensionale. Consiste nella descrizione geometrica dell'oggetto triangolo. I metodi più importanti di questa classe sono i seguenti.
+Questa classe contiene tutte le informazioni geometriche per definire, manipolare e processare un triangolo con vertici nello spazio tridimensionale. Consiste nella descrizione geometrica dell'oggetto triangolo. I metodi più importanti di questa classe sono:
 \begin{itemize}
-	\item \texttt{Normal} $-$ Calcola la normale alla faccia del triangolo.
-	\item \texttt{intersectRay} $-$ Interseca il triangolo con una data semiretta (detta anche raggio), definita da direzione e punto di partenza, e ne calcola il punto di intersezione.
-	\item \texttt{intersectPlane} $-$ Interseca il triangolo con un dato piano, definito da normale e punto noto, e ne calcola i punti di intersezione.
+	\item \texttt{Normal} $-$ calcola la normale alla faccia del triangolo.
+	\item \texttt{intersectRay} $-$ interseca il triangolo con una data semiretta (detta anche raggio), definita da direzione e punto di origine, e ne calcola il punto di intersezione.
+	\item \texttt{intersectPlane} $-$ interseca il triangolo con un dato piano, definito da normale e punto noto e ne calcola i punti di intersezione.
 \end{itemize}
 \begin{table}[h!]
 	\centering
@@ -50,7 +47,7 @@ Questa classe contiene tutte le informazioni geometriche per definire e manipola
 \end{table}
 %
 \paragraph{\texttt{TriangleRoad}}
-Questa classe contiene tutte le informazioni geometriche e non geometriche per definire e manipolare un triangolo con vertici nello spazio tridimensionale rappresentante la superficie stradale. È derivato dalla classe \texttt{Triangle3D} e ha inoltre un attributo che permetter di descrivere il coefficiente di attrito nella faccia (detto anche locale). I metodi più importanti sono ereditati dalla classe \texttt{Triangle3D}.
+Questa classe contiene tutte le informazioni geometriche e non geometriche per definire e manipolare un triangolo con vertici nello spazio tridimensionale rappresentante la superficie stradale. È derivato dalla classe \texttt{Triangle3D} e ha inoltre un attributo che permette di descrivere il coefficiente di attrito nella faccia (detto anche locale). I metodi più importanti sono ereditati dalla classe \texttt{Triangle3D}.
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|}
@@ -62,11 +59,11 @@ Questa classe contiene tutte le informazioni geometriche e non geometriche per d
 \end{table}
 %
 \paragraph{\texttt{MeshSurface}}
-Questa classe contiene il vettore di puntatori di tipo \texttt{std::shared}-\texttt{\_ptr} alle istanze della classe \texttt{TriangleRoad} che vengono create durante la parsificazione del \textit{file} \ac{RDF}. Inoltre, contiene il vettore di puntatori alle \ac{BB} di tipo \texttt{PtrBBox}, che è necessario per calcolare l'albero \ac{AABB}. Quest'ultimo esiste come ulteriore attributo della classe sotto forma di puntatore \texttt{PtrAABB}. I metodi più importanti di questa classe sono i seguenti.
+Questa classe contiene il vettore di puntatori di tipo \texttt{std::shared}-\texttt{\_ptr} alle istanze della classe \texttt{TriangleRoad} che vengono create durante l'analisi sintattico-grammaticale del \textit{file} \ac{RDF}. Inoltre, contiene il vettore di puntatori alle \ac{BB} di tipo \texttt{PtrBBox}, necessario per calcolare l'albero di tipo \ac{AABB}. Quest'ultimo esiste come ulteriore attributo della classe sotto forma di puntatore \texttt{PtrAABB}. I metodi più importanti di questa classe sono:
 \begin{itemize}
-	\item \texttt{set} $-$ Copia la \textit{mesh}.
-	\item \texttt{LoadFile} $-$ Parsifica il \textit{file} dato come \textit{input} e crea le istanze \texttt{TriangleRoad} che costituiscono la \textit{mesh}.
-	\item \texttt{updateIntersection} $-$ Interseca l'albero di tipo \ac{AABB} della \textit{mesh} con un altro albero esterno di tipo \ac{AABB} e ne restituisce il vettore dei puntatori di tipo \texttt{std::shared\_ptr} alle istanze della classe \texttt{TriangleRoad} che vengono intersecate.
+	\item \texttt{set} $-$ copia la \textit{mesh} da un'altra già esistente.
+	\item \texttt{LoadFile} $-$ effettua l'analisi sintattico-grammaticale del \textit{file} dato come \textit{input} e crea le istanze \texttt{TriangleRoad} che costituiscono la \textit{mesh}.
+	\item \texttt{updateIntersection} $-$ interseca l'albero di tipo \ac{AABB} della \textit{mesh} con un altro albero esterno di tipo \ac{AABB} e ne restituisce il vettore dei puntatori di tipo \texttt{std::shared\_ptr} alle istanze della classe \texttt{TriangleRoad} che vengono intersecate.
 \end{itemize}
 \begin{table}[h!]
 	\centering
@@ -81,16 +78,16 @@ Questa classe contiene il vettore di puntatori di tipo \texttt{std::shared}-\tex
 \end{table}
 %
 \subsection{Gestione dei modelli di pneumatico} 
-La gestione dei modelli di pneumatico avviene nel \texttt{namespace TireGround}. Quest'ultimo contiene tutti le classi e la funzioni per gestire l'intersezione tra lo pneumatico e la \textit{mesh} a partire dalla conoscenza di quest'ultima, della geometria e della posizione dello pneumatico.
+La gestione dei modelli di pneumatico avviene nel \textit{namespace} \texttt{TireGround}. Quest'ultimo contiene tutti le classi e la funzioni per gestire l'intersezione tra lo pneumatico e la \textit{mesh} a partire dalla conoscenza di quest'ultima, della geometria e della posizione dello pneumatico.
 %
 \paragraph{\texttt{Disk}}
-Questa classe contiene tutte le informazioni geometriche per definire e manipolare un disco nello spazio tridimensionale. Consiste nella descrizione geometrica e nel posizionamento dello spazio delle coordinate tridimensionali dell'oggetto disco (il disco viene rappresentato nel sistema di riferimento dello pneumatico). I metodi più importanti di questa classe sono i seguenti.
+Questa classe contiene tutte le informazioni geometriche per definire e manipolare un disco nello spazio tridimensionale. Consiste nella descrizione geometrica e nel posizionamento dello spazio delle coordinate tridimensionali dell'oggetto disco (il disco viene rappresentato nel sistema di riferimento dello pneumatico). I metodi più importanti di questa classe sono:
 \begin{itemize}
-	\item \texttt{isPointInside} $-$ Controlla se un punto generico nello spazio bidimensionale, definito dal piano in cui giace lo stesso disco, si trova all'interno o all'esterno della circonferenza.
-	\item \texttt{intersectSegment} $-$ Trova i punti di intersezione tra la circonferenza esterna del disco e un segmento bidimensionale, che dev'essere definito nel piano in cui giace lo stesso disco. L'intero di \textit{output} fornisce il numero di punti di intersezione.
-	\item \texttt{intersectPlane} $-$ Interseca il disco con un piano definito da normale e punto noto. In \textit{output} fornisce l'entità geometrica creata dall'intersezione sotto forma di punto noto e direzione della retta.
-	\item \texttt{contactTriangles} $-$ Funzione in \textit{overloading} che consente di ottenere il versore normale e coefficiente attrito medi ponderati sull'area, nonché l'area di contatto stessa all'interno del singolo disco a partire da una serie di triangoli.
-	\item \texttt{contactPlane} $-$ Funzione in \textit{overloading} che consente di ottenere l'area di contatto all'interno del singolo disco dato un piano.
+	\item \texttt{isPointInside} $-$ controlla se un punto generico nello spazio bidimensionale, definito dal piano in cui giace lo stesso disco, si trova all'interno o all'esterno della circonferenza.
+	\item \texttt{intersectSegment} $-$ trova i punti di intersezione tra la circonferenza esterna del disco e un segmento bidimensionale, che dev'essere definito nel piano in cui giace lo stesso disco. L'intero di \textit{output} fornisce il numero di punti di intersezione.
+	\item \texttt{intersectPlane} $-$ interseca il disco con un piano definito da normale e punto noto. In \textit{output} fornisce l'entità geometrica creata dall'intersezione sotto forma di punto noto e direzione della retta.
+	\item \texttt{contactTriangles} $-$ funzione in \textit{overloading} che consente di ottenere il versore normale e coefficiente attrito medi ponderati sull'area, nonché l'area di contatto stessa all'interno del singolo disco a partire da una serie di triangoli.
+	\item \texttt{contactPlane} $-$ funzione in \textit{overloading} che consente di ottenere l'area di contatto all'interno del singolo disco dato un piano.
 \end{itemize}
 \begin{table}[h!]
 	\centering
@@ -123,12 +120,12 @@ Questa classe contiene tutte le informazioni necessarie per definire geometricam
 \end{table}
 %
 \paragraph{\texttt{ReferenceFrame}}
-Questa classe contiene tutte le informazioni per definire e manipolare una terna di riferimento nello spazio tridimensionale. Consiste nel posizionamento dello spazio del sistema di riferimento. I metodi più importanti di questa classe sono i seguenti.
+Questa classe contiene tutte le informazioni per definire e manipolare una terna di riferimento nello spazio tridimensionale. Consiste nel posizionamento dello spazio del sistema di riferimento. I metodi più importanti di questa classe sono:
 \begin{itemize}
-	\item \texttt{setTotalTransformationMatrix} $-$ Posiziona nello spazio il sistema di riferimento grazie alla matrice di trasformazione $4\times4$ fornita come \textit{input}.
-	\item \texttt{getEulerAngleX} $-$ Ottiene l'angolo creato dalla rotazione attorno all'asse $Y$ del sistema di riferimento locale rispetto a quello assoluto (lo stesso della \textit{mesh}). L'angolo viene ottenuto in seguito alla fattorizzazione $R_z(\Omega) R_x(\gamma) R_y(\theta)$ e utilizzando il metodo di Eulero.
-	\item \texttt{getEulerAngleY} $-$ Come il metodo \texttt{getEulerAngleX}, ma usato per ottenere l'angolo creato dalla rotazione attorno all'asse $Y$.
-	\item \texttt{getEulerAngleZ} $-$ Come il metodo \texttt{getEulerAngleX}, ma usato per il ottenere l'angolo creato dalla rotazione attorno all'asse $Z$.
+	\item \texttt{setTotalTransformationMatrix} $-$ posiziona nello spazio il sistema di riferimento grazie alla matrice di trasformazione $4\times4$ fornita come \textit{input}.
+	\item \texttt{getEulerAngleX} $-$ ottiene l'angolo creato dalla rotazione attorno all'asse $Y$ del sistema di riferimento locale rispetto a quello assoluto (lo stesso della \textit{mesh}). L'angolo viene ottenuto in seguito alla fattorizzazione $R_z(\Omega) R_x(\gamma) R_y(\theta)$ e utilizzando il metodo di Eulero.
+	\item \texttt{getEulerAngleY} $-$ come il metodo \texttt{getEulerAngleX}, ma usato per ottenere l'angolo creato dalla rotazione attorno all'asse $Y$.
+	\item \texttt{getEulerAngleZ} $-$ come il metodo \texttt{getEulerAngleX}, ma usato per il ottenere l'angolo creato dalla rotazione attorno all'asse $Z$.
 \end{itemize}
 \begin{table}[h!]
 	\centering
@@ -143,10 +140,10 @@ Questa classe contiene tutte le informazioni per definire e manipolare una terna
 \end{table}
 %
 \paragraph{\texttt{Shadow}}
-Questa classe serve a rappresentare l'ombra dello pneumatico nello spazio bidimensionale. È molto simile alla \texttt{RDF::BBox2D} precedentemente presentata, ma a differenza di quest'ultima permette di calcola l'albero per oggetti di tipo \ac{AABB} a una sola foglia, relativo alla stessa ombra totale, della parte superiore e della parte inferiore del \ac{BB} tridimensionale che racchiude lo pneumatico nello spazio. I metodi più importanti di questa classe sono i seguenti.
+Questa classe serve a rappresentare l'ombra dello pneumatico nello spazio bidimensionale. È molto simile alla \texttt{RDF::BBox2D} precedentemente presentata, ma a differenza di quest'ultima permette di calcolare gli alberi di tipo \ac{AABB} relativi all'ombra totale, della parte superiore e della parte inferiore del \ac{BB} tridimensionale che racchiude lo pneumatico. I metodi più importanti di questa classe sono:
 \begin{itemize}
-	\item \texttt{clear} $-$ Elimina il dominio dell'ombra settando tutti i suoi valori su \texttt{quietNaN}.
-	\item \texttt{update} $-$ Aggiorna il dominio dell'ombra settando tutti i suoi valori secondo il massimo ingombro dato dalla geometria dello pneumatico e dalla sua posizione nello spazio.
+	\item \texttt{clear} $-$ elimina il dominio dell'ombra settando tutti i suoi valori su \texttt{quietNaN}.
+	\item \texttt{update} $-$ aggiorna il dominio dell'ombra settando tutti i suoi valori secondo il massimo ingombro dato dalla geometria dello pneumatico e dalla sua posizione nello spazio.
 \end{itemize}
 \begin{table}[h!]
 	\centering
@@ -177,7 +174,7 @@ Questa classe contiene tutti i parametri che riguardano la precisione dei calcol
 \end{table}
 %
 \paragraph{\texttt{Tire}}
-Questa classe serve a rappresentare lo pneumatico nelle coordinate dello spazio tridimensionale. Consiste nel punto di giunzione tra la classe \texttt{ETRTO} che definisce la geometria dello pneumatico in condizione di riposo e la classe \texttt{ReferenceFrame} che ne definisce invece la posizione nello spazio. È una classe virtuale in quanto viene definita con alcuni metodi puri virtuali. Questi metodi verranno poi sostituiti con nelle classi figlie.
+Questa classe serve a rappresentare lo pneumatico nelle coordinate dello spazio tridimensionale. Consiste nel punto di giunzione tra la classe \texttt{ETRTO} che definisce la geometria dello pneumatico in condizione di riposo e la classe \texttt{Reference}-\texttt{Frame} che ne definisce invece la posizione nello spazio. È una classe virtuale in quanto viene definita con alcuni metodi puri virtuali. Questi metodi verranno poi sostituiti con nelle classi figlie.
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|}
@@ -193,12 +190,12 @@ Questa classe serve a rappresentare lo pneumatico nelle coordinate dello spazio 
 \end{table}
 %
 \paragraph{\texttt{MagicFormula} e \texttt{MultiDisk}}
-Queste classi calcolano tutti i parametri necessari per valutare il contatto tra pneumatico a disco singolo e terreno attraverso la formula di Pacejka. Il metodo più importante di queste classi è
+Queste classi calcolano tutti i parametri necessari per valutare il contatto tra pneumatico a disco singolo e terreno attraverso la formula di Pacejka. I metodi più importanti di queste classi sono:
 \begin{itemize}
-	\item \texttt{setup} $-$ Consente di riposizionare la ruota all'interno della \textit{mesh}.
-	\item \texttt{calculateRelativeCamber} $-$ Calcola il camber relativo.
-	\item \texttt{getRho} $-$ Calcola l'affondamento del disco nel piano strada locale.
-	\item \texttt{gettArea} $-$ Calcola l'area d'intersezione dei dischi.
+	\item \texttt{setup} $-$ consente di riposizionare la ruota all'interno della \textit{mesh}.
+	\item \texttt{calculateRelativeCamber} $-$ calcola il camber relativo.
+	\item \texttt{getRho} $-$ calcola l'affondamento del disco nel piano strada locale.
+	\item \texttt{gettArea} $-$ calcola l'area d'intersezione dei dischi.
 \end{itemize}
 \begin{table}[h!]
 	\centering
@@ -267,7 +264,9 @@ Per creare lo pneumatico a singolo disco è sufficiente utilizzare il costruttor
 		Threshold     // Threshold per passare dal modello di contatto ponderato in base all'area di intersezione a quello di Rill 
 		);
 \end{pseudoc}
-Nel caso invece si voglia creare uno pneumatico a più dischi si utilizzerà uno dei costruttori della classe \texttt{MultiDisk}. Per il caso di pneumatico a più dischi con raggio uniforme si avrà:
+Nel caso invece si voglia creare uno pneumatico a più dischi si utilizzerà uno dei costruttori della classe \texttt{MultiDisk}.
+
+Per il caso di pneumatico a più dischi con raggio uniforme si avrà:
 \begin{pseudoc}
 	TireGround::Tire* SampleTire = new TireGround::MultiDisk(
 		SectionWidth, // Sezione laterale dello pneumatico [mm]
@@ -365,7 +364,7 @@ Successivamente verranno modificate dai metodi della classe \texttt{Tire} come:
 \paragraph{Casi particolari}
 Nel caso in cui la variabile booleana in \textit{output} dal metodo \texttt{setup} precedentemente chiamato sia falsa, si prospettano due casi.
 %
-\paragraph{Pneumatico fuori \textit{mesh}} Se, oltre alla condizione sulla variabile booleana in \textit{output}, la lista di triangoli intersecati dall'ombra dello pneumatico è vuota. Per effettuare questo test si può intersecare l'albero della \textit{mesh} con l'albero a una foglia di dell'ombra dello pneumatico.
+\paragraph{Pneumatico fuori \textit{mesh}} Se, oltre alla condizione sulla variabile booleana in \textit{output}, la lista di triangoli intersecati dall'ombra dello pneumatico è vuota. Per effettuare questo test si può intersecare l'albero della \textit{mesh} con l'albero a una foglia dell'ombra dello pneumatico.
 \begin{pseudoc}
 	RDF::TriangleRoad_list TrianglesList;
 	bool List = Road.intersectAABBtree(TireSD->getAABBtree(), TrianglesList);
@@ -373,12 +372,15 @@ Nel caso in cui la variabile booleana in \textit{output} dal metodo \texttt{setu
 Se la variabile booleana in \textit{output} dal metodo \texttt{intersectAABBtree} è falsa allora la lista è vuota e lo pneumatico sarà quindi considerato fuori dalla superficie stradale descritta nel \textit{file} \ac{RDF}.
 %
 \paragraph{Pneumatico in volo}
-Se, oltre alla condizione sulla variabile booleana in \textit{output}, la lista di triangoli intersecati dall'ombra dello pneumatico non è vuota. Per effettuare questo test si può intersecare l'albero della \textit{mesh} con l'albero a una foglia di dell'ombra dello pneumatico. I parametri d'intersezione vanno settati dall'esterno della libreria \texttt{TireGround} a seconda della morfologia del terreno fuori dalla \textit{mesh}.
+Se, oltre alla condizione sulla variabile booleana in \textit{output}, la lista di triangoli intersecati dall'ombra dello pneumatico non è vuota. Per effettuare questo test si può intersecare l'albero della \textit{mesh} con l'albero a una foglia dell'ombra dello pneumatico. I parametri d'intersezione vanno settati dall'esterno della libreria \texttt{TireGround} a seconda della morfologia del terreno fuori dalla \textit{mesh}.
 \begin{pseudoc}
 	RDF::TriangleRoad_list TrianglesList;
 	bool List = Road.intersectAABBtree(TireSD->getAABBtree(), TrianglesList);
 \end{pseudoc}
 Se la variabile booleana in \textit{output} dal metodo \texttt{intersectAABBtree} è vera allora la lista non è vuota e lo pneumatico sarà quindi considerato in volo sopra la superficie stradale descritta nel \textit{file} \ac{RDF}. In questo caso i parametri d'intersezione vanno settati come intersezione nulla.
+%
+\section{\textit{Debugging} e \textit{Profiling}}
+
 %
 \section{Prestazioni}
 Testando il modello sul simulatore è stato possibile valutare la sua complessità computazionale. Le specifiche tecniche di questo simulatore sono:

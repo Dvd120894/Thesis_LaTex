@@ -63,14 +63,12 @@ Volendo intersecare un albero di tipo \ac{AABB} e una semplice \ac{BB}, basterà
 %
 \section{Algoritmi geometrici}
 %
-\subsection{Introduzione}
-La geometria computazionale è la branca dell'informatica che studia le strutture dati e gli algoritmi efficienti per la soluzione di problemi di natura geometrica e la loro implementazione al calcolatore. Storicamente, è considerato uno dei campi più antichi del calcolo, anche se la geometria computazionale moderna è uno sviluppo recente. La ragione principale per lo sviluppo della geometria computazionale è stata dovuta ai progressi compiuti nella computer grafica, \ac{CAD}, \ac{CAM} e nella visualizzazione matematica. Ad oggi, le applicazioni della geometria computazionale si trovano nella robotica, nella progettazione di circuiti integrati, nella visione artificiale, in \ac{CAE} e nel \ac{GIS}. I rami principali della geometria computazionale sono:
+La geometria computazionale è la branca dell'informatica che studia le strutture dati e gli algoritmi efficienti per la soluzione di problemi di natura geometrica e la loro implementazione al calcolatore. Storicamente, è considerato uno dei campi più antichi del calcolo, anche se la geometria computazionale moderna è uno sviluppo recente. I progressi compiuti nei campi computer grafica, del \ac{CAD}, del \ac{CAM} e nella visualizzazione matematica sono la ragione principale per lo sviluppo della geometria computazionale. Ad oggi, le sue applicazioni si trovano nella robotica, nella progettazione di circuiti integrati, nella visione artificiale, nel \ac{CAE} e nel \ac{GIS}. I rami principali della geometria computazionale sono:
 \begin{itemize}
 	\item \textit{Calcolo combinatorio} (o \textit{geometria algoritmica}), che si occupa di oggetti geometrici come entità discrete. Ad esempio, può essere utilizzato per determinare il poliedro o il poligono più piccolo che contiene tutti i punti forniti, o più formalmente, dato un insieme di punti, si deve determinare il più piccolo insieme convesso che li contenga tutti (problema dell'inviluppo convesso).
-	\item \textit{Geometria di calcolo} numerica (o \ac{CAGD}), che si occupa principalmente di rappresentare oggetti del mondo reale in forme adatte per i calcoli informatici nei sistemi \ac{CAD} e \ac{CAM}. Questo ramo può essere visto come uno sviluppo della geometria descrittiva ed è spesso considerato un ramo della computer grafica o del \ac{CAD}. Entità importanti di questo ramo sono superfici e curve parametriche, come ad esempio le \textit{spline} e \textit{curve di Bézier}.
+	\item \textit{Geometria di calcolo} numerica (o \ac{CAGD}), che si occupa principalmente di rappresentare oggetti del mondo reale in forme adatte per i calcoli informatici nei sistemi \ac{CAD} e \ac{CAM}. Questo ramo può essere considerato uno sviluppo della geometria descrittiva ed è spesso ritenuto un ramo della computer grafica o del \ac{CAD}. Entità importanti di questo ramo sono superfici e curve parametriche, come ad esempio le \textit{spline} e \textit{curve di Bézier}.
 \end{itemize}
-
-In questo capitolo tutti gli algoritmi che verranno utilizzati in seguito durante l'analisi geometrica dell'intersezione tra pneumatico e superficie stradale saranno trattati. Questi algoritmi sono la soluzione di alcuni semplici ma molto importanti problemi, che devono essere risolti in modo efficiente. In particolare, le intersezioni tra:
+In questo capitolo saranno trattati tutti gli algoritmi che verranno utilizzati in seguito durante l'analisi geometrica dell'intersezione tra pneumatico e superficie stradale. Questi algoritmi sono la soluzione di alcuni semplici ma molto importanti problemi, che devono essere risolti in modo efficiente. In particolare, le intersezioni tra:
 \begin{itemize}
 	\item punto e segmento (nel piano);
 	\item punto e cerchio (nel piano);
@@ -79,13 +77,14 @@ In questo capitolo tutti gli algoritmi che verranno utilizzati in seguito durant
 	\item piano e segmento (nello spazio);
 	\item piano e raggio (nello spazio);
 	\item piano e triangolo (nello spazio);
-	\item raggio e triangolo (nello spazio);
+	\item raggio e triangolo (nello spazio).
 \end{itemize}
-saranno esaminati al fine di trovare la massima prestazione in termini di efficienza computazionale.
+Essi saranno esaminati al fine di trovare la massima prestazione in termini di efficienza computazionale.
 %
 \subsection{Intersezione tra entità geometriche}
 %
-\subsubsection{Punto-Segmento}
+\subsubsection{Intersezione punto-segmento}
+\label{punto-segmento}
 Dato un punto $P = (x_p, y_p)$ e un segmento definito da due punti $A = (x_A, y_B)$ e $B = (x_B, y_B)$.
 
 \begin{figure}[h!]
@@ -103,13 +102,13 @@ Dato un punto $P = (x_p, y_p)$ e un segmento definito da due punti $A = (x_A, y_
 	\caption{Schema del problema di intersezione punto-segmento}
 \end{figure}
 \noindent
-Per determinare se il punto $P$ è interno al segmento si eseguiranno i seguenti step.
+Per determinare se il punto $P$ è interno al segmento si eseguiranno i seguenti step:
 \begin{enumerate}
-	\item Creazione di un vettore $\vv{AB}$ e di un vettore $\vv{AP}$.
-	\item Calcolo il prodotto vettoriale  $\vv{P_1P_2} \times  \vv{PP_1}$, se il modulo del vettore risultante è nullo allora il punto $P$ appartiene al segmento considerato.
-	\item Calcolo il prodotto scalare tra $\vv{AB}$ e $\vv{AP}$. Se è nullo allora il punto $P$ è coincidente a $A$, se è pari al modulo di $\vv{AB}$ allora il punto $P$ è coincidente a $B$, se è compreso tra 0 il modulo di $\vv{AB}$, allora il punto $P$ giace all'interno del segmento considerato.
+	\item creazione di un vettore $\vv{AB}$ e di un vettore $\vv{AP}$;
+	\item calcolo del prodotto vettoriale  $\vv{P_1P_2} \times  \vv{PP_1}$, se il modulo del vettore risultante è nullo allora il punto $P$ appartiene al segmento considerato;
+	\item calcolo del prodotto scalare tra $\vv{AB}$ e $\vv{AP}$, se è nullo allora $P \equiv A$, se è pari al modulo di $\vv{AB}$ allora il $P \equiv B$, se è compreso tra 0 il modulo di $\vv{AB}$, allora il punto $P$ giace all'interno del segmento considerato.
 \end{enumerate}
-Il codice che esegue questo tipo di test è riportato in \figurename{ \ref{pointsegment}}
+Lo pseudocodice che esegue questo tipo di test è riportato in \figurename{ \ref{pointsegment}}
 
 \begin{figure}[h!]
 	\hfill
@@ -195,8 +194,9 @@ Il codice che esegue questo tipo di test è riportato in \figurename{ \ref{point
 	\label{pointsegment}
 \end{figure}
 %
-\subsubsection{Punto-Cerchio}
-Data una circonferenza con centro $C = (x_c, y_c)$ e raggio $r$, il problema consiste nel trovare se un punto generico $P = (x_p, y_p)$ è locato all'interno, all'esterno o sulla circonferenza.
+\subsubsection{Intersezione punto-cerchio}
+Data una circonferenza con centro $C = (x_c, y_c)$ e raggio $r$, il problema consiste nel trovare se un generico punto $P = (x_p, y_p)$ è all'interno, all'esterno o corrispondente alla circonferenza.
+
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}
@@ -211,28 +211,27 @@ Data una circonferenza con centro $C = (x_c, y_c)$ e raggio $r$, il problema con
 	\end{tikzpicture}
 	\caption{Schema del problema di intersezione punto-cerchio.}
 \end{figure}
-La soluzione al problema è semplice: la distanza tra il centro del cerchio $C$ e il punto $P$ è data dal teorema di Pitagora. In particolare:
+La soluzione al problema è semplice: la distanza tra il centro della circonferenza $C$ e il punto $P$ è data dal teorema di Pitagora, ovvero:
 \begin{equation}
 	d=\sqrt{(x_p-x_c)^2 + (y_p-y_c)^2}
 \end{equation}
-il punto $P$ è dunque interno alla circonferenza se $d<r$, appartiene alla circonferenza se $d=r$ ed esterno alla circonferenza se $d>r$. In maniera analoga ma più efficace da punto di vista computazionale si può confrontare $d^2$ con $r^2$. Il punto $P$ è dunque interno alla circonferenza se $d^2<r^2$,  appartiene alla circonferenza se $d^2=r^2$ ed esterno alla circonferenza se $d^2>r^2$. Pertanto, il confronto finale sarà tra il numero $(x_p-x_c)^2+(y_p-y_c)^2 $ e $r^2$.
+Il punto $P$ è dunque interno alla circonferenza se $d<r$, appartiene alla circonferenza se $d=r$ ed esterno alla circonferenza se $d>r$. In maniera analoga ma più efficace da punto di vista computazionale si può confrontare $d^2$ con $r^2$. Il punto $P$ è dunque interno alla circonferenza se $d^2<r^2$,  appartiene alla circonferenza se $d^2=r^2$ ed esterno alla circonferenza se $d^2>r^2$. Pertanto, il confronto finale sarà tra il numero $(x_p-x_c)^2+(y_p-y_c)^2 $ e $r^2$.
 
-\noindent
 Gli \textit{inputs} dell'algoritmo per l'intersezione punto-cerchio sono:
 \begin{itemize}
 	\item il centro della circonferenza $C = (x_c, y_c)$;
 	\item il raggio della circonferenza $r$;
 	\item il punto generico da analizzare $P=(x_p, y_p)$.
 \end{itemize}
-L'\textit{output} può essere un intero il cui valore può essere:
+L'\textit{output} può essere un intero il cui valore risulta:
 \begin{itemize}
-	\item \texttt{0} se il punto è esterno;
-	\item \texttt{1} se il punto è interno;
+	\item \texttt{0} se il punto è esterno alla circonferenza;
+	\item \texttt{1} se il punto è interno alla circonferenza;
 	\item \texttt{2} se il punto appartiene alla circonferenza.
 \end{itemize}
 Il valore in \textit{output} può essere anche una variabile booleana il cui valore è:
 \begin{itemize}
-	\item \texttt{false} se il punto è esterno;
+	\item \texttt{false} se il punto è esterno alla circonferenza;
 	\item \texttt{true} se il punto è interno o appartiene alla circonferenza.
 \end{itemize}
 %
@@ -295,17 +294,17 @@ Il valore in \textit{output} può essere anche una variabile booleana il cui val
 \label{Pointcircle}
 \end{figure}
 %
-\subsubsection{Segmento-Circonferenza}
-Per l'intersezione di un segmento, avente punto iniziale e finale rispettivamente $P_0$ e $P_1$, con una circonferenza, avente centro $C=(x_c,y_c)$, è necessario prima di tutto riscrivere le equazione di entrambe le entità come:
+\subsubsection{Intersezione segmento-circonferenza}
+Per l'intersezione di un segmento, avente punto iniziale e finale rispettivamente in $P_0$ e $P_1$, con una circonferenza, avente centro $C=(x_c,y_c)$ e raggio $r$, è necessario prima di tutto riscrivere le equazioni di entrambe le entità. Il segmento viene momentaneamente riscritto come una retta del tipo:
 \begin{equation}
 ax+by=c
 \label{eqretta}
 \end{equation}
-per il segmento e:
+mentre la circonferenza come:
 \begin{equation}
 (x-x_c)^2 + (y-y_c)^2 = r^2
 \end{equation}
-per la circonferenza. Assumendo che il centro $C$ sia posto sull'origine, la precedente equazione si può semplificare come:
+Assumendo che il centro $C$ sia posto sull'origine, la precedente equazione si può semplificare come:
 \begin{equation}
 x^2 + y^2 = r^2
 \label{eqcircle}
@@ -328,7 +327,8 @@ x^2 + y^2 = r^2
 	\end{tikzpicture}
 	\caption{Schema del problema di intersezione punto-circonferenza.}
 \end{figure}
-Per trovare i termini $a$, $b$ e $c$ del segmento è necessario calcolare la direzione del segmento come differenza tra il punto finale e iniziale del segmento:
+
+Per trovare i termini $a$, $b$ e $c$ è necessario calcolare la direzione del segmento come differenza tra il punto finale e iniziale del segmento:
 \begin{equation}
 \vec{d} = P_1 - P_0 
 \end{equation}
@@ -336,7 +336,7 @@ Per trovare i termini $a$, $b$ e $c$ del segmento è necessario calcolare la dir
 \begin{equation}
 \vec{P}_{O1} = P_1 - O
 \end{equation}
-I termini $a$, $b$ e $c$ del segmento saranno quini pari a:
+I termini $a$, $b$ e $c$ saranno quindi pari a:
 \begin{equation}
 \begin{aligned}
 	\begin{split}
@@ -354,15 +354,16 @@ oppure:
 \begin{equation}
 y_{1/2} = \frac{bc \mp a \sqrt{r^2 (a^2 + b^2)-c^2}}{a ^ 2 + b ^ 2}
 \end{equation}
-Se $r^2 (a^2 + b^2)-c^2 \geq 0$ vale come una disuguaglianza stretta, esistono due punti di intersezione.\\
-Se invece vale $r^2 (a^2 + b^2)-c^2 = 0$, allora esiste solo un punto di intersezione e la linea è tangente alla circonferenza. Se la disuguaglianza debole non regge, la linea non interseca la circonferenza.\\
-\noindent
-Dal punto di vista del codice l'\textit{output} può essere un intero il cui valore può essere:
+Se $r^2 (a^2 + b^2)-c^2 \geq 0$ vale come una disuguaglianza stretta, esistono due punti di intersezione. Se invece vale $r^2 (a^2 + b^2)-c^2 = 0$, allora esiste solo un punto di intersezione e la linea è tangente alla circonferenza. Se la disuguaglianza debole non regge, la linea non interseca la circonferenza.
+
+Dal punto di vista del codice, l'\textit{output} può essere un intero il cui valore può risultare:
 \begin{itemize}
 	\item \texttt{0} se la linea non interseca la circonferenza;
 	\item \texttt{1} se la linea interseca la circonferenza in un solo punto, ovvero è tangente;
 	\item \texttt{2} se la linea interseca la circonferenza in due punti.
 \end{itemize}
+
+Una volta ottenute il numero di intersezioni e le soluzioni $(x_1, y_1)$ e $(x_2, y_2)$ bisognerà controllare che queste siano all'interno del segnemto individuato inizialemnte dai punti $P_0$ e $P_1$. Per questo motivo si utilizzerà l'algoritmo di intersezione punto-segmento visto precedentemente in \ref{punto-segmento}.
 
 \begin{figure}[h]
 	\hfill
@@ -442,10 +443,10 @@ Dal punto di vista del codice l'\textit{output} può essere un intero il cui val
 	}
 	\end{pseudoc}
 	\end{subfigure}
-	\caption{Schema per del codice per l'intersezione segmento-cerchio.}
+	\caption{Schema dello pseudocodice per l'intersezione segmento-cerchio.}
 \end{figure}
 %
-\subsubsection{Piano-Piano}
+\subsubsection{Intersezione piano-piano}
 Nello spazio delle coordinate tridimensionali, due piani $P_1$ e $P_2$ o sono paralleli o si intersecano creando una singola retta $L$. Sia $P_i$ con $i = 1,2$ descritto da un punto $V_i$ e un vettore normale $\vec{n}_i$. L'equazione implicita del piano sarà dunque:
 \begin{equation}
 \vec{n}_i \cdot P + d_i = 0
@@ -474,7 +475,7 @@ dove $P = (x, y, z)$. I piani $P_1$ e $P_2$ sono paralleli ogni volta che i loro
 	\caption{Schemi del problema di intersezione piano-piano.}
 \end{figure}
 
-Dopo aver calcolato $\vec{n}_1 \times \vec{n}_2$, per determinare univocamente la linea di intersezione, è necessario trovare un punto di essa. Cioè, un punto $P_0 = (x_0, y_0, z_0)$ che si trova in entrambi i piani. Si può trovare una soluzione comune delle equazioni implicite per $P_1$ e $P_2$. Ma ci sono solo due equazioni nelle tre incognite poiché il punto $P_0$ può trovarsi ovunque sulla linea monodimensionale $L$. Quindi è necessario aggiungere un altro vincolo da risolvere per un $P_0$ specifico. Esistono diversi modi per farlo, il più semplice è attraverso l'aggiunta di un terzo piano $P_3$ avente equazione implicita $\vec{n}_3 \cdot P = 0$ dove $\vec{n}_3 = \vec{n}_1 \times \vec{n}_2$ e $d_3 = 0$ (ovvero passa attraverso l'origine). Questo metodo è funzionante poiché: 
+Dopo aver calcolato $\vec{n}_1 \times \vec{n}_2$, per determinare univocamente la linea di intersezione, è necessario trovare un punto di essa. Cioè, un punto $P_0 = (x_0, y_0, z_0)$ che si trova in entrambi i piani. Si può trovare una soluzione comune delle equazioni implicite per $P_1$ e $P_2$. Ci sono solo due equazioni nelle tre incognite poiché il punto $P_0$ può trovarsi ovunque sulla linea monodimensionale $L$. Quindi è necessario aggiungere un altro vincolo da risolvere per un $P_0$ specifico. Esistono diversi modi per farlo, il più semplice è attraverso l'aggiunta di un terzo piano $P_3$ avente equazione implicita $\vec{n}_3 \cdot P = 0$ dove $\vec{n}_3 = \vec{n}_1 \times \vec{n}_2$ e $d_3 = 0$ (ovvero passa attraverso l'origine). Questo metodo è funzionante poiché: 
 \begin{itemize}
 	\item $L$ è perpendicolare a $P_3$ e quindi lo interseca;
 	\item i vettori $\vec{n}_1$, $\vec{n}_2$ e $\vec{n}_3$ sono linearmente indipendenti.
@@ -511,7 +512,7 @@ P_0 =  \frac{-d_1(\vec{n}_2 \times \vec{n}_3) - d_2(\vec{n}_3 \times \vec{n}_1)}
 =
 \frac{(d_2\vec{n}_1 - d_1\vec{n}_2) \times \vec{u}}{|\vec{u}|^2}
 \end{equation}
-e l'equazione parametrica per la retta $L$ sarà:
+pertanto l'equazione parametrica per la retta $L$ sarà:
 \begin{equation}
 L(s) =
 \frac{(d_2\vec{n}_1 - d_1\vec{n}_2) \times \vec{u}}{|\vec{u}|^2}+s\vec{u}
@@ -535,7 +536,7 @@ dove $\vec{u}=\vec{n}_1 \times \vec{n}_2$.
 	}
 		\end{pseudoc}
 	\end{subfigure}
-	\caption{Schema per del codice per l'intersezione piano-piano.}
+	\caption{Schema dello pseudocodice per l'intersezione piano-piano.}
 \end{figure}
 %
 \subsubsection{Piano-Segmento e Piano-Raggio}
@@ -557,7 +558,7 @@ t_I = -\frac{\vec{n}\cdot\vec{w}}{\vec{n}\cdot\vec{u}}
 =
 -\frac{\vec{n}\cdot(V_0-P_0)}{\vec{n}\cdot(P_1-P_0)}
 \end{equation}
-Se la linea $L$ è un segmento finito da $P_0$ a $P_1$, è sufficiente verificare che $0 \leq t_I \leq 1$ per verificare che vi sia un'intersezione tra il segmento e il piano. Per raggio, c'è invece un'intersezione con il piano quando $t_I \geq 0$.
+Se la linea $L$ è un segmento finito da $P_0$ a $P_1$, è sufficiente verificare che $0 \leq t_I \leq 1$ per dimostrare che vi sia un'intersezione tra il segmento e il piano. Per raggio, c'è invece un'intersezione con il piano quando $t_I \geq 0$.
 
 \begin{figure}[htbp]
 	\centering
@@ -595,10 +596,10 @@ Se la linea $L$ è un segmento finito da $P_0$ a $P_1$, è sufficiente verificar
 	}
 		\end{pseudoc}
 	\end{subfigure}
-	\caption{Schema per del codice per l'intersezione piano-segmento.}
+	\caption{Schema dello pseudocodice per l'intersezione piano-segmento.}
 \end{figure}
 %
-\subsubsection{Piano-Triangolo}
+\subsubsection{Intersezione piano-triangolo}
 Per risolvere l'intersezione piano triangolo basta usare la soluzione precedentemente trovata per il problema dell'intersezione tra piano e segmento. Nello specifico, basta trattare i lati del triangolo come tre segmenti distinti e per ognuno di esso applicare la funzione per l'intersezione piano-segmento. Vi saranno tre possibili soluzioni:
 \begin{itemize}
 	\item il triangolo non viene intersecato dal piano;
@@ -608,7 +609,7 @@ Per risolvere l'intersezione piano triangolo basta usare la soluzione precedente
 
 \begin{figure}[htbp]
 	\centering
-	\begin{subfigure}{.7\linewidth}
+	\begin{subfigure}{.73\linewidth}
 		\begin{pseudoc}
 	if ( intersectSegmentPlane( n, V_0, 1, IntPt_1 ))
 	{ IntPts.push_back(IntPt1); }
@@ -624,10 +625,10 @@ Per risolvere l'intersezione piano triangolo basta usare la soluzione precedente
 	{ return false; }
 		\end{pseudoc}
 	\end{subfigure}
-	\caption{Schema per del codice per l'intersezione piano-triangolo.}
+	\caption{Schema dello pseudocodice per l'intersezione piano-triangolo.}
 \end{figure}
 %
-\subsubsection{Raggio-Triangolo}
+\subsubsection{Intersezione raggio-triangolo}
 Dato un triangolo avente vertici $(A,B,C)$ e un raggio $R$ con origine $R_O$ e direzione $\vec{R}_D$, il problema consiste nel capire se il raggio colpisce o meno il triangolo e, in tal caso, trovare il punto di intersezione $P$.
 %
 \begin{figure}[htbp]
@@ -702,7 +703,7 @@ Sul membro a sinistra si hanno le tre incognite $(t,u,v)$ moltiplicate per tre t
 	\end{bmatrix} = R_O - A
 	\label{eq4}
 \end{equation}
-Si immagini ora di avere un punto $P$ all'interno del triangolo. Se si trasforma il triangolo in qualche modo (ad esempio traslandolo, ruotandolo o scalandolo), le coordinate del punto $P$ espresse nel sistema di coordinate cartesiane tridimensionali $(x,y,z)$ cambieranno. D'altra parte, se si esprime la posizione di $P$ usando le coordinate baricentriche, le trasformazioni applicate al triangolo non influenzeranno le coordinate baricentriche del punto di intersezione. Se il triangolo viene ruotato, ridimensionato, allungato o traslato, le coordinate $(u,v)$ che definiscono la posizione di $P$ rispetto ai vertici $(A,B,C)$ non cambieranno. L'algoritmo di M\"oller-Trumbore sfrutta proprio questa proprietà. Infatti, ciò che gli autori hanno fatto è definire un nuovo sistema di coordinate in cui le coordinate di $P$ non sono definite in termini di $(x,y,z)$ ma in termini di $(u,v)$. La somma tra le coordinate baricentriche non può essere maggiore di 1 ($u + v \leq 1$), esprimono infatti le coordinate dei punti definiti all'interno di un triangolo unitario. Ovvero un triangolo definito nello spazio $(u,v)$ dai vertici $(0,0)$, $(1,0)$, $(0,1)$.
+Si immagini ora di avere un punto $P$ all'interno del triangolo. Se si trasforma il triangolo in qualche modo (ad esempio traslandolo, ruotandolo o scalandolo), le coordinate del punto $P$ espresse nel sistema di coordinate cartesiane tridimensionali $(x,y,z)$ cambieranno. D'altra parte, se si esprime la posizione di $P$ usando le coordinate baricentriche, le trasformazioni applicate al triangolo non influenzeranno le coordinate baricentriche del punto di intersezione. Se il triangolo viene ruotato, ridimensionato, allungato o traslato, le coordinate $(u,v)$ che definiscono la posizione di $P$ rispetto ai vertici $(A,B,C)$ non cambieranno. L'algoritmo di M\"oller-Trumbore sfrutta proprio questa proprietà. Infatti, gli autori hanno definito un nuovo sistema di coordinate in cui le coordinate di $P$ non sono definite in termini di $(x,y,z)$ ma in termini di $(u,v)$. La somma tra le coordinate baricentriche non può essere maggiore di 1 ($u + v \leq 1$), infatti esprimono le coordinate dei punti definiti all'interno di un triangolo unitario, ovvero un triangolo definito nello spazio $(u,v)$ dai vertici $(0,0)$, $(1,0)$, $(0,1)$.
 
 \begin{figure}[htbp]
 	\centering
@@ -764,7 +765,7 @@ Si immagini ora di avere un punto $P$ all'interno del triangolo. Se si trasforma
 	\caption{Cambiamento di coordinate nell'algoritmo di M\"oller-Trumbore.}
 \end{figure}
 
-Geometricamente, si è appena chiarito il significato di $u$ e $v$. Si consideri ora l'elemento $t$. Esso è il terzo asse del sistema di coordinate $u$ e $v$ appena introdotto. Si sa inoltre che $t$ esprime la distanza dall'origine del raggio a $P$, il punto di intersezione, si è quindi creato un sistema di coordinate che consentirà di esprimere univocamente la posizione del punto d'intersezione $P$ in termini di coordinate baricentriche e distanza dall'origine del raggio a quel punto sul triangolo.
+Geometricamente, si è appena chiarito il significato di $u$ e $v$. Si consideri ora l'elemento $t$. Esso è il terzo asse del sistema di coordinate $u$ e $v$ appena introdotto. Si sa inoltre che $t$ esprime la distanza dall'origine del raggio a $P$, il punto di intersezione. Si è quindi creato un sistema di coordinate che consentirà di esprimere univocamente la posizione del punto d'intersezione $P$ in termini di coordinate baricentriche e distanza dall'origine del raggio a quel punto sul triangolo.
 
 M\"oller e Trumbore spiegano che la prima parte dell'equazione \ref{eq4} (il termine $O-A$) può essere vista come una trasformazione che sposta il triangolo dalla sua posizione spaziale mondiale originale all'origine (il primo vertice del triangolo coincide con l'origine). L'altro lato dell'equazione ha l'effetto di trasformare il punto di intersezione dallo spazio $(x,y,z)$ nello spazio $(t,u,v)$ come spiegato precedentemente.
 
@@ -909,5 +910,5 @@ dove $P = (D \times E_2)$ e $Q = (T \times E_1)$. Come si può vedere ora è fac
 	}
 	\end{pseudoc}
 	\end{subfigure}
-	\caption{Schema per del codice per l'intersezione raggio-triangolo con \textit{back-face culling}.}
+	\caption{Schema dello pseudocodice per l'intersezione raggio-triangolo con \textit{back-face culling}.}
 \end{figure}

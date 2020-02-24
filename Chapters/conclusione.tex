@@ -1,11 +1,9 @@
 \chapter{Conclusioni e Lavoro Futuro}
 \label{Conclusione}
 %
-Premesso che per qualsiasi sistema non c'è un modello migliore se non si considerano le specifiche e i requisiti di cui si ha bisogno. Una volta che si hanno i requisiti del modello, il migliore è il più semplice che li soddisfa. Pertanto, quando si sceglie un modello adatto per le simulazioni di un veicolo, si devono considerare e valutare le applicazioni alle quali il modello parteciperà.
-
 Il modello sviluppato soddisfa il vincolo del tempo reale imposto per le simulazioni in tempo reale. Il tempo di calcolo sull'\textit{hardware} del simulatore professionale si traduce in un ciclo di lavoro del ??\%, garantendo quindi un ampio margine di sicurezza e dando la possibilità di aumentare la precisione del modello attraverso l'implementazione di modelli più complessi.
 
-Dato che la rappresentazione dello pneumatico è basato sul modello di Pacejka, ovvero un modello semi-empirico, non tiene conto dei fenomeni transitori. Sarà quindi una scelta obbligata passare ad una rappresentazione dello pneumatico mediante un modello fisico. Essi infatti, a seconda del grado di complessità, possono tenere in considerazione alcuni dei fenomeni transitori che maggiormente influenzano la manovrabilità del veicolo. I modelli fisici sono quindi anche molto complessi. Lo pneumatico è modellato da divesi anelli circolari con punti di massa accoppiati anche in direzione laterale. Si tiene conto del contatto in più punti e della distribuzione della pressione su tutta la larghezza della cintura. Importante sarà quindi valutare la possibilità di poter parallelizzare i processi di calcolo per diminuire i tempi di esecuzione.
+Dato che la rappresentazione dello pneumatico è basato sul modello di Pacejka, ovvero un modello semi-empirico, non tiene conto dei fenomeni transitori. Sarà quindi una scelta obbligata passare ad una rappresentazione dello pneumatico mediante un modello fisico. Quest'ultimo, infatti, a seconda del grado di complessità, può tenere in considerazione alcuni dei fenomeni transitori che maggiormente influenzano la manovrabilità del veicolo. I modelli fisici sono quindi anche molto complessi. Lo pneumatico è modellato da divesi anelli circolari con punti di massa accoppiati anche in direzione laterale. Si tiene quindi conto del contatto in più punti e della distribuzione della pressione su tutta la larghezza della cintura. Importante sarà quindi valutare la possibilità di poter parallelizzare i processi di calcolo per diminuire i tempi di esecuzione.
 
 \begin{figure}
 	\centering
@@ -14,10 +12,6 @@ Dato che la rappresentazione dello pneumatico è basato sul modello di Pacejka, 
 	\label{brushmodel}
 \end{figure}
 
-Un punto critico sul quale vale la pena porre particolare attenzione è nella rappresentazione del terreno. I \textit{file} \ac{RDF} hanno una struttura dati molto poco formale e solida. La mancanza di uno uno standard universalmente riconosciuto per questo formato rende impossibile implementare un \textit{parser} sufficientemente efficiente e la stabile per tutte le occasioni.
+Un punto critico sul quale è opportuno porre particolare attenzione è la rappresentazione del terreno. I \textit{file} \ac{RDF} hanno una struttura dati molto poco formale e solida. La mancanza di uno standard universalmente riconosciuto per questo formato rende impossibile implementare un \textit{parser} sufficientemente efficiente e la stabile per tutte le occasioni.
+
 Infine, considerando le finalità principali di questa tesi e i test effettuati sul modello sviluppato, possiamo affermare la sua validità per i campi di utilizzo previsti.
-
-
-
-
-

@@ -60,27 +60,27 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.9}{\ignorespaces Schemi per l'\textit {output} dell'intersezione segmento-cerchio.\relax }}{38}{figure.caption.47}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Schema per del codice per l'intersezione segmento-cerchio.\relax }}{38}{figure.caption.48}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Schema dello pseudocodice per l'intersezione segmento-cerchio.\relax }}{39}{figure.caption.48}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Schemi del problema di intersezione piano-piano.\relax }}{39}{figure.caption.49}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Schemi del problema di intersezione piano-piano.\relax }}{40}{figure.caption.49}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.12}{\ignorespaces Vettori dei piani $P_1$, $P_2$ e della retta $L$.\relax }}{40}{figure.caption.50}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Schema per del codice per l'intersezione piano-piano.\relax }}{41}{figure.caption.51}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Schema dello pseudocodice per l'intersezione piano-piano.\relax }}{41}{figure.caption.51}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.14}{\ignorespaces Vettori dei piani $P_1$, $P_2$ e della retta $L$.\relax }}{42}{figure.caption.52}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Schema per del codice per l'intersezione piano-segmento.\relax }}{42}{figure.caption.53}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Schema dello pseudocodice per l'intersezione piano-segmento.\relax }}{43}{figure.caption.53}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Schema per del codice per l'intersezione piano-triangolo.\relax }}{43}{figure.caption.54}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Schema dello pseudocodice per l'intersezione piano-triangolo.\relax }}{43}{figure.caption.54}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Schema del problema di intersezione raggio-triangolo.\relax }}{43}{figure.caption.55}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Schema del problema di intersezione raggio-triangolo.\relax }}{44}{figure.caption.55}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.18}{\ignorespaces Cambiamento di coordinate nell'algoritmo di M\"oller-Trumbore.\relax }}{45}{figure.caption.56}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Schemi per l'\textit {output} dell'intersezione punto-cerchio.\relax }}{46}{figure.caption.57}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Schemi per l'\textit {output} dell'intersezione punto-cerchio.\relax }}{47}{figure.caption.57}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Schema per del codice per l'intersezione raggio-triangolo con \textit {back-face culling}.\relax }}{47}{figure.caption.58}
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Schema dello pseudocodice per l'intersezione raggio-triangolo con \textit {back-face culling}.\relax }}{47}{figure.caption.58}
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
