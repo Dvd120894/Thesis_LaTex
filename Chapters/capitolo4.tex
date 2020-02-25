@@ -159,6 +159,7 @@ Questa classe serve a rappresentare l'ombra dello pneumatico nello spazio bidime
 \end{table}
 %
 \paragraph{\texttt{SamplingGrid}}
+% SCRIVERE MEGLIO SCWITCH COSA FA
 Questa classe contiene tutti i parametri che riguardano la precisione dei calcoli che verranno effettuati nel calcolo della normale al terreno, punto e area di contatto.
 \begin{table}[h!]
 	\centering
@@ -386,7 +387,7 @@ I vari modelli di contatto sono stati preventivamente testati in una macchina av
 	\end{itemize}
 	\item processore:
 	\begin{itemize}
-		\item denominazione: Intel i5 3230M
+		\item denominazione: Intel i5 3230M;
 		\item numero di \textit{core}: 2;
 		\item numero di thread: 4;
 		\item frequenza base: 2.60 GHz;
@@ -394,7 +395,23 @@ I vari modelli di contatto sono stati preventivamente testati in una macchina av
 		\item \textit{cache}: 3 MB.
 	\end{itemize}
 \end{itemize}
-I tempi rilevati per il modello di pneumatico a singolo disco \texttt{Tire::MagicFormula} sono riportati nelle Tabelle \ref{MFcordolo} e \ref{MFpiano}. Analogamente, i tempi rilevati per il modello di pneumatico a più dischi \texttt{Tire::MultiDisk} sono riportati nelle Tabelle ...
+I tempi rilevati per il modello di pneumatico a singolo disco \texttt{Tire::MagicFormula} sono riportati nelle Tabelle \ref{MFcordolo} e \ref{MFpiano}. Analogamente, i tempi rilevati per il modello di pneumatico a più dischi \texttt{Tire::MultiDisk} sono riportati nelle Tabelle \ref{MDcordolo} e \ref{MDpiano}. Notare che le Tabelle \ref{MFcordolo} e \ref{MDcordolo} sono relative ad un'area dove la\textit{mesh} è più densa, mentre le Tabelle \ref{MFpiano} e \ref{MDpiano} sono relative ad un'area dove la\textit{mesh} è poco densa.\\[1cm]
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Figures/mesh_dense}
+	\caption{Porzione di \textit{mesh} particolarmente densa di triangoli.}
+	\label{meshdense}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Figures/mesh_notsodense}
+	\caption{Porzione di \textit{mesh} non così particolarmente densa di triangoli.}
+	\label{meshnotsodense}
+\end{figure}
+%
+\clearpage
+%
 \begin{table}
 	\centering
 	\begin{tabular}{c|c|c|c|}
@@ -419,31 +436,6 @@ I tempi rilevati per il modello di pneumatico a singolo disco \texttt{Tire::Magi
 	\textit{Switch} Rill $\triangleright$ Area a 10 triangoli
 	\caption{Tempi per il modello di pneumatico a singolo disco \texttt{Tire::MagicFormula} nel caso di \textit{mesh} densa.}
 	\label{MFcordolo}
-\end{table}
-\begin{table}
-	\centering
-	\begin{tabular}{c|c|c|c|}
-		\cline{2-4} 
-		& \multicolumn{3}{c|}{\textbf{Modello di contatto}} \\
-		\cline{2-4} 
-		& \textbf{Rill} & \textbf{Ponderato sull'area} & \textbf{\textit{Mix}} \\ 
-		\hline 
-		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 64.15 & 46.44 & 54.269 \\ 
-		\hline 
-		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 0.00229099 & 0.00165851 & 0.00193811 \\ 
-		\hline 
-		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 3.92268e-06 & 4.39344e-06 & 5.825e-06 \\ 
-		\hline 
-		\multicolumn{1}{|c|}{$\delta$ [ms]} & 0.00198058 & 0.00209605 & 0.0024135 \\ 
-		\hline 
-	\end{tabular}
-	\\[0.5cm]
-	Pneumatico 205/55R16\\
-	Campionamenti = 28000\\
-	Numero medio di triangoli sotto lo pneumatico = 3.2\\
-	\textit{Switch} Rill $\triangleright$ Area a 3 triangoli
-	\caption{Tempi per il modello di pneumatico a singolo disco \texttt{Tire::MagicFormula} nel caso di \textit{mesh} poco densa.}
-	\label{MFpiano}
 \end{table}
 \begin{table}
 	\centering
@@ -497,6 +489,34 @@ I tempi rilevati per il modello di pneumatico a singolo disco \texttt{Tire::Magi
 	\caption{Tempi per il modello di pneumatico a più dischi \texttt{Tire::MultiDisk} nel caso di \textit{mesh} densa.}
 	\label{MDcordolo}
 \end{table}
+%
+\clearpage
+%
+\begin{table}
+	\centering
+	\begin{tabular}{c|c|c|c|}
+		\cline{2-4} 
+		& \multicolumn{3}{c|}{\textbf{Modello di contatto}} \\
+		\cline{2-4} 
+		& \textbf{Rill} & \textbf{Ponderato sull'area} & \textbf{\textit{Mix}} \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 64.15 & 46.44 & 54.269 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 0.00229099 & 0.00165851 & 0.00193811 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 3.92268e-06 & 4.39344e-06 & 5.825e-06 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\delta$ [ms]} & 0.00198058 & 0.00209605 & 0.0024135 \\ 
+		\hline 
+	\end{tabular}
+	\\[0.5cm]
+	Pneumatico 205/55R16\\
+	Campionamenti = 28000\\
+	Numero medio di triangoli sotto lo pneumatico = 3.2\\
+	\textit{Switch} Rill $\triangleright$ Area a 3 triangoli
+	\caption{Tempi per il modello di pneumatico a singolo disco \texttt{Tire::MagicFormula} nel caso di \textit{mesh} poco densa.}
+	\label{MFpiano}
+\end{table}
 \begin{table}
 	\centering
 	\begin{tabular}{c|c|c|c|c|c|}
@@ -505,40 +525,40 @@ I tempi rilevati per il modello di pneumatico a singolo disco \texttt{Tire::Magi
 		\cline{2-6} 
 		& \textbf{Dischi} & \textbf{Punti} & \textbf{Campionamento} & \textbf{Ponderato sull'area} & \textbf{\textit{Mix}} \\ 
 		\hline
-		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 10 & 10 &  &  &  \\ 
+		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 10 & 10 & 5986.19 & 324.498 & 312.666 \\ 
 		\hline 
-		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 10 & 10 &  &  &  \\ 
+		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 10 & 10 & 0.213785 & 0.0115888 & 0.0111662 \\ 
 		\hline 
-		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 10 & 10 &  &  &  \\ 
+		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 10 & 10 & 0.0021398 & 1.73799e-05 & 2.52509e-05 \\ 
 		\hline 
-		\multicolumn{1}{|c|}{$\delta$ [ms]} & 10 & 10 &  &  &  \\ 
+		\multicolumn{1}{|c|}{$\delta$ [ms]} & 10 & 10 & 0.046258 & 0.00416892 & 0.00502503 \\ 
 		\hhline{======}
 
-		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 10 & 20 &  &  &  \\ 
+		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 10 & 20 & 25282.2 & 588.985 & 624.384 \\ 
 		\hline 
-		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 10 & 20 &  &  &  \\ 
+		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 10 & 20 & 0.902904 & 0.0210344 & 0.0222986 \\ 
 		\hline 
-		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 10 & 20 &  &  &  \\ 
+		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 10 & 20 & 0.0444643 & 4.91353e-05 & 0.000116275 \\ 
 		\hline 
-		\multicolumn{1}{|c|}{$\delta$ [ms]} & 10 & 20 &  &  &  \\ 
+		\multicolumn{1}{|c|}{$\delta$ [ms]} & 10 & 20 & 0.210866 & 0.00700966 & 0.0107831 \\ 
 		\hhline{======}
 		
-		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 20 & 10 &  &  &  \\ 
+		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 20 & 10 & 13474.6 & 320.503 & 314.678 \\ 
 		\hline 
-		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 20 & 10 &  &  &  \\ 
+		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 20 & 10 & 0.481218 & 0.0114461 & 0.0112381 \\ 
 		\hline 
-		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 20 & 10 &  &  &  \\ 
+		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 20 & 10 & 0.0115384 & 2.87254e-05 & 1.70045e-05 \\ 
 		\hline 
-		\multicolumn{1}{|c|}{$\delta$ [ms]} & 20 & 10 &  &  &  \\ 
+		\multicolumn{1}{|c|}{$\delta$ [ms]} & 20 & 10 & 0.107417 & 0.00535961 & 0.00412365 \\ 
 		\hhline{======}
 		
-		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 20 & 20 &  &  &  \\ 
+		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 20 & 20 & 52791.1 & 539.104 & 543.088 \\ 
 		\hline 
-		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 20 & 20 &  &  &  \\ 
+		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 20 & 20 & 1.88533 & 0.019253 & 0.0193953 \\ 
 		\hline 
-		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 20 & 20 &  &  &  \\ 
+		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 20 & 20 & 0.142808 & 2.87459e-05 & 3.20608e-05 \\ 
 		\hline 
-		\multicolumn{1}{|c|}{$\delta$ [ms]} & 20 & 20 &  &  &  \\ 
+		\multicolumn{1}{|c|}{$\delta$ [ms]} & 20 & 20 & 0.377899 & 0.00536152 & 0.00566222 \\ 
 		\hline
 	\end{tabular}
 	\\[0.5cm]
@@ -549,8 +569,9 @@ I tempi rilevati per il modello di pneumatico a singolo disco \texttt{Tire::Magi
 	\caption{Tempi per il modello di pneumatico a più dischi \texttt{Tire::MultiDisk} nel caso di \textit{mesh} poco densa.}
 	\label{MDpiano}
 \end{table}
-
-
+%
+\clearpage
+\noindent
 Testando il modello al simulatore è stato possibile valutare la sua complessità computazionale. Le specifiche tecniche di questo simulatore sono:
 \begin{itemize}
 	\item memoria RAM: 32 GB;

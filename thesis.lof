@@ -28,7 +28,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Dato un generico triangolo che, intersecando il piano in cui giace il disco, crea il segmento dato dai punti $A$ e $B$, l'area di intersezione è la regione racchiusa dai segmenti $B'B$, $AB$, $AA'$ e dall'arco di circonferenza $A'B'$.\relax }}{22}{figure.caption.17}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.8}{\ignorespaces I versori normali $\mathaccentV {vec}17E{N}_A$, $\mathaccentV {vec}17E{N}_B$, $\mathaccentV {vec}17E{N}_C$ e $\mathaccentV {vec}17E{N}_D$ vengono ponderati in base all'area delle rispettive regioni d'intersezione $A$, $B$, $C$ e $D$.\relax }}{23}{figure.caption.18}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces I versori normali $\textbf {\textit {e}}_{n_A}$, $\textbf {\textit {e}}_{n_B}$, $\textbf {\textit {e}}_{n_C}$ e $\textbf {\textit {e}}_{n_D}$ vengono ponderati in base all'area delle rispettive regioni d'intersezione $A$, $B$, $C$ e $D$.\relax }}{23}{figure.caption.18}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Disposizione dei dischi.\relax }}{24}{figure.caption.21}
 \defcounter {refsection}{0}\relax 
@@ -84,15 +84,19 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Porzione di \textit {mesh} particolarmente densa di triangoli.\relax }}{61}{figure.caption.88}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Porzione di \textit {mesh} non così particolarmente densa di triangoli.\relax }}{61}{figure.caption.89}
+\defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Schema strutturale del modello "a spazzola" (\textit {brush model}). \relax }}{66}{figure.caption.92}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Schema strutturale del modello "a spazzola" (\textit {brush model}). \relax }}{66}{figure.caption.94}
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Rappresentazione degli assi del sistema di riferimento della vettura secondo la convenzione ISO-V.\relax }}{67}{figure.caption.94}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Rappresentazione degli assi del sistema di riferimento della vettura secondo la convenzione ISO-V.\relax }}{67}{figure.caption.96}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Rappresentazione degli assi del sistema di riferimento dello pneumatico secondo la convenzione ISO-C.\relax }}{68}{figure.caption.95}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Rappresentazione degli assi del sistema di riferimento dello pneumatico secondo la convenzione ISO-C.\relax }}{68}{figure.caption.97}
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 

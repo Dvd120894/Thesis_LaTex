@@ -140,3 +140,181 @@ AvgTri        = 11.3832
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------
+PIANO 10 dischi - 10 punti
+
+Pure sampling (Switch = 0)
+
+MULTI DISK TIRE MODEL
+Total time    = 5986.19 ms
+Avg step time = 0.213785 ms
+Variance      = 0.0021398 ms
+Std_dev       = 0.046258 ms
+Samples       = 28001
+AvgTri        = 3.17204
+
+Pure Triangles evaluation (Switch = 100)
+
+MULTI DISK TIRE MODEL
+Total time    = 324.498 ms
+Avg step time = 0.0115888 ms
+Variance      = 1.73799e-05 ms
+Std_dev       = 0.00416892 ms
+Samples       = 28001
+AvgTri        = 3.17204
+
+Mixed (Switch = 10)
+
+MULTI DISK TIRE MODEL
+Total time    = 312.666 ms
+Avg step time = 0.0111662 ms
+Variance      = 2.52509e-05 ms
+Std_dev       = 0.00502503 ms
+Samples       = 28001
+AvgTri        = 3.17204
+
+---------------------------------------------
+PIANO 10 dischi - 20 punti
+
+Pure sampling (Switch = 0)
+
+MULTI DISK TIRE MODEL
+Total time    = 25282.2 ms
+Avg step time = 0.902904 ms
+Variance      = 0.0444643 ms
+Std_dev       = 0.210866 ms
+Samples       = 28001
+AvgTri        = 3.17204
+
+Pure Triangles evaluation (Switch = 100)
+
+MULTI DISK TIRE MODEL
+Total time    = 588.985 ms
+Avg step time = 0.0210344 ms
+Variance      = 4.91353e-05 ms
+Std_dev       = 0.00700966 ms
+Samples       = 28001
+AvgTri        = 3.17204
+
+Mixed (Switch = 10)
+
+MULTI DISK TIRE MODEL
+Total time    = 624.384 ms
+Avg step time = 0.0222986 ms
+Variance      = 0.000116275 ms
+Std_dev       = 0.0107831 ms
+Samples       = 28001
+AvgTri        = 3.17204
+
+---------------------------------------------
+PIANO 20 dischi - 10 punti
+
+Pure sampling (Switch = 0)
+
+MULTI DISK TIRE MODEL
+Total time    = 13474.6 ms
+Avg step time = 0.481218 ms
+Variance      = 0.0115384 ms
+Std_dev       = 0.107417 ms
+Samples       = 28001
+AvgTri        = 3.17204
+
+Pure Triangles evaluation (Switch = 100)
+
+MULTI DISK TIRE MODEL
+Total time    = 320.503 ms
+Avg step time = 0.0114461 ms
+Variance      = 2.87254e-05 ms
+Std_dev       = 0.00535961 ms
+Samples       = 28001
+AvgTri        = 3.17204
+
+Mixed (Switch = 10)
+
+MULTI DISK TIRE MODEL
+Total time    = 314.678 ms
+Avg step time = 0.0112381 ms
+Variance      = 1.70045e-05 ms
+Std_dev       = 0.00412365 ms
+Samples       = 28001
+AvgTri        = 3.17204
+
+---------------------------------------------
+PIANO 20 dischi - 20 punti
+
+Pure sampling (Switch = 0)
+
+MULTI DISK TIRE MODEL
+Total time    = 52791.1 ms
+Avg step time = 1.88533 ms
+Variance      = 0.142808 ms
+Std_dev       = 0.377899 ms
+Samples       = 28001
+AvgTri        = 3.17204
+
+Pure Triangles evaluation (Switch = 100)
+
+MULTI DISK TIRE MODEL
+Total time    = 539.104 ms
+Avg step time = 0.019253 ms
+Variance      = 2.87459e-05 ms
+Std_dev       = 0.00536152 ms
+Samples       = 28001
+AvgTri        = 3.17204
+
+Mixed (Switch = 10)
+
+MULTI DISK TIRE MODEL
+Total time    = 543.088 ms
+Avg step time = 0.0193953 ms
+Variance      = 3.20608e-05 ms
+Std_dev       = 0.00566222 ms
+Samples       = 28001
+AvgTri        = 3.17204
+
+
+
+
+
+
+
+
+
+
+

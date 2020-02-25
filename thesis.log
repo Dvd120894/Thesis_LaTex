@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  25 FEB 2020 18:37
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  25 FEB 2020 20:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1936,7 +1936,7 @@ ingolo disco \TU/lmtt/m/n/12 Tire::MagicFormula
  []
 
 
-Overfull \hbox (14.28018pt too wide) in paragraph at lines 43--43
+Overfull \hbox (14.28018pt too wide) in paragraph at lines 45--45
  [][] [][][]\TU/AdobeCaslonPro(0)/m/n/12 Tempi per il modello di pneumatico a s
 ingolo disco \TU/lmtt/m/n/12 Tire::MagicFormula 
  []
@@ -2312,51 +2312,69 @@ tNaN\TU/AdobeCaslonPro(0)/m/n/12 .
  []
 
 [53] [54]
-Overfull \hbox (0.71599pt too wide) in paragraph at lines 218--233
+Overfull \hbox (0.71599pt too wide) in paragraph at lines 219--234
  [][] 
  []
 
 [55]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 240.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 241.
 
-Overfull \hbox (32.27939pt too wide) in paragraph at lines 252--253
+Overfull \hbox (32.27939pt too wide) in paragraph at lines 253--254
 \TU/AdobeCaslonPro(0)/m/n/12 golare contenuta nel \TU/AdobeCaslonPro(0)/m/it/12
  file [][]\TU/AdobeCaslonPro(0)/m/n/12 , è sufficiente sfruttare il costruttore
  della classe \TU/lmtt/m/n/12 MeshSurface
  []
 
 [56] [57] [58] [59]
-Underfull \hbox (badness 10000) in paragraph at lines 420--420
+Underfull \hbox (badness 10000) in paragraph at lines 398--399
+
+ []
+
+[60]
+File: Figures/mesh_dense.png Graphic file (type QTm)
+ <use  "Figures/mesh_dense.png" >
+File: Figures/mesh_notsodense.png Graphic file (type QTm)
+ <use  "Figures/mesh_notsodense.png" >
+[61]
+Underfull \hbox (badness 10000) in paragraph at lines 437--437
 []\TU/AdobeCaslonPro(0)/m/sc/12 Tabella 5.13\TU/AdobeCaslonPro(0)/m/n/12 : |Tem
 pi per il modello di pneumatico a singolo disco
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--445
-[]\TU/AdobeCaslonPro(0)/m/sc/12 Tabella 5.14\TU/AdobeCaslonPro(0)/m/n/12 : |Tem
+Overfull \hbox (20.88004pt too wide) in paragraph at lines 442--484
+ [][] 
+ []
+
+[62]
+Underfull \hbox (badness 10000) in paragraph at lines 517--517
+[]\TU/AdobeCaslonPro(0)/m/sc/12 Tabella 5.15\TU/AdobeCaslonPro(0)/m/n/12 : |Tem
 pi per il modello di pneumatico a singolo disco
  []
 
 
-Overfull \hbox (20.88004pt too wide) in paragraph at lines 450--492
+Overfull \hbox (32.88004pt too wide) in paragraph at lines 522--564
  [][] 
  []
 
-[60]) [61] [62] [63]
-\openout2 = `Chapters/conclusione.aux'.
-
- (./Chapters/conclusione.tex [64
+[63]) [64
 
 
 
 ]
-File: Figures/brush_model.png Graphic file (type QTm)
+\openout2 = `Chapters/conclusione.aux'.
 
-<use  "Figures/brush_model.png" >)
+ (./Chapters/conclusione.tex
+File: Figures/brush_model.png Graphic file (type QTm)
+ <use  "Figures/brush_model.png" >)
 Underfull \vbox (badness 4846) has occurred while \output is active []
 
- [65]
+ [65
+
+
+
+]
 [66]
 \openout2 = `Chapters/appendici_codice.aux'.
 
@@ -3127,10 +3145,10 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46318 strings out of 495023
- 883973 string characters out of 6178392
- 1513761 words of memory out of 5000000
- 49371 multiletter control sequences out of 15000+600000
+ 46326 strings out of 495023
+ 884109 string characters out of 6178392
+ 1514081 words of memory out of 5000000
+ 49377 multiletter control sequences out of 15000+600000
  17524 words of font info for 113 fonts, out of 8000000 for 9000
  18 hyphenation exceptions out of 8191
  63i,22n,68p,10523b,5356s stack positions out of 5000i,500n,10000p,200000b,80000s
