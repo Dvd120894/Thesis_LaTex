@@ -320,7 +320,6 @@ Per estrarre i risultati si andranno dapprima a inizializzazione delle variabili
 	TireGround::real_type RelativeCamber;
 	TireGround::real_type Area;
 	TireGround::real_type Volume;
-	TireGround::real_type RelativeCamber;
 	
 	// Estrazione della dimensione appropriata della struttura dati
 	TireGround::int_type size = TireSD->getDisksNumber();
@@ -334,31 +333,28 @@ Per estrarre i risultati si andranno dapprima a inizializzazione delle variabili
 	TireGround::row_vecN RelativeCamberVec(size);
 	TireGround::row_vecN AreaVec(size);
 	TireGround::row_vecN VolumeVec(size);
-	TireGround::row_vecN RelativeCamberVec(size);
 \end{pseudoc}
 Successivamente verranno modificate dai metodi della classe \texttt{Tire} come:
 \begin{pseudoc}
 	// Estrazione dei dati
 	SampleTire->getNormal(N);
-	SampleTire->getPoint(P);
+	SampleTire->getMFpoint(P);
 	SampleTire->getFriction(Friction);
 	SampleTire->getRho(Rho);
 	SampleTire->getRhoDot(PreviousRho,TimeStep,RhoDot);
 	SampleTire->getRelativeCamber(RelativeCamber);
 	SampleTire->getArea(Area);
 	SampleTire->getVolume(Volume);
-	SampleTire->getRelativeCamber(RelativeCamber)
 	
 	// Estrazione dei dati in vettori
 	SampleTire->getNormal(NVec);
-	SampleTire->getPoint(PVec);
+	SampleTire->getMFpoint(PVec);
 	SampleTire->getFriction(FrictionVec);
 	SampleTire->getRho(RhoVec);
 	SampleTire->getRhoDot(PreviousRho,TimeStep,RhoDotVec);
 	SampleTire->getRelativeCamber(RelativeCamberVec);
 	SampleTire->getArea(AreaVec);
 	SampleTire->getVolume(VolumeVec);
-	SampleTire->getRelativeCamber(RelativeCamberVec)
 \end{pseudoc}
 %
 \paragraph{Casi particolari}
@@ -379,16 +375,185 @@ Se, oltre alla condizione sulla variabile booleana in \textit{output}, la lista 
 \end{pseudoc}
 Se la variabile booleana in \textit{output} dal metodo \texttt{intersectAABBtree} è vera allora la lista non è vuota e lo pneumatico sarà quindi considerato in volo sopra la superficie stradale descritta nel \textit{file} \ac{RDF}. In questo caso i parametri d'intersezione vanno settati come intersezione nulla.
 %
-\section{\textit{Debugging} e \textit{Profiling}}
-
 %
 \section{Prestazioni}
-Testando il modello sul simulatore è stato possibile valutare la sua complessità computazionale. Le specifiche tecniche di questo simulatore sono:
+I vari modelli di contatto sono stati preventivamente testati in una macchina avente le seguenti specifiche tecniche:
+\begin{itemize}
+	\item memoria RAM:
+	\begin{itemize}
+		\item dimensione: 8 GB;
+		\item frequenza: 1333 MHz;
+	\end{itemize}
+	\item processore:
+	\begin{itemize}
+		\item denominazione: Intel i5 3230M
+		\item numero di \textit{core}: 2;
+		\item numero di thread: 4;
+		\item frequenza base: 2.60 GHz;
+		\item frequenza massima: 3.20 GHz;
+		\item \textit{cache}: 3 MB.
+	\end{itemize}
+\end{itemize}
+I tempi rilevati per il modello di pneumatico a singolo disco \texttt{Tire::MagicFormula} sono riportati nelle Tabelle \ref{MFcordolo} e \ref{MFpiano}. Analogamente, i tempi rilevati per il modello di pneumatico a più dischi \texttt{Tire::MultiDisk} sono riportati nelle Tabelle ...
+\begin{table}
+	\centering
+	\begin{tabular}{c|c|c|c|}
+		\cline{2-4} 
+		& \multicolumn{3}{c|}{\textbf{Modello di contatto}} \\
+		\cline{2-4} 
+		& \textbf{Rill} & \textbf{Ponderato sull'area} & \textbf{\textit{Mix}} \\ 
+		\hline
+		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 116.543 & 121.249 & 106.058 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 0.0041621 & 0.00433017 & 0.00378765 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 5.21719e-05 & 3.09234e-06 & 1.11754e-05 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\delta$ [ms]} & 0.00722301 & 0.00175851 & 0.00334297 \\ 
+		\hline 
+	\end{tabular}
+	\\[0.5cm]
+	Pneumatico 205/55R16\\
+	Campionamenti = 28000\\
+	Numero medio di triangoli sotto lo pneumatico = 11.4\\
+	\textit{Switch} Rill $\triangleright$ Area a 10 triangoli
+	\caption{Tempi per il modello di pneumatico a singolo disco \texttt{Tire::MagicFormula} nel caso di \textit{mesh} densa.}
+	\label{MFcordolo}
+\end{table}
+\begin{table}
+	\centering
+	\begin{tabular}{c|c|c|c|}
+		\cline{2-4} 
+		& \multicolumn{3}{c|}{\textbf{Modello di contatto}} \\
+		\cline{2-4} 
+		& \textbf{Rill} & \textbf{Ponderato sull'area} & \textbf{\textit{Mix}} \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 64.15 & 46.44 & 54.269 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 0.00229099 & 0.00165851 & 0.00193811 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 3.92268e-06 & 4.39344e-06 & 5.825e-06 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\delta$ [ms]} & 0.00198058 & 0.00209605 & 0.0024135 \\ 
+		\hline 
+	\end{tabular}
+	\\[0.5cm]
+	Pneumatico 205/55R16\\
+	Campionamenti = 28000\\
+	Numero medio di triangoli sotto lo pneumatico = 3.2\\
+	\textit{Switch} Rill $\triangleright$ Area a 3 triangoli
+	\caption{Tempi per il modello di pneumatico a singolo disco \texttt{Tire::MagicFormula} nel caso di \textit{mesh} poco densa.}
+	\label{MFpiano}
+\end{table}
+\begin{table}
+	\centering
+	\begin{tabular}{c|c|c|c|c|c|}
+		\cline{2-6} 
+		& \multicolumn{2}{c|}{\textbf{Precisione}} &\multicolumn{3}{c|}{\textbf{Modello di contatto}} \\
+		\cline{2-6} 
+		& \textbf{Dischi} & \textbf{Punti} & \textbf{Campionamento} & \textbf{Ponderato sull'area} & \textbf{\textit{Mix}} \\ 
+		\hline
+		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 10 & 10 & 11369.5 & 871.896 & 8869.17 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 10 & 10 & 0.40604 & 0.031138 & 0.316745 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 10 & 10 & 0.0104055 & 0.000660589 & 0.0426783 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\delta$ [ms]} & 10 & 10 & 0.102007 & 0.0257019 & 0.206587 \\ 
+		\hhline{======}
+		
+		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 10 & 20 & 43516.8 & 1576.57 & 32886.4 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 10 & 20 & 1.55412 & 0.0563041 & 1.17447 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 10 & 20 & 0.142766 & 0.000214928 & 0.619357 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\delta$ [ms]} & 10 & 20 & 0.377844 & 0.0146604 & 0.786992 \\ 
+		\hhline{======}
+		
+		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 20 & 10 & 23533 & 799.28 & 18245.3 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 20 & 10 & 0.840434 & 0.0285447 & 0.651595 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 20 & 10 & 0.0398545 & 5.12437e-05 & 0.193016 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\delta$ [ms]} & 20 & 10 & 0.199636 & 0.00715847 & 0.439336 \\ 
+		\hhline{======}
+		
+		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 20 & 20 & 96955.9 & 1644.38 & 76486.6 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 20 & 20 & 3.46259 & 0.0587258 & 2.73157 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 20 & 20 & 0.692889 & 0.000257929 & 3.51893 \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\delta$ [ms]} & 20 & 20 & 0.8324 & 0.0160602 & 1.87588 \\ 
+		\hline
+	\end{tabular}
+	\\[0.5cm]
+	Pneumatico 205/55R16\\
+	Campionamenti = 28000\\
+	Numero medio di triangoli sotto lo pneumatico = 11.4\\
+	\textit{Switch} Campionamento $\triangleright$ Area a 10 triangoli
+	\caption{Tempi per il modello di pneumatico a più dischi \texttt{Tire::MultiDisk} nel caso di \textit{mesh} densa.}
+	\label{MDcordolo}
+\end{table}
+\begin{table}
+	\centering
+	\begin{tabular}{c|c|c|c|c|c|}
+		\cline{2-6} 
+		& \multicolumn{2}{c|}{\textbf{Precisione}} &\multicolumn{3}{c|}{\textbf{Modello di contatto}} \\
+		\cline{2-6} 
+		& \textbf{Dischi} & \textbf{Punti} & \textbf{Campionamento} & \textbf{Ponderato sull'area} & \textbf{\textit{Mix}} \\ 
+		\hline
+		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 10 & 10 &  &  &  \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 10 & 10 &  &  &  \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 10 & 10 &  &  &  \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\delta$ [ms]} & 10 & 10 &  &  &  \\ 
+		\hhline{======}
+
+		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 10 & 20 &  &  &  \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 10 & 20 &  &  &  \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 10 & 20 &  &  &  \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\delta$ [ms]} & 10 & 20 &  &  &  \\ 
+		\hhline{======}
+		
+		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 20 & 10 &  &  &  \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 20 & 10 &  &  &  \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 20 & 10 &  &  &  \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\delta$ [ms]} & 20 & 10 &  &  &  \\ 
+		\hhline{======}
+		
+		\multicolumn{1}{|c|}{$T_{totale}$ [ms]} & 20 & 20 &  &  &  \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$T_{step}$ [ms]} & 20 & 20 &  &  &  \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\sigma$ [ms$^2$]} & 20 & 20 &  &  &  \\ 
+		\hline 
+		\multicolumn{1}{|c|}{$\delta$ [ms]} & 20 & 20 &  &  &  \\ 
+		\hline
+	\end{tabular}
+	\\[0.5cm]
+	Pneumatico 205/55R16\\
+	Campionamenti = 28000\\
+	Numero medio di triangoli sotto lo pneumatico = 3.2\\
+	\textit{Switch} Campionamento $\triangleright$ Area a 3 triangoli
+	\caption{Tempi per il modello di pneumatico a più dischi \texttt{Tire::MultiDisk} nel caso di \textit{mesh} poco densa.}
+	\label{MDpiano}
+\end{table}
+
+
+Testando il modello al simulatore è stato possibile valutare la sua complessità computazionale. Le specifiche tecniche di questo simulatore sono:
 \begin{itemize}
 	\item memoria RAM: 32 GB;
 	\item processore: Intel Xeon(R) 3.40 GHz (16 \textit{cores});
 	\item scheda grafica: Nvidia GeForce GTX 680.
 \end{itemize}
-
-I tempi rilevati sono...
-

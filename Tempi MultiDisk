@@ -1,0 +1,142 @@
+---------------------------------------------
+CORDOLO 10 dischi - 10 punti
+
+Pure sampling (Switch = 0)
+
+MULTI DISK TIRE MODEL
+Total time    = 11369.5 ms
+Avg step time = 0.40604 ms
+Variance      = 0.0104055 ms
+Std_dev       = 0.102007 ms
+Samples       = 28001
+AvgTri        = 11.3832
+
+Pure Triangles evaluation (Switch = 100)
+
+MULTI DISK TIRE MODEL
+Total time    = 871.896 ms
+Avg step time = 0.031138 ms
+Variance      = 0.000660589 ms
+Std_dev       = 0.0257019 ms
+Samples       = 28001
+AvgTri        = 11.3832
+
+Mixed (Switch = 10)
+
+MULTI DISK TIRE MODEL
+Total time    = 8869.17 ms
+Avg step time = 0.316745 ms
+Variance      = 0.0426783 ms
+Std_dev       = 0.206587 ms
+Samples       = 28001
+AvgTri        = 11.3832
+
+---------------------------------------------
+CORDOLO 10 dischi - 20 punti
+
+Pure sampling (Switch = 0)
+
+MULTI DISK TIRE MODEL
+Total time    = 43516.8 ms
+Avg step time = 1.55412 ms
+Variance      = 0.142766 ms
+Std_dev       = 0.377844 ms
+Samples       = 28001
+AvgTri        = 11.3832
+
+Pure Triangles evaluation (Switch = 100)
+
+MULTI DISK TIRE MODEL
+Total time    = 1576.57 ms
+Avg step time = 0.0563041 ms
+Variance      = 0.000214928 ms
+Std_dev       = 0.0146604 ms
+Samples       = 28001
+AvgTri        = 11.3832
+
+Mixed (Switch = 10)
+
+MULTI DISK TIRE MODEL
+Total time    = 32886.4 ms
+Avg step time = 1.17447 ms
+Variance      = 0.619357 ms
+Std_dev       = 0.786992 ms
+Samples       = 28001
+AvgTri        = 11.3832
+
+---------------------------------------------
+CORDOLO 20 dischi - 10 punti
+
+Pure sampling (Switch = 0)
+
+MULTI DISK TIRE MODEL
+Total time    = 23533 ms
+Avg step time = 0.840434 ms
+Variance      = 0.0398545 ms
+Std_dev       = 0.199636 ms
+Samples       = 28001
+AvgTri        = 11.3832
+
+Pure Triangles evaluation (Switch = 100)
+
+MULTI DISK TIRE MODEL
+Total time    = 799.28 ms
+Avg step time = 0.0285447 ms
+Variance      = 5.12437e-05 ms
+Std_dev       = 0.00715847 ms
+Samples       = 28001
+AvgTri        = 11.3832
+
+Mixed (Switch = 10)
+
+MULTI DISK TIRE MODEL
+Total time    = 18245.3 ms
+Avg step time = 0.651595 ms
+Variance      = 0.193016 ms
+Std_dev       = 0.439336 ms
+Samples       = 28001
+AvgTri        = 11.3832
+
+---------------------------------------------
+CORDOLO 20 dischi - 20 punti
+
+Pure sampling (Switch = 0)
+
+MULTI DISK TIRE MODEL
+Total time    = 96955.9 ms
+Avg step time = 3.46259 ms
+Variance      = 0.692889 ms
+Std_dev       = 0.8324 ms
+Samples       = 28001
+AvgTri        = 11.3832
+
+Pure Triangles evaluation (Switch = 100)
+
+MULTI DISK TIRE MODEL
+Total time    = 1644.38 ms
+Avg step time = 0.0587258 ms
+Variance      = 0.000257929 ms
+Std_dev       = 0.0160602 ms
+Samples       = 28001
+AvgTri        = 11.3832
+
+Mixed (Switch = 10)
+
+MULTI DISK TIRE MODEL
+Total time    = 76486.6 ms
+Avg step time = 2.73157 ms
+Variance      = 3.51893 ms
+Std_dev       = 1.87588 ms
+Samples       = 28001
+AvgTri        = 11.3832
+
+
+
+
+
+
+
+
+
+
+

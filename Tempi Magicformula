@@ -1,0 +1,75 @@
+CORDOLO
+
+Pure sampling (Switch = 0)
+
+SINGLE DISK TIRE MODEL
+Total time    = 116.543 ms
+Avg step time = 0.0041621 ms
+Variance      = 5.21719e-05 ms
+Std_dev       = 0.00722301 ms
+Samples       = 28001
+AvgTri        = 11.3832
+
+Pure Triangles evaluation (Switch = 100)
+
+SINGLE DISK TIRE MODEL
+Total time    = 121.249 ms
+Avg step time = 0.00433017 ms
+Variance      = 3.09234e-06 ms
+Std_dev       = 0.00175851 ms
+Samples       = 28001
+AvgTri        = 11.3832
+
+Mixed (Switch = 10)
+
+SINGLE DISK TIRE MODEL
+Total time    = 106.058 ms
+Avg step time = 0.00378765 ms
+Variance      = 1.11754e-05 ms
+Std_dev       = 0.00334297 ms
+Samples       = 28001
+AvgTri        = 11.3832
+
+
+
+
+
+
+
+
+
+
+
+
+PIANO
+
+Pure sampling (Switch = 0)
+
+SINGLE DISK TIRE MODEL
+Total time    = 64.15 ms
+Avg step time = 0.00229099 ms
+Variance      = 3.92268e-06 ms
+Std_dev       = 0.00198058 ms
+Samples       = 28001
+AvgTri        = 3.17204
+
+Pure Triangles evaluation (Switch = 100)
+
+SINGLE DISK TIRE MODEL
+Total time    = 46.44 ms
+Avg step time = 0.00165851 ms
+Variance      = 4.39344e-06 ms
+Std_dev       = 0.00209605 ms
+Samples       = 28001
+AvgTri        = 3.17204
+
+Mixed (Switch = 3)
+
+SINGLE DISK TIRE MODEL
+Total time    = 54.269 ms
+Avg step time = 0.00193811 ms
+Variance      = 5.825e-06 ms
+Std_dev       = 0.0024135 ms
+Samples       = 28001
+AvgTri        = 3.17204
+
