@@ -33,9 +33,6 @@ Per il rilevamento delle collisioni tra oggetti in due dimensioni, l'intersezion
 
 Il vincolo di allineamento dei rettangoli agli assi è presente per motivi di prestazioni, infatti, l'area di sovrapposizione tra due rettangoli non ruotati può essere controllata solo tramite confronti logici. I riquadri ruotati richiedono invece ulteriori operazioni trigonometriche, che sono più lente da calcolare. Inoltre, se si hanno entità che possono ruotare, le dimensioni dei rettangoli e/o sotto-rettangoli dovranno modificarsi in modo da avvolgere ancora l'oggetto, altrimenti si dovrà optare per un altro tipo di geometria di delimitazione, come le sfere (che sono invarianti alla rotazione).
 
-% DA RISCRIVERE : CI SONO STATE MODIFICHE
-Nel caso specifico, l'ombra dello pneumatico sarà rappresentata da un albero di tipo \ac{AABB} con una sola foglia. Ovvero si andrà a rappresentare lo pneumatico con una \ac{BB} avente lati uguali e rappresentanti il massimo ingombro che può avere nello spazio. Si andrà inoltre ad incrementare del 10\% ognuno di questi lati in modo da tenere conto dell'angolo di camber, che potrebbe portare i punti di campionamento del terreno fuori dall'ombra. La strada, contrariamente allo pneumatico, verrà tenuta come riferimento assoluto. In altre parole, una volta effettuata l'analisi sintattico-grammaticale del \textit{file} \ac{RDF}, verrà calcolato l'albero di tipo \ac{AABB}. Lo pneumatico si muoverà all'interno della \textit{mesh} e la sua ombra verrà ricalcolata e intersecata con l'albero \ac{AABB} per ottenere tutti i triangoli in corrispondenza della stessa.
-
 Volendo intersecare due semplici \ac{BB}, quali 
 \begin{equation*}
 \begin{split}
@@ -53,13 +50,21 @@ verrà usata la seguente funzione:
 \end{pseudoc}
 \vspace{.5em}
 \noindent
-Volendo intersecare un albero di tipo \ac{AABB} e una semplice \ac{BB}, basterà ripetere a più step la funzione precedente lungo i rami dell'albero. Una volta arrivati a una o più foglia avremo tutti gli oggetti (o triangoli nel caso specifico) che sono posti in corrispondenza della \ac{BB} (od ombra dello pneumatico nel caso specifico). Questi triangoli verranno poi usati per determinare il piano strada locale e il punto di contatto virtuale dello pneumatico.
+Volendo intersecare un albero di oggetti tipo \ac{AABB} e una semplice \ac{AABB}, basterà ripetere a più step la funzione precedente lungo i rami dell'albero. Una volta arrivati a una o più foglia avremo tutti gli oggetti che sono posti in corrispondenza della \ac{BB}. Questi triangoli verranno poi usati per determinare il piano strada locale e il punto di contatto virtuale dello pneumatico.
 
 È importante notare che il metodo appena visto, presenta numerosi vantaggi:
 \begin{itemize}
 	\item Riduzione del numero di comparazioni da effettuare per ottenere l'intersezione \ac{BB}-albero \ac{AABB}. Il metodo presentato consente di ridurre logaritmicamente il numero di comparazioni necessarie per ottenere il risultato, dato che la \textit{mesh} può contenere decine di migliaia di triangoli.
 	\item Riduzione del numero di triangoli da processare per ottenere il piano strada locale e il punto di contatto virtuale dello pneumatico. Infatti, vengono solamente processati quelli posti in corrispondenza dell'ombra dello pneumatico.
 \end{itemize}
+
+Nel caso specifico, l'ombra dello pneumatico sarà rappresentata con una \ac{BB} tridimensionale che racchiuderà lo stesso nello spazio. Essa avrà dimensioni pari a $\phi_e \times \phi_e \times W_{battistrada}$ e quindi rappresenterà il massimo ingombro dello pneumatico. Si andrà a orientare questa \ac{BB} tridimensionale nello spazio con la stessa orientazione del sistema di riferimento del centro ruota. Una volta ruotata si ricaverà nel piano $XY$ del sistema di riferimento assoluto:
+\begin{itemize}
+	\item la \ac{AABB} bidimensionale relativa alla faccia superiore della \ac{BB} tridimensionale prima citata (ombra della faccia superiore);
+	\item la \ac{AABB} bidimensionale relativa alla faccia inferiore della \ac{BB} tridimensionale prima citata (ombra della faccia inferiore);
+	\item la \ac{AABB} bidimensionale relativa a tutta la \ac{BB} tridimensionale prima citata (ombra totale dello pneumatico).
+\end{itemize}
+In altre parole, una volta effettuata l'analisi sintattico-grammaticale del \textit{file} \ac{RDF}, verrà calcolato l'albero di tipo \ac{AABB} relativo alla \textit{mesh}. Lo pneumatico si muoverà dunque all'interno della \textit{mesh} e la sua ombra totale verrà ricalcolata  e intersecata con l'albero \ac{AABB} per ottenere in tempo reale tutti i triangoli in corrispondenza della stessa.
 %
 \section{Algoritmi geometrici}
 %

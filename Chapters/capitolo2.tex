@@ -215,7 +215,10 @@ P_{MF} = -R_0\textbf{\textit{e}}_{n_{XZ}}
 \label{puntoMF}
 \end{equation}
 %
-Come illustrato in \figurename{ \ref{localplane}}, il punto di contatto sul piano strada locale $P_{PL}$ viene invece calcolato sfruttando un algoritmo di intersezione piano-raggio (che si tratterà nel Capitolo \ref{Geom_Algos}). $P_{PL}$ giacerà dunque sulla proiezione in direzione $-\textbf{\textit{e}}_{n_{XZ}}$ del punto $M$ sulla retta individuata dal punto $P_n$ e normale $\textbf{\textit{e}}_{n_{XZ}}$.
+Come illustrato in \figurename{ \ref{localplane}}, il punto di contatto sul piano strada locale $P_{PL}$ viene invece calcolato sfruttando un algoritmo di intersezione piano-raggio (che si tratterà nel Capitolo \ref{Geom_Algos}). $P_{PL}$ giacerà dunque sulla proiezione in direzione $-\textbf{\textit{e}}_{n_{XZ}}$ del punto $M$ sulla retta individuata dal punto $P_n$ e normale $\textbf{\textit{e}}_{n_{XZ}}$. Attraverso questi due punti si potrà calcolare la penetrazione $\rho$ dello pneumatico in corrisondenza del punto di contatto:
+\begin{equation}
+\rho = \left|\left| P_{PL}-P_{MF} \right|\right|
+\end{equation}
 
 \begin{figure}[h]
 	\centering
@@ -279,6 +282,31 @@ Q^\star_{3,4} = M \pm \textbf{\textit{r}}_{Q^\star_{3,4}} = P^\star \pm \Delta y
 \end{split}
 \end{equation}
 dai quali partiranno con direzione $-z_C$ e intersecheranno la \textit{mesh} nei punti $(Q_1, Q_2, Q_3, Q_4)$.
+
+È importante notare che, come mostrato in Figura \ref{rillimpediment} il modello di contatto di Rill non permette di rilevare ostacoli frontali o comunque al di fuori dell'impronta di contatto.
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\def\axisl{3};
+	\def\zd{3.5};
+	\draw[thick, fill=gray!10] (0,0) circle (2);
+	\draw[-stealth, dashed] (-2/3,0) node[left]{\tiny$Q^\star_3$}-- (-2/3,-1.6);
+	\draw[-stealth, dashed] (2/3,0) node[right]{\tiny$Q^\star_4$} -- (2/3,-1.6) ;
+	\draw[-stealth, dashed] (0.05,0) node[left]{\tiny$Q^\star_1$}-- (0.05,-1.6);
+	\draw[-stealth, dashed] (-0.05,0) node[right]{\tiny$Q^\star_2$}-- (-0.05,-1.6);
+	\draw[fill, gray!70] (-\axisl,-1.6) --  (1.8,-1.6)  -- (1.8,2.5) -- (2.4,2.5) -- (2.4,-2.2) -- (-\axisl,-2.2);
+	\draw[thick] (0,0) circle (2);
+	\end{tikzpicture}
+	\caption{Ostacolo frontale non rilevato del modello di contatto di Rill.}
+	\label{rillimpediment}
+\end{figure}
+
+\paragraph{Coefficiente di attrito}
+Il coefficiente di attrito $\mu$ viene calcolato come media aritmetica dei coefficienti di attrito ricavati nei quattro punti di contatto:
+%
+\begin{equation}
+\mu = \frac{1}{4}\sum_{i=1}^{4}\mu_i
+\end{equation}
 %
 \subsubsection{Contatto ponderato in base all'area d'intersezione}
 %
@@ -329,7 +357,7 @@ In alternativa, si può utilizzare un modello di contatto ponderato in base all'
 Attraverso questa area si potrà pesare la normale alla faccia del triangolo considerato e quindi effettuare una media ponderata con tutti gli atri triangoli che intersecano il disco, ovvero:
 %
 \begin{equation}
-\textbf{\textit{e}}_n = \sum_{i=0}^{N_T}A_i\textbf{\textit{e}}_{n_i}
+\textbf{\textit{e}}_n = \frac{1}{A_{tot}}\sum_{i=0}^{N_T}A_i\textbf{\textit{e}}_{n_i}
 \label{ponderata}
 \end{equation}
 %
@@ -345,6 +373,37 @@ Questo metodo è ovviamente utilizzabile solo nel caso di strada rappresentata t
 %
 \paragraph{Punti di contatto}
 Per trovare il punto di contatto con la \textit{mesh} $P_{PL}$ e il punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$ precedentemente definiti, si andrà a ripetere l'operazione in \ref{Punti_contatto_rill} per trovare la componente della normale al piano strada $\textbf{\textit{e}}_{n_{XZ}}$ sul piano in cui giace il singolo disco indeformabile. A differenza del modello di contatto di Rill, non si ha ora una definizione univoca del piano strada locale. Infatti, l'unica componente ad ora conosciuta è il versore risultante normale al terreno $\textbf{\textit{e}}_n$. Per ricavare il punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$ si utilizzerà la \eqref{puntoMF}, mentre per il punto sulla \textit{mesh} $P_{PL}$ si andrà ad utilizzare un algoritmo d'intersezione tra raggio e la superficie stradale, dove l'origine del raggio sarà il centro ruota e la direzione $-\textbf{\textit{e}}_{n_{XZ}}$.
+
+È importante notare che, come mostrato in Figura \ref{intersezione} il modello di contatto ponderato in base all'area d'intersezione permette di rilevare ostacoli frontali o comunque al di fuori dell'impronta di contatto.
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\def\axisl{3};
+	\def\zd{3.5};
+	\draw[thick, fill=gray!10] (0,0) circle (2);
+	\draw[-stealth] (1.8,0) -- (1,0) node[above]{$N_1$};
+	\draw[-stealth] (0,-1.6) -- (0,-0.6) node[left]{$N_2$};
+	\draw[fill, gray!70] (-\axisl,-1.6) --  (1.8,-1.6)  -- (1.8,2.5) -- (2.4,2.5) -- (2.4,-2.2) -- (-\axisl,-2.2);
+	\draw[thick] (0,0) circle (2);	
+	\end{tikzpicture}
+		\caption{Ostacolo frontale rilevato del modello di contatto ponderato in base all'area d'intersezione.}
+	\label{intersezione}
+\end{figure}
+%
+\paragraph{Coefficiente di attrito}
+Il coefficiente di attrito $\mu$ viene calcolato come media ponderata dei coefficiente di attrito $\mu_i$ sull'area d'intersezione $A_i$ dell'$i$-esimo triangolo:
+%
+\begin{equation}
+\mu = \frac{1}{A_{tot}}\sum_{i=0}^{N_T}\mu_iA_i
+\end{equation}
+%
+dove:
+\begin{itemize}
+	\item $N_T$ è il numero di triangoli all'interno della \ac{BB} rappresentante l'ombra dello pneumatico;
+	\item $\mu$ è il coefficiente di attrito risultante;
+	\item $\mu_i$ è il coefficiente di attrito dell'$i$-esimo triangolo;
+	\item $A_i$ corrisponde all'area tra il segmento creato dall'intersezione piano-triangolo e il semicerchio inferiore del disco dell'$i$-esimo triangolo.
+\end{itemize}
 %
 \subsection{Modello di pneumatico a più dischi}
 %
@@ -494,13 +553,13 @@ Anche se questo modello di pneumatico è costituito da più dischi, il punto di 
 Analogamente al modello di pneumatico a singolo disco, si può effettuare la stessa operazione su ogni disco per trovare il versore normale risultante $\textbf{\textit{e}}_{n_{D_j}}$ relativo al contatto del $j$-esimo disco. La \eqref{ponderata} diventerà dunque:
 %
 \begin{equation}
-\textbf{\textit{e}}_{n_{D_j}} = \sum_{i=0}^{N_T}A_i\textbf{\textit{e}}_{n_i}
+\textbf{\textit{e}}_{n_{D_j}} = \frac{1}{A_{D_{tot}}}\sum_{i=0}^{N_T}A_i\textbf{\textit{e}}_{n_i}
 \end{equation}
 %
 Per combinare assieme i versori normali $\textbf{\textit{e}}_{n_{D_j}}$ relativi ai dischi si effettuerà una nuova media ponderata pesata questa volta sull'area totale d'intersezione all'interno del disco. La formula sarà dunque:
 %
 \begin{equation}
-\textbf{\textit{e}}_n = \sum_{j=0}^{N_D}A_{D_j}\textbf{\textit{e}}_{n_{D_j}}
+\textbf{\textit{e}}_n = \frac{1}{A_{tot}}\sum_{j=0}^{N_D}A_{D_j}\textbf{\textit{e}}_{n_{D_j}}
 \end{equation}
 %
 dove:
@@ -569,6 +628,20 @@ Avendo ora a disposizione il versore normale risultante $\textbf{\textit{e}}_n$,
 \paragraph{Piano locale}
 Nel caso in cui la densità della \textit{mesh} sia troppo alta, effettuare il calcolo per il modello di contatto ponderato in base all'area d'intersezione precedentemente presentato, può essere molto dispendioso in termini di calcoli, e quindi di tempo. Per sopperire a questo problema, se il numero di triangoli è superiore ad una certa misura, si andrà a campionare la \textit{mesh} triangolare in corrispondenza del piano in cui giacciono i dischi. In particolare, per campionare la \textit{mesh} si sfrutterà l'algoritmo di intersezione tra raggio e triangolo che verrà presentato nel Capitolo \ref{Geom_Algos}. Attraverso questo algoritmo, supponendo che il raggio abbia la stessa direzione dell'asse $z_C$, si andranno a memorizzare le normali alle facce dei triangoli campionati. Il versore normale risultante $\textbf{\textit{e}}_n$ non verrà più calcolato mediante una media ponderata ma bensì attraverso una semplice media aritmetica tra tutti i punti campionati lungo il disco.
 
+Per combinare assieme i versori normali $\textbf{\textit{e}}_{n_{D_j}}$ relativi ai dischi si effettuerà una nuova media ponderata pesata questa volta sull'area totale d'intersezione all'interno del disco. In questo caso l'area del $j$-esimo disco viene calcolata come piano individuato dalla normale $\textbf{\textit{e}}_{n_{D_j}}$ e dal punto $P_{PL_j}$, calcolato come media dei punto di campionamento del disco. La formula sarà dunque:
+%
+\begin{equation}
+\textbf{\textit{e}}_n = \frac{1}{A_{tot}}\sum_{j=0}^{N_D}A_{D_j}\textbf{\textit{e}}_{n_{D_j}}
+\end{equation}
+%
+dove:
+\begin{itemize}
+	\item $N_D$ è il numero di dischi totali rappresentanti lo pneumatico;
+	\item $\textbf{\textit{e}}_n$ è il versore normale risultante;
+	\item $\textbf{\textit{e}}_{n_{D_j}}$ è il versore normale associato al $j$-esimo disco;
+	\item $A_{D_j}$ corrisponde all'area d'intersezione all'interno del $j$-disco e sotto la superficie della \textit{mesh}.
+\end{itemize}
+
 \begin{figure}
 	\centering
 	\begin{tikzpicture}
@@ -590,4 +663,26 @@ Nel caso in cui la densità della \textit{mesh} sia troppo alta, effettuare il c
 \end{figure}
 
 \paragraph{Punti di contatto}
-Avendo ora a disposizione il versore normale risultante $\textbf{\textit{e}}_n$, si possono trovare i punti $P_{MF}$ e $P_{PL}$ adottando il medesimo metodo utilizzato in \ref{Contatto_Rill}, sempre tenendo conto che entrambi i punti giaceranno sul disco fittizio corrispondente al piano $XZ$ della ruota. 
+Avendo ora a disposizione il versore normale risultante $\textbf{\textit{e}}_n$, si possono trovare i punti $P_{MF}$ e $P_{PL}$ adottando il medesimo metodo utilizzato in \ref{Contatto_Rill}, sempre tenendo conto che entrambi i punti giaceranno sul disco fittizio corrispondente al piano $XZ$ della ruota.
+
+\paragraph{Coefficiente di attrito}
+Il coefficiente di attrito del singolo disco $\mu_D$ viene calcolato come media aritmetica dei coefficienti di attrito ricavati nei suoi punti di campionamento:
+%
+\begin{equation}
+\mu_D = \frac{1}{N_C}\sum_{i=1}^{4}\mu_i
+\end{equation}
+dove $N_C$ è il numero dei punti di campionamento per singolo disco.
+
+Per combinare assieme i coefficienti di attrito $\mu_D$ relativi ai dischi si effettuerà una nuova media ponderata pesata questa volta sull'area totale d'intersezione all'interno del disco. La formula sarà dunque:
+%
+\begin{equation}
+\mu = \frac{1}{A_{tot}}\sum_{j=0}^{N_D}A_{D_j}\mu_D
+\end{equation}
+%
+dove:
+\begin{itemize}
+	\item $N_D$ è il numero di dischi totali rappresentanti lo pneumatico;
+	\item $\mu$ è il coefficiente di attrito risultante;
+	\item $\mu_D$ è il coefficiente di attrito associato al $j$-esimo disco;
+	\item $A_{D_j}$ corrisponde all'area d'intersezione all'interno del $j$-disco e sotto la superficie della \textit{mesh}.
+\end{itemize}

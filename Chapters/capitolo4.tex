@@ -46,6 +46,41 @@ Questa classe contiene tutte le informazioni geometriche per definire, manipolar
 	\caption{Attributi della classe \texttt{Triangle3D}.}
 \end{table}
 %
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	[
+	grow                    = down,
+	sibling distance    = 8em,
+	level distance       = 4.5em,
+	edge from parent/.style = {draw,stealth-},
+	every node/.style       = {font=\footnotesize}
+	]
+	\node [root, env] {BBox2D}
+	child { node [env] {Triangle3D}
+		edge from parent node [right,tt] {TriangleBBox}  node [left,tt,color=white] {TriangleBBox} };
+	\end{tikzpicture}	
+	\caption{Diagramma delle collaborazioni per la classe \texttt{Triangle3D}.}
+\end{figure}
+%
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	[
+	grow                    = down,
+	sibling distance    = 8em,
+	level distance       = 4.5em,
+	edge from parent/.style = {draw,stealth-},
+	every node/.style       = {font=\footnotesize},
+	sloped
+	]
+	\node [root, env] {Triangle3D}
+	child { node [env] {TriangleRoad}
+		edge from parent node [below,tt] {} };
+	\end{tikzpicture}
+	\caption{Diagramma dell'ereditarietà per la classe \texttt{Triangle3D}.}
+\end{figure}
+%
 \paragraph{\texttt{TriangleRoad}}
 Questa classe contiene tutte le informazioni geometriche e non geometriche per definire e manipolare un triangolo con vertici nello spazio tridimensionale rappresentante la superficie stradale. È derivato dalla classe \texttt{Triangle3D} e ha inoltre un attributo che permette di descrivere il coefficiente di attrito nella faccia (detto anche locale). I metodi più importanti sono ereditati dalla classe \texttt{Triangle3D}.
 \begin{table}[h!]
@@ -57,6 +92,43 @@ Questa classe contiene tutte le informazioni geometriche e non geometriche per d
 	\end{tabular}
 	\caption{Attributi della classe \texttt{TriangleRoad}.}
 \end{table}
+%
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	[
+	grow                    = down,
+	sibling distance    = 8em,
+	level distance       = 4.5em,
+	edge from parent/.style = {draw,stealth-},
+	every node/.style       = {font=\footnotesize},
+	]
+	\node [root, env] {BBox2D}
+	child { node [env] {Triangle3D}
+		child { node [env] {TriangleRoad}
+			edge from parent node [below,tt] {} }
+		edge from parent node [right,tt] {TriangleBBox} node [left,tt,color=white] {TriangleBBox} };
+	\end{tikzpicture}
+	\caption{Diagramma delle collaborazioni per la classe \texttt{TriangleRoad}.}
+\end{figure}
+%
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	[
+	grow                    = down,
+	sibling distance    = 8em,
+	level distance       = 4.5em,
+	edge from parent/.style = {draw,stealth-},
+	every node/.style       = {font=\footnotesize},
+	sloped
+	]
+	\node [root, env] {Triangle3D}
+	child { node [env] {TriangleRoad}
+		edge from parent node [below,tt] {} };
+	\end{tikzpicture}
+	\caption{Diagramma dell'ereditarietà per la classe \texttt{TriangleRoad}.}
+\end{figure}
 %
 \paragraph{\texttt{MeshSurface}}
 Questa classe contiene il vettore di puntatori di tipo \texttt{std::shared}-\texttt{\_ptr} alle istanze della classe \texttt{TriangleRoad} che vengono create durante l'analisi sintattico-grammaticale del \textit{file} \ac{RDF}. Inoltre, contiene il vettore di puntatori alle \ac{BB} di tipo \texttt{PtrBBox}, necessario per calcolare l'albero di tipo \ac{AABB}. Quest'ultimo esiste come ulteriore attributo della classe sotto forma di puntatore \texttt{PtrAABB}. I metodi più importanti di questa classe sono:
@@ -159,8 +231,15 @@ Questa classe serve a rappresentare l'ombra dello pneumatico nello spazio bidime
 \end{table}
 %
 \paragraph{\texttt{SamplingGrid}}
-% SCRIVERE MEGLIO SCWITCH COSA FA
 Questa classe contiene tutti i parametri che riguardano la precisione dei calcoli che verranno effettuati nel calcolo della normale al terreno, punto e area di contatto.
+
+Un attributo molto importante è \texttt{Switch}, esso consiste nel limite massimo di triangoli di tipo \texttt{TriangleRoad} che possono essere contenuti all'interno dell'ombra dello pneumatico prima di passare:
+\begin{itemize}
+	\item dal modello di contatto di Rill al modello di contatto ponderato in base all'area d'intersezione nel caso di pneumatico di tipo \texttt{MagicFormula};
+	\item dal modello di contatto ponderato in base all'area d'intersezione al modello di contatto tramite campionamento nel caso di pneumatico di tipo \texttt{MultiDisk}.
+\end{itemize}
+Modificando il suo valore si può quindi decidere che tipo di modello di contatto adottare in base al numero di triangoli totali all'interno dell'ombra dello pneumatico. In questo modo, se la \textit{mesh} è estremamente fitta (100/200+ triangoli), si eviterà rallentare troppo l'esecuzione. Come si vedrà successiamnte infatti, sia per la precisione che per i tempi di esecuzione, converrà sempre utilizzare un modello di contatto di tipo ponderato in base all'area d'intersezione.
+%
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|}
@@ -189,6 +268,50 @@ Questa classe serve a rappresentare lo pneumatico nelle coordinate dello spazio 
 	\caption{Attributi della classe \texttt{Tire}.}
 	\label{}
 \end{table}
+%
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	[
+	grow                    = down,
+	sibling distance    = 8em,
+	level distance       = 8.5em,
+	edge from parent/.style = {draw,-stealth},
+	every node/.style       = {font=\footnotesize},
+	sloped
+	]
+	\node [root, env] {Tire}
+	child { node [env] {SamplingGrid}
+		edge from parent node [below,tt] {Precision} }
+	child { node [env] {ETRTO}
+		edge from parent node [below,tt] {TireGeometry} }
+	child { node [env] {Shadow}
+		edge from parent node [below,tt] {TireShadow} }
+	child { node [env] {ReferenceFrame}
+		edge from parent node [below,tt] {RF} };
+	\end{tikzpicture}
+	\caption{Diagramma delle collaborazioni per la classe \texttt{Tire}.}
+\end{figure}
+%
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	[
+	grow                    = down,
+	sibling distance    = 8em,
+	level distance       = 4.5em,
+	edge from parent/.style = {draw,stealth-},
+	every node/.style       = {font=\footnotesize},
+	sloped
+	]
+	\node [root, env] {Tire}
+	child { node [env] {MultiDisk}
+		edge from parent node [below,tt] {} }
+	child { node [env] {MagicFormula}
+		edge from parent node [below,tt] {} };
+	\end{tikzpicture}
+	\caption{Diagramma dell'ereditarietà per la classe \texttt{Tire}.}
+\end{figure}
 %
 \paragraph{\texttt{MagicFormula} e \texttt{MultiDisk}}
 Queste classi calcolano tutti i parametri necessari per valutare il contatto tra pneumatico a disco singolo e terreno attraverso la formula di Pacejka. I metodi più importanti di queste classi sono:
@@ -234,6 +357,100 @@ Queste classi calcolano tutti i parametri necessari per valutare il contatto tra
 	\caption{Attributi della classe \texttt{MultiDisk}.}
 	\label{}
 \end{table}
+%
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		[
+		grow                    = down,
+		sibling distance    = 8em,
+		level distance       = 8.5em,
+		edge from parent/.style = {draw,-stealth},
+		every node/.style       = {font=\footnotesize},
+		sloped
+		]
+		\node [root, env] {MagicFormula}
+		child { node [env] {Tire}
+			child { node [env] {SamplingGrid}
+				edge from parent node [below,tt] {Precision} }
+			child { node [env] {ETRTO}
+				edge from parent node [below,tt] {TireGeometry} }
+			child { node [env] {Shadow}
+				edge from parent node [below,tt] {TireShadow} }
+			child { node [env] {ReferenceFrame}
+				edge from parent node [below,tt] {RF} }
+			edge from parent node [below,tt] {} }
+		child { node [env] {Disk}
+			edge from parent node [below,tt] {SingleDisk} };
+	\end{tikzpicture}
+	\caption{Diagramma delle collaborazioni per la classe \texttt{MagicFormula}.}
+\end{figure}
+%
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	[
+	grow                    = up,
+	sibling distance    = 8em,
+	level distance       = 4.5em,
+	edge from parent/.style = {draw,-stealth},
+	every node/.style       = {font=\footnotesize},
+	sloped
+	]
+	\node [root, env] {MagicFormula}
+	child { node [env] {Tire}
+		edge from parent node [below,tt] {} };
+	\end{tikzpicture}
+	\caption{Diagramma dell'ereditarietà per la classe \texttt{MagicFormula}.}
+\end{figure}
+%
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	[
+	grow                    = down,
+	sibling distance    = 8em,
+	level distance       = 8.5em,
+	edge from parent/.style = {draw,-stealth},
+	every node/.style       = {font=\footnotesize},
+	sloped
+	]
+	\node [root, env] {MultiDisk}
+	child { node [env] {Tire}
+		child { node [env] {SamplingGrid}
+			edge from parent node [below,tt] {Precision} }
+		child { node [env] {ETRTO}
+			edge from parent node [below,tt] {TireGeometry} }
+		child { node [env] {Shadow}
+			edge from parent node [below,tt] {TireShadow} }
+		child { node [env] {ReferenceFrame}
+			edge from parent node [below,tt] {RF} }
+		edge from parent node [below,tt] {} }
+	child { node [env] {Disk}
+		edge from parent node [below,tt] {DiskVec} };
+	\end{tikzpicture}
+	\caption{Diagramma delle collaborazioni per la classe \texttt{MultiDisk}.}
+\end{figure}
+%
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	[
+	grow                    = up,
+	sibling distance    = 8em,
+	level distance       = 4.5em,
+	edge from parent/.style = {draw,-stealth},
+	every node/.style       = {font=\footnotesize},
+	sloped
+	]
+	\node [root, env] {MultiDisk}
+	child { node [env] {Tire}
+		edge from parent node [below,tt] {} };
+	\end{tikzpicture}
+	\caption{Diagramma dell'ereditarietà per la classe \texttt{MultiDisk}.}
+\end{figure}
+%
+\clearpage
 %
 \section{Librerie Esterne}
 Oltre al codice appena descritto sono state utilizzate anche altre due librerie esterne al fine di velocizzare il processo di sviluppo e al contempo di utilizzare una solida base per le operazione più complesse, ovvero le operazioni matriciali e vettoriali, nonché la creazione degli alberi per oggetti di tipo \ac{AABB} e l'intersezione tra gli stessi.
@@ -397,15 +614,15 @@ I vari modelli di contatto sono stati preventivamente testati in una macchina av
 \end{itemize}
 I tempi rilevati per il modello di pneumatico a singolo disco \texttt{Tire::MagicFormula} sono riportati nelle Tabelle \ref{MFcordolo} e \ref{MFpiano}. Analogamente, i tempi rilevati per il modello di pneumatico a più dischi \texttt{Tire::MultiDisk} sono riportati nelle Tabelle \ref{MDcordolo} e \ref{MDpiano}. Notare che le Tabelle \ref{MFcordolo} e \ref{MDcordolo} sono relative ad un'area dove la\textit{mesh} è più densa, mentre le Tabelle \ref{MFpiano} e \ref{MDpiano} sono relative ad un'area dove la\textit{mesh} è poco densa.\\[1cm]
 
-\begin{figure}[h!]
+\begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{Figures/mesh_dense}
+	\includegraphics[width=0.6\linewidth]{Figures/mesh_dense}
 	\caption{Porzione di \textit{mesh} particolarmente densa di triangoli.}
 	\label{meshdense}
 \end{figure}
-\begin{figure}[h!]
+\begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{Figures/mesh_notsodense}
+	\includegraphics[width=0.6\linewidth]{Figures/mesh_notsodense}
 	\caption{Porzione di \textit{mesh} non così particolarmente densa di triangoli.}
 	\label{meshnotsodense}
 \end{figure}

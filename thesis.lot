@@ -14,37 +14,37 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.1}{\ignorespaces Attributi della classe \texttt {BBox2D}.\relax }}{50}{table.caption.60}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Attributi della classe \texttt {BBox2D}.\relax }}{52}{table.caption.65}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.2}{\ignorespaces Attributi della classe \texttt {Triangle3D}.\relax }}{50}{table.caption.62}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Attributi della classe \texttt {Triangle3D}.\relax }}{52}{table.caption.67}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.3}{\ignorespaces Attributi della classe \texttt {TriangleRoad}.\relax }}{51}{table.caption.64}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Attributi della classe \texttt {TriangleRoad}.\relax }}{53}{table.caption.71}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.4}{\ignorespaces Attributi della classe \texttt {MeshSurface}.\relax }}{51}{table.caption.66}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Attributi della classe \texttt {MeshSurface}.\relax }}{54}{table.caption.75}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.5}{\ignorespaces Attributi della classe \texttt {Disk}.\relax }}{52}{table.caption.68}
+\contentsline {table}{\numberline {5.5}{\ignorespaces Attributi della classe \texttt {Disk}.\relax }}{55}{table.caption.77}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.6}{\ignorespaces Attributi della classe \texttt {ETRTO}.\relax }}{53}{table.caption.70}
+\contentsline {table}{\numberline {5.6}{\ignorespaces Attributi della classe \texttt {ETRTO}.\relax }}{55}{table.caption.79}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.7}{\ignorespaces Attributi della classe \texttt {ReferenceFrame}.\relax }}{53}{table.caption.72}
+\contentsline {table}{\numberline {5.7}{\ignorespaces Attributi della classe \texttt {ReferenceFrame}.\relax }}{56}{table.caption.81}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.8}{\ignorespaces Attributi della classe \texttt {Shadow}.\relax }}{54}{table.caption.74}
+\contentsline {table}{\numberline {5.8}{\ignorespaces Attributi della classe \texttt {Shadow}.\relax }}{57}{table.caption.83}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.9}{\ignorespaces Attributi della classe \texttt {SamplingGrid}.\relax }}{54}{table.caption.76}
+\contentsline {table}{\numberline {5.9}{\ignorespaces Attributi della classe \texttt {SamplingGrid}.\relax }}{57}{table.caption.85}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.10}{\ignorespaces Attributi della classe \texttt {Tire}.\relax }}{54}{table.caption.78}
+\contentsline {table}{\numberline {5.10}{\ignorespaces Attributi della classe \texttt {Tire}.\relax }}{58}{table.caption.87}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.11}{\ignorespaces Attributi della classe \texttt {MagicFormula}.\relax }}{55}{table.caption.80}
+\contentsline {table}{\numberline {5.11}{\ignorespaces Attributi della classe \texttt {MagicFormula}.\relax }}{60}{table.caption.91}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.12}{\ignorespaces Attributi della classe \texttt {MultiDisk}.\relax }}{55}{table.caption.81}
+\contentsline {table}{\numberline {5.12}{\ignorespaces Attributi della classe \texttt {MultiDisk}.\relax }}{60}{table.caption.92}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.13}{\ignorespaces Tempi per il modello di pneumatico a singolo disco \texttt {Tire::MagicFormula} nel caso di \textit {mesh} densa.\relax }}{62}{table.caption.90}
+\contentsline {table}{\numberline {5.13}{\ignorespaces Tempi per il modello di pneumatico a singolo disco \texttt {Tire::MagicFormula} nel caso di \textit {mesh} densa.\relax }}{67}{table.caption.105}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.14}{\ignorespaces Tempi per il modello di pneumatico a più dischi \texttt {Tire::MultiDisk} nel caso di \textit {mesh} densa.\relax }}{62}{table.caption.91}
+\contentsline {table}{\numberline {5.14}{\ignorespaces Tempi per il modello di pneumatico a più dischi \texttt {Tire::MultiDisk} nel caso di \textit {mesh} densa.\relax }}{67}{table.caption.106}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.15}{\ignorespaces Tempi per il modello di pneumatico a singolo disco \texttt {Tire::MagicFormula} nel caso di \textit {mesh} poco densa.\relax }}{63}{table.caption.92}
+\contentsline {table}{\numberline {5.15}{\ignorespaces Tempi per il modello di pneumatico a singolo disco \texttt {Tire::MagicFormula} nel caso di \textit {mesh} poco densa.\relax }}{68}{table.caption.107}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.16}{\ignorespaces Tempi per il modello di pneumatico a più dischi \texttt {Tire::MultiDisk} nel caso di \textit {mesh} poco densa.\relax }}{63}{table.caption.93}
+\contentsline {table}{\numberline {5.16}{\ignorespaces Tempi per il modello di pneumatico a più dischi \texttt {Tire::MultiDisk} nel caso di \textit {mesh} poco densa.\relax }}{68}{table.caption.108}
 \defcounter {refsection}{0}\relax 
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax 
