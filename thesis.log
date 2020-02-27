@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  26 FEB 2020 15:59
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  27 FEB 2020 10:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2062,24 +2062,24 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-Overfull \hbox (10.14786pt too wide) in paragraph at lines 257--258
+Overfull \hbox (10.14786pt too wide) in paragraph at lines 256--257
 [][] 
  []
 
 
-Overfull \vbox (21.4681pt too high) detected at line 270
+Overfull \vbox (21.4681pt too high) detected at line 269
  []
 
 
-Overfull \vbox (21.4681pt too high) detected at line 270
+Overfull \vbox (21.4681pt too high) detected at line 269
  []
 
 
-Overfull \vbox (21.4681pt too high) detected at line 270
+Overfull \vbox (21.4681pt too high) detected at line 269
  []
 
 [21]
-Overfull \hbox (35.10179pt too wide) in paragraph at lines 283--285
+Overfull \hbox (35.10179pt too wide) in paragraph at lines 282--284
 \TU/AdobeCaslonPro(0)/m/n/12 dai quali partiranno con direzione $\OMS/cmsy/m/n/
 12 ^^@\OML/cmm/m/it/12 z[]$ \TU/AdobeCaslonPro(0)/m/n/12 e intersecheranno la \
 TU/AdobeCaslonPro(0)/m/it/12 mesh \TU/AdobeCaslonPro(0)/m/n/12 nei punti $\OT1/
@@ -2099,7 +2099,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [23]
 Package acronym Info: Label `acro:BB' newly defined as it shall be overridden
-although it is yet undefined on input line 366.
+although it is yet undefined on input line 365.
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 
@@ -2404,7 +2404,7 @@ Overfull \hbox (32.88004pt too wide) in paragraph at lines 739--781
 ]
 File: Figures/brush_model.png Graphic file (type QTm)
  <use  "Figures/brush_model.png" >)
-Underfull \vbox (badness 4846) has occurred while \output is active []
+Underfull \vbox (badness 2042) has occurred while \output is active []
 
  [71]
 [72]
@@ -3124,33 +3124,168 @@ File: refman.pdf Graphic file (type QTm)
 
 <use  "refman.pdf"  page90>
 File: refman.pdf Graphic file (type QTm)
- <use  "refman.pdf"  page90> [167] [168
+ <use  "refman.pdf"  page90> [167]
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page91>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page91>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page91> [168]
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page92>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page92>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page92> [169]
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page93>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page93>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page93> [170]
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page94>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page94>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page94> [171]
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page95>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page95>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page95> [172]
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page96>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page96>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page96> [173]
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page97>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page97>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page97> [174]
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page98>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page98>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page98> [175]
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page99>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page99>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page99> [176]
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page100>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page100>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page100> [177]
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page101>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page101>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page101> [178]
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page102>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page102>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page102> [179]
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page103>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page103>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page103> [180]
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page104>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page104>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page104> [181]
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page105>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page105>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page105> [182]
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page106>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page106>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page106> [183]
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page107>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page107>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page107> [184]
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page108>
+File: refman.pdf Graphic file (type QTm)
+
+<use  "refman.pdf"  page108>
+File: refman.pdf Graphic file (type QTm)
+ <use  "refman.pdf"  page108> [185] [186
 
 ]
-(../TireGround/tests/Geometry-test1.cc [169])
-(../TireGround/tests/Geometry-test2.cc [170]
+(../TireGround/tests/Geometry-test1.cc [187])
+(../TireGround/tests/Geometry-test2.cc [188]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [171])
-(../TireGround/tests/Geometry-test3.cc [172])
+ [189])
+(../TireGround/tests/Geometry-test3.cc [190])
 (../TireGround/tests/Geometry-test4.cc)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [173]
-(../TireGround/tests/MagicFormula-test1.cc [174])
-(../TireGround/tests/MagicFormula-test2.cc [175])
-(../TireGround/tests/MultiDisk-test1.cc [176]
+ [191]
+(../TireGround/tests/MagicFormula-test1.cc [192])
+(../TireGround/tests/MagicFormula-test2.cc [193])
+(../TireGround/tests/MultiDisk-test1.cc [194]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [177])
-(../TireGround/tests/MultiDisk-test2.cc [178])) [179] [180
+ [195])
+(../TireGround/tests/MultiDisk-test2.cc [196])) [197] [198
 
 
-] [181
+] [199
 
 ]
 No file thesis.ind.
-[182]
+[200]
 \tf@toc=\write9
 \openout9 = `thesis.toc'.
 
@@ -3185,4 +3320,4 @@ Here is how much of TeX's memory you used:
  18 hyphenation exceptions out of 8191
  63i,22n,70p,10523b,5356s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (198 pages).
+Output written on thesis.pdf (216 pages).
