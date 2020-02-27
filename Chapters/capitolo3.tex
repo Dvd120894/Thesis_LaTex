@@ -11,9 +11,9 @@ Il confinamento degli oggetti nei volumi di delimitazione e l'esecuzione di test
 In geometria, il rettangolo minimo o più piccolo (o \ac{MBB}) per racchiudere un insieme di punti $S$ in $N$ dimensioni è il rettangolo con la misura più piccola (area, volume o iper-volume in dimensioni superiori) all'interno del quale si trovano tutti i punti.  Il termine iper-rettangolo (o più semplicemente \textit{box}) deriva dal suo utilizzo nel sistema di coordinate cartesiane, dove viene effettivamente visualizzato come un rettangolo (caso bidimensionale), parallelepipedo rettangolare (caso tridimensionale), ecc. Nel caso bidimensionale viene chiamato rettangolo di delimitazione minimo.
 %
 \subsubsection{Struttura di tipo "\textit{Axis Aligned Bounding Box}"}
-Il \ac{MBB} allineato agli assi (\ac{AABB}) per un determinato set di punti è il rettangolo di delimitazione minimo soggetto al vincolo che i bordi del rettangolo sono paralleli agli assi cartesiani. È il prodotto cartesiano di $N$ intervalli ciascuno dei quali è definito da un valore minimo e un valore massimo della coordinata corrispondente per i punti in $S$.
+Il \ac{MBB} allineato agli assi (\ac{AABB}) per un determinato set di punti è il rettangolo di delimitazione minimo soggetto al vincolo che i bordi del rettangolo sono paralleli agli assi cartesiani. È costituito da $N$ intervalli ciascuno dei quali è definito da un valore minimo e un valore massimo della coordinata corrispondente per i punti in $S$.
 
-I rettangoli di delimitazione minimi allineati all'asse vengono utilizzati per determinare la posizione approssimativa di un oggetto e come descrittore molto semplice della sua forma. Ad esempio, nella geometria computazionale e nelle sue applicazioni quando è necessario trovare intersezioni  di oggetti, in primo esame si valuteranno le intersezioni tra i loro \ac{MBB}. Questa operazione consente di escludere rapidamente i controlli delle coppie che sono molto distanti.
+I rettangoli di delimitazione minimi allineati all'asse vengono utilizzati per determinare la posizione approssimativa di un oggetto e come descrittore molto semplice della sua forma. Ad esempio, nella geometria computazionale e nelle sue applicazioni, quando è necessario trovare intersezioni  di oggetti in primo esame si valuteranno le intersezioni tra i loro \ac{AABB}. Questa operazione consente infatti di escludere rapidamente i controlli delle coppie che sono molto distanti.
 
 \begin{figure}[h]
 	\centering
@@ -50,21 +50,21 @@ verrà usata la seguente funzione:
 \end{pseudoc}
 \vspace{.5em}
 \noindent
-Volendo intersecare un albero di oggetti tipo \ac{AABB} e una semplice \ac{AABB}, basterà ripetere a più step la funzione precedente lungo i rami dell'albero. Una volta arrivati a una o più foglia avremo tutti gli oggetti che sono posti in corrispondenza della \ac{BB}. Questi triangoli verranno poi usati per determinare il piano strada locale e il punto di contatto virtuale dello pneumatico.
+Volendo intersecare un albero di oggetti tipo \ac{AABB} e una semplice \ac{AABB}, basterà ripetere a più step la funzione precedente lungo i rami dell'albero. Una volta arrivati a una o più foglia avremo tutti gli oggetti che sono posti in corrispondenza della \ac{BB}. Nel caso specifico del lavoro svolto gli oggetti trovati saranno i triangoli costituenti la \textit{mesh}. Questi triangoli verranno poi utilizzato per determinare il piano strada locale e il punto di contatto.
 
-È importante notare che il metodo appena visto, presenta numerosi vantaggi:
-\begin{itemize}
-	\item Riduzione del numero di comparazioni da effettuare per ottenere l'intersezione \ac{BB}-albero \ac{AABB}. Il metodo presentato consente di ridurre logaritmicamente il numero di comparazioni necessarie per ottenere il risultato, dato che la \textit{mesh} può contenere decine di migliaia di triangoli.
-	\item Riduzione del numero di triangoli da processare per ottenere il piano strada locale e il punto di contatto virtuale dello pneumatico. Infatti, vengono solamente processati quelli posti in corrispondenza dell'ombra dello pneumatico.
-\end{itemize}
-
-Nel caso specifico, l'ombra dello pneumatico sarà rappresentata con una \ac{BB} tridimensionale che racchiuderà lo stesso nello spazio. Essa avrà dimensioni pari a $\phi_e \times \phi_e \times W_{battistrada}$ e quindi rappresenterà il massimo ingombro dello pneumatico. Si andrà a orientare questa \ac{BB} tridimensionale nello spazio con la stessa orientazione del sistema di riferimento del centro ruota. Una volta ruotata si ricaverà nel piano $XY$ del sistema di riferimento assoluto:
+Nel caso specifico, l'ombra dello pneumatico sarà rappresentata con una \ac{BB} tridimensionale che racchiuderà lo stesso nello spazio. Essa avrà dimensioni pari a $\phi_e \times \phi_e \times W_{battistrada}$ e rappresenterà il massimo ingombro dello pneumatico. Si andrà quindi a orientare questa \ac{BB} tridimensionale nello spazio con la stessa orientazione del sistema di riferimento del centro ruota. Una volta ruotata si ricaverà nel piano $XY$ del sistema di riferimento assoluto:
 \begin{itemize}
 	\item la \ac{AABB} bidimensionale relativa alla faccia superiore della \ac{BB} tridimensionale prima citata (ombra della faccia superiore);
 	\item la \ac{AABB} bidimensionale relativa alla faccia inferiore della \ac{BB} tridimensionale prima citata (ombra della faccia inferiore);
 	\item la \ac{AABB} bidimensionale relativa a tutta la \ac{BB} tridimensionale prima citata (ombra totale dello pneumatico).
 \end{itemize}
 In altre parole, una volta effettuata l'analisi sintattico-grammaticale del \textit{file} \ac{RDF}, verrà calcolato l'albero di tipo \ac{AABB} relativo alla \textit{mesh}. Lo pneumatico si muoverà dunque all'interno della \textit{mesh} e la sua ombra totale verrà ricalcolata  e intersecata con l'albero \ac{AABB} per ottenere in tempo reale tutti i triangoli in corrispondenza della stessa.
+
+È importante notare che il metodo appena visto, presenta numerosi vantaggi quali:
+\begin{itemize}
+	\item la riduzione logaritmica del numero di comparazioni da effettuare per ottenere l'intersezione \ac{AABB}-albero \ac{AABB}. Infatti, dato che la \textit{mesh} può contenere decine di migliaia di triangoli il vantaggio apportato sarà di particolare importanza.
+	\item la riduzione del numero di triangoli da processare per ottenere il piano strada locale e il punto di contatto virtuale dello pneumatico. Infatti, vengono solamente processati quelli posti in corrispondenza dell'ombra dello pneumatico.
+\end{itemize}
 %
 \section{Algoritmi geometrici}
 %
@@ -90,7 +90,7 @@ Essi saranno esaminati al fine di trovare la massima prestazione in termini di e
 %
 \subsubsection{Intersezione punto-segmento}
 \label{punto-segmento}
-Dato un punto $P = (x_p, y_p)$ e un segmento definito da due punti $A = (x_A, y_B)$ e $B = (x_B, y_B)$.
+Dato un punto $P = (x_p, y_p)$ e un segmento definito dai punti $A = (x_A, y_B)$ e $B = (x_B, y_B)$.
 
 \begin{figure}[h!]
 	\centering
@@ -110,7 +110,7 @@ Dato un punto $P = (x_p, y_p)$ e un segmento definito da due punti $A = (x_A, y_
 Per determinare se il punto $P$ è interno al segmento si eseguiranno i seguenti step:
 \begin{enumerate}
 	\item creazione di un vettore $\vv{AB}$ e di un vettore $\vv{AP}$;
-	\item calcolo del prodotto vettoriale  $\vv{P_1P_2} \times  \vv{PP_1}$, se il modulo del vettore risultante è nullo allora il punto $P$ appartiene al segmento considerato;
+	\item calcolo del prodotto vettoriale  $\vv{AB} \times  \vv{PA}$, se il modulo del vettore risultante è nullo allora il punto $P$ appartiene al segmento considerato;
 	\item calcolo del prodotto scalare tra $\vv{AB}$ e $\vv{AP}$, se è nullo allora $P \equiv A$, se è pari al modulo di $\vv{AB}$ allora il $P \equiv B$, se è compreso tra 0 il modulo di $\vv{AB}$, allora il punto $P$ giace all'interno del segmento considerato.
 \end{enumerate}
 Lo pseudocodice che esegue questo tipo di test è riportato in \figurename{ \ref{pointsegment}}
@@ -195,7 +195,7 @@ Lo pseudocodice che esegue questo tipo di test è riportato in \figurename{ \ref
 	\end{pseudoc}
 	\end{subfigure}
 	\hfill
-	\caption{Schema del codice per l'intersezione punto-segmento.}
+	\caption{Schema dello pseudocodice per l'intersezione punto-segmento.}
 	\label{pointsegment}
 \end{figure}
 %
@@ -295,7 +295,7 @@ Il valore in \textit{output} può essere anche una variabile booleana il cui val
 	\end{pseudoc}	
 	\end{subfigure}
 \hfill
-\caption{Schemi del codice per l'intersezione punto-cerchio.}
+\caption{Schema dello pseudocodice per l'intersezione punto-cerchio.}
 \label{Pointcircle}
 \end{figure}
 %
@@ -609,26 +609,25 @@ Per risolvere l'intersezione piano triangolo basta usare la soluzione precedente
 \begin{itemize}
 	\item il triangolo non viene intersecato dal piano;
 	\item il triangolo viene intersecato dal piano in uno dei suoi tre vertici;
-	\item il triangolo viene intersecato dal piano, formando quindi due punti d'intersezione nel suo perimetro.
+	\item il triangolo viene intersecato dal piano, formando quindi due punti d'intersezione nel suo perimetro;
+	\item il triangolo giace nel piano intersecante (vengono considerati 3 punti di intersezione).
 \end{itemize}
 
 \begin{figure}[htbp]
 	\centering
-	\begin{subfigure}{.73\linewidth}
-		\begin{pseudoc}
-	if ( intersectSegmentPlane( n, V_0, 1, IntPt_1 ))
+	\begin{subfigure}{.8\linewidth}
+	\begin{pseudoc}
+	if ( intersectSegmentPlane( N, P, V_0, V_1, IntPt_1 ))
 	{ IntPts.push_back(IntPt1); }
-	if ( intersectSegmentPlane( n, V_0, 2, IntPt2 ))
+	if ( intersectSegmentPlane( N, P, V_1, V_2, IntPt2 ))
 	{ IntPts.push_back(IntPt2); }
-	if ( intersectSegmentPlane( n, V_0, 3, IntPt3 ))
+	if ( intersectSegmentPlane( N, P, V_2, V_0, IntPt3 ))
 	{ IntPts.push_back(IntPt3); }
-	if ( IntPts.size() == 2 ) 
+	if ( IntPts.size() > 0 ) 
 	{ return true; }
-	else if ( IntPts.size() == 0 ) 
-	{ return false; }
 	else 
 	{ return false; }
-		\end{pseudoc}
+	\end{pseudoc}
 	\end{subfigure}
 	\caption{Schema dello pseudocodice per l'intersezione piano-triangolo.}
 \end{figure}
@@ -774,7 +773,7 @@ Geometricamente, si è appena chiarito il significato di $u$ e $v$. Si consideri
 
 M\"oller e Trumbore spiegano che la prima parte dell'equazione \ref{eq4} (il termine $O-A$) può essere vista come una trasformazione che sposta il triangolo dalla sua posizione spaziale mondiale originale all'origine (il primo vertice del triangolo coincide con l'origine). L'altro lato dell'equazione ha l'effetto di trasformare il punto di intersezione dallo spazio $(x,y,z)$ nello spazio $(t,u,v)$ come spiegato precedentemente.
 
-Per risolvere l'equazione \ref{eq4}, M\"oller e Trumbore hanno usato una tecnica conosciuta in matematica come regola di Cramer. La regola di Cramer fornisce la soluzione a un sistema di equazioni lineari mediante il determinante. La regola afferma che se la moltiplicazione di una matrice $M$ per un vettore colonna $X$ è uguale a un vettore colonna $C$, allora è possibile trovare $X_i$ (l'$i$-esimo elemento del vettore colonna $X$) dividendo il determinante di $M_i$ per il determinante di $M$. Dove $M_i$ è la matrice formata sostituendo la sua colonna di $M$ con il vettore colonna $C$. Usando questa regola si ottiene;
+Per risolvere l'equazione \ref{eq4}, M\"oller e Trumbore hanno usato una tecnica conosciuta in matematica come regola di Cramer. La regola di Cramer fornisce la soluzione a un sistema di equazioni lineari mediante il determinante. La regola afferma che se la moltiplicazione di una matrice $M$ per un vettore colonna $X$ è uguale a un vettore colonna $C$, allora è possibile trovare $X_i$ (l'$i$-esimo elemento del vettore colonna $X$) dividendo il determinante di $M_i$ per il determinante di $M$. Dove $M_i$ è la matrice formata sostituendo la sua colonna di $M$ con il vettore colonna $C$. Usando questa regola si ottiene:
 \begin{equation}
 \begin{bmatrix}
 t \\
@@ -783,8 +782,8 @@ v
 \end{bmatrix} = 
 \frac{1}{\begin{vmatrix}-D & E_1 & E_2\end{vmatrix}}
 \begin{bmatrix}
-\begin{vmatrix}T & E_1 & E_2\end{vmatrix} \\
-\begin{vmatrix}-D & T & E_2\end{vmatrix} \\
+\begin{vmatrix}T & E_1 & E_2\end{vmatrix} \\ \vspace{2pt}
+\begin{vmatrix}-D & T & E_2\end{vmatrix} \\ \vspace{2pt}
 \begin{vmatrix}-D & E_1 & T\end{vmatrix}
 \end{bmatrix}
 \label{eq5}

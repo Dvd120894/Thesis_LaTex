@@ -6,8 +6,8 @@ Gli pneumatici sono probabilmente i componenti più complessi di un'auto in quan
 \section{Geometria}
 Quando si fa riferimento ai dati puramente geometrici, viene utilizzata una forma abbreviata della notazione completa prevista dall'ente di normazione \ac{ETRTO}. Assumendo di avere uno pneumatico generico la notazione che identificherà la geometria sarà del tipo $a$ / $b$ R $c$, dove:
 \begin{itemize}
-	\item $a$ rappresenta larghezza nominale dello pneumatico nel punto più largo;
-	\item $b$ rappresenta percentuale dell'altezza della spalla dello pneumatico in relazione alla larghezza dello stesso;
+	\item $a$ rappresenta la larghezza nominale dello pneumatico nel punto più largo;
+	\item $b$ rappresenta la percentuale dell'altezza della spalla dello pneumatico in relazione alla larghezza dello stesso;
 	\item $c$ rappresenta il diametro dei cerchi ai quali lo pneumatico si adatta.
 \end{itemize}
 Si prenda come esempio la seguente denominazione \ac{ETRTO}: 195/55R16. La larghezza nominale dello pneumatico è di circa 195 mm nel punto più largo, l'altezza della spalla corrisponde al 55\% della larghezza $-$ ovvero 107 mm $-$ e il diametro dei cerchi ai quali lo pneumatico si adatta è di 16 pollici. Con questa notazione è possibile calcolare direttamente il diametro esterno teorico dello pneumatico tramite una delle seguenti formule:
@@ -20,7 +20,7 @@ Si prenda come esempio la seguente denominazione \ac{ETRTO}: 195/55R16. La largh
 \end{equation}
 %
 Riprendendo l'esempio usato sopra, il diametro esterno risulterà dunque 24.44 in o 621 mm.\\
-Meno comunemente usata negli USA e in Europa (ma spesso in Giappone) è la notazione che indica l'intero diametro dello pneumatico invece delle proporzioni dell'altezza della spalla laterale, quindi non secondo \ac{ETRTO}. Per fare lo stesso esempio, un cerchio da 16 pollici avrebbe un diametro di 406 mm. L'aggiunta del doppio dell'altezza dello pneumatico (2$\times$107 mm) produce un diametro totale di 620 mm. Quindi, uno pneumatico 195/55R16 potrebbe in alternativa essere etichettato come 195/620R16. Anche se queste due notazioni sono teoricamente ambigue, in pratica possono essere facilmente distinte perché l'altezza della parete laterale di uno pneumatico automobilistico è in genere molto inferiore alla larghezza. Quindi, quando l'altezza è espressa come percentuale della larghezza, è quasi sempre inferiore al 100\% (e certamente meno del 200\%). Al contrario, i diametri degli pneumatici del veicolo sono sempre superiori a 200 mm. Pertanto, se il secondo numero è superiore a 200, allora è quasi certo che viene utilizzata la notazione giapponese, se è inferiore a 200 allora viene utilizzata la notazione USA/europea.
+Meno comunemente usata negli USA e in Europa (ma spesso in Giappone) è la notazione che indica l'intero diametro dello pneumatico invece delle proporzioni dell'altezza della spalla laterale, quindi non secondo \ac{ETRTO}. Per fare lo stesso esempio, un cerchio da 16 pollici ha un diametro di 406 mm, l'aggiunta del doppio dell'altezza dello pneumatico (2$\times$107 mm) produce un diametro totale di 620 mm. Quindi, uno pneumatico 195/55R16 potrebbe in alternativa essere etichettato come 195/620R16. Anche se queste due notazioni sono teoricamente ambigue, in pratica possono essere facilmente distinte perché l'altezza della parete laterale di uno pneumatico automobilistico è in genere molto inferiore alla larghezza. Quindi, quando l'altezza è espressa come percentuale della larghezza, è quasi sempre inferiore al 100\% (e certamente meno del 200\%). Al contrario, i diametri degli pneumatici del veicolo sono sempre superiori a 200 mm. Pertanto, se il secondo numero è superiore a 200, allora è quasi certo che viene utilizzata la notazione giapponese, se è inferiore a 200 allora viene utilizzata la notazione USA/europea.
 
 \begin{figure}[h]
 	\centering
@@ -83,8 +83,8 @@ Per poter utilizzare la \textit{Magic Formula} è necessario conoscere:
 	\item la geometria dello pneumatico;
 	\item lo slittamento (o \textit{slip});
 	\item la forza verticale applicata allo pneumatico;
-	\item la penetrazione in corrispondenza del punto di contatto e la sua derivata nel tempo;
-	\item l'inclinazione tra piano strada e sistema di riferimento del centro ruota (angolo di camber relativo).
+	\item la penetrazione in corrispondenza del punto di contatto $\rho$ e la sua derivata nel tempo $\dot{\rho}$ (calcolate dalla libreria \texttt{C++} sviluppata);
+	\item l'inclinazione tra piano strada e sistema di riferimento del centro ruota, ovvero l'angolo di camber relativo (calcolato anch'esso dalla libreria \texttt{C++} sviluppata).
 \end{itemize}
 È proprio nell'inclinazione tra piano strada e sistema di riferimento del centro ruota che si porrà una maggiore attenzione in quanto elemento fondamentale per ricavare l'effettivo punto di contatto dell'interazione pneumatico/strada.
 %
@@ -106,7 +106,7 @@ Si analizzeranno ora le quattro metodologie di complessità crescente per ricava
 \label{Contatto_Rill}
 %
 \paragraph{Piano locale}
-La posizione e l'orientamento della ruota in relazione al sistema fissato a terra sono dati dalla terna di riferimento del vettore ruota $RF_{wh}$, che viene calcolata istante per istante risolvendo le equazioni dinamiche del sistema ottenuto nel Capitolo 2 in \cite{Larcher}. Supponendo che il profilo stradale sia rappresentato da una funzione arbitraria a due coordinate spaziali del tipo: 
+La posizione e l'orientamento della ruota in relazione al sistema fissato a terra sono dati dalla terna di riferimento del ruota $RF_{wh}$, che viene calcolata istante per istante risolvendo le equazioni dinamiche del sistema ottenuto nel Capitolo 2 in \cite{Larcher}. Supponendo che il profilo stradale sia rappresentato da una funzione arbitraria a due coordinate spaziali del tipo: 
 %
 \begin{equation}
 z=z(x,y)
@@ -170,7 +170,7 @@ Q^\star_{3,4} = P^\star \pm \textbf{\textit{r}}_{Q^\star_{3,4}} = P^\star \pm \D
 \end{split}
 \end{equation}
 %
-Al fine di campionare il terreno nel modo più efficace possibile, le distanze di $\Delta x$ e $\Delta y$, dell'equazione precedente, vengono regolate in base al raggio indeformato $R_0$ e alla larghezza $B$ dello pneumatico. I valori di queste due quantità possono essere trovate in \cite{Rill} e sono $\Delta x = 0.1 R_0$ e $\Delta x = 0.3 B$. Attraverso questa definizione, si può ottenere un comportamento sufficientemente realistico durante la simulazione.
+Al fine di campionare il terreno nel modo più efficace possibile, le distanze di $\Delta x$ e $\Delta y$, dell'equazione precedente, vengono regolate in base al raggio indeformato $R_0$ e alla larghezza $B$ dello pneumatico. I valori di queste due quantità possono essere trovate in \cite{Rill} e sono $\Delta x = 0.1 R_0$ e $\Delta y = 0.3 B$. Attraverso questa definizione, si può ottenere un comportamento sufficientemente realistico durante la simulazione.
 
 \begin{figure}[h]
 	\centering
@@ -211,7 +211,7 @@ P_n = \frac{1}{4}\begin{bmatrix}
 Infine, è necessario ricondursi alle condizioni tali per cui il modello di Pacejka è valido trovando il punto di contatto sul piano strada locale $P_{PL}$ e il punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$ dove effettivamente agiranno le forze ricavate mediante la \textit{Magic Formula}. Si troverà dapprima la componente della normale al piano strada $\textbf{\textit{e}}_{n_{XZ}}$ sul piano in cui giace il singolo disco indeformabile. $P_{MF}$ sarà dunque trovato a partire dal centro ruota $M$, moltiplicando scalarmente il versore $-\textbf{\textit{e}}_{n_{XZ}}$ per il raggio del disco indeformabile $R_0$, ovvero:
 %
 \begin{equation}
-P_{MF} = -R_0\textbf{\textit{e}}_{n_{XZ}}
+P_{MF} = M-R_0\textbf{\textit{e}}_{n_{XZ}}
 \label{puntoMF}
 \end{equation}
 %
@@ -280,10 +280,10 @@ Q^\star_{1,2} = M \pm \textbf{\textit{r}}_{Q^\star_{1,2}} = P^\star \pm \Delta x
 Q^\star_{3,4} = M \pm \textbf{\textit{r}}_{Q^\star_{3,4}} = P^\star \pm \Delta y \textbf{\textit{e}}_{yC}
 \end{split}
 \end{equation}
-dai quali partiranno con direzione $-z_C$ e intersecheranno la \textit{mesh} nei punti $(Q_1, Q_2, Q_3, Q_4)$.
+dai quali partiranno con direzione $-\textbf{\textit{e}}_{z_C}$ e intersecheranno la \textit{mesh} nei punti $Q_1$, $Q_2$, $Q_3$ e $Q_4$.
 
 È importante notare che, come mostrato in Figura \ref{rillimpediment} il modello di contatto di Rill non permette di rilevare ostacoli frontali o comunque al di fuori dell'impronta di contatto.
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\begin{tikzpicture}
 	\def\axisl{3};
@@ -356,22 +356,22 @@ In alternativa, si può utilizzare un modello di contatto ponderato in base all'
 Attraverso questa area si potrà pesare la normale alla faccia del triangolo considerato e quindi effettuare una media ponderata con tutti gli atri triangoli che intersecano il disco, ovvero:
 %
 \begin{equation}
-\textbf{\textit{e}}_n = \frac{1}{A_{tot}}\sum_{i=0}^{N_T}A_i\textbf{\textit{e}}_{n_i}
+\textbf{\textit{e}}_n = \frac{1}{A_{tot}}\sum_{i=1}^{N_T}A_i\textbf{\textit{e}}_{n_i}
 \label{ponderata}
 \end{equation}
 %
 dove:
 \begin{itemize}
-	\item $N_T$ è il numero di triangoli all'interno della \ac{BB} rappresentante l'ombra dello pneumatico;
+	\item $N_T$ è il numero di triangoli all'interno della \ac{AABB} rappresentante l'ombra dello pneumatico;
 	\item $\textbf{\textit{e}}_n$ è il versore normale risultante;
 	\item $\textbf{\textit{e}}_{n_i}$ è il versore normale dell'$i$-esimo triangolo;
 	\item $A_i$ corrisponde all'area tra il segmento creato dall'intersezione piano-triangolo e il semicerchio inferiore del disco dell'$i$-esimo triangolo.
 \end{itemize}
 
-Questo metodo è ovviamente utilizzabile solo nel caso di strada rappresentata tramite \textit{mesh} triangolare. A differenza dal modello di \cite{Rill}, permette di non approssimare la superficie stradale mediante soli quattro punti invece di avere una rappresentazione che sfrutta tutti i dati messi a disposizione dalla discretizzazione del manto stradale.
+Questo metodo è ovviamente utilizzabile solo nel caso di strada rappresentata tramite \textit{mesh} triangolare. A differenza dal modello di \cite{Rill}, permette di non approssimare la superficie stradale mediante soli quattro punti e di sfruttare tutti i dati messi a disposizione dalla discretizzazione del manto stradale.
 %
 \paragraph{Punti di contatto}
-Per trovare il punto di contatto con la \textit{mesh} $P_{PL}$ e il punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$ precedentemente definiti, si andrà a ripetere l'operazione in \ref{Punti_contatto_rill} per trovare la componente della normale al piano strada $\textbf{\textit{e}}_{n_{XZ}}$ sul piano in cui giace il singolo disco indeformabile. A differenza del modello di contatto di Rill, non si ha ora una definizione univoca del piano strada locale. Infatti, l'unica componente ad ora conosciuta è il versore risultante normale al terreno $\textbf{\textit{e}}_n$. Per ricavare il punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$ si utilizzerà la \eqref{puntoMF}, mentre per il punto sulla \textit{mesh} $P_{PL}$ si andrà ad utilizzare un algoritmo d'intersezione tra raggio e la superficie stradale, dove l'origine del raggio sarà il centro ruota e la direzione $-\textbf{\textit{e}}_{n_{XZ}}$.
+Per trovare il punto di contatto con la \textit{mesh} $P_{PL}$ e il punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$ precedentemente definiti, si andrà a ripetere l'operazione in \ref{Punti_contatto_rill} per trovare la componente della normale al piano strada $\textbf{\textit{e}}_{n_{XZ}}$ sul piano in cui giace il singolo disco indeformabile. A differenza del modello di contatto di Rill, non si ha ora una definizione univoca del piano strada locale. Infatti, l'unica componente ad ora conosciuta è il versore risultante normale al terreno $\textbf{\textit{e}}_n$. Per ricavare il punto di contatto sulla circonferenza del disco indeformabile $P_{MF}$ si utilizzerà la \eqref{puntoMF}, mentre per il punto sulla \textit{mesh} $P_{PL}$ si andrà ad utilizzare un algoritmo d'intersezione tra raggio e la superficie stradale, dove l'origine del raggio sarà il centro ruota $M$ e la direzione $-\textbf{\textit{e}}_{n_{XZ}}$.
 
 È importante notare che, come mostrato in Figura \ref{intersezione} il modello di contatto ponderato in base all'area d'intersezione permette di rilevare ostacoli frontali o comunque al di fuori dell'impronta di contatto.
 \begin{figure}
@@ -390,15 +390,15 @@ Per trovare il punto di contatto con la \textit{mesh} $P_{PL}$ e il punto di con
 \end{figure}
 %
 \paragraph{Coefficiente di attrito}
-Il coefficiente di attrito $\mu$ viene calcolato come media ponderata dei coefficiente di attrito $\mu_i$ sull'area d'intersezione $A_i$ dell'$i$-esimo triangolo:
+Il coefficiente di attrito $\mu$ viene calcolato come media ponderata tra i coefficienti di attrito $\mu_i$ sulle aree d'intersezione $A_i$ dei triangoli $i$-esimi:
 %
 \begin{equation}
-\mu = \frac{1}{A_{tot}}\sum_{i=0}^{N_T}\mu_iA_i
+\mu = \frac{1}{A_{tot}}\sum_{i=1}^{N_T}\mu_iA_i
 \end{equation}
 %
 dove:
 \begin{itemize}
-	\item $N_T$ è il numero di triangoli all'interno della \ac{BB} rappresentante l'ombra dello pneumatico;
+	\item $N_T$ è il numero di triangoli all'interno della \ac{AABB} rappresentante l'ombra dello pneumatico;
 	\item $\mu$ è il coefficiente di attrito risultante;
 	\item $\mu_i$ è il coefficiente di attrito dell'$i$-esimo triangolo;
 	\item $A_i$ corrisponde all'area tra il segmento creato dall'intersezione piano-triangolo e il semicerchio inferiore del disco dell'$i$-esimo triangolo.
@@ -552,13 +552,13 @@ Anche se questo modello di pneumatico è costituito da più dischi, il punto di 
 Analogamente al modello di pneumatico a singolo disco, si può effettuare la stessa operazione su ogni disco per trovare il versore normale risultante $\textbf{\textit{e}}_{n_{D_j}}$ relativo al contatto del $j$-esimo disco. La \eqref{ponderata} diventerà dunque:
 %
 \begin{equation}
-\textbf{\textit{e}}_{n_{D_j}} = \frac{1}{A_{D_{tot}}}\sum_{i=0}^{N_T}A_i\textbf{\textit{e}}_{n_i}
+\textbf{\textit{e}}_{n_{D_j}} = \frac{1}{A_{D_{tot}}}\sum_{i=1}^{N_T}A_i\textbf{\textit{e}}_{n_i}
 \end{equation}
 %
 Per combinare assieme i versori normali $\textbf{\textit{e}}_{n_{D_j}}$ relativi ai dischi si effettuerà una nuova media ponderata pesata questa volta sull'area totale d'intersezione all'interno del disco. La formula sarà dunque:
 %
 \begin{equation}
-\textbf{\textit{e}}_n = \frac{1}{A_{tot}}\sum_{j=0}^{N_D}A_{D_j}\textbf{\textit{e}}_{n_{D_j}}
+\textbf{\textit{e}}_n = \frac{1}{A_{tot}}\sum_{j=1}^{N_D}A_{D_j}\textbf{\textit{e}}_{n_{D_j}}
 \end{equation}
 %
 dove:
@@ -625,12 +625,12 @@ Avendo ora a disposizione il versore normale risultante $\textbf{\textit{e}}_n$,
 %
 \subsubsection{Contatto tramite campionamento}
 \paragraph{Piano locale}
-Nel caso in cui la densità della \textit{mesh} sia troppo alta, effettuare il calcolo per il modello di contatto ponderato in base all'area d'intersezione precedentemente presentato, può essere molto dispendioso in termini di calcoli, e quindi di tempo. Per sopperire a questo problema, se il numero di triangoli è superiore ad una certa misura, si andrà a campionare la \textit{mesh} triangolare in corrispondenza del piano in cui giacciono i dischi. In particolare, per campionare la \textit{mesh} si sfrutterà l'algoritmo di intersezione tra raggio e triangolo che verrà presentato nel Capitolo \ref{Geom_Algos}. Attraverso questo algoritmo, supponendo che il raggio abbia la stessa direzione dell'asse $z_C$, si andranno a memorizzare le normali alle facce dei triangoli campionati. Il versore normale risultante $\textbf{\textit{e}}_n$ non verrà più calcolato mediante una media ponderata ma bensì attraverso una semplice media aritmetica tra tutti i punti campionati lungo il disco.
+Nel caso in cui la densità della \textit{mesh} sia troppo alta, effettuare il calcolo per il modello di contatto ponderato in base all'area d'intersezione precedentemente presentato, può essere molto dispendioso in termini di calcoli, e quindi di tempo. Per sopperire a questo problema, se il numero di triangoli è superiore ad una certa misura, si andrà a campionare la \textit{mesh} triangolare in corrispondenza del piano in cui giacciono i dischi. In particolare, per campionare la \textit{mesh} si sfrutterà l'algoritmo di intersezione tra raggio e triangolo che verrà presentato nel Capitolo \ref{Geom_Algos}. Attraverso questo algoritmo, supponendo che il raggio abbia la stessa direzione dell'asse $z_C$, si andranno a memorizzare le normali alle facce dei triangoli campionati. Il versore normale risultante $\textbf{\textit{e}}_n$ non verrà più calcolato mediante una media ponderata ma bensì attraverso una semplice media aritmetica tra tutte le normali dei punti campionati lungo il disco.
 
-Per combinare assieme i versori normali $\textbf{\textit{e}}_{n_{D_j}}$ relativi ai dischi si effettuerà una nuova media ponderata pesata questa volta sull'area totale d'intersezione all'interno del disco. In questo caso l'area del $j$-esimo disco viene calcolata come piano individuato dalla normale $\textbf{\textit{e}}_{n_{D_j}}$ e dal punto $P_{PL_j}$, calcolato come media dei punto di campionamento del disco. La formula sarà dunque:
+Per combinare assieme i versori normali $\textbf{\textit{e}}_{n_{D_j}}$ relativi ai dischi si effettuerà una nuova media ponderata pesata questa volta sull'area totale d'intersezione all'interno del disco. In questo caso l'area del $j$-esimo disco viene calcolata come piano individuato dalla normale $\textbf{\textit{e}}_{n_{D_j}}$ e dal punto $P_{PL_j}$, calcolato come media dei punti di campionamento del disco. La formula sarà dunque:
 %
 \begin{equation}
-\textbf{\textit{e}}_n = \frac{1}{A_{tot}}\sum_{j=0}^{N_D}A_{D_j}\textbf{\textit{e}}_{n_{D_j}}
+\textbf{\textit{e}}_n = \frac{1}{A_{tot}}\sum_{j=1}^{N_D}A_{D_j}\textbf{\textit{e}}_{n_{D_j}}
 \end{equation}
 %
 dove:
@@ -665,23 +665,23 @@ dove:
 Avendo ora a disposizione il versore normale risultante $\textbf{\textit{e}}_n$, si possono trovare i punti $P_{MF}$ e $P_{PL}$ adottando il medesimo metodo utilizzato in \ref{Contatto_Rill}, sempre tenendo conto che entrambi i punti giaceranno sul disco fittizio corrispondente al piano $XZ$ della ruota.
 
 \paragraph{Coefficiente di attrito}
-Il coefficiente di attrito del singolo disco $\mu_D$ viene calcolato come media aritmetica dei coefficienti di attrito ricavati nei suoi punti di campionamento:
+Il coefficiente di attrito del singolo disco $\mu_{D_j}$ viene calcolato come media aritmetica dei coefficienti di attrito ricavati nei suoi punti di campionamento:
 %
 \begin{equation}
-\mu_D = \frac{1}{N_C}\sum_{i=1}^{4}\mu_i
+\mu_{D_j} = \frac{1}{N_C}\sum_{i=1}^{N_C}\mu_i
 \end{equation}
 dove $N_C$ è il numero dei punti di campionamento per singolo disco.
 
 Per combinare assieme i coefficienti di attrito $\mu_D$ relativi ai dischi si effettuerà una nuova media ponderata pesata questa volta sull'area totale d'intersezione all'interno del disco. La formula sarà dunque:
 %
 \begin{equation}
-\mu = \frac{1}{A_{tot}}\sum_{j=0}^{N_D}A_{D_j}\mu_D
+\mu = \frac{1}{A_{tot}}\sum_{j=0}^{N_D}A_{D_j}\mu_{D_j}
 \end{equation}
 %
 dove:
 \begin{itemize}
 	\item $N_D$ è il numero di dischi totali rappresentanti lo pneumatico;
 	\item $\mu$ è il coefficiente di attrito risultante;
-	\item $\mu_D$ è il coefficiente di attrito associato al $j$-esimo disco;
+	\item $\mu_{D_j}$ è il coefficiente di attrito associato al $j$-esimo disco;
 	\item $A_{D_j}$ corrisponde all'area d'intersezione all'interno del $j$-disco e sotto la superficie della \textit{mesh}.
 \end{itemize}

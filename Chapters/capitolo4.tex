@@ -2,13 +2,13 @@
 \label{Codice}
 %
 \section{Organizzazione}
-La libreria \texttt{TireGround} è stata organizzata in due parti, la prima gestisce la superficie stradale mentre la seconda gestisce i modelli di pneumatico. Si sviluppa all'interno dell'omonimo \textit{namespace} \texttt{TireGround} nel quale vengono inoltre dichiarati con \texttt{typedef} alcuni tipi che verranno utilizzati nelle due sottosezioni. Verranno ora riportate le informazioni di maggior rilievo per ognuna delle due parti della libreria.
+La libreria \texttt{TireGround} è stata organizzata in due parti, la prima gestisce la superficie stradale mentre la seconda gestisce i modelli di contatto dello pneumatico. Si sviluppa all'interno dell'omonimo \textit{namespace} \texttt{TireGround} nel quale vengono inoltre dichiarati con \texttt{typedef} alcuni tipi che verranno utilizzati nelle due sottosezioni. Verranno ora riportate le informazioni di maggior rilievo per ognuna delle due parti della libreria.
 
 \subsection{Gestione della superficie stradale} 
 La gestione della superficie stradale avviene all'interno del \textit{namespace} \texttt{RDF}. In quest'ultimo vengono raccolti alcuni tipi dichiarati con \texttt{typedef} presenti solo nel \textit{namespace} \texttt{RDF}. Lo spazio dei nomi \texttt{RDF} contiene tutti le classi e la funzioni per gestire e processare la \textit{mesh} a partire dal \textit{file} in formato \ac{RDF}.
 %
 \paragraph{\texttt{BBox2D}}
-Questa classe contiene tutte le informazioni per definire, manipolare e processare una \ac{BB} bidimensionale. Consiste nella descrizione geometrica dell'oggetto \ac{BB}. I metodi più importanti di questa classe sono i seguenti.
+Questa classe contiene tutte le informazioni per definire, manipolare e processare una \ac{AABB} bidimensionale. Consiste nella descrizione geometrica dell'oggetto \ac{BB}. I metodi più importanti di questa classe sono i seguenti.
 \begin{itemize}
 	\item \texttt{clear} $-$ elimina il dominio della \ac{BB} settando tutti i quattro valori su \texttt{quietNaN}.
 	\item \texttt{updateBBox2D} $-$ aggiorna il dominio della \ac{BB} settando i suoi valori secondo il massimo ingombro dato dai tre vertici nello spazio tridimensionale in \textit{input}.
@@ -18,10 +18,10 @@ Questa classe contiene tutte le informazioni per definire, manipolare e processa
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline 
 		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ \hline 
-		\texttt{real\_type} & \texttt{Xmin} & $\bullet$ & $\bullet$ & $X_{min}$ della \ac{BB} \\ \hline 
-		\texttt{real\_type} & \texttt{Ymin} & $\bullet$ & $\bullet$ & $Y_{min}$ della \ac{BB} \\ \hline
-		\texttt{real\_type} & \texttt{Xmax} & $\bullet$ & $\bullet$ & $X_{max}$ della \ac{BB} \\ \hline
-		\texttt{real\_type} & \texttt{Ymax} & $\bullet$ & $\bullet$ & $Y_{max}$ della \ac{BB} \\ \hline
+		\texttt{real\_type} & \texttt{Xmin} & $\bullet$ & $\bullet$ & $X_{min}$ della \ac{AABB} \\ \hline 
+		\texttt{real\_type} & \texttt{Ymin} & $\bullet$ & $\bullet$ & $Y_{min}$ della \ac{AABB} \\ \hline
+		\texttt{real\_type} & \texttt{Xmax} & $\bullet$ & $\bullet$ & $X_{max}$ della \ac{AABB} \\ \hline
+		\texttt{real\_type} & \texttt{Ymax} & $\bullet$ & $\bullet$ & $Y_{max}$ della \ac{AABB} \\ \hline
 	\end{tabular}
 	\caption{Attributi della classe \texttt{BBox2D}.}
 	\label{BBox2D}
@@ -41,12 +41,12 @@ Questa classe contiene tutte le informazioni geometriche per definire, manipolar
 		\textbf{Tipo} & \textbf{Nome} & \textit{\textbf{Getter}} & \textit{\textbf{Setter}} & \textbf{Descrizione} \\ \hline 
 		\texttt{vec3} & \texttt{Vertices[3]} & $\bullet$ & $\bullet$ & Vertici del triangolo \\ \hline 
 		\texttt{vec3} & \texttt{Normal} & $\bullet$ & $\bullet$ & Normale al triangolo \\ \hline 
-		\texttt{BBox2D} & \texttt{TriangleBBox} & $\bullet$ & $\bullet$ & \ac{BB} del triangolo \\ \hline
+		\texttt{BBox2D} & \texttt{TriangleBBox} & $\bullet$ & $\bullet$ & \ac{AABB} del triangolo \\ \hline
 	\end{tabular}
 	\caption{Attributi della classe \texttt{Triangle3D}.}
 \end{table}
 %
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\begin{tikzpicture}
 	[
@@ -62,8 +62,7 @@ Questa classe contiene tutte le informazioni geometriche per definire, manipolar
 	\end{tikzpicture}	
 	\caption{Diagramma delle collaborazioni per la classe \texttt{Triangle3D}.}
 \end{figure}
-%
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\begin{tikzpicture}
 	[
@@ -82,7 +81,8 @@ Questa classe contiene tutte le informazioni geometriche per definire, manipolar
 \end{figure}
 %
 \paragraph{\texttt{TriangleRoad}}
-Questa classe contiene tutte le informazioni geometriche e non geometriche per definire e manipolare un triangolo con vertici nello spazio tridimensionale rappresentante la superficie stradale. È derivato dalla classe \texttt{Triangle3D} e ha inoltre un attributo che permette di descrivere il coefficiente di attrito nella faccia (detto anche locale). I metodi più importanti sono ereditati dalla classe \texttt{Triangle3D}.
+Questa classe contiene tutte le informazioni geometriche e non geometriche per definire e manipolare un triangolo con vertici nello spazio tridimensionale rappresentante la superficie stradale. È derivato dalla classe \texttt{Triangle3D} e ha inoltre un attributo che permette di descrivere il coefficiente di attrito nella faccia. I metodi più importanti sono ereditati dalla classe \texttt{Triangle3D}.
+%
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|}
@@ -93,7 +93,7 @@ Questa classe contiene tutte le informazioni geometriche e non geometriche per d
 	\caption{Attributi della classe \texttt{TriangleRoad}.}
 \end{table}
 %
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\begin{tikzpicture}
 	[
@@ -110,9 +110,8 @@ Questa classe contiene tutte le informazioni geometriche e non geometriche per d
 		edge from parent node [right,tt] {TriangleBBox} node [left,tt,color=white] {TriangleBBox} };
 	\end{tikzpicture}
 	\caption{Diagramma delle collaborazioni per la classe \texttt{TriangleRoad}.}
-\end{figure}
-%
-\begin{figure}
+\end{figure}[h!]
+\begin{figure}\textbf{}
 	\centering
 	\begin{tikzpicture}
 	[
@@ -150,7 +149,7 @@ Questa classe contiene il vettore di puntatori di tipo \texttt{std::shared}-\tex
 \end{table}
 %
 \subsection{Gestione dei modelli di pneumatico} 
-La gestione dei modelli di pneumatico avviene nel \textit{namespace} \texttt{TireGround}. Quest'ultimo contiene tutti le classi e la funzioni per gestire l'intersezione tra lo pneumatico e la \textit{mesh} a partire dalla conoscenza di quest'ultima, della geometria e della posizione dello pneumatico.
+La gestione dei modelli di contatto dello pneumatico avviene nel \textit{namespace} \texttt{TireGround}. Quest'ultimo contiene tutti le classi e la funzioni per gestire l'intersezione tra lo pneumatico e la \textit{mesh} a partire dalla conoscenza di quest'ultima, della geometria e della posizione dello pneumatico.
 %
 \paragraph{\texttt{Disk}}
 Questa classe contiene tutte le informazioni geometriche per definire e manipolare un disco nello spazio tridimensionale. Consiste nella descrizione geometrica e nel posizionamento dello spazio delle coordinate tridimensionali dell'oggetto disco (il disco viene rappresentato nel sistema di riferimento dello pneumatico). I metodi più importanti di questa classe sono:
@@ -235,10 +234,10 @@ Questa classe contiene tutti i parametri che riguardano la precisione dei calcol
 
 Un attributo molto importante è \texttt{Switch}, esso consiste nel limite massimo di triangoli di tipo \texttt{TriangleRoad} che possono essere contenuti all'interno dell'ombra dello pneumatico prima di passare:
 \begin{itemize}
-	\item dal modello di contatto di Rill al modello di contatto ponderato in base all'area d'intersezione nel caso di pneumatico di tipo \texttt{MagicFormula};
+	\item dal modello di contatto ponderato in base all'area d'intersezione al modello di contatto di Rill nel caso di pneumatico di tipo \texttt{MagicFormula};
 	\item dal modello di contatto ponderato in base all'area d'intersezione al modello di contatto tramite campionamento nel caso di pneumatico di tipo \texttt{MultiDisk}.
 \end{itemize}
-Modificando il suo valore si può quindi decidere che tipo di modello di contatto adottare in base al numero di triangoli totali all'interno dell'ombra dello pneumatico. In questo modo, se la \textit{mesh} è estremamente fitta (100/200+ triangoli), si eviterà rallentare troppo l'esecuzione. Come si vedrà successiamnte infatti, sia per la precisione che per i tempi di esecuzione, converrà sempre utilizzare un modello di contatto di tipo ponderato in base all'area d'intersezione.
+Modificando il suo valore si può quindi decidere che tipo di modello di contatto adottare in base al numero di triangoli totali all'interno dell'ombra dello pneumatico. In questo modo, se la \textit{mesh} è estremamente fitta (100/200+ triangoli), si eviterà rallentare troppo l'esecuzione. Come si vedrà successivamente infatti, sia per quanto riguarda la precione dell'\textit{output} che per i tempi di esecuzione, converrà sempre utilizzare un modello di contatto di tipo ponderato in base all'area d'intersezione.
 %
 \begin{table}[h!]
 	\centering
@@ -255,6 +254,7 @@ Modificando il suo valore si può quindi decidere che tipo di modello di contatt
 %
 \paragraph{\texttt{Tire}}
 Questa classe serve a rappresentare lo pneumatico nelle coordinate dello spazio tridimensionale. Consiste nel punto di giunzione tra la classe \texttt{ETRTO} che definisce la geometria dello pneumatico in condizione di riposo e la classe \texttt{Reference}-\texttt{Frame} che ne definisce invece la posizione nello spazio. È una classe virtuale in quanto viene definita con alcuni metodi puri virtuali. Questi metodi verranno poi sostituiti con nelle classi figlie.
+%
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|}
@@ -263,13 +263,12 @@ Questa classe serve a rappresentare lo pneumatico nelle coordinate dello spazio 
 		\texttt{SamplingGrid} & \texttt{Precision} & & & Precisione dei calcoli \\ \hline 
 		\texttt{ETRTO} & \texttt{TireGeometry} & & & Geometria \\ \hline 
 		\texttt{ReferenceFrame} & \texttt{RF} & $\bullet$ & $\bullet$ & Posizione \\ \hline
-		\texttt{int\_type} & \texttt{TirePose} & $\bullet$ & $\bullet$ & \textit{Flag} per la posizione \\ \hline
 	\end{tabular}
 	\caption{Attributi della classe \texttt{Tire}.}
 	\label{}
 \end{table}
 %
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\begin{tikzpicture}
 	[
@@ -292,8 +291,7 @@ Questa classe serve a rappresentare lo pneumatico nelle coordinate dello spazio 
 	\end{tikzpicture}
 	\caption{Diagramma delle collaborazioni per la classe \texttt{Tire}.}
 \end{figure}
-%
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\begin{tikzpicture}
 	[
@@ -316,11 +314,13 @@ Questa classe serve a rappresentare lo pneumatico nelle coordinate dello spazio 
 \paragraph{\texttt{MagicFormula} e \texttt{MultiDisk}}
 Queste classi calcolano tutti i parametri necessari per valutare il contatto tra pneumatico a disco singolo e terreno attraverso la formula di Pacejka. I metodi più importanti di queste classi sono:
 \begin{itemize}
-	\item \texttt{setup} $-$ consente di riposizionare la ruota all'interno della \textit{mesh}.
-	\item \texttt{calculateRelativeCamber} $-$ calcola il camber relativo.
-	\item \texttt{getRho} $-$ calcola l'affondamento del disco nel piano strada locale.
-	\item \texttt{gettArea} $-$ calcola l'area d'intersezione dei dischi.
+	\item \texttt{setup} $-$ consente di riposizionare la ruota all'interno della \textit{mesh};
+	\item \texttt{getRelativeCamber} $-$ calcola il camber relativo;
+	\item \texttt{getRho} $-$ calcola l'affondamento del disco nel piano strada locale;
+	\item \texttt{getFriction} $-$ calcola il coefficiente di attrito nel punto di contatto;
+	\item \texttt{getArea} $-$ calcola l'area d'intersezione dei dischi.
 \end{itemize}
+%
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|}
@@ -358,7 +358,7 @@ Queste classi calcolano tutti i parametri necessari per valutare il contatto tra
 	\label{}
 \end{table}
 %
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\begin{tikzpicture}
 		[
@@ -385,8 +385,7 @@ Queste classi calcolano tutti i parametri necessari per valutare il contatto tra
 	\end{tikzpicture}
 	\caption{Diagramma delle collaborazioni per la classe \texttt{MagicFormula}.}
 \end{figure}
-%
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\begin{tikzpicture}
 	[
@@ -404,7 +403,7 @@ Queste classi calcolano tutti i parametri necessari per valutare il contatto tra
 	\caption{Diagramma dell'ereditarietà per la classe \texttt{MagicFormula}.}
 \end{figure}
 %
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\begin{tikzpicture}
 	[
@@ -431,8 +430,7 @@ Queste classi calcolano tutti i parametri necessari per valutare il contatto tra
 	\end{tikzpicture}
 	\caption{Diagramma delle collaborazioni per la classe \texttt{MultiDisk}.}
 \end{figure}
-%
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\begin{tikzpicture}
 	[
@@ -458,10 +456,10 @@ Oltre al codice appena descritto sono state utilizzate anche altre due librerie 
 \subsection{\texttt{Eigen3}}
 \texttt{Eigen3} è una libreria \texttt{C++} di alto livello di \textit{template headers} per operazioni di algebra lineare, vettoriali, matriciali, trasformazioni geometriche, \textit{solver} numerici e algoritmi correlati.
 
-Questa libreria è implementata usando la tecnica di \textit{template metaprogramming}, che crea degli alberi di espressioni in fase di compilazione e genera un codice personalizzato per valutarli. Utilizzando i modelli di espressione e un modello di costo delle operazioni in virgola mobile, la libreria esegue il proprio srotolamento del loop e vettorializzazione.
+Questa libreria è implementata usando la tecnica di \textit{template metaprogramming}, che crea degli alberi di espressioni in fase di compilazione e genera un codice personalizzato per valutarli.
 %
 \subsection{\texttt{Clothoids}}
-Questa libreria nasce per il \textit{fitting} dei polinomi di Hermite di tipo $G^1$ e $G^2$ con clotoidi, \textit{spline} di clotoidi, archi circolari e \textit{biarc}. In questo lavoro di tesi la libreria \texttt{Clothoids} è stata usata per sfruttare l'implementazione dell'oggetto albero per oggetti di tipo \ac{AABB}.
+Questa libreria nasce per il \textit{fitting} dei polinomi di Hermite di tipo $G^1$ e $G^2$ con clotoidi, \textit{spline} di clotoidi, archi circolari e \textit{biarc}. In questo lavoro di tesi la libreria \texttt{Clothoids} è stata usata per sfruttare l'implementazione degli oggetti di tipo \ac{AABB} e del relativo albero.
 %
 \section{Utilizzo}
 La libreria \texttt{TireGround} è stata pensata per essere semplice da utilizzare. Si vedranno ora i vari passi per utilizzarla in maniera appropriata.
@@ -476,10 +474,10 @@ Per caricare la superficie stradale, rappresentata dalla \textit{mesh} triangola
 Per creare lo pneumatico a singolo disco è sufficiente utilizzare il costruttore di \textit{default} della classe \texttt{MagicFormula}.
 \begin{pseudoc}
 	TireGround::Tire* SampleTire = new TireGround::MagicFormula(
-		SectionWidth, // Sezione laterale dello pneumatico [mm]
+		SectionWidth, // Sezione laterale dello pneumatico [m]
 		AspectRatio,  // Aspect ratio percentuale dello pneumatico
 		RimDiameter,  // Diametro del cerchio [in]
-		Threshold     // Threshold per passare dal modello di contatto ponderato in base all'area di intersezione a quello di Rill 
+		SwitchNumber  // Threshold per passare dal modello di contatto ponderato in base all'area di intersezione a quello di Rill 
 		);
 \end{pseudoc}
 Nel caso invece si voglia creare uno pneumatico a più dischi si utilizzerà uno dei costruttori della classe \texttt{MultiDisk}.
@@ -487,35 +485,35 @@ Nel caso invece si voglia creare uno pneumatico a più dischi si utilizzerà uno
 Per il caso di pneumatico a più dischi con raggio uniforme si avrà:
 \begin{pseudoc}
 	TireGround::Tire* SampleTire = new TireGround::MultiDisk(
-		SectionWidth, // Sezione laterale dello pneumatico [mm]
+		SectionWidth, // Sezione laterale dello pneumatico [m]
 		AspectRatio,  // Aspect ratio percentuale dello pneumatico
 		RimDiameter,  // Diametro del cerchio [in]
 		PointsNumber, // Numero di punti di campionamento per ogni disco
 		DisksNumber,  // Numero di dischi totale
-		Threshold     // Threshold per passare dal modello di contatto ponderato in base all'area di intersezione a quello di Rill 
+		SwitchNumber  // Threshold per passare dal modello di contatto ponderato in base all'area di intersezione a quello di Rill 
 		);
 \end{pseudoc}
 Nel caso di pneumatico a più dischi con raggio di raccordo sulla spalla si avrà invece:
 \begin{pseudoc}
 	TireGround::Tire* SampleTire = new TireGround::MultiDisk(
-		SectionWidth, // Sezione laterale dello pneumatico [mm]
+		SectionWidth, // Sezione laterale dello pneumatico [m]
 		AspectRatio,  // Aspect ratio percentuale dello pneumatico
 		RimDiameter,  // Diametro del cerchio [in]
-		SideRadius,   // Raggio di raccordo sulla spalla [mm]
+		SideRadius,   // Raggio di raccordo sulla spalla [m]
 		PointsNumber, // Numero di punti di campionamento per ogni disco
 		DisksNumber,  // Numero di dischi totale
-		Threshold     // Threshold per passare dal modello di contatto ponderato in base all'area di intersezione a quello di Rill 
+		SwitchNumber  // Threshold per passare dal modello di contatto ponderato in base all'area di intersezione a quello di Rill 
 		);
 \end{pseudoc}
 Infine, nel caso si voglia creare uno pneumatico a più dischi con forma personalizzata:
 \begin{pseudoc}
 	TireGround::Tire* SampleTire = new TireGround::MultiDisk(
-		SectionWidth, // Sezione laterale dello pneumatico [mm]
+		SectionWidth, // Sezione laterale dello pneumatico [m]
 		AspectRatio,  // Aspect ratio percentuale dello pneumatico
 		RimDiameter,  // Diametro del cerchio [in]
 		RadiusVec,    // Vettore dei raggi dei dischi [m]
 		PointsNumber, // Numero di punti di campionamento per ogni disco
-		Threshold     // Threshold per passare dal modello di contatto ponderato in base all'area di intersezione a quello di Rill 
+		SwitchNumber  // Threshold per passare dal modello di contatto ponderato in base all'area di intersezione a quello di Rill 
 		);
 \end{pseudoc}
 %
@@ -523,8 +521,8 @@ Infine, nel caso si voglia creare uno pneumatico a più dischi con forma persona
 Per orientare lo pneumatico e valutarne il contatto con il manto stradale si utilizzerà il metodo \texttt{setup} della classe \texttt{Tire}.
 \begin{pseudoc}
 bool Out = TireMD->setup(
-	Road,     // Superficie stradale
-	TransfMat // Matrice di trasformazione 4x4 per orientare lo pneumatico
+	Road, // Superficie stradale
+	TM    // Matrice di trasformazione 4x4 per orientare lo pneumatico
 	);
 \end{pseudoc}
 Per estrarre i risultati si andranno dapprima a inizializzazione delle variabili reali o vettoriali come segue.
@@ -578,7 +576,8 @@ Successivamente verranno modificate dai metodi della classe \texttt{Tire} come:
 \paragraph{Casi particolari}
 Nel caso in cui la variabile booleana in \textit{output} dal metodo \texttt{setup} precedentemente chiamato sia falsa, si prospettano due casi.
 %
-\paragraph{Pneumatico fuori \textit{mesh}} Se, oltre alla condizione sulla variabile booleana in \textit{output}, la lista di triangoli intersecati dall'ombra dello pneumatico è vuota. Per effettuare questo test si può intersecare l'albero della \textit{mesh} con l'albero a una foglia dell'ombra dello pneumatico.
+\paragraph{Pneumatico fuori \textit{mesh}}
+Per verificare questa consizione occorre intersecare l'albero della \textit{mesh} con l'albero a una foglia dell'ombra dello pneumatico.
 \begin{pseudoc}
 	RDF::TriangleRoad_list TrianglesList;
 	bool List = Road.intersectAABBtree(TireSD->getAABBtree(), TrianglesList);
@@ -586,7 +585,7 @@ Nel caso in cui la variabile booleana in \textit{output} dal metodo \texttt{setu
 Se la variabile booleana in \textit{output} dal metodo \texttt{intersectAABBtree} è falsa allora la lista è vuota e lo pneumatico sarà quindi considerato fuori dalla superficie stradale descritta nel \textit{file} \ac{RDF}.
 %
 \paragraph{Pneumatico in volo}
-Se, oltre alla condizione sulla variabile booleana in \textit{output}, la lista di triangoli intersecati dall'ombra dello pneumatico non è vuota. Per effettuare questo test si può intersecare l'albero della \textit{mesh} con l'albero a una foglia dell'ombra dello pneumatico. I parametri d'intersezione vanno settati dall'esterno della libreria \texttt{TireGround} a seconda della morfologia del terreno fuori dalla \textit{mesh}.
+Per verificare questa consizione occorre ancora intersecare l'albero della \textit{mesh} con l'albero a una foglia dell'ombra dello pneumatico.
 \begin{pseudoc}
 	RDF::TriangleRoad_list TrianglesList;
 	bool List = Road.intersectAABBtree(TireSD->getAABBtree(), TrianglesList);

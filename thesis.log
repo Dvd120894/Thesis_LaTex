@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  27 FEB 2020 10:55
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  27 FEB 2020 16:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1902,7 +1902,7 @@ File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 LaTeX Font Info:    Font shape `TU/AdobeCaslonPro(0)/m/sl' in size <12> not ava
 ilable
 (Font)              Font shape `TU/AdobeCaslonPro(0)/m/it' tried instead on inp
-ut line 141.
+ut line 142.
  [1
 
 
@@ -1953,17 +1953,13 @@ ingolo disco \TU/lmtt/m/n/12 Tire::MagicFormula
 ]
 \openout2 = `acronyms.aux'.
 
- (./acronyms.tex) [13
-
-
-
-] [14
-
-
-]
+ (./acronyms.tex)
 \openout2 = `Chapters/introduzione.aux'.
 
  (./Chapters/introduzione.tex [1
+
+
+
 
 
 
@@ -1977,11 +1973,11 @@ although it is yet undefined on input line 10.
 Package acronym Info: Label `acro:ETRTO' newly defined as it shall be overridde
 n
 although it is yet undefined on input line 14.
-)
-[2] [3]
+) [2] [3]
 \openout2 = `Chapters/capitolo1.aux'.
 
- (./Chapters/capitolo1.tex [4
+
+(./Chapters/capitolo1.tex [4
 
 
 
@@ -2079,27 +2075,24 @@ Overfull \vbox (21.4681pt too high) detected at line 269
  []
 
 [21]
-Overfull \hbox (35.10179pt too wide) in paragraph at lines 282--284
-\TU/AdobeCaslonPro(0)/m/n/12 dai quali partiranno con direzione $\OMS/cmsy/m/n/
-12 ^^@\OML/cmm/m/it/12 z[]$ \TU/AdobeCaslonPro(0)/m/n/12 e intersecheranno la \
-TU/AdobeCaslonPro(0)/m/it/12 mesh \TU/AdobeCaslonPro(0)/m/n/12 nei punti $\OT1/
-cmr/m/n/12 (\OML/cmm/m/it/12 Q[]; Q[]; Q[]; Q[]\OT1/cmr/m/n/12 )$\TU/AdobeCaslo
-nPro(0)/m/n/12 . 
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+ [22]
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+ [23]
+Package acronym Info: Label `acro:AABB' newly defined as it shall be overridden
+
+although it is yet undefined on input line 365.
+
+Overfull \hbox (3.64235pt too wide) in paragraph at lines 365--366
+[]$\OML/cmm/m/it/12 N[]$ \TU/AdobeCaslonPro(0)/m/n/12 è il numero di triangoli 
+all’interno della [][]\TU/AdobeCaslonPro(0)/m/it/12 Axis Aligned Bounding Box \
+TU/AdobeCaslonPro(0)/m/n/12 ([])[]
  []
 
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-[22]
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [23]
-Package acronym Info: Label `acro:BB' newly defined as it shall be overridden
-although it is yet undefined on input line 365.
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 
@@ -2153,9 +2146,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-Package acronym Info: Label `acro:AABB' newly defined as it shall be overridden
-
-although it is yet undefined on input line 14.
 File: Figures/AABB.png Graphic file (type QTm)
 
 <use  "Figures/AABB.png" >
@@ -2163,14 +2153,11 @@ Package acronym Info: Label `acro:AOBB' newly defined as it shall be overridden
 
 although it is yet undefined on input line 26.
  [32]
+Package acronym Info: Label `acro:BB' newly defined as it shall be overridden
+although it is yet undefined on input line 32.
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 47.
  [33]
-Overfull \hbox (3.00012pt too wide) in paragraph at lines 57--58
-[]\TU/AdobeCaslonPro(0)/m/n/12 Riduzione del numero di comparazioni da effettua
-re per ottenere l’intersezione
- []
-
 Package acronym Info: Label `acro:CAD' newly defined as it shall be overridden
 although it is yet undefined on input line 71.
 Package acronym Info: Label `acro:CAM' newly defined as it shall be overridden
@@ -2179,7 +2166,7 @@ Package acronym Info: Label `acro:CAE' newly defined as it shall be overridden
 although it is yet undefined on input line 71.
 Package acronym Info: Label `acro:GIS' newly defined as it shall be overridden
 although it is yet undefined on input line 71.
-[34]
+ [34]
 Package acronym Info: Label `acro:CAGD' newly defined as it shall be overridden
 
 although it is yet undefined on input line 74.
@@ -2247,7 +2234,7 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 [45]
-Overfull \hbox (9.07133pt too wide) in paragraph at lines 683--685
+Overfull \hbox (9.07133pt too wide) in paragraph at lines 682--684
 \TU/AdobeCaslonPro(0)/m/n/12 Si noti che $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 B \
 OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 A\OT1/cmr/m/n/12 )$ \TU/AdobeCaslonPro(0)/
 m/n/12 e $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 C \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/i
@@ -2258,7 +2245,7 @@ ro(0)/m/n/12 del triangolo $\OML/cmm/m/it/12 ABC$\TU/AdobeCaslonPro(0)/m/n/12 .
  []
 
 
-Overfull \hbox (25.1515pt too wide) in paragraph at lines 688--690
+Overfull \hbox (25.1515pt too wide) in paragraph at lines 687--689
 \TU/AdobeCaslonPro(0)/m/n/12 dove $\OML/cmm/m/it/12 t$ \TU/AdobeCaslonPro(0)/m/
 n/12 è la distanza dall’origine del raggio all’intersezione $\OML/cmm/m/it/12 P
 $\TU/AdobeCaslonPro(0)/m/n/12 . Sostituendo $\OML/cmm/m/it/12 P$ \TU/AdobeCaslo
@@ -2300,7 +2287,7 @@ Missing character: There is no ; in font nullfont!
 
 
 ]
-Overfull \hbox (6.92145pt too wide) in paragraph at lines 11--13
+Overfull \hbox (24.75345pt too wide) in paragraph at lines 11--13
 \TU/AdobeCaslonPro(0)/m/n/12 processare una [][] bidimensionale. Consiste nella
  descrizione geometrica dell’oggetto
  []
@@ -2312,18 +2299,29 @@ mina il dominio della [][] settando tutti i quattro valori su \TU/lmtt/m/n/12 q
 uietNaN\TU/AdobeCaslonPro(0)/m/n/12 . 
  []
 
-[51] [52] [53]
-Overfull \hbox (13.87198pt too wide) in paragraph at lines 142--149
+[51]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[52] [53]
+Overfull \hbox (13.87198pt too wide) in paragraph at lines 141--148
  [][] 
  []
 
+
+Overfull \hbox (19.22014pt too wide) in paragraph at lines 152--154
+\TU/AdobeCaslonPro(0)/m/n/12 La gestione dei modelli di contatto dello pneumati
+co avviene nel \TU/AdobeCaslonPro(0)/m/it/12 namespace \TU/lmtt/m/n/12 TireGrou
+nd\TU/AdobeCaslonPro(0)/m/n/12 .
+ []
+
 [54]
-Overfull \hbox (2.50798pt too wide) in paragraph at lines 181--190
+Overfull \hbox (2.50798pt too wide) in paragraph at lines 180--189
  [][] 
  []
 
 [55]
-Overfull \hbox (2.7935pt too wide) in paragraph at lines 217--218
+Overfull \hbox (2.7935pt too wide) in paragraph at lines 216--217
 []\TU/lmtt/m/n/12 clear $\OMS/cmsy/m/n/12 ^^@$ \TU/AdobeCaslonPro(0)/m/n/12 eli
 mina il dominio dell’ombra settando tutti i suoi valori su \TU/lmtt/m/n/12 quie
 tNaN\TU/AdobeCaslonPro(0)/m/n/12 . 
@@ -2333,6 +2331,12 @@ tNaN\TU/AdobeCaslonPro(0)/m/n/12 .
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [56]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -2348,11 +2352,27 @@ Overfull \hbox (0.71599pt too wide) in paragraph at lines 342--357
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[58] [59] [60]
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 458.
 
-Overfull \hbox (32.27939pt too wide) in paragraph at lines 470--471
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[58]
+
+LaTeX Warning: Text page 59 contains only floats.
+
+[59] [60]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 456.
+
+Overfull \hbox (32.27939pt too wide) in paragraph at lines 468--469
 \TU/AdobeCaslonPro(0)/m/n/12 golare contenuta nel \TU/AdobeCaslonPro(0)/m/it/12
  file [][]\TU/AdobeCaslonPro(0)/m/n/12 , è sufficiente sfruttare il costruttore
  della classe \TU/lmtt/m/n/12 MeshSurface
@@ -2360,33 +2380,35 @@ Overfull \hbox (32.27939pt too wide) in paragraph at lines 470--471
 
 [61
 
-] [62] [63] [64] [65]
-Underfull \hbox (badness 10000) in paragraph at lines 615--616
+] [62] [63] [64]
+Underfull \hbox (badness 10000) in paragraph at lines 614--615
 
  []
 
+[65]
 File: Figures/mesh_dense.png Graphic file (type QTm)
-<use  "Figures/mesh_dense.png" >
+ <use  "Figures/mesh_dense.png" >
 File: Figures/mesh_notsodense.png Graphic file (type QTm)
- <use  "Figures/mesh_notsodense.png" > [66]
-Underfull \hbox (badness 10000) in paragraph at lines 654--654
+ <use  "Figures/mesh_notsodense.png" >
+[66]
+Underfull \hbox (badness 10000) in paragraph at lines 653--653
 []\TU/AdobeCaslonPro(0)/m/sc/12 Tabella 5.13\TU/AdobeCaslonPro(0)/m/n/12 : |Tem
 pi per il modello di pneumatico a singolo disco
  []
 
 
-Overfull \hbox (20.88004pt too wide) in paragraph at lines 659--701
+Overfull \hbox (20.88004pt too wide) in paragraph at lines 658--700
  [][] 
  []
 
 [67]
-Underfull \hbox (badness 10000) in paragraph at lines 734--734
+Underfull \hbox (badness 10000) in paragraph at lines 733--733
 []\TU/AdobeCaslonPro(0)/m/sc/12 Tabella 5.15\TU/AdobeCaslonPro(0)/m/n/12 : |Tem
 pi per il modello di pneumatico a singolo disco
  []
 
 
-Overfull \hbox (32.88004pt too wide) in paragraph at lines 739--781
+Overfull \hbox (32.88004pt too wide) in paragraph at lines 738--780
  [][] 
  []
 
@@ -3295,14 +3317,14 @@ No file thesis.ind.
 \tf@lot=\write11
 \openout11 = `thesis.lot'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 215.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 215.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 216.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 216.
  (./thesis.aux (./acronyms.aux) (./Chapters/introduzione.aux)
 (./Chapters/capitolo1.aux) (./Chapters/capitolo2.aux) (./Chapters/capitolo3.aux
 ) (./Chapters/capitolo4.aux) (./Chapters/conclusione.aux)
 (./Chapters/appendici_codice.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 215.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 215.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 216.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 216.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -3312,12 +3334,12 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46575 strings out of 495023
- 889368 string characters out of 6178392
- 1514683 words of memory out of 5000000
- 49626 multiletter control sequences out of 15000+600000
+ 46565 strings out of 495023
+ 889214 string characters out of 6178392
+ 1514635 words of memory out of 5000000
+ 49616 multiletter control sequences out of 15000+600000
  17524 words of font info for 113 fonts, out of 8000000 for 9000
  18 hyphenation exceptions out of 8191
  63i,22n,70p,10523b,5356s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (216 pages).
+Output written on thesis.pdf (214 pages).
