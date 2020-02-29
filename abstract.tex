@@ -1,0 +1,13 @@
+\renewcommand{\abstractname}{Abstract}
+\begin{abstract}
+\noindent
+The aim of the presented work is to develop a \texttt{C++} library to evaluate the interaction between tire and road. The result of this thesis is a \texttt{C++} program able to work in real-time carrying single/multiple disks tire representation and four \textit{MagicFormula} compatible contact models. The accuracy and real-time execution requirements fulfillment makes the library adequate to a multitude of applications, from advanced controls testing to race car driving simulator.
+
+The tridimensional mapped roads consists in thousands of triangles. These are stored in a \ac{RDF} file (\texttt{*.rdf}). All \ac{RDF} files consist into two parts: in the first all vartices are declared while in the second they are connected in order to compose the triangles and the friction coefficient on the triangle face is declared.
+
+As previously mentioned, the tire is represented by means of a single or multiple indeformable disks. The multiple disks representation enhance the contact precision, in fact the evaluation goes along all the section width of the tire. The four contact models which has been developed are able to find all the \textit{MagicFormula} input parameters regarding the tire/road interaction. The most important parameters are relative camber angle, average friction coefficient, intersection area/volume, contact point penetration and its time derivative.
+
+One of the peculiarities of the presented tire/road contact models is that they can detect several different friction coefficient on the tridimensional mapped roads. This means that it is possible to simulate not only the slope and banking angles of a track, but also minor unevenness of the road surface and the different grip conditions. All of these properties make the model a useful tool for most of the \ac{ADAS} systems like \ac{ABS} and/or \ac{ESP}.
+
+The \texttt{C++} library was fatherly tested using both the pc it was developed and a professional driving simulator in order to get some information about the computational complexity and timing.
+\end{abstract}
