@@ -1,11 +1,11 @@
-\chapter{La superficie stradale}
+\chapter{Descrizione della superficie stradale}
 \label{rdf}
 %
 Oltre allo pneumatico, la superficie stradale rappresenta il secondo importante elemento che definisce il contatto. Perché una superficie stradale possa essere facilmente utilizzata da un calcolatore deve essere prima discretizzata. La discretizzazione in questo caso avviene mediante la rappresentazione della superficie stessa in una \textit{mesh} triangolare. La \textit{mesh} è contenuta in un \textit{file} di formato \ac{RDF}, che contiene le posizioni $(x,y,z)$ di ogni vertice e i numeri di identificazione per ognuno dei tre vertici del triangolo, per ogni triangolo.\\
 \indent
 È importante notare che la discretizzazione del manto stradale è un processo molto importante in quanto, se campionato troppo grossolanamente potrebbe influire negativamente sui risultati dei calcoli per l'estrazione del piano strada locale. In altre parole, una semplificazione eccessiva, potrebbe causare degli errori tali da incorrere in risultati troppo approssimativi e non rispecchianti la realtà. Al contrario, una \textit{mesh} troppo fitta, aumenterebbe inutilmente i calcoli da eseguire, dilatando quindi i tempi di esecuzione. È bene quindi discretizzare più densamente in maniera oculata e solo dove occorre realmente, ovvero in prossimità di cordoli, marciapiedi o qualsiasi tipo di ostacolo che potrebbe influire sulle prestazioni della vettura.
 
-\section{Il formato RDF}
+\section{Il formato RDF per le superficie stradali}
 %
 \subsection{Superfici semplici}
 Sfortunatamente, non esistono \textit{standard} universalmente riconosciuti per il formato RDF. In linea di massima le superfici stradali sono definite nei \textit{Road Data File} (\texttt{*.rdf}). Questa tipologia di \textit{file} è composta da varie sezioni, indicate da parentesi quadre.
