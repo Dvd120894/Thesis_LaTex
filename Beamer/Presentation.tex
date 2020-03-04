@@ -10,7 +10,7 @@
 \usepackage{xcolor}
 \lstset{
 	basicstyle=\ttfamily\tiny,
-	basewidth=0.5em,
+	basewidth=0.65em,
 	commentstyle=\ttfamily,
 	tabsize=2,
 	keywordstyle=\bfseries\sffamily,
@@ -20,7 +20,7 @@
 	keywordstyle=\bfseries\ttfamily,
 	breaklines=true
 }
-\lstnewenvironment{pseudoc}{\lstset{frame=lines,mathescape=true, language = C++, basicstyle=\ttfamily\small, basewidth=0.5em}}{}
+\lstnewenvironment{pseudoc}{\lstset{frame=lines,mathescape=true, language = C++, basicstyle=\ttfamily\small, basewidth=0.55em}}{}
 
 \definecolor{UBCblue}{rgb}{0.04706, 0.13725, 0.26667} % UBC Blue (primary)
 
@@ -74,15 +74,24 @@
 	\Large{Obiettivi della Tesi}:
 	\normalsize
 	\begin{enumerate}
+		\item Simulatore\textit{ Software in the Loop} (SIL) e \textit{Hardware in	the Loop} (HIL)
 		\item Applicazione in tempo reale
-		\item Analisi sintattica del formato \textit{Road Data File} (*.\texttt{rdf})
-		\item Valutazione del contatto pneumatico/strada
 		\item Sviluppo di una libreria \texttt{C++}
+	\end{enumerate}
+	\\[1cm]
+	\Large {Intersezione con pneumatico/strada}:
+	\normalsize
+	\begin{enumerate}
+		\item Analisi sintattico-grammaticale del formato \texttt{rdf}
+		\item Modellazione geometrica dello pneumatico
+		\item Implementazione degli algoritmi per intersecare entità geometriche:
+		\item Valutazione del contatto mediante modelli di contatto
 	\end{enumerate}
 \end{frame}
 
 \begin{frame}[fragile]
-	\Large {Il formato \texttt{rdf}}:
+	\Large {Il formato \texttt{rdf}} per le superfici stradali:
+	\normalsize
 	\begin{figure}
 		\centering
 		\begin{subfigure}{.5\linewidth}
@@ -103,7 +112,7 @@
 \end{pseudoc}
 		\end{subfigure}
 	\end{figure}
-	
+%Altri parametri non considerati: \texttt{X\_SCALE}, \texttt{Z\_SCALE}, \texttt{Z\_SCALE}, \texttt{ORIGIN}, \texttt{ORIGIN} e \texttt{ORIENTATION}.
 \end{frame}
 
 \begin{frame}[fragile]
@@ -133,7 +142,7 @@ TireGround::RDF::MeshSurface Road(
 	\begin{enumerate}
 		\item Raggruppamento ricorsivo delle AABB dei triangoli della \textit{mesh}
 		\item Diminuzione in scala logaritmica del numero di comparazioni
-		\item Solo compararazioni logiche
+		\item Solo confronti logici
 	\end{enumerate}
 	\begin{figure}
 		\centering
@@ -142,7 +151,7 @@ TireGround::RDF::MeshSurface Road(
 \end{frame}
 
 \begin{frame}
-	\Large {Descrizione geometrica dello pneumatico secondo la \textit{European Tire and Rim Technical Organization} (ETRTO)}:
+	\Large {Descrizione geometrica dello pneumatico secondo \textit{European Tire and Rim Technical Organization} (ETRTO)}:
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.7\linewidth]{../Figures/tire_measures}
@@ -152,10 +161,12 @@ TireGround::RDF::MeshSurface Road(
 \begin{frame}
 	\Large {Rappresentazione tramite uno o più dischi indeformabili}:
 	\begin{figure}
+		\hfill
 		\begin{subfigure}{0.45\linewidth}
+			\centering
 			\tdplotsetmaincoords{70}{110}
 			\tdplotsetrotatedcoords{90}{90}{0}
-			\begin{tikzpicture}[tdplot_main_coords,scale=0.75]	
+			\begin{tikzpicture}[tdplot_main_coords,scale=0.65]	
 			\draw[-stealth] (0,0,0) -- (8,0,0) node[anchor=north east]{$x_C$};
 			\draw[-stealth] (0,0,0) -- (0,3,0) node[anchor=west]{$y_C$};
 			\draw[-stealth] (0,0,0) -- (0,0,5) node[anchor=west]{$z_C$};
@@ -165,13 +176,16 @@ TireGround::RDF::MeshSurface Road(
 			\tdplotdrawarc[tdplot_rotated_coords,thick]{(0,0,0)}{\r}{0}{360}{}{}
 			\end{scope}
 			\end{tikzpicture}
+			\small{Disco singolo}
 		\end{subfigure}
+		\hfill
 		\begin{subfigure}{0.45\linewidth}
+			\centering
 			\tdplotsetmaincoords{70}{110}
 			\tdplotsetrotatedcoords{90}{90}{0}
-			\begin{tikzpicture}[tdplot_main_coords,scale=0.75]
-				\draw[-stealth] (0,0,0) -- (8,0,0) node[anchor=north east]{$x_C$};
-				\draw[-stealth] (0,0,0) -- (0,3,0) node[anchor=west]{$y_C$};
+			\begin{tikzpicture}[tdplot_main_coords,scale=0.65]
+				\draw[-stealth] (0,0,0) -- (9,0,0) node[anchor=north east]{$x_C$};
+				\draw[-stealth] (0,0,0) -- (0,3.5,0) node[anchor=west]{$y_C$};
 				\draw[-stealth] (0,0,0) -- (0,0,5) node[anchor=west]{$z_C$};
 				\def\r{4};
 				
@@ -203,7 +217,9 @@ TireGround::RDF::MeshSurface Road(
 				\tdplotdrawarc[tdplot_rotated_coords, dashed,thick]{(0,0,-1.6)}{\r-0.5}{-20}{360-195}{}{}
 				\end{scope}
 			\end{tikzpicture}
+			\small{Dischi multipli}
 		\end{subfigure}
+	\hfill
 	\end{figure}
 \end{frame}
 
