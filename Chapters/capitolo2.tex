@@ -643,7 +643,7 @@ dove:
 
 \paragraph{Punti di contatto}
 \label{Contatto_multidisk}
-Nel caso di pneumatico rappresentato da più dischi, al fine di dare più robustezza e aderenza alla realtà, si è deciso di adottare un metodo per calcolare il punto di contatto differente da quello utilizzato nella sezione \ref{Contatto_Rill}. In altre parole, una volta le penetrazioni con la strada di ogni disco con il metodo presentato nella sezione \ref{Contatto_Rill}, si andrà a combinarle con una nuova media media ponderata sull'area totale d'intersezione all'interno del disco. La formula sarà dunque:
+Nel caso di pneumatico rappresentato da più dischi, al fine di dare più robustezza e aderenza alla realtà, si è deciso di adottare un metodo per calcolare il punto di contatto differente da quello utilizzato nella sezione \ref{Contatto_Rill}. In altre parole, una volta ottenute le penetrazioni con la strada di ogni disco con il metodo presentato nella sezione \ref{Contatto_Rill}, si andrà a combinarle con una nuova media media ponderata sull'area totale d'intersezione all'interno del disco. La formula sarà dunque:
 %
 \begin{equation}
 \rho = \frac{1}{A_{tot}}\sum_{j=1}^{N_D}A_{D_j}\rho_j
@@ -657,7 +657,7 @@ dove:
 	\item $A_{D_j}$ corrisponde all'area d'intersezione all'interno del $j$-disco e sotto la superficie della \textit{mesh}.
 \end{itemize}
 
-Avendo ora a disposizione la penetrazione pneumatico/strada risultante si troverà il punto di contatto sul piano strada $P_{PL}$ giacente sul piano mediano $XZ$ dello pneumatico. Si troverà dapprima la componente della normale al piano strada $\textbf{\textit{e}}_{n_{XZ}}$ sul piano in cui giace il singolo disco indeformabile. $P_{PL}$ sarà dunque trovato a partire dal centro ruota $M$ come:
+Avendo ora a disposizione la penetrazione pneumatico/strada risultante si calcolerà il punto di contatto sul piano strada $P_{PL}$ giacente sul piano mediano $XZ$ dello pneumatico. Si troverà dapprima la componente della normale al piano strada $\textbf{\textit{e}}_{n_{XZ}}$ sul piano in cui giace il singolo disco indeformabile. $P_{PL}$ sarà dunque trovato a partire dal centro ruota $M$ come:
 %
 \begin{equation}
 P_{PL} = M-(R_0-\rho)\textbf{\textit{e}}_{n_{XZ}}
