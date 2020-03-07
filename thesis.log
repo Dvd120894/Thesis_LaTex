@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  7 MAR 2020 14:39
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  7 MAR 2020 15:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2372,7 +2372,7 @@ LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
  [63
 
 ] [64] [65] [66]
-Underfull \hbox (badness 10000) in paragraph at lines 614--615
+Underfull \hbox (badness 10000) in paragraph at lines 622--623
 
  []
 
@@ -2382,12 +2382,12 @@ File: Figures/mesh_dense.png Graphic file (type QTm)
 File: Figures/mesh_notsodense.png Graphic file (type QTm)
  <use  "Figures/mesh_notsodense.png" >
 [68]
-Overfull \hbox (14.76468pt too wide) in paragraph at lines 656--699
+Overfull \hbox (14.76468pt too wide) in paragraph at lines 664--707
  [][] 
  []
 
 [69]
-Overfull \hbox (26.76468pt too wide) in paragraph at lines 735--778
+Overfull \hbox (26.76468pt too wide) in paragraph at lines 743--786
  [][] 
  []
 

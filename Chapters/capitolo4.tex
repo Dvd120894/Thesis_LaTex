@@ -314,7 +314,7 @@ Questa classe serve a rappresentare lo pneumatico nelle coordinate dello spazio 
 \paragraph{\texttt{MagicFormula} e \texttt{MultiDisk}}
 Queste classi calcolano tutti i parametri necessari per valutare il contatto tra pneumatico a disco singolo e terreno attraverso la formula di Pacejka. I metodi più importanti di queste classi sono:
 \begin{itemize}
-	\item \texttt{setup} $-$ consente di riposizionare la ruota all'interno della \textit{mesh};
+	\item \texttt{setup} $-$ consente di riposizionare la ruota all'interno della \textit{mesh}/piano generico rappresentante la strada e di valutare l'intersezione;
 	\item \texttt{getRelativeCamber} $-$ calcola il camber relativo;
 	\item \texttt{getRho} $-$ calcola l'affondamento del disco nel piano strada locale;
 	\item \texttt{getFriction} $-$ calcola il coefficiente di attrito nel punto di contatto;
@@ -329,7 +329,7 @@ Queste classi calcolano tutti i parametri necessari per valutare il contatto tra
 		\texttt{Disk} & \texttt{SingleDisk} &  & Disco rigido \\ \hline 
 		\texttt{vec3} & \texttt{Normal} & $\bullet$ & Versore del piano strada \\ \hline
 		\texttt{vec3} & \texttt{MeshPoint} & $\bullet$ & Punto di contatto sulla \textit{mesh} \\ \hline
-		\texttt{vec3} & \texttt{MeshPoint} & $\bullet$ & Punto di contatto sul disco \\ \hline
+		\texttt{vec3} & \texttt{DiskPoint} & $\bullet$ & Punto di contatto sul disco \\ \hline
 		\texttt{real\_type} & \texttt{Friction} & $\bullet$ & Coefficiente di attrito locale \\ \hline
 		\texttt{real\_type} & \texttt{Area} & $\bullet$ & Area d'intersezione \\ \hline
 	\end{tabular}
@@ -350,7 +350,7 @@ Queste classi calcolano tutti i parametri necessari per valutare il contatto tra
 		\texttt{real\_type} & \texttt{AreaVec} & $\bullet$ & Vettore delle aree d'intersezione \\ \hline
 		\texttt{vec3} & \texttt{Normal} & $\bullet$ & Versore del piano strada \\ \hline
 		\texttt{vec3} & \texttt{MeshPoint} & $\bullet$ & Punto di contatto singolo sulla \textit{mesh} \\ \hline
-		\texttt{vec3} & \texttt{MeshPoint} & $\bullet$ & Punto di contatto singolo sul disco \\ \hline
+		\texttt{vec3} & \texttt{DiskPoint} & $\bullet$ & Punto di contatto singolo sul disco \\ \hline
 		\texttt{real\_type} & \texttt{Friction} & $\bullet$ & Coefficiente di attrito locale \\ \hline
 		\texttt{real\_type} & \texttt{Area} & $\bullet$ & Area totale d'intersezione \\ \hline
 	\end{tabular}
@@ -456,7 +456,7 @@ Oltre al codice appena descritto sono state utilizzate anche altre due librerie 
 \subsection{\texttt{Eigen3}}
 \texttt{Eigen3} è una libreria \texttt{C++} di alto livello di \textit{template headers} per operazioni di algebra lineare, vettoriali, matriciali, trasformazioni geometriche, \textit{solver} numerici e algoritmi correlati.
 
-Questa libreria è ulizza la tecnica di \textit{template metaprogramming}, che crea degli alberi di espressioni in fase di compilazione e genera un codice ottimizzato per valutarli.
+Questa libreria utilizza la tecnica di \textit{template metaprogramming}, che crea degli alberi di espressioni in fase di compilazione e genera un codice ottimizzato per valutarli.
 %
 \subsection{\texttt{Clothoids}}
 Questa libreria nasce per il \textit{fitting} e manipolazione di clotoidi, \textit{spline} di clotoidi, archi circolari e \textit{biarc}. In questo lavoro di tesi la libreria \texttt{Clothoids} è stata usata per sfruttare l'implementazione degli oggetti di tipo \ac{AABB} e del relativo albero.
@@ -518,11 +518,19 @@ Infine, nel caso si voglia creare uno pneumatico a più dischi con forma persona
 \end{pseudoc}
 %
 \paragraph{Orientazione dello pneumatico e valutazione del contatto}
-Per orientare lo pneumatico e valutarne il contatto con il manto stradale si utilizzerà il metodo \texttt{setup} della classe \texttt{Tire}.
+Per orientare lo pneumatico e valutarne il contatto con il manto stradale (rappresentato da una \textit{mesh} o da un piano generico) si utilizzeranno i metodi \texttt{setup} della classe \texttt{Tire}.
 \begin{pseudoc}
 bool Out = TireMD->setup(
 	Road, // Superficie stradale
 	TM    // Matrice di trasformazione 4x4 per orientare lo pneumatico
+	);
+\end{pseudoc}
+\begin{pseudoc}
+bool Out = TireMD->setup(
+	Normal,   // Vettore normale al piano
+	Point,    // Punto appartenente al piano
+	Friction, // Coefficiente di attrito nel piano
+	TM        // Matrice di trasformazione 4x4 per orientare lo pneumatico
 	);
 \end{pseudoc}
 Per estrarre i risultati si andranno dapprima a inizializzazione delle variabili reali o vettoriali come segue.
