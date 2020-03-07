@@ -149,7 +149,7 @@ Questa classe contiene il vettore di puntatori di tipo \texttt{std::shared}-\tex
 \end{table}
 %
 \subsection{Gestione dei modelli di pneumatico} 
-La gestione dei modelli di contatto dello pneumatico avviene nel \textit{namespace} \texttt{TireGround}. Quest'ultimo contiene tutti le classi e la funzioni per gestire l'intersezione tra lo pneumatico e la \textit{mesh} a partire dalla conoscenza di quest'ultima, della geometria e della posizione dello pneumatico.
+La gestione dei modelli di contatto dello pneumatico avviene nel \textit{namespace} \texttt{Tire}-\texttt{Ground}. Quest'ultimo contiene tutti le classi e la funzioni per gestire l'intersezione tra lo pneumatico e la \textit{mesh} a partire dalla conoscenza di quest'ultima, della geometria e della posizione dello pneumatico.
 %
 \paragraph{\texttt{Disk}}
 Questa classe contiene tutte le informazioni geometriche per definire e manipolare un disco nello spazio tridimensionale. Consiste nella descrizione geometrica e nel posizionamento dello spazio delle coordinate tridimensionali dell'oggetto disco (il disco viene rappresentato nel sistema di riferimento dello pneumatico). I metodi più importanti di questa classe sono:
@@ -456,16 +456,16 @@ Oltre al codice appena descritto sono state utilizzate anche altre due librerie 
 \subsection{\texttt{Eigen3}}
 \texttt{Eigen3} è una libreria \texttt{C++} di alto livello di \textit{template headers} per operazioni di algebra lineare, vettoriali, matriciali, trasformazioni geometriche, \textit{solver} numerici e algoritmi correlati.
 
-Questa libreria è implementata usando la tecnica di \textit{template metaprogramming}, che crea degli alberi di espressioni in fase di compilazione e genera un codice personalizzato per valutarli.
+Questa libreria è ulizza la tecnica di \textit{template metaprogramming}, che crea degli alberi di espressioni in fase di compilazione e genera un codice ottimizzato per valutarli.
 %
 \subsection{\texttt{Clothoids}}
-Questa libreria nasce per il \textit{fitting} dei polinomi di Hermite di tipo $G^1$ e $G^2$ con clotoidi, \textit{spline} di clotoidi, archi circolari e \textit{biarc}. In questo lavoro di tesi la libreria \texttt{Clothoids} è stata usata per sfruttare l'implementazione degli oggetti di tipo \ac{AABB} e del relativo albero.
+Questa libreria nasce per il \textit{fitting} e manipolazione di clotoidi, \textit{spline} di clotoidi, archi circolari e \textit{biarc}. In questo lavoro di tesi la libreria \texttt{Clothoids} è stata usata per sfruttare l'implementazione degli oggetti di tipo \ac{AABB} e del relativo albero.
 %
 \section{Esempi di uso della libreria}
 La libreria \texttt{TireGround} è stata pensata per essere semplice da utilizzare. Si vedranno ora i vari passi per utilizzarla in maniera appropriata.
 %
 \paragraph{Caricare la \textit{mesh}}
-Per caricare la superficie stradale, rappresentata dalla \textit{mesh} triangolare contenuta nel \textit{file} \ac{RDF}, è sufficiente sfruttare il costruttore della classe \texttt{MeshSurface} che prende in \textit{input} l'indirizzo al \textit{file}.
+Per caricare la superficie stradale, rappresentata dalla \textit{mesh} triangolare contenuta nel \textit{file} \ac{RDF}, è sufficiente sfruttare il costruttore della classe \texttt{Mesh}-\texttt{Surface} che prende in \textit{input} l'indirizzo al \textit{file}.
 \begin{pseudoc}
 	RDF::MeshSurface Road("./file.rdf");
 \end{pseudoc}
@@ -599,7 +599,7 @@ I vari modelli di contatto sono stati preventivamente testati in una macchina av
 	\item memoria RAM:
 	\begin{itemize}
 		\item dimensione: 8 GB;
-		\item frequenza: 1333 MHz;
+		\item frequenza: 1.33 GHz;
 	\end{itemize}
 	\item processore:
 	\begin{itemize}
@@ -608,10 +608,10 @@ I vari modelli di contatto sono stati preventivamente testati in una macchina av
 		\item numero di thread: 4;
 		\item frequenza base: 2.60 GHz;
 		\item frequenza massima: 3.20 GHz;
-		\item \textit{cache}: 3 MB.
+		\item \textit{cache}: L3 3 MB.
 	\end{itemize}
 \end{itemize}
-I tempi rilevati per il modello di pneumatico a singolo disco \texttt{Tire::MagicFormula} sono riportati nelle Tabelle \ref{MFcordolo} e \ref{MFpiano}. Analogamente, i tempi rilevati per il modello di pneumatico a più dischi \texttt{Tire::MultiDisk} sono riportati nelle Tabelle \ref{MDcordolo} e \ref{MDpiano}. Notare che le Tabelle \ref{MFcordolo} e \ref{MDcordolo} sono relative ad un'area dove la\textit{mesh} è più densa, mentre le Tabelle \ref{MFpiano} e \ref{MDpiano} sono relative ad un'area dove la\textit{mesh} è poco densa.\\[1cm]
+I tempi rilevati per il modello di pneumatico a singolo disco \texttt{MagicFormula} sono riportati nelle Tabelle \ref{MFcordolo} e \ref{MFpiano}. Analogamente, i tempi rilevati per il modello di pneumatico a più dischi \texttt{MultiDisk} sono riportati nelle Tabelle \ref{MDcordolo} e \ref{MDpiano}. Notare che le Tabelle \ref{MFcordolo} e \ref{MDcordolo} sono relative ad un'area dove la \textit{mesh} è più densa, mentre le Tabelle \ref{MFpiano} e \ref{MDpiano} sono relative ad un'area dove la \textit{mesh} è poco densa.\\[1cm]
 
 \begin{figure}
 	\centering
@@ -648,7 +648,7 @@ I tempi rilevati per il modello di pneumatico a singolo disco \texttt{Tire::Magi
 	Campionamenti = 28000\\
 	Numero medio di triangoli sotto lo pneumatico = 11.4\\
 	\textit{Switch} Rill $\triangleright$ Area a 10 triangoli
-	\caption{Tempi per il modello di pneumatico a singolo disco \texttt{Tire::MagicFormula} nel caso di \textit{mesh} densa.}
+	\caption{Tempi per il modello di pneumatico \texttt{MagicFormula} nel caso di \textit{mesh} densa.}
 	\label{MFcordolo}
 \end{table}
 \begin{table}
@@ -700,8 +700,8 @@ I tempi rilevati per il modello di pneumatico a singolo disco \texttt{Tire::Magi
 	Pneumatico 205/55R16\\
 	Campionamenti = 28000\\
 	Numero medio di triangoli sotto lo pneumatico = 11.4\\
-	\textit{Switch} Campionamento $\triangleright$ Area a 10 triangoli
-	\caption{Tempi per il modello di pneumatico a più dischi \texttt{Tire::MultiDisk} nel caso di \textit{mesh} densa.}
+	\textit{Switch} Area $\triangleright$ Campionamento a 10 triangoli
+	\caption{Tempi per il modello di pneumatico \texttt{MultiDisk} nel caso di \textit{mesh} densa.}
 	\label{MDcordolo}
 \end{table}
 %
@@ -727,7 +727,7 @@ I tempi rilevati per il modello di pneumatico a singolo disco \texttt{Tire::Magi
 	Campionamenti = 28000\\
 	Numero medio di triangoli sotto lo pneumatico = 3.2\\
 	\textit{Switch} Rill $\triangleright$ Area a 3 triangoli
-	\caption{Tempi per il modello di pneumatico a singolo disco \texttt{Tire::MagicFormula} nel caso di \textit{mesh} poco densa.}
+	\caption{Tempi per il modello di pneumatico \texttt{MagicFormula} nel caso di \textit{mesh} poco densa.}
 	\label{MFpiano}
 \end{table}
 \begin{table}
@@ -779,8 +779,8 @@ I tempi rilevati per il modello di pneumatico a singolo disco \texttt{Tire::Magi
 	Pneumatico 205/55R16\\
 	Campionamenti = 28000\\
 	Numero medio di triangoli sotto lo pneumatico = 3.2\\
-	\textit{Switch} Campionamento $\triangleright$ Area a 3 triangoli
-	\caption{Tempi per il modello di pneumatico a più dischi \texttt{Tire::MultiDisk} nel caso di \textit{mesh} poco densa.}
+	\textit{Switch} Area $\triangleright$ Campionamento a 3 triangoli
+	\caption{Tempi per il modello di pneumatico \texttt{MultiDisk} nel caso di \textit{mesh} poco densa.}
 	\label{MDpiano}
 \end{table}
 %
@@ -788,12 +788,12 @@ I tempi rilevati per il modello di pneumatico a singolo disco \texttt{Tire::Magi
 \noindent
 Testando il modello al simulatore è stato possibile valutare la sua complessità computazionale. Le specifiche tecniche di questo simulatore sono:
 \begin{itemize}
-	%\item sistema operativo: 64bit Concurrent Real-Time RedHawk 7.5 (CentOS 7.5 + RedHawk 4.9.98 Real-Time Kernel);
+	\item sistema operativo: 64bit Concurrent Real-Time RedHawk 7.5 (CentOS 7.5 + RedHawk 4.9.98 Real-Time Kernel);
 	\item memoria RAM: 32 GB;
 	\item processore: Intel Xeon(R) 3.40 GHz (16 \textit{cores});
 	\item scheda grafica: Nvidia GeForce GTX 680.
 \end{itemize}
-I tempi rilevati per il modello di pneumatico a singolo disco \texttt{Tire::MagicFormula} sono riportati nella Tabella \ref{MF}. Analogamente, i tempi rilevati per il modello di pneumatico a più dischi \texttt{Tire::MultiDisk} sono riportati nella Tabella \ref{MD}.
+I tempi rilevati per il modello di pneumatico a singolo disco \texttt{MagicFormula} sono riportati nella Tabella \ref{MF}. Analogamente, i tempi rilevati per il modello di pneumatico a più dischi \texttt{MultiDisk} sono riportati nella Tabella \ref{MD}.
 %
 \begin{table}
 	\centering
@@ -812,7 +812,7 @@ I tempi rilevati per il modello di pneumatico a singolo disco \texttt{Tire::Magi
 	Pneumatico 250/55R11\\
 	Campionamenti = 30000\\
 	\textit{Switch} Rill $\triangleright$ Area a 10 triangoli
-	\caption{Tempi sul simulatore per il modello di pneumatico a singolo disco \texttt{Tire::MagicFormula}.}
+	\caption{Tempi sul simulatore per il modello di pneumatico \texttt{MagicFormula}.}
 	\label{MF}
 \end{table}
 %
@@ -837,7 +837,7 @@ I tempi rilevati per il modello di pneumatico a singolo disco \texttt{Tire::Magi
 	\\[0.5cm]
 	Pneumatico 250/55R11\\
 	Campionamenti = 30000\\
-	\textit{Switch} Campionamento $\triangleright$ Area a 10 triangoli
-	\caption{Tempi sul simulatore per il modello di pneumatico a più dischi \texttt{Tire::MultiDisk}.}
+	\textit{Switch} Area $\triangleright$ Campionamento a 10 triangoli
+	\caption{Tempi sul simulatore per il modello di pneumatico \texttt{MultiDisk}.}
 	\label{MD}
 \end{table}

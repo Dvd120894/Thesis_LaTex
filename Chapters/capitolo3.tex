@@ -3,7 +3,7 @@
 %
 \section{Struttura ad albero di tipo "\textit{Bounding Volume Hierarchy}"}
 %
-Una \ac{BVH} è una struttura ad albero su un insieme di oggetti geometrici. Tutti gli oggetti geometrici sono raccolti in volumi limite che formano i nodi fogliari dell'albero. Questi nodi vengono quindi raggruppati come piccoli insiemi e racchiusi in volumi di delimitazione più grandi. Questi, a loro volta, sono ancora raggruppati e racchiusi in altri volumi di delimitazione più grandi in modo ricorsivo, risultando infine in una struttura ad albero con un singolo volume di delimitazione nella parte superiore dell'albero. Le strutture \ac{BVH} vengono utilizzate per supportare in modo efficiente diverse operazioni su insiemi di oggetti geometrici, come ad esempio il rilevamento delle collisioni.
+Una \ac{BVH} è una struttura ad albero su un insieme di oggetti geometrici. Tutti gli oggetti geometrici sono raccolti in volumi di delimitazione \footnote{ Un volume di delimitazione per un oggetto è un volume chiuso che contiene completamente l'oggetto stesso.} che formano i nodi fogliari dell'albero. Questi nodi vengono quindi raggruppati come piccoli insiemi e racchiusi in volumi di delimitazione più grandi. Questi, a loro volta, sono ancora raggruppati e racchiusi in altri volumi di delimitazione più grandi in modo ricorsivo, risultando infine in una struttura ad albero con un singolo volume di delimitazione nella parte superiore dell'albero. Le strutture \ac{BVH} vengono utilizzate per supportare in modo efficiente diverse operazioni su insiemi di oggetti geometrici, come ad esempio il rilevamento delle collisioni.
 
 Il confinamento degli oggetti nei volumi di delimitazione e l'esecuzione di test di collisione su di essi, prima di effettuare il test della geometria dell'oggetto stesso, comporta una semplificazione del problema e un miglioramenti significativi delle prestazioni. Organizzando i volumi di delimitazione in una strutture \ac{BVH}, la complessità temporale (il numero di test eseguiti) può essere ridotta logaritmicamente nel numero di oggetti. Con una tale struttura, durante i test di collisione, i volumi secondari non devono essere esaminati se i loro volumi principali non sono intersecati.
 %
@@ -68,10 +68,10 @@ In altre parole, una volta effettuata l'analisi sintattico-grammaticale del \tex
 %
 \section{Algoritmi di tipo geometrico}
 %
-La geometria computazionale è la branca dell'informatica che studia le strutture dati e gli algoritmi efficienti per la soluzione di problemi di natura geometrica e la loro implementazione al calcolatore. Storicamente, è considerato uno dei campi più antichi del calcolo, anche se la geometria computazionale moderna è uno sviluppo recente. I progressi compiuti nei campi computer grafica, del \ac{CAD}, del \ac{CAM} e nella visualizzazione matematica sono la ragione principale per lo sviluppo della geometria computazionale. Ad oggi, le sue applicazioni si trovano nella robotica, nella progettazione di circuiti integrati, nella visione artificiale, nel \ac{CAE} e nel \ac{GIS}. I rami principali della geometria computazionale sono:
+La geometria computazionale è la branca dell'informatica che studia le strutture dati e gli algoritmi efficienti per la soluzione di problemi di natura geometrica e la loro implementazione al calcolatore. Storicamente, è considerato uno dei campi più antichi del calcolo, anche se la geometria computazionale moderna è uno sviluppo più recente. I progressi compiuti nei campi computer grafica, del \ac{CAD}, del \ac{CAM} e nella visualizzazione matematica sono la ragione principale per lo sviluppo della geometria computazionale. Ad oggi, le sue applicazioni si trovano nella robotica, nella progettazione di circuiti integrati, nella visione artificiale, nel \ac{CAE} e nel \ac{GIS}. I rami principali della geometria computazionale sono:
 \begin{itemize}
 	\item \textit{Calcolo combinatorio} (o \textit{geometria algoritmica}), che si occupa di oggetti geometrici come entità discrete. Ad esempio, può essere utilizzato per determinare il poliedro o il poligono più piccolo che contiene tutti i punti forniti, o più formalmente, dato un insieme di punti, si deve determinare il più piccolo insieme convesso che li contenga tutti (problema dell'inviluppo convesso).
-	\item \textit{Geometria di calcolo} numerica (o \ac{CAGD}), che si occupa principalmente di rappresentare oggetti del mondo reale in forme adatte per i calcoli informatici nei sistemi \ac{CAD} e \ac{CAM}. Questo ramo può essere considerato uno sviluppo della geometria descrittiva ed è spesso ritenuto un ramo della computer grafica o del \ac{CAD}. Entità importanti di questo ramo sono superfici e curve parametriche, come ad esempio le \textit{spline} e \textit{curve di Bézier}.
+	\item \textit{Geometria di calcolo} numerica (o \ac{CAGD}), che si occupa principalmente di rappresentare oggetti del mondo reale in forme adatte per i calcoli informatici nei sistemi \ac{CAD} e \ac{CAM}. Questo ramo può essere considerato uno sviluppo della geometria descrittiva ed è spesso ritenuto un ramo della computer grafica o del \ac{CAD}. Entità importanti di questo ramo sono superfici e curve parametriche, come ad esempio le \textit{Spline}, \textit{curve di Bézier}, \textit{B-Spline}, \dots.
 \end{itemize}
 In questo capitolo saranno trattati tutti gli algoritmi che verranno utilizzati in seguito durante l'analisi geometrica dell'intersezione tra pneumatico e superficie stradale. Questi algoritmi sono la soluzione di alcuni semplici ma molto importanti problemi, che devono essere risolti in modo efficiente. In particolare, le intersezioni tra:
 \begin{itemize}
@@ -480,7 +480,7 @@ dove $P = (x, y, z)$. I piani $P_1$ e $P_2$ sono paralleli ogni volta che i loro
 	\caption{Schemi del problema di intersezione piano-piano.}
 \end{figure}
 
-Dopo aver calcolato $\vec{n}_1 \times \vec{n}_2$, per determinare univocamente la linea di intersezione, è necessario trovare un punto di essa. Cioè, un punto $P_0 = (x_0, y_0, z_0)$ che si trova in entrambi i piani. Si può trovare una soluzione comune delle equazioni implicite per $P_1$ e $P_2$. Ci sono solo due equazioni nelle tre incognite poiché il punto $P_0$ può trovarsi ovunque sulla linea monodimensionale $L$. Quindi è necessario aggiungere un altro vincolo da risolvere per un $P_0$ specifico. Esistono diversi modi per farlo, il più semplice è attraverso l'aggiunta di un terzo piano $P_3$ avente equazione implicita $\vec{n}_3 \cdot P = 0$ dove $\vec{n}_3 = \vec{n}_1 \times \vec{n}_2$ e $d_3 = 0$ (ovvero passa attraverso l'origine). Questo metodo è funzionante poiché: 
+Dopo aver calcolato $\vec{n}_1 \times \vec{n}_2$, per determinare univocamente la linea di intersezione, è necessario trovare un punto di essa. Cioè, un punto $P_0 = (x_0, y_0, z_0)$ che si trova in entrambi i piani. Si può trovare una soluzione comune delle equazioni implicite per $P_1$ e $P_2$. Ci sono solo due equazioni nelle tre incognite poiché il punto $P_0$ può trovarsi ovunque sulla linea monodimensionale $L$. Quindi è necessario aggiungere un altro vincolo per determinare un $P_0$. Esistono diversi modi per farlo, il più semplice è attraverso l'aggiunta di un terzo piano $P_3$ avente equazione implicita $\vec{n}_3 \cdot P = 0$ dove $\vec{n}_3 = \vec{n}_1 \times \vec{n}_2$ e $d_3 = 0$ (ovvero passa attraverso l'origine). Questo metodo è funzionante poiché: 
 \begin{itemize}
 	\item $L$ è perpendicolare a $P_3$ e quindi lo interseca;
 	\item i vettori $\vec{n}_1$, $\vec{n}_2$ e $\vec{n}_3$ sono linearmente indipendenti.
@@ -511,11 +511,15 @@ P_0 =  \frac{-d_1(\vec{n}_2 \times \vec{n}_3) - d_2(\vec{n}_3 \times \vec{n}_1) 
 \end{equation}
 e ponendo $d_3 = 0$ per $P_3$, si ottiene:
 \begin{equation}
-P_0 =  \frac{-d_1(\vec{n}_2 \times \vec{n}_3) - d_2(\vec{n}_3 \times \vec{n}_1)}{\vec{n}_1 \cdot (\vec{n}_2 \times \vec{n}_3)}
+\begin{split}
+\begin{aligned}
+P_0 &=  \frac{-d_1(\vec{n}_2 \times \vec{n}_3) - d_2(\vec{n}_3 \times \vec{n}_1)}{\vec{n}_1 \cdot (\vec{n}_2 \times \vec{n}_3)}
 =
-\frac{(d_2\vec{n}_1 - d_1\vec{n}_2) \times \vec{n}_3}{(\vec{n}_1 \times \vec{n}_2) \cdot \vec{n}_3}
-=
+\frac{(d_2\vec{n}_1 - d_1\vec{n}_2) \times \vec{n}_3}{(\vec{n}_1 \times \vec{n}_2) \cdot \vec{n}_3}\\
+&=
 \frac{(d_2\vec{n}_1 - d_1\vec{n}_2) \times \vec{u}}{|\vec{u}|^2}
+\end{aligned}
+\end{split}
 \end{equation}
 pertanto l'equazione parametrica per la retta $L$ sarà:
 \begin{equation}
@@ -549,7 +553,7 @@ Nello spazio delle coordinate tridimensionali, una linea $L$ può essere o paral
 \begin{equation}
 P(t) = P_0 + t(P_1-P_0) = P_0 + t\vec{u}
 \end{equation}
-mentre il piano $P$ sia dato da un punto $V_0$ appartenente ad esso e da un vettore normale $\vec{n} = (a,b,c)$. Per prima cosa è necessario controllare se $L$ è parallelo a $P$ verificando se $\vec{n}\cdot\vec{u} = 0$, il che significa che il vettore di direzione della linea $\vec{u}$ è perpendicolare al piano normale $\vec{n}$. Se questo è vero, allora $L$ e $P$ sono paralleli e non si intersecano, oppure $L$ giace totalmente nel piano $P$. Disgiunzione o coincidenza possono essere determinate testando se in $P$ esiste un punto specifico di $L$, per esempio $P_0$, ovvero se soddisfa l'equazione di linea implicita:
+mentre il piano $P$ sia dato da un punto $V_0$ appartenente ad esso e da un vettore normale $\vec{n} = (a,b,c)$. Per prima cosa è necessario controllare se $L$ è parallelo a $P$ verificando se $\vec{n}\cdot\vec{u} = 0$, il che significa che il vettore di direzione della linea $\vec{u}$ è perpendicolare al piano normale $\vec{n}$. Se questo è vero, allora $L$ e $P$ sono paralleli e non si intersecano, oppure $L$ giace totalmente nel piano $P$. Disgiunzione o coincidenza possono essere determinate controllando se in $P$ esiste un punto specifico di $L$, per esempio $P_0$, ovvero se soddisfa l'equazione di linea implicita:
 \begin{equation}
 \vec{n} \cdot (P_0-V_0) = 0
 \end{equation}
@@ -773,7 +777,7 @@ Geometricamente, si è appena chiarito il significato di $u$ e $v$. Si consideri
 
 M\"oller e Trumbore spiegano che la prima parte dell'equazione \ref{eq4} (il termine $O-A$) può essere vista come una trasformazione che sposta il triangolo dalla sua posizione spaziale mondiale originale all'origine (il primo vertice del triangolo coincide con l'origine). L'altro lato dell'equazione ha l'effetto di trasformare il punto di intersezione dallo spazio $(x,y,z)$ nello spazio $(t,u,v)$ come spiegato precedentemente.
 
-Per risolvere l'equazione \ref{eq4}, M\"oller e Trumbore hanno usato una tecnica conosciuta in matematica come regola di Cramer. La regola di Cramer fornisce la soluzione a un sistema di equazioni lineari mediante il determinante. La regola afferma che se la moltiplicazione di una matrice $M$ per un vettore colonna $X$ è uguale a un vettore colonna $C$, allora è possibile trovare $X_i$ (l'$i$-esimo elemento del vettore colonna $X$) dividendo il determinante di $M_i$ per il determinante di $M$. Dove $M_i$ è la matrice formata sostituendo la sua colonna di $M$ con il vettore colonna $C$. Usando questa regola si ottiene:
+Per risolvere l'equazione (\ref{eq4}), M\"oller e Trumbore hanno usato la regola di Cramer. La regola di Cramer fornisce la soluzione a un sistema di equazioni lineari mediante dei determinanti. La regola afferma che se la moltiplicazione di una matrice $M$ per un vettore colonna $X$ è uguale a un vettore colonna $C$, allora è possibile trovare $X_i$ (l'$i$-esimo elemento del vettore colonna $X$) dividendo il determinante di $M_i$ per il determinante di $M$. Dove $M_i$ è la matrice formata sostituendo la sua colonna di $M$ con il vettore colonna $C$. Usando questa regola si ottiene:
 \begin{equation}
 \begin{bmatrix}
 t \\
