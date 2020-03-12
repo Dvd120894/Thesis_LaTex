@@ -92,9 +92,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {4.2.1.5}Piano-Segmento e Piano-Raggio}{45}{subsubsection.4.2.1.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.1.6}Intersezione piano-triangolo}{47}{subsubsection.4.2.1.6}
+\contentsline {subsubsection}{\numberline {4.2.1.6}Intersezione piano-triangolo}{46}{subsubsection.4.2.1.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.1.7}Intersezione raggio-triangolo}{48}{subsubsection.4.2.1.7}
+\contentsline {subsubsection}{\numberline {4.2.1.7}Intersezione raggio-triangolo}{47}{subsubsection.4.2.1.7}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\chapternumberline {5}La libreria \texttt {TireGround}}{53}{chapter.5}
 \defcounter {refsection}{0}\relax 

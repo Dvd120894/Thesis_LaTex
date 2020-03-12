@@ -460,24 +460,24 @@ dove $P = (x, y, z)$. I piani $P_1$ e $P_2$ sono paralleli ogni volta che i loro
 
 \begin{figure}
  	\centering
-%	\tdplotsetmaincoords{70}{110}
-%	\begin{tikzpicture}[tdplot_main_coords,font=\sffamily]
-%	\draw[-latex] (0,0,0) -- (4,0,0) node[left] {$x$};
-%	\draw[-latex] (0,0,0) -- (0,4,0) node[below] {$y$};
-%	\draw[-latex] (0,0,0) -- (0,0,4) node[left] {$z$};
-%	\tdplotsetrotatedcoords{45}{0}{0}
-%	\begin{scope}[tdplot_rotated_coords]
-%	\draw[fill=gray!10,opacity=0.6] (-3,0,-3) -- (-3,0,3) -- (3,0,3) -- (3,0,-3) -- cycle;
-%	\end{scope}
-%	\tdplotsetrotatedcoords{90}{45}{0}
-%	\begin{scope}[tdplot_rotated_coords]
-%	\draw[fill=gray!10,opacity=0.5] (-3,-3,0) -- (-3,3,0) -- (3,3,0) -- (3,-3,0) -- cycle;
-%	\draw[thick](-3,{3/sqrt(2)},0) coordinate(x) --(3,{-3/sqrt(2)},0);
-%	\end{scope}
-%	\node[anchor=south east,align=center] (line) at (3,-1.5,3.5) {$L$};
-%	\draw[-latex] (line) to[out=0,in=135] (x);
-%	\end{tikzpicture}
-	\includegraphics[width=0.55\linewidth]{Figures/plane-plane}
+	\tdplotsetmaincoords{70}{110}
+	\begin{tikzpicture}[tdplot_main_coords,font=\sffamily]
+	\draw[-latex] (0,0,0) -- (4,0,0) node[left] {$x$};
+	\draw[-latex] (0,0,0) -- (0,4,0) node[below] {$y$};
+	\draw[-latex] (0,0,0) -- (0,0,4) node[left] {$z$};
+	\tdplotsetrotatedcoords{45}{0}{0}
+	\begin{scope}[tdplot_rotated_coords]
+	\draw[fill=gray!10,opacity=0.6] (-3,0,-3) -- (-3,0,3) -- (3,0,3) -- (3,0,-3) -- cycle;
+	\end{scope}
+	\tdplotsetrotatedcoords{90}{45}{0}
+	\begin{scope}[tdplot_rotated_coords]
+	\draw[fill=gray!10,opacity=0.5] (-3,-3,0) -- (-3,3,0) -- (3,3,0) -- (3,-3,0) -- cycle;
+	\draw[thick](-3,{3/sqrt(2)},0) coordinate(x) --(3,{-3/sqrt(2)},0);
+	\end{scope}
+	\node[anchor=south east,align=center] (line) at (3,-1.5,3.5) {$L$};
+	\draw[-latex] (line) to[out=0,in=135] (x);
+	\end{tikzpicture}
+	%\includegraphics[width=0.55\linewidth]{Figures/plane-plane}
 	\caption{Schemi del problema di intersezione piano-piano.}
 \end{figure}
 
@@ -490,20 +490,20 @@ Pertanto, i piani $P_1$, $P_2$ e $P_3$ si intersecano in un unico punto $P_0$ ch
 
 \begin{figure}
 	\centering
-%	\tdplotsetmaincoords{70}{110}
-%	\begin{tikzpicture}[tdplot_main_coords]
-%	\draw[-latex] (0,0,0) -- (4,0,0) node[left] {$x$};
-%	\draw[-latex] (0,0,0) -- (0,4,0) node[below] {$y$};
-%	\draw[-latex] (0,0,0) -- (0,0,4) node[left] {$z$};
-%	\draw[fill=gray!10,opacity=0.6] (-3,0,-3) -- (-3,0,3) -- (3,0,3) -- (3,0,-3) -- cycle;
-%	\draw[fill=gray!10,opacity=0.5] (-3,-3,0) -- (-3,3,0) -- (3,3,0) -- (3,-3,0) -- cycle;
-%	\draw[dashed] (-3,0,0)--(3,0,0);
-%	\draw[-stealth,thick] (0,0,0) -- (2,0,0);
-%	\draw[-stealth,thick] (0,0,0) -- (0,2,0) node[above] {$\vec{n}_1$};
-%	\draw[-stealth,thick] (0,0,0) -- (0,0,2) node[left] {$\vec{n}_2$};
-%	\draw(2,.1,0) node[right] {$\vec{n}_3$};
-%	\end{tikzpicture}
-	\includegraphics[width=0.55\linewidth]{Figures/plane-plane-n}
+	\tdplotsetmaincoords{70}{110}
+	\begin{tikzpicture}[tdplot_main_coords]
+	\draw[-latex] (0,0,0) -- (4,0,0) node[left] {$x$};
+	\draw[-latex] (0,0,0) -- (0,4,0) node[below] {$y$};
+	\draw[-latex] (0,0,0) -- (0,0,4) node[left] {$z$};
+	\draw[fill=gray!10,opacity=0.6] (-3,0,-3) -- (-3,0,3) -- (3,0,3) -- (3,0,-3) -- cycle;
+	\draw[fill=gray!10,opacity=0.5] (-3,-3,0) -- (-3,3,0) -- (3,3,0) -- (3,-3,0) -- cycle;
+	\draw[dashed] (-3,0,0)--(3,0,0);
+	\draw[-stealth,thick] (0,0,0) -- (2,0,0);
+	\draw[-stealth,thick] (0,0,0) -- (0,2,0) node[above] {$\vec{n}_1$};
+	\draw[-stealth,thick] (0,0,0) -- (0,0,2) node[left] {$\vec{n}_2$};
+	\draw(2,.1,0) node[right] {$\vec{n}_3$};
+	\end{tikzpicture}
+	%\includegraphics[width=0.55\linewidth]{Figures/plane-plane-n}
 	\caption{Vettori dei piani $P_1$, $P_2$ e della retta $L$.}
 \end{figure}
 
@@ -573,25 +573,25 @@ Se la linea $L$ è un segmento finito da $P_0$ a $P_1$, è sufficiente verificar
 
 \begin{figure}[htbp]
 	\centering
-%	\tdplotsetmaincoords{70}{110}
-%	\begin{tikzpicture}[tdplot_main_coords]
-%	\draw[-latex] (0,0,0) -- (4,0,0) node[left] {$x$};
-%	\draw[-latex] (0,0,0) -- (0,4,0) node[below] {$y$};
-%	\draw[-latex] (0,0,0) -- (0,0,4) node[left] {$z$};
-%	
-%	\draw[fill=gray!10,opacity=0.5] (-3,-3,0) -- (-3,3,0) -- (3,3,0) -- (3,-3,0) -- cycle;
-%	\draw[-stealth,thick] (0,-0.75,3.25) node[above] {$P_0$} -- (0,1.25,1.25) node[above right] {$P_1$};
-%	\draw (0,-0.5,2.25) node[below left] {$\vec{w}$};
-%	\draw (0,0.25,2.25) node[above right] {$\vec{u}$};
-%	\draw[-stealth,thick] (0,0,0) -- (0,-0.75,3.25);
-%	\draw[dashed] (0,1.25,1.25) -- (0,2.5,0);
-%	\draw[fill] (0,2.5,0) circle [radius=1pt];
-%	\draw (0,2.5,0) node[below left] {$P(t_I)$};
-%	\draw (0,2,0.5) node[right] {$P(t)$};
-%	\draw[fill] (0,2,.5) circle [radius=1pt];
-%	\draw[-stealth,thick] (1,-2,0) -- (1,-2,2) node[left] {$\vec{n}$};
-%	\end{tikzpicture}
-	\includegraphics[width=0.6\linewidth]{Figures/ray-plane}
+	\tdplotsetmaincoords{70}{110}
+	\begin{tikzpicture}[tdplot_main_coords]
+	\draw[-latex] (0,0,0) -- (4,0,0) node[left] {$x$};
+	\draw[-latex] (0,0,0) -- (0,4,0) node[below] {$y$};
+	\draw[-latex] (0,0,0) -- (0,0,4) node[left] {$z$};
+	
+	\draw[fill=gray!10,opacity=0.5] (-3,-3,0) -- (-3,3,0) -- (3,3,0) -- (3,-3,0) -- cycle;
+	\draw[-stealth,thick] (0,-0.75,3.25) node[above] {$P_0$} -- (0,1.25,1.25) node[above right] {$P_1$};
+	\draw (0,-0.5,2.25) node[below left] {$\vec{w}$};
+	\draw (0,0.25,2.25) node[above right] {$\vec{u}$};
+	\draw[-stealth,thick] (0,0,0) -- (0,-0.75,3.25);
+	\draw[dashed] (0,1.25,1.25) -- (0,2.5,0);
+	\draw[fill] (0,2.5,0) circle [radius=1pt];
+	\draw (0,2.5,0) node[below left] {$P(t_I)$};
+	\draw (0,2,0.5) node[right] {$P(t)$};
+	\draw[fill] (0,2,.5) circle [radius=1pt];
+	\draw[-stealth,thick] (1,-2,0) -- (1,-2,2) node[left] {$\vec{n}$};
+	\end{tikzpicture}
+	%\includegraphics[width=0.6\linewidth]{Figures/ray-plane}
 	\caption{Vettori dei piani $P_1$, $P_2$ e della retta $L$.}
 \end{figure}
 \begin{figure}[htbp]

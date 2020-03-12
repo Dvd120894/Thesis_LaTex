@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  7 MAR 2020 16:46
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2019.11.22)  9 MAR 2020 16:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2217,17 +2217,17 @@ Overfull \hbox (15.33252pt too wide) in paragraph at lines 420--421
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [42]
-File: Figures/plane-plane.png Graphic file (type QTm)
- <use  "Figures/plane-plane.png" >
+LaTeX Font Info:    Font shape `TU/Optima(0)/m/n' will be
+(Font)              scaled to size 10.79993pt on input line 465.
+Package microtype Info: Loading generic settings for font family
+(microtype)             `Optima' (encoding: TU).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
 Underfull \vbox (badness 2469) has occurred while \output is active []
 
  [43]
-File: Figures/plane-plane-n.png Graphic file (type QTm)
-
-<use  "Figures/plane-plane-n.png" > [44] [45]
-File: Figures/ray-plane.png Graphic file (type QTm)
- <use  "Figures/ray-plane.png" >
-[46]
+[44] [45] [46]
 Overfull \hbox (13.92337pt too wide) in paragraph at lines 619--620
 []\TU/AdobeCaslonPro(0)/m/n/12 il triangolo viene intersecato dal piano, forman
 do quindi due punti d’intersezione
@@ -2238,10 +2238,7 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
-
-Underfull \vbox (badness 1014) has occurred while \output is active []
-
- [47]
+[47]
 Overfull \hbox (9.07133pt too wide) in paragraph at lines 689--691
 \TU/AdobeCaslonPro(0)/m/n/12 Si noti che $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 B \
 OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 A\OT1/cmr/m/n/12 )$ \TU/AdobeCaslonPro(0)/
@@ -3201,11 +3198,11 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46552 strings out of 495023
- 889025 string characters out of 6178392
+ 46605 strings out of 495023
+ 889955 string characters out of 6178392
  1518351 words of memory out of 5000000
- 49592 multiletter control sequences out of 15000+600000
- 17516 words of font info for 112 fonts, out of 8000000 for 9000
+ 49644 multiletter control sequences out of 15000+600000
+ 17524 words of font info for 113 fonts, out of 8000000 for 9000
  18 hyphenation exceptions out of 8191
  63i,29n,70p,10523b,5356s stack positions out of 5000i,500n,10000p,200000b,80000s
 
