@@ -1,29 +1,3 @@
-\Large{\textbf{\texttt{class MultiDisk}}}
-^^I\normalsize
-^^I\\[-1cm]
-^^I\begin{figure}[h!]
-^^I^^I\centering
-^^I^^I\begin{tikzpicture}
-^^I^^I[
-^^I^^Igrow                    = down,
-^^I^^Isibling distance    = 8em,
-^^I^^Ilevel distance       = 8.5em,
-^^I^^Iedge from parent/.style = {draw,-stealth},
-^^I^^Ievery node/.style       = {font=\footnotesize},
-^^I^^Isloped
-^^I^^I]
-^^I^^I\node [root, env] {MultiDisk}
-^^I^^Ichild { node [env] {Tire}
-^^I^^I^^Ichild { node [env] {SamplingGrid}
-^^I^^I^^I^^Iedge from parent node [below,tt] {Precision} }
-^^I^^I^^Ichild { node [env] {ETRTO}
-^^I^^I^^I^^Iedge from parent node [below,tt] {TireGeometry} }
-^^I^^I^^Ichild { node [env] {Shadow}
-^^I^^I^^I^^Iedge from parent node [below,tt] {TireShadow} }
-^^I^^I^^Ichild { node [env] {ReferenceFrame}
-^^I^^I^^I^^Iedge from parent node [below,tt] {RF} }
-^^I^^I^^Iedge from parent node [below,tt] {} }
-^^I^^Ichild { node [env] {Disk}
-^^I^^I^^Iedge from parent node [below,tt] {DiskVec} };
-^^I^^I\end{tikzpicture}
-^^I\end{figure}
+\begin{center}
+^^I^^I\Huge{\textbf{GRAZIE PER L'ATTENZIONE}}
+^^I\end{center}

@@ -1,0 +1,21 @@
+\Large{\textbf{Estrazione dei risultati}}
+^^I\normalsize
+\begin{pseudoc}
+TireGround::vec3 N;
+TireGround::vec3 P;
+TireGround::real_type Friction;
+TireGround::real_type Rho;
+TireGround::real_type RhoDot;
+TireGround::real_type RelativeCamber;
+TireGround::real_type Area;
+TireGround::real_type Volume;
+
+SampleTire->getNormal(N);
+SampleTire->getMFpoint(P);
+SampleTire->getFriction(Friction);
+SampleTire->getRho(Rho);
+SampleTire->getRhoDot(PreviousRho,TimeStep,RhoDot);
+SampleTire->getRelativeCamber(RelativeCamber);
+SampleTire->getArea(Area);
+SampleTire->getVolume(Volume);
+\end{pseudoc}
